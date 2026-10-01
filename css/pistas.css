@@ -42,3 +42,23 @@
 #pistas .pis-fb{ margin-top:.9rem; padding:.8rem 1rem; border-radius:12px; line-height:1.5; }
 #pistas .pis-fb.ok{ background:var(--ok-bg); color:var(--ok); }
 #pistas .pis-fb.bad{ background:var(--bad-bg); color:var(--bad); }
+
+/* (01-10) pistas en bloques ocultos (spoiler, estilo Reddit) */
+#pistas .pis-spoilers{ display:grid; gap:.6rem; margin:.9rem 0; }
+#pistas .pis-spoil{ font:inherit; cursor:pointer; text-align:left; display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  width:100%; padding:.85rem 1rem; border:1px dashed var(--pc, var(--hf)); border-radius:10px; background:var(--surface-2); color:var(--muted); }
+#pistas .pis-spoil:hover, #pistas .pis-spoil:focus-visible{ background:var(--pc, var(--hf)); color:#fff; border-style:solid; }
+#pistas .pis-spoil-n{ font-weight:700; letter-spacing:.04em; text-transform:uppercase; font-size:.78rem; }
+#pistas .pis-spoil-cta{ font-size:.85rem; opacity:.85; }
+#pistas .pis-spoil-cta::before{ content:"👁 "; }
+#pistas .pis-hint.reveal{ animation:pisReveal .22s ease-out; }
+@keyframes pisReveal{ from{ opacity:0; transform:translateY(-3px); } to{ opacity:1; transform:none; } }
+/* (01-10) índice de preguntas: saltar de página a página dentro del itinerario */
+#pistas .pis-pager{ display:flex; align-items:center; flex-wrap:wrap; gap:.4rem; margin-top:.7rem; padding-top:.7rem; border-top:1px solid var(--line); }
+#pistas .pis-pager-lb{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-right:.2rem; }
+#pistas .pis-pg{ font:inherit; cursor:pointer; min-width:2rem; height:2rem; padding:0 .5rem; border:1px solid var(--line); border-radius:999px;
+  background:transparent; color:var(--ink); font-weight:600; font-size:.9rem; display:inline-flex; align-items:center; justify-content:center; }
+#pistas .pis-pg:hover, #pistas .pis-pg:focus-visible{ border-color:var(--pc, var(--hf)); }
+#pistas .pis-pg.cur{ background:var(--pc, var(--hf)); color:#fff; border-color:var(--pc, var(--hf)); }
+#pistas .pis-pg.done:not(.cur){ border-color:var(--ok); color:var(--ok); }
+#pistas .pis-pg.done::after{ content:"✓"; font-size:.7em; margin-left:.15em; }

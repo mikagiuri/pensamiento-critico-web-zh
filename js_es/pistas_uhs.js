@@ -54,37 +54,37 @@ const PISTAS = [
       "etiqueta": "Ejemplo",
       "titulo": "Mira esta conversación",
       "definicion": [
-       "Ane: «Deberíamos reciclar más en clase: el papel que tiramos se puede aprovechar».",
-       "Iker: «¿Tú? Pero si el otro día te vi tirar una lata al suelo. No le hagáis caso»."
+       "Una compañera: «Deberíamos reciclar más en clase: el papel que tiramos se puede aprovechar».",
+       "Otro compañero: «¿Tú? Pero si el otro día te vi tirar una lata al suelo. No le hagáis caso»."
       ],
       "parrafos": [
-       "Iker consigue que la clase dude de Ane. Pero ¿ha dicho algo contra la idea de reciclar el papel?"
+       "El otro compañero consigue que la clase dude de ella. Pero ¿ha dicho algo contra la idea de reciclar el papel?"
       ],
       "comprobacion": {
        "etiqueta": "Comprobación del ejemplo",
-       "pregunta": "¿Qué hace Iker?",
+       "pregunta": "¿Qué hace el otro compañero?",
        "opciones": [
         [
-         "Ataca a Ane en lugar de responder a su argumento.",
+         "Ataca a la compañera en lugar de responder a su argumento.",
          true
         ],
         [
          "Demuestra que reciclar papel no sirve.",
          false,
-         "No dice nada sobre el papel: solo habla de lo que hizo Ane."
+         "No dice nada sobre el papel: solo habla de lo que hizo la compañera."
         ],
         [
-         "Da una razón mejor que la de Ane.",
+         "Da una razón mejor que la de la compañera.",
          false,
-         "Lo que Ane hiciera con una lata no dice nada sobre si conviene reciclar papel."
+         "Lo que la compañera hiciera con una lata no dice nada sobre si conviene reciclar papel."
         ],
         [
          "Nada raro: es un buen argumento.",
          false,
-         "Convence, pero no responde a lo que Ane propone: ahí está la trampa."
+         "Convence, pero no responde a lo que la compañera propone: ahí está la trampa."
         ]
        ],
-       "ok": "Correcto. Su respuesta parece un argumento, pero no toca la idea de Ane: es una falacia.",
+       "ok": "Correcto. Su respuesta parece un argumento, pero no toca la idea de la compañera: es una falacia.",
        "mal": "Vuelve a leer la conversación.",
        "intentos": 2
       }
@@ -133,7 +133,7 @@ const PISTAS = [
     "etiqueta": "Nueva pregunta",
     "pregunta": "¿Por qué es tramposo atacar a la persona en vez de a su argumento?",
     "intro": [
-     "Lo que hizo Iker tiene nombre: <em>ad hominem</em> («contra la persona»). Piensa por qué no sirve como respuesta."
+     "Lo que hizo el otro compañero tiene nombre: <em>ad hominem</em> («contra la persona»). Piensa por qué no sirve como respuesta."
     ],
     "pistas": [
      "Separa dos cosas: <em>quién</em> dice algo y <em>qué</em> dice.",
@@ -268,18 +268,18 @@ const PISTAS = [
      {
       "boton": "Necesito un ejemplo",
       "etiqueta": "Ejemplo",
-      "titulo": "Las mates de Leire",
+      "titulo": "«Se me dan fatal las mates»",
       "definicion": [
-       "Leire piensa: «Se me dan fatal las mates».",
+       "Alguien piensa: «Se me dan fatal las mates».",
        "Recuerda perfectamente el examen que suspendió en octubre.",
        "Pero se olvida de los tres que aprobó después, y de que ayer resolvió sola un problema difícil."
       ],
       "parrafos": [
-       "¿Qué está haciendo la mente de Leire con sus recuerdos?"
+       "¿Qué está haciendo su mente con sus recuerdos?"
       ],
       "comprobacion": {
        "etiqueta": "Comprobación del ejemplo",
-       "pregunta": "¿Qué le pasa a Leire?",
+       "pregunta": "¿Qué le pasa a esta persona?",
        "opciones": [
         [
          "Solo recuerda lo que confirma su idea y olvida lo que la contradice.",
