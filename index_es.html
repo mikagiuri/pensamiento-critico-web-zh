@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="css_es/dilemas.css">
 <link rel="stylesheet" href="css_es/mundo.css">
 <link rel="stylesheet" href="css_es/camino.css">
+<link rel="stylesheet" href="css_es/pistas.css">
 <link rel="stylesheet" href="css_es/retratos.css">
 <link rel="stylesheet" href="css_es/clases.css">
 <meta property="og:type" content="website">
@@ -73,6 +74,7 @@
         <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Ejercicios</span>
         <div class="navmenu">
           <button data-view="dilemas">Dilemas éticos</button>
+          <button data-view="pistas">Pistas</button>
           <button data-view="cuestionarios">Cuestionarios</button>
         </div>
       </div>
@@ -292,6 +294,13 @@
 
   
 
+  <section class="view" id="pistas">
+    <p class="eyebrow">Ejercicio</p>
+    <h1 class="title">Pistas progresivas</h1>
+    <p class="lead">Preguntas clave del temario para responder por tu cuenta, con pistas que se revelan de una en una: de la más vaga a la que casi te da la respuesta. Si se acaban, un texto y una explicación te ayudan a llegar.</p>
+    <div id="pistasbox"></div>
+  </section>
+
   
 </main>
 
@@ -338,6 +347,8 @@
 <script src="js_es/mundoview.js"></script>
 <script src="js_es/camino.js"></script>
 <script src="js_es/caminoview.js"></script>
+<script src="js_es/pistas_uhs.js"></script>
+<script src="js_es/pistasview.js"></script>
 <!-- mermaid se carga bajo demanda al abrir Esquemas (js/lazy_libs.js) -->
 <script src="js_es/esquemas.js"></script>
 <script src="js_es/esquemasview.js"></script>

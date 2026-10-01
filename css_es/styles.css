@@ -199,10 +199,10 @@ table.rubrica tr.r-sec td{background:var(--surface-2);font-weight:600;color:var(
 .fc-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.86rem;margin-bottom:10px}
 .fc-meta .count{font-family:var(--mono)}
 .card{position:relative;width:100%;min-height:300px;perspective:1600px;background:none;border:0;padding:0;text-align:left;display:block}
-.card-inner{position:relative;width:100%;min-height:300px;transition:transform .5s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.card-inner{position:relative;width:100%;min-height:300px;display:grid;transition:transform .5s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
 .card.flipped .card-inner{transform:rotateY(180deg)}
 @media (prefers-reduced-motion:reduce){.card-inner{transition:none}}
-.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+.face{position:relative;grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;
   background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
   padding:32px 30px;display:flex;flex-direction:column;justify-content:center;gap:14px}
 .face .side{position:absolute;top:16px;left:20px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}

@@ -4,12 +4,15 @@
    velocidad, racha (multiplicador) y pantalla final con rango y mejor marca. */
 
 const RETO_SUBJ = { fil: "高一哲学", hf: "哲学史", ipc: "批判性思维" };
-const RETO_TIME = 15;          // segundos por pregunta
+const RETO_TIME = 15;          // segundos por pregunta (valor por defecto)
+const RETO_TIMES = [10, 15, 20, 30, 45];   // opciones de tiempo que el jugador puede elegir antes de empezar
 const RETO_QUICK = 10;         // nº de preguntas del «reto rápido»
+/* Etiqueta del selector de tiempo (cadena entera para que la traduzca ui/<lang>.json) */
+const RETO_TLABEL = "每题时间";
 /* «Cómo se juega» (29-09): una línea al abrir el juego; cadena entera para que la traduzca ui/<lang>.json */
 const RETO_HOWTO = { como: "玩法：", txt: "选一个科目或测验，在时间用完之前回答：答得越快，分越高；连续答对还会加倍。" };
 
-const reto = { subject: null, pool: [], title: "", idx: 0, score: 0, streak: 0, best: 0, correct: 0, t: null, answered: false };
+const reto = { subject: null, pool: [], title: "", idx: 0, score: 0, streak: 0, best: 0, correct: 0, t: null, answered: false, time: RETO_TIME };
 
 function retoBox(){ return document.getElementById("retobox"); }
 function retoShuffle(a){ a = a.slice(); for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
@@ -23,9 +26,14 @@ function renderRetoStart(){
   const present = retoSubjectsPresent();
   if (!present.length){ box.innerHTML = '<p class="reto-lead">还没有可以玩的测验。</p>'; return; }
   if (!present.includes(reto.subject)) reto.subject = present[0];
+  // tiempo por pregunta: opcional, recordado entre partidas; si el guardado no es válido, el por defecto
+  const savedTime = store.get("aula-reto-time", RETO_TIME);
+  reto.time = RETO_TIMES.includes(savedTime) ? savedTime : RETO_TIME;
 
   const picks = present.map(s =>
     '<button class="rbtn" data-rsub="' + s + '" aria-pressed="' + (s === reto.subject) + '">' + RETO_SUBJ[s] + '</button>').join("");
+  const timePicks = RETO_TIMES.map(t =>
+    '<button class="rbtn" data-rtime="' + t + '" aria-pressed="' + (t === reto.time) + '">' + t + ' s</button>').join("");
   const quizzes = retoQuizzesOf(reto.subject);
   const nQ = quizzes.reduce((n, [, q]) => n + q.items.length, 0);
   const list = quizzes.map(([k, q]) =>
@@ -35,9 +43,10 @@ function renderRetoStart(){
     '<div class="reto-wrap reto-start">' +
       '<p class="howto"><span><b>' + RETO_HOWTO.como + '</b> ' + RETO_HOWTO.txt + '</span></p>' +
       '<div class="reto-pick"><span class="flabel">科目</span>' + picks + '</div>' +
+      '<div class="reto-pick"><span class="flabel">' + RETO_TLABEL + '</span>' + timePicks + '</div>' +
       '<div class="reto-modes">' +
         '<button class="reto-quick" id="retoQuick"><span><b>快速挑战</b>' +
-          '<span>' + Math.min(RETO_QUICK, nQ) + ' 道随机题 · ' + RETO_TIME + ' 秒/题</span></span>' +
+          '<span>' + Math.min(RETO_QUICK, nQ) + ' 道随机题 · ' + reto.time + ' 秒/题</span></span>' +
           '<span class="go">▶</span></button>' +
         (list ? '<div><span class="flabel" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)">或者选一个测验</span>' +
           '<div class="reto-list">' + list + '</div></div>' : '') +
@@ -45,6 +54,7 @@ function renderRetoStart(){
     '</div>';
 
   box.querySelectorAll("[data-rsub]").forEach(b => b.addEventListener("click", () => { reto.subject = b.dataset.rsub; renderRetoStart(); }));
+  box.querySelectorAll("[data-rtime]").forEach(b => b.addEventListener("click", () => { reto.time = +b.dataset.rtime; store.set("aula-reto-time", reto.time); renderRetoStart(); }));
   const quick = document.getElementById("retoQuick");
   if (quick) quick.addEventListener("click", () => {
     const all = retoQuizzesOf(reto.subject).flatMap(([, q]) => q.items.map(it => ({ it, from: q.name })));
@@ -68,7 +78,7 @@ function retoStreakMult(){ return 1 + Math.min(reto.streak, 4) * 0.25; }   // ha
 
 function renderRetoQuestion(){
   const box = retoBox(); const n = reto.pool.length; const cur = reto.pool[reto.idx]; const it = cur.it;
-  reto.answered = false; reto.remaining = RETO_TIME;
+  reto.answered = false; reto.remaining = reto.time;
   reto.optOrder = retoShuffle(it.o.map((_, i) => i));
   const mult = retoStreakMult();
   box.innerHTML =
@@ -102,8 +112,8 @@ function retoStartTimer(){
   const start = Date.now();
   reto.t = setInterval(() => {
     const elapsed = (Date.now() - start) / 1000;
-    reto.remaining = Math.max(0, RETO_TIME - elapsed);
-    const frac = reto.remaining / RETO_TIME;
+    reto.remaining = Math.max(0, reto.time - elapsed);
+    const frac = reto.remaining / reto.time;
     if (bar) bar.style.width = (frac * 100) + "%";
     if (wrap) wrap.classList.toggle("low", frac < 0.34);
     if (reto.remaining <= 0){ clearInterval(reto.t); reto.t = null; retoAnswer(-1); }
@@ -122,7 +132,7 @@ function retoAnswer(i){
   let gain = 0;
   const ok = i === it.a;
   if (ok){
-    const frac = reto.remaining / RETO_TIME;
+    const frac = reto.remaining / reto.time;
     gain = Math.round((100 + 100 * frac) * retoStreakMult());
     reto.score += gain; reto.correct++; reto.streak++;
     const b = byOrig(i); if (b){ b.classList.remove("dim"); b.classList.add("correct"); }

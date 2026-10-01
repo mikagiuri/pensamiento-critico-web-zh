@@ -23,7 +23,7 @@
     aqui: "你在这里", siguiente: "下一步",
     temas: "主题", unidades: "单元", tema: "主题 {n}", unidad: "单元 {n}",
     seguir: "继续学习这个主题", tarjetas: "卡片", cuestionarios: "测验", infografias: "信息图", mapas: "概念图",
-    esquemas: "图解", lecturas: "阅读", comentarios: "文本评析", dilemas: "道德两难", conceptos: "概念",
+    esquemas: "图解", lecturas: "阅读", comentarios: "文本评析", dilemas: "道德两难", pistas: "Pistas progresivas", conceptos: "概念",
     nTarjetas: "{n} 张卡片", nPreguntas: "{n} 道题", anterior: "上一个主题", siguienteTema: "下一个主题",
     infografia: "信息图", mapa: "概念图", esquema: "图解", lectura: "阅读", dilema: "两难", comentario: "评析",
     pau: "PAU 学习路线", pauLead: "按顺序准备 PAU：先了解考试是什么样的，再做每个练习，最后按主题练习。",
@@ -143,6 +143,12 @@
     D.forEach(function(d){ if (d && d.debate && teoriaKeys.indexOf(d.debate.unidad) >= 0) out.push({ go: "dilemas", arg: d.id, label: strip(d.titulo) }); });
     return out;
   }
+  /* (01-10) itinerarios de «Pistas» (pistas_uhs.js): cada uno declara su unidad de teoría (unidad) */
+  function pistasDe(teoriaKeys){
+    var P = G("PISTAS"), out = []; if (!Array.isArray(P) || !view("pistas") || !teoriaKeys.length) return out;
+    P.forEach(function(p){ if (p && teoriaKeys.indexOf(p.unidad) >= 0) out.push({ go: "pistas", arg: p.id, label: strip(p.titulo) }); });
+    return out;
+  }
   function conceptosDe(subject, tema){
     var Gl = G("GLOSARIO"); if (!Array.isArray(Gl) || !view("glosario")) return [];
     return Gl.filter(function(g){ return g && g.subject === subject && g.t && gloTema(g) === tema; }).map(function(g){ return { t: strip(g.t), def: strip(g.def) }; });
@@ -243,6 +249,7 @@
     row(t("lecturas"), items("lecturas", subject, tema));
     row(t("comentarios"), items("comentario", subject, tema));
     row(t("dilemas"), dilemasDe(teoria.map(function(x){ return x.arg; })));
+    row(t("pistas"), pistasDe(teoria.map(function(x){ return x.arg; })));
     var cs = conceptosDe(subject, tema);
     if (cs.length) rows.push('<div class="fin-row"><span class="fin-l">' + esc(t("conceptos")) + '</span><div class="fin-links">' +
       cs.map(function(c){ return '<button class="itin-term" type="button" data-igo="glosario" data-iarg="' + esc(c.t) + '" title="' + esc(c.def) + '">' + esc(c.t) + '</button>'; }).join("") + '</div></div>');

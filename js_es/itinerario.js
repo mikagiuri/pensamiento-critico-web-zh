@@ -23,7 +23,7 @@
     aqui: "Estás aquí", siguiente: "Siguiente paso",
     temas: "Temas", unidades: "Unidades", tema: "Tema {n}", unidad: "Unidad {n}",
     seguir: "Para seguir con este tema", tarjetas: "Tarjetas", cuestionarios: "Cuestionarios", infografias: "Infografías", mapas: "Mapas conceptuales",
-    esquemas: "Esquemas", lecturas: "Lecturas", comentarios: "Comentarios de texto", dilemas: "Dilemas éticos", conceptos: "Conceptos",
+    esquemas: "Esquemas", lecturas: "Lecturas", comentarios: "Comentarios de texto", dilemas: "Dilemas éticos", pistas: "Pistas progresivas", conceptos: "Conceptos",
     nTarjetas: "{n} tarjetas", nPreguntas: "{n} preguntas", anterior: "Tema anterior", siguienteTema: "Tema siguiente",
     infografia: "Infografía", mapa: "Mapa", esquema: "Esquema", lectura: "Lectura", dilema: "Dilema", comentario: "Comentario",
     pau: "Itinerario PAU", pauLead: "Prepara la PAU en orden: primero cómo es la prueba, luego cada ejercicio y, al final, la práctica por temas.",
@@ -143,6 +143,12 @@
     D.forEach(function(d){ if (d && d.debate && teoriaKeys.indexOf(d.debate.unidad) >= 0) out.push({ go: "dilemas", arg: d.id, label: strip(d.titulo) }); });
     return out;
   }
+  /* (01-10) itinerarios de «Pistas» (pistas_uhs.js): cada uno declara su unidad de teoría (unidad) */
+  function pistasDe(teoriaKeys){
+    var P = G("PISTAS"), out = []; if (!Array.isArray(P) || !view("pistas") || !teoriaKeys.length) return out;
+    P.forEach(function(p){ if (p && teoriaKeys.indexOf(p.unidad) >= 0) out.push({ go: "pistas", arg: p.id, label: strip(p.titulo) }); });
+    return out;
+  }
   function conceptosDe(subject, tema){
     var Gl = G("GLOSARIO"); if (!Array.isArray(Gl) || !view("glosario")) return [];
     return Gl.filter(function(g){ return g && g.subject === subject && g.t && gloTema(g) === tema; }).map(function(g){ return { t: strip(g.t), def: strip(g.def) }; });
@@ -243,6 +249,7 @@
     row(t("lecturas"), items("lecturas", subject, tema));
     row(t("comentarios"), items("comentario", subject, tema));
     row(t("dilemas"), dilemasDe(teoria.map(function(x){ return x.arg; })));
+    row(t("pistas"), pistasDe(teoria.map(function(x){ return x.arg; })));
     var cs = conceptosDe(subject, tema);
     if (cs.length) rows.push('<div class="fin-row"><span class="fin-l">' + esc(t("conceptos")) + '</span><div class="fin-links">' +
       cs.map(function(c){ return '<button class="itin-term" type="button" data-igo="glosario" data-iarg="' + esc(c.t) + '" title="' + esc(c.def) + '">' + esc(c.t) + '</button>'; }).join("") + '</div></div>');
