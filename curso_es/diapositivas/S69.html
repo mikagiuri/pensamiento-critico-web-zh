@@ -1,0 +1,88 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S69 · Greenwashing y responsabilidad</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>Pensamiento crítico · Sesión 69</b> · Unidad 13 · Mi huella en el planeta</div><div class="guino">🙃</div><h1>Greenwashing y responsabilidad</h1><div class="idea">El greenwashing pinta de verde lo que no lo es; y para reducir la huella cuentan los gestos de cada uno y las decisiones colectivas.</div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>1/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Escribe en tu hoja las palabras que faltan</h2><ol class="recupera"><li>En muchos alimentos, el ______ en camión o barco pesa poco en la huella. <span class="de">sesión 68</span></li><li>Para comparar la huella de dos países miro la cifra total y la cifra por ______. <span class="de">sesión 68</span></li><li>Cambiar según la última persona que ha hablado es ir como una ______. <span class="de">sesión 57</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>2/18</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Corrige con otro color</h2><ol class="recupera"><li>En muchos alimentos, el <strong>transporte</strong> en camión o barco pesa poco en la huella. <span class="de">sesión 68</span></li><li>Para comparar la huella de dos países miro la cifra total y la cifra por <strong>persona</strong>. <span class="de">sesión 68</span></li><li>Cambiar según la última persona que ha hablado es ir como una <strong>veleta</strong>. <span class="de">sesión 57</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>3/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Para empezar</b></div><div class="quote">Una botella de agua con hojas verdes en la etiqueta y una palabra grande: «ECO». (Ejemplo inventado.)</div><p class="q">¿Qué te dice la etiqueta? ¿Y qué no te dice?</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>4/18</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 1</div><h1>Anuncios verdes</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>5/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · Anuncios verdes</div><h2>Greenwashing («lavado verde»)</h2><div class="def">Es publicidad que presenta como ecológico algo que no lo es, o que lo es mucho menos de lo que dice.</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>Del inglés <strong>green</strong> (verde) y <strong>washing</strong> (lavado)</div><div>Como el clickbait: promete más de lo que hay</div><div>En 2024, la UE aprobó una norma contra frases verdes sin pruebas</div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>6/18</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 1</b> · Anuncios verdes</div><h2>Señales de greenwashing</h2><p>Son pistas, no pruebas (como en la sesión 31).</p><ul><li><strong>Palabras vagas</strong> sin datos: «eco», «natural», «verde», «sostenible»</li><li><strong>Dibujos</strong> de hojas, árboles o planetas que no dicen nada</li><li>Presumir de <strong>una cosa pequeña</strong> y callar la grande</li><li><strong>Sellos</strong> inventados por la propia marca</li><li>Presumir de algo que ya es <strong>obligatorio</strong> por ley</li></ul><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>7/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · Anuncios verdes</div><h2>Reducir, reutilizar, reciclar: en este orden</h2><table><tr><th>Paso</th><th>Qué es</th><th>Ejemplo</th></tr><tr><td>1 · <strong>Reducir</strong></td><td>Usar o comprar menos</td><td>No comprar la botella: llevar cantimplora</td></tr><tr><td>2 · <strong>Reutilizar</strong></td><td>Usar otra vez o reparar</td><td>Arreglar la bici; ropa de segunda mano</td></tr><tr><td>3 · <strong>Reciclar</strong></td><td>Convertir lo usado en material nuevo</td><td>El envase, al contenedor amarillo</td></tr></table><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>8/18</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 2</div><h1>Casos resueltos</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>9/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 1 · La botella ECO</h2><div class="caso">La botella del principio: hojas verdes y «ECO» en grande. En letra pequeña: «Botella 100 % reciclable». (Ejemplo inventado.)</div><ol class="pasos"><li class="frag">¿Qué me piden creer? Que comprarla es bueno para el planeta.</li><li class="frag">¿Qué dato dan? Que es <strong>reciclable</strong>: se puede reciclar. No dice cuántas se reciclan de verdad.</li><li class="frag">¿Qué calla? Que sigue siendo una botella de usar y tirar. Lo primero sería <strong>reducir</strong>.</li><li class="frag">Conclusión: palabra vaga, dibujo verde y un dato pequeño son señales de greenwashing. Pido datos antes de creerla.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>10/18</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 2 · ¿Quién lo dice y qué gana?</h2><div class="caso">Hacia 2004, la petrolera BP hizo una gran campaña con una calculadora para que cada persona midiera su huella de carbono.</div><ol class="pasos"><li class="frag">¿Quién lo dice? Una empresa que vende petróleo.</li><li class="frag">¿Qué gana? Según sus críticos, que miremos los gestos de cada persona más que la energía que vende ella.</li><li class="frag">¿Eso hace falsa la huella personal? No: rechazar una idea por quién la dice es un ataque a la persona (sesión 14).</li><li class="frag">Conclusión: la huella personal es útil, pero no es toda la historia. Miro también a empresas y gobiernos.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>11/18</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 3</div><h1>Lo que hago yo y lo que decidimos juntos</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>12/18</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 3</b> · Lo que hago yo y lo que decidimos juntos</div><h2>Dónde pesa la huella que puedo cambiar</h2><ul><li><strong>Transporte:</strong> andar, bici, transporte público. Es de lo que más cuenta</li><li><strong>Comida:</strong> menos carne y ultraprocesados; no tirar comida</li><li><strong>Consumo:</strong> comprar menos y mejor, reparar, segunda mano</li><li><strong>Energía y agua:</strong> apagar lo que no usas, duchas cortas</li></ul><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>13/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 3</b> · Lo que hago yo y lo que decidimos juntos</div><h2>¿Lo que hago yo o lo que decidimos juntos?</h2><div class="cols"><div class="col no"><h3>Falso dilema (sesión 20)</h3><ul><li>«Solo cuenta lo que hago yo»</li><li>«Lo que hago yo no sirve de nada»</li><li>«O cambio yo o cambian los gobiernos»</li></ul></div><div class="col si"><h3>Mejor así</h3><ul><li>Cuentan los <strong>gestos</strong> de cada uno: transporte, comida, compras</li><li>Cuentan las <strong>decisiones colectivas</strong>: energía, ciudades, leyes</li><li>Una cosa empuja a la otra</li></ul></div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>14/18</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>Caso trampa</b> · Bloque 3 · Lo que hago yo y lo que decidimos juntos</div><h2>⚠ Las bolsas de tela</h2><div class="caso">Maialen tiene 15 bolsas de tela con dibujos de hojas: se las regalan en cada tienda. Las usa una vez y las guarda. «Soy muy ecológica», dice. (Ejemplo inventado.)</div><p class="q">La tela es mejor que el plástico, ¿no?</p><ol class="pasos"><li class="frag">Parece que sí: la bolsa de plástico de usar y tirar tiene mala fama.</li><li class="frag">Pero fabricar una bolsa de algodón gasta mucha agua, tierra y energía.</li><li class="frag">Solo compensa si la usas <strong>muchas veces</strong>. Quince bolsas usadas una vez: mucha huella para casi nada.</li><li class="frag">Conclusión: no cuenta el material «verde», sino cuánto lo usas. Reducir va primero.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>15/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Lo de hoy en tres líneas</b></div><h2>Escríbelo tú primero, sin mirar</h2><ol class="resumen"><li class="frag">El greenwashing presenta como ecológico algo que no lo es: pide datos, no hojas verdes.</li><li class="frag">Con los residuos, primero reducir, luego reutilizar y, al final, reciclar.</li><li class="frag">Cuentan los gestos de cada uno y las decisiones colectivas: no hay que elegir solo una.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>16/18</span></div></section>
+<section class="slide video" data-notes=""><div class="top"><b>Vídeo</b></div><h2>Qué es el greenwashing, con ejemplos de publicidad</h2><p class="q">Ver más anuncios verdes y practicar a buscar el dato que falta.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>17/18</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>Ahora, la hoja del día</b></div><h2>20 minutos · individual · en silencio</h2><div class="pel"><div><b>Peldaño 1 · Todos</b><span>6 puntos · 3 preguntas</span></div><div><b>Peldaño 2 · Repaso</b><span>2 puntos · 1 pregunta</span></div><div><b>Peldaño 3 · Reto</b><span>2 puntos · 1 pregunta</span></div></div><p class="q pasadas"><b>1.ª pasada:</b> sin apuntes, con bolígrafo. <b>2.ª pasada:</b> con los apuntes, corrige o completa en otro color. Junto a cada respuesta, marca <b>seguro</b> o <b>dudo</b>.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>18/18</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

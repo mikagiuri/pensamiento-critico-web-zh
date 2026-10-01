@@ -1,0 +1,86 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S87 · ¿Por qué seguimos las modas?</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>Pensamiento crítico · Sesión 87</b> · Unidad 20 · Modas, ocio y futuro</div><div class="guino">🙃</div><h1>¿Por qué seguimos las modas?</h1><div class="idea">Seguimos las modas para pertenecer y para distinguirnos; pensar bien es ver por qué las sigo y separar lo que se lleva de lo bueno.</div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>1/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Escribe en tu hoja las palabras que faltan</h2><ol class="recupera"><li>La palabra «aporofobia» la creó la filósofa Adela ______. <span class="de">sesión 86</span></li><li>Un ______ es juzgar a una persona antes de conocerla, solo por su grupo. <span class="de">sesión 86</span></li><li>Las emociones no son buenas ni malas: son agradables o ______. <span class="de">sesión 75</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>2/16</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Corrige con otro color</h2><ol class="recupera"><li>La palabra «aporofobia» la creó la filósofa Adela <strong>Cortina</strong>. <span class="de">sesión 86</span></li><li>Un <strong>prejuicio</strong> es juzgar a una persona antes de conocerla, solo por su grupo. <span class="de">sesión 86</span></li><li>Las emociones no son buenas ni malas: son agradables o <strong>desagradables</strong>. <span class="de">sesión 75</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>3/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Para empezar</b></div><div class="quote">Piensa en algo que hace dos años llevaba o hacía todo el mundo y que hoy ya «no se lleva».</div><p class="q">¿Por qué gustaba entonces? ¿Qué ha cambiado: la cosa o el grupo?</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>4/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 1</div><h1>Moda e identidad</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>5/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · Moda e identidad</div><h2>Moda</h2><div class="def">Es una forma de vestir, hablar o hacer que se extiende en un grupo durante un tiempo y luego cambia.</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div>No solo ropa: música, bailes, palabras, apps, cortes de pelo</div><div>Dura un tiempo: lo que hoy se lleva, mañana «ya no»</div><div>Dice algo de ti: es una <strong>señal</strong> de identidad</div><div><strong>Identidad</strong>quién eres y de qué grupos te sientes parte</div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>6/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 1</b> · Moda e identidad</div><h2>Pertenecer y distinguirse</h2><div class="def">El sociólogo Georg Simmel (1905) vio que la moda junta dos ganas opuestas: parecerse a los demás y distinguirse.</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div><strong>Pertenecer</strong>vestir como mi cuadrilla para ser «de los nuestros»</div><div><strong>Distinguirse</strong>ser diferente de otros grupos o del resto</div><div>Cuando todos la llevan, ya no distingue… y llega otra moda</div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>7/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · Moda e identidad</div><h2>Presiones y roles en la moda</h2><p>La moda puede ser un juego. También puede apretar:</p><ul><li><strong>Burlas</strong> a quien no lleva la marca o el estilo «que toca»</li><li><strong>Gasto:</strong> pedir lo que la familia no puede pagar</li><li><strong>Cuerpos retocados</strong> en fotos y anuncios: nadie es así de verdad</li><li><strong>Roles:</strong> «esto es de chicos», «esto es de chicas»</li><li>Publicidad e influencers también empujan: lo vimos en las sesiones 50 y 51</li></ul><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>8/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 2</div><h1>Casos resueltos</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>9/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 1 · La sudadera de la cuadrilla</h2><div class="caso">Toda la cuadrilla de Leire lleva la misma sudadera. A Leire no le encanta, pero la pide para su cumpleaños. (Ejemplo inventado.)</div><ol class="pasos"><li class="frag">¿Por qué la quiere? No por la sudadera: por <strong>pertenecer</strong> al grupo.</li><li class="frag">Querer pertenecer es muy humano. No es un error ni una tontería.</li><li class="frag">La pregunta crítica: ¿la quiero por lo que es o por lo que dice de mí?</li><li class="frag">Conclusión: seguir una moda puede estar bien. Lo importante es saber por qué la sigo.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>10/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 2 · «Si todos las llevan, serán las mejores»</h2><div class="caso">Dylan va a correr la carrera del instituto con unas zapatillas de moda: «Las lleva todo el mundo, así que serán las mejores para correr».</div><ol class="pasos"><li class="frag">Es la <strong>prueba social</strong> (sesión 28): copiar a los demás cuando no sabemos qué hacer.</li><li class="frag">Pero la moda dice qué <strong>se lleva</strong>, no qué es <strong>bueno</strong> para correr.</li><li class="frag">¿Cómo lo sabe? Mejor preguntar a alguien que corre o buscar pruebas.</li><li class="frag">Conclusión: que algo esté de moda es una pista de que gusta, no de que funcione.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>11/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 3 · ¿El rosa es de chicas?</h2><div class="caso">Kevin dice: «El rosa siempre ha sido de chicas y el azul, de chicos. Es natural».</div><ol class="pasos"><li class="frag">¿Cómo lo sabe? Mira a su alrededor y generaliza (sesión 19).</li><li class="frag">La historiadora Jo Paoletti cuenta que hace unos cien años algunas tiendas de EE. UU. recomendaban rosa para niños.</li><li class="frag">Y azul para niñas. Los colores «de chico» y «de chica» han cambiado con el tiempo.</li><li class="frag">Conclusión: muchos roles de la moda son <strong>costumbres</strong>, no naturaleza. Cada uno puede vestir como quiera.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>12/16</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>Caso trampa</b> · Bloque 2 · Casos resueltos</div><h2>⚠ «Yo no sigo modas»</h2><div class="caso">Aitor viste siempre de negro, como los fans de su grupo de música favorito. «Yo no sigo modas: los que las siguen son borregos», dice. (Ejemplo inventado.)</div><p class="q">¿Está Aitor fuera de las modas?</p><ol class="pasos"><li class="frag">Parece que sí: no lleva lo que lleva la mayoría.</li><li class="frag">Pero viste igual que los fans de su grupo: también se parece a alguien.</li><li class="frag">Es la otra cara de Simmel: distinguirse de unos es parecerse a otros. Y llamar «borregos» a todos es un estereotipo.</li><li class="frag">Conclusión: ir contra una moda también puede ser seguir la moda de <strong>otro</strong> grupo. Nadie está del todo fuera.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>13/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Lo de hoy en tres líneas</b></div><h2>Escríbelo tú primero, sin mirar</h2><ol class="resumen"><li class="frag">La moda junta dos ganas: pertenecer a un grupo y distinguirse de otros.</li><li class="frag">Que algo esté de moda dice que gusta, no que sea bueno ni verdad.</li><li class="frag">Muchos roles de la moda son costumbres que cambian; la ropa no es la persona entera.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>14/16</span></div></section>
+<section class="slide video" data-notes=""><div class="top"><b>Vídeo</b></div><h2>Por qué seguimos las modas: imitar al grupo y distinguirse de otros</h2><p class="q">Ver con más ejemplos cómo la moda junta las ganas de pertenecer y de distinguirse.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>15/16</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>Ahora, la hoja del día</b></div><h2>20 minutos · individual · en silencio</h2><div class="pel"><div><b>Peldaño 1 · Todos</b><span>6 puntos · 3 preguntas</span></div><div><b>Peldaño 2 · Repaso</b><span>2 puntos · 1 pregunta</span></div><div><b>Peldaño 3 · Reto</b><span>2 puntos · 1 pregunta</span></div></div><p class="q pasadas"><b>1.ª pasada:</b> sin apuntes, con bolígrafo. <b>2.ª pasada:</b> con los apuntes, corrige o completa en otro color. Junto a cada respuesta, marca <b>seguro</b> o <b>dudo</b>.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>16/16</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

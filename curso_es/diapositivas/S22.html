@@ -1,0 +1,87 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S22 · Causa falsa</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>Pensamiento crítico · Sesión 22</b> · Unidad 4 · Falacias II: razonar mal</div><div class="guino">🙃</div><h1>Causa falsa</h1><div class="idea">Que una cosa pase después de otra, o a la vez, no basta para saber que la primera sea su causa.</div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>1/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Escribe en tu hoja las palabras que faltan</h2><ol class="recupera"><li>La pendiente resbaladiza se parece a la apelación al ______: asusta con el final. <span class="de">sesión 21</span></li><li>La pendiente resbaladiza es como un ______: si te subes, no puedes parar. <span class="de">sesión 21</span></li><li>El ataque a la persona cambia el tema a la ______; la pista falsa cambia de tema del todo. <span class="de">sesión 17</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>2/17</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Corrige con otro color</h2><ol class="recupera"><li>La pendiente resbaladiza se parece a la apelación al <strong>miedo</strong>: asusta con el final. <span class="de">sesión 21</span></li><li>La pendiente resbaladiza es como un <strong>tobogán</strong>: si te subes, no puedes parar. <span class="de">sesión 21</span></li><li>El ataque a la persona cambia el tema a la <strong>persona</strong>; la pista falsa cambia de tema del todo. <span class="de">sesión 17</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>3/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Para empezar</b></div><div class="quote">«Desde que llevo la pulsera roja, el Athletic ha ganado tres partidos seguidos. Esta pulsera da suerte.»</div><p class="q">¿Qué tiene que ver la pulsera con los goles?</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>4/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 1</div><h1>«Después de» no es «por culpa de»</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>5/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · «Después de» no es «por culpa de»</div><h2>Causa falsa (post hoc)</h2><div class="def">Creer que una cosa causa otra solo porque pasó antes o porque ocurren juntas, sin mirar otras explicaciones.</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div><strong>Causa</strong>lo que hace que ocurra otra cosa</div><div>En latín, <strong>post hoc</strong>: «después de esto»</div><div>«Después de» no es «<strong>por culpa de</strong>»</div><div>Pregunta: <strong>¿podría ser casualidad o haber otra causa?</strong></div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>6/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 1</b> · «Después de» no es «por culpa de»</div><h2>Dos formas de causa falsa</h2><table><tr><th>Forma</th><th>El error</th><th>Ejemplo</th></tr><tr><td><strong>Después de</strong></td><td>Pasó antes, así que fue la causa</td><td>«Me corté el pelo y perdimos el partido»</td></tr><tr><td><strong>A la vez</strong> (correlación)</td><td>Van juntas, así que una causa la otra</td><td>«Hay más helados y más quemaduras: los helados queman»</td></tr></table><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>7/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 2</div><h1>Casos resueltos</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>8/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 1 · La pulsera roja</h2><div class="caso">«Desde que llevo la pulsera roja, el Athletic ha ganado tres partidos seguidos. Esta pulsera da suerte.»</div><ol class="pasos"><li class="frag">¿Qué pasó antes? Ponerse la pulsera.</li><li class="frag">¿Qué pasó después? Tres victorias.</li><li class="frag">¿Otra explicación? El equipo jugó bien, los rivales eran flojos o fue casualidad.</li><li class="frag">Conclusión: causa falsa (post hoc). «Después de» no es «por culpa de».</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>9/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 2 · El desayuno</h2><div class="caso">Noticia inventada: «Los alumnos que desayunan en casa sacan mejores notas». Iker concluye: «El desayuno te hace más listo».</div><ol class="pasos"><li class="frag">¿Van juntas? Sí: desayunar en casa y sacar buenas notas.</li><li class="frag">¿Puede haber una tercera causa? Sí: dormir bien, tener horarios, tener ayuda en casa.</li><li class="frag">El desayuno puede ayudar, pero el dato solo dice que van juntas.</li><li class="frag">Conclusión: que vayan juntas no basta. Hace falta más para saber qué causa qué.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>10/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 3 · Una causa bien buscada</h2><div class="caso">Maialen deja las bebidas energéticas por la tarde y durante tres semanas se duerme antes. Vuelve a tomarlas y vuelve a dormir mal.</div><ol class="pasos"><li class="frag">¿Pasa una sola vez? No: lo ha visto varias semanas.</li><li class="frag">¿Ha quitado y puesto la causa? Sí, y el efecto cambia con ella.</li><li class="frag">¿Hay una explicación? Sí: llevan cafeína, y la cafeína quita el sueño.</li><li class="frag">Conclusión: no es falacia. Una causa de verdad se comprueba varias veces y se explica.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>11/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 3</div><h1>Lo que olvida la causa falsa</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>12/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 3</b> · Lo que olvida la causa falsa</div><h2>Tres explicaciones que hay que mirar</h2><ul><li><strong>Casualidad:</strong> pasaron juntas por azar</li><li><strong>Una tercera causa:</strong> el calor sube los helados y las quemaduras</li><li><strong>Al revés:</strong> quizá lo que parecía efecto es la causa</li></ul><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>13/17</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>Caso trampa</b> · Bloque 3 · Lo que olvida la causa falsa</div><h2>⚠ Las gambas</h2><div class="caso">Chen come gambas por primera vez. A los diez minutos se le hinchan los labios y le pica la piel. Su madre: «Han sido las gambas».</div><p class="q">Pasó después… ¿causa falsa? «Después de» no es «por culpa de».</p><ol class="pasos"><li class="frag">Tiene la forma «pasó después, así que fue la causa».</li><li class="frag">Pero hay una explicación conocida: la alergia a la comida da justo eso, y enseguida.</li><li class="frag">Y se puede comprobar: en el médico hay pruebas de alergia.</li><li class="frag">Conclusión: «después de» no basta, pero puede ser una buena pista. Es falacia solo si no miras nada más.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>14/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Lo de hoy en tres líneas</b></div><h2>Escríbelo tú primero, sin mirar</h2><ol class="resumen"><li class="frag">La causa falsa cree que A causa B solo porque pasó antes o van juntas.</li><li class="frag">«Después de» no es «por culpa de», y la correlación sola no demuestra la causa.</li><li class="frag">Pregunta: ¿podría ser casualidad, una tercera causa o al revés?</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>15/17</span></div></section>
+<section class="slide video" data-notes=""><div class="top"><b>Vídeo</b></div><h2>Correlación no implica causa, con ejemplos</h2><p class="q">Ver ejemplos graciosos de cosas que van juntas sin causarse.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>16/17</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>Ahora, la hoja del día</b></div><h2>20 minutos · individual · en silencio</h2><div class="pel"><div><b>Peldaño 1 · Todos</b><span>6 puntos · 3 preguntas</span></div><div><b>Peldaño 2 · Repaso</b><span>2 puntos · 1 pregunta</span></div><div><b>Peldaño 3 · Reto</b><span>2 puntos · 1 pregunta</span></div></div><p class="q pasadas"><b>1.ª pasada:</b> sin apuntes, con bolígrafo. <b>2.ª pasada:</b> con los apuntes, corrige o completa en otro color. Junto a cada respuesta, marca <b>seguro</b> o <b>dudo</b>.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>17/17</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

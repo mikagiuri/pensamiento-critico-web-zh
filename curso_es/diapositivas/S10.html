@@ -1,0 +1,88 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S10 · Deducción e inducción</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>Pensamiento crítico · Sesión 10</b> · Unidad 2 · Argumentar</div><div class="guino">🙃</div><h1>Deducción e inducción</h1><div class="idea">En una deducción bien hecha, la conclusión es segura si las premisas son verdad; en una inducción, solo es probable.</div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>1/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Escribe en tu hoja las palabras que faltan</h2><ol class="recupera"><li>Una ______ razón pasa las tres preguntas. <span class="de">sesión 9</span></li><li>La segunda pregunta de una buena razón es: «¿Viene a ______?», es decir, ¿tiene que ver con la conclusión? <span class="de">sesión 9</span></li><li>El problema no es tener estas creencias, sino no ______ nunca. <span class="de">sesión 5</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>2/18</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Corrige con otro color</h2><ol class="recupera"><li>Una <strong>buena</strong> razón pasa las tres preguntas. <span class="de">sesión 9</span></li><li>La segunda pregunta de una buena razón es: «¿Viene a <strong>cuento</strong>?», es decir, ¿tiene que ver con la conclusión? <span class="de">sesión 9</span></li><li>El problema no es tener estas creencias, sino no <strong>revisarlas</strong> nunca. <span class="de">sesión 5</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>3/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Para empezar</b></div><div class="quote">Kevin: «Todas las veces que he pedido pizza en ese sitio ha llegado fría. Hoy también llegará fría».</div><p class="q">¿Es seguro que hoy llegará fría? ¿O solo es probable?</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>4/18</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 1</div><h1>Dos formas de razonar</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>5/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · Dos formas de razonar</div><h2>Deducción</h2><div class="def">En una deducción bien hecha, si las premisas son verdad, la conclusión es <strong>segura</strong>: tiene que ser verdad.</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>P1: Todos los alumnos de 2.º tienen Inglés</div><div>P2: Aitor es de 2.º</div><div>C: Por tanto, Aitor tiene Inglés</div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>6/18</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 1</b> · Dos formas de razonar</div><h2>Inducción</h2><div class="def">En una inducción, las premisas <strong>apoyan</strong> la conclusión, pero no la aseguran: es <strong>probable</strong>.</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div>Muchas veces parte de casos que hemos visto</div><div>Las diez veces que fui al dentista, tuve que esperar</div><div>Por tanto, la próxima vez también esperaré</div><div>Puede fallar: quizá esta vez no haya nadie</div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>7/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · Dos formas de razonar</div><h2>Deducción e inducción, juntas</h2><table><tr><th>Pregunta</th><th>Deducción</th><th>Inducción</th></tr><tr><td>¿Cómo es la conclusión?</td><td>Segura, si las premisas son verdad</td><td>Probable</td></tr><tr><td>¿Va más allá de las premisas?</td><td>No: solo saca lo que ya dicen</td><td>Sí: por eso puede fallar</td></tr><tr><td>¿Puede fallar?</td><td>No, si está bien hecha y las premisas son verdad</td><td>Sí, aunque las premisas sean verdad</td></tr></table><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>8/18</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 2</div><h1>Casos resueltos</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>9/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 1 · El reconocimiento médico</h2><div class="caso">«Todos los jugadores del equipo tienen que pasar el reconocimiento médico. Naiara es del equipo. Por tanto, Naiara tiene que pasarlo.»</div><ol class="pasos"><li class="frag">¿La conclusión sale de lo que dicen las premisas? Sí.</li><li class="frag">Si las dos premisas son verdad, ¿puede ser falsa la conclusión? No.</li><li class="frag">Conclusión: es una <strong>deducción</strong>. La conclusión es segura.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>10/18</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 2 · La pizza fría</h2><div class="caso">«Todas las veces que he pedido pizza en ese sitio ha llegado fría. Hoy también llegará fría.»</div><ol class="pasos"><li class="frag">¿De dónde sale la conclusión? De casos que Kevin ha vivido.</li><li class="frag">¿Puede fallar? Sí: hoy puede venir otro repartidor o haber menos tráfico.</li><li class="frag">¿Es fuerte? Depende de cuántas veces ha pedido: dos veces no es lo mismo que veinte.</li><li class="frag">Conclusión: es una <strong>inducción</strong>. La conclusión es probable, no segura.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>11/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 3 · Los cisnes</h2><div class="caso">Durante siglos, en Europa solo se vieron cisnes blancos. Por eso se decía: «Todos los cisnes son blancos». En 1697, unos exploradores encontraron cisnes negros en Australia.</div><ol class="pasos"><li class="frag">Era una <strong>inducción</strong>: muchos casos vistos y una conclusión general.</li><li class="frag">Muchísimos casos no la hacían segura.</li><li class="frag">Bastó ver cisnes negros para tumbarla.</li><li class="frag">Conclusión: una inducción puede fallar, aunque tenga muchos casos. Lo veremos en la sesión 11.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>12/18</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>Caso trampa</b> · Bloque 2 · Casos resueltos</div><h2>⚠ ¿«Todos» + «por tanto» = segura?</h2><div class="caso">«Todos los de 2.º B tienen Inglés. Aitor tiene Inglés. Por tanto, Aitor es de 2.º B.»</div><p class="q">Tiene «todos» y «por tanto», como la del reconocimiento médico. ¿La conclusión es segura?</p><ol class="pasos"><li class="frag">Se parece mucho a la del reconocimiento médico. Pero mira bien el orden.</li><li class="frag">Las dos premisas pueden ser verdad y Aitor ser de 2.º A, que también tiene Inglés.</li><li class="frag">La conclusión no sale de las premisas: la deducción está <strong>mal hecha</strong>.</li><li class="frag">Conclusión: no mires solo las palabras. Pregunta: si las premisas son verdad, ¿puede fallar la conclusión?</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>13/18</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 3</div><h1>Errores típicos</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>14/18</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 3</b> · Errores típicos</div><h2>Cuidado con estas ideas</h2><div class="cols"><div class="col no"><h3>Error</h3><ul><li>«Es una deducción, así que la conclusión es verdad»</li><li>«Si ha pasado muchas veces, pasará seguro»</li><li>«La inducción no sirve para nada»</li></ul></div><div class="col si"><h3>Mejor así</h3><ul><li>La deducción asegura solo si está bien hecha y las premisas son verdad</li><li>La inducción es muy útil: la usamos cada día</li><li>Cuantos más casos y más variados, más probable</li></ul></div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>15/18</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Lo de hoy en tres líneas</b></div><h2>Escríbelo tú primero, sin mirar</h2><ol class="resumen"><li class="frag">En una deducción bien hecha, si las premisas son verdad, la conclusión es segura.</li><li class="frag">En una inducción, las premisas apoyan la conclusión, pero solo la hacen probable.</li><li class="frag">Cuantos más casos, y más variados, más fuerte es una inducción.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>16/18</span></div></section>
+<section class="slide video" data-notes=""><div class="top"><b>Vídeo</b></div><h2>Razonamiento deductivo e inductivo</h2><p class="q">Ver otros ejemplos de conclusiones seguras y conclusiones probables.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>17/18</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>Ahora, la hoja del día</b></div><h2>20 minutos · individual · en silencio</h2><div class="pel"><div><b>Peldaño 1 · Todos</b><span>6 puntos · 3 preguntas</span></div><div><b>Peldaño 2 · Repaso</b><span>2 puntos · 1 pregunta</span></div><div><b>Peldaño 3 · Reto</b><span>2 puntos · 1 pregunta</span></div></div><p class="q pasadas"><b>1.ª pasada:</b> sin apuntes, con bolígrafo. <b>2.ª pasada:</b> con los apuntes, corrige o completa en otro color. Junto a cada respuesta, marca <b>seguro</b> o <b>dudo</b>.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>18/18</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

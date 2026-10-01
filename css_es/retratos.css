@@ -1,0 +1,17 @@
+/* ===== Retratos de museo integrados en la teoría ===== usa los tokens de styles.css ===== */
+.museo-strip{ margin:2.4rem 0 .5rem; padding-top:1.2rem; border-top:1px solid var(--line); }
+.museo-strip h3{ font-family:var(--serif,Georgia,serif); font-size:1.05rem; margin:0 0 .2rem; }
+.museo-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(min(150px,100%),1fr)); gap:.9rem; margin:.9rem 0 .6rem; }
+.museo-card{ margin:0; background:var(--surface); border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  box-shadow:var(--shadow); display:flex; flex-direction:column; }
+.museo-card .museo-img{ width:100%; aspect-ratio:4/5; object-fit:cover; cursor:zoom-in; background:#efe9df;
+  border-bottom:1px solid var(--line); transition:transform .18s; }
+.museo-card .museo-img:hover{ transform:scale(1.03); }
+.museo-card figcaption{ padding:.5rem .6rem .6rem; display:flex; flex-direction:column; gap:.15rem; }
+.museo-card figcaption b{ font-size:.86rem; line-height:1.25; }
+.museo-cred{ font-size:.72rem; color:var(--muted); line-height:1.3; }
+.museo-lic{ font-size:.68rem; color:var(--muted); margin-top:.1rem; }
+.museo-lic a{ color:var(--accent); text-decoration:none; }
+.museo-lic a:hover{ text-decoration:underline; }
+.museo-note{ font-size:.76rem; color:var(--muted); line-height:1.5; margin:.4rem 0 0; }
+@media (max-width:560px){ .museo-grid{ grid-template-columns:repeat(auto-fill,minmax(min(120px,100%),1fr)); } }

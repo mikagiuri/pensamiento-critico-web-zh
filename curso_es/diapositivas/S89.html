@@ -1,0 +1,87 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S89 · ¿Y después de la ESO?</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>Pensamiento crítico · Sesión 89</b> · Unidad 20 · Modas, ocio y futuro</div><div class="guino">🙃</div><h1>¿Y después de la ESO?</h1><div class="idea">Tras 4.º de ESO hay varios caminos que se cruzan; lo que cuenta es elegir con buenas razones, conociendo derechos y deberes.</div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>1/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Escribe en tu hoja las palabras que faltan</h2><ol class="recupera"><li>Para los menores, la cantidad de alcohol que recomienda Sanidad es ______. <span class="de">sesión 88</span></li><li>Una ______ es perder el control sobre un consumo o una conducta. <span class="de">sesión 88</span></li><li>Quien ______ un mensaje dañino también es responsable. <span class="de">sesión 77</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>2/17</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Corrige con otro color</h2><ol class="recupera"><li>Para los menores, la cantidad de alcohol que recomienda Sanidad es <strong>cero</strong>. <span class="de">sesión 88</span></li><li>Una <strong>adicción</strong> es perder el control sobre un consumo o una conducta. <span class="de">sesión 88</span></li><li>Quien <strong>reenvía</strong> un mensaje dañino también es responsable. <span class="de">sesión 77</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>3/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Para empezar</b></div><div class="quote">Alguien le dice a Maialen: «Si no vas a la universidad, serás una fracasada».</div><p class="q">¿Cuántos caminos ves en esa frase? ¿Cuántos crees que hay de verdad?</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>4/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 1</div><h1>Después de 4.º de ESO</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>5/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · Después de 4.º de ESO</div><h2>Título de Graduado en ESO</h2><div class="def">Es el título que se obtiene al terminar la ESO. Abre el Bachillerato y la FP de grado medio.</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div>Lo decide el <strong>equipo de profesores</strong> al final de la ESO</div><div><strong>FP</strong>Formación Profesional, estudios para aprender una profesión</div><div>Sin el título: FP de <strong>grado básico</strong>, que también lo da</div><div>La enseñanza es <strong>obligatoria</strong> hasta los 16 años</div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>6/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 1</b> · Después de 4.º de ESO</div><h2>Caminos después de 4.º de ESO</h2><table><tr><th>Camino</th><th>Qué es</th><th>Y después</th></tr><tr><td><strong>Bachillerato</strong></td><td>Dos cursos de estudios generales, por modalidades</td><td>Universidad o FP de grado superior</td></tr><tr><td><strong>FP de grado medio</strong></td><td>Dos cursos para aprender una profesión, con prácticas en empresas</td><td>Trabajar, FP de grado superior o Bachillerato</td></tr><tr><td><strong>FP de grado básico</strong></td><td>Sin título de ESO: aprendes una profesión y te da el título</td><td>FP de grado medio o trabajar</td></tr><tr><td><strong>FP de grado superior</strong></td><td>Tras Bachillerato o grado medio: dos cursos más especializados</td><td>Trabajar o universidad</td></tr></table><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>7/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · Después de 4.º de ESO</div><h2>Algunos derechos y deberes en el instituto</h2><table><tr><th>Quién</th><th>Algunos derechos</th><th>Algunos deberes</th></tr><tr><td><strong>Alumnado</strong></td><td>Formación, respeto, evaluación <strong>objetiva</strong>, orientación</td><td>Estudiar, asistir, respetar a todos y las normas</td></tr><tr><td><strong>Familias</strong></td><td>Estar informadas y participar en el centro</td><td>Colaborar con el centro y cuidar la asistencia</td></tr><tr><td><strong>Profesorado</strong></td><td>Respeto y apoyo para enseñar</td><td>Enseñar, evaluar con objetividad y orientar</td></tr></table><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>8/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 2</div><h1>Casos resueltos</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>9/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 1 · Elegir con razones</h2><div class="caso">Omar no sabe qué hacer tras 4.º. Le gusta arreglar cosas y se le dan bien las mates. Su cuadrilla va a Bachillerato. (Ejemplo inventado.)</div><ol class="pasos"><li class="frag">Primero, razones suyas: qué le gusta, qué se le da bien, a qué quiere dedicarse.</li><li class="frag">Después, información: el <strong>orientador</strong> del centro, jornadas de puertas abiertas, gente que lo estudia.</li><li class="frag">¿Bachillerato de Ciencias o una FP de mantenimiento? Las dos pueden encajar con sus razones.</li><li class="frag">Conclusión: se elige con razones propias e información. La cuadrilla importa, pero no decide por ti.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>10/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 2 · La nota del examen</h2><div class="caso">Naiara cree que su examen está mal corregido: una respuesta correcta tiene un cero. Quiere protestar en clase a gritos. (Ejemplo inventado.)</div><ol class="pasos"><li class="frag">Tiene <strong>derecho</strong> a una evaluación objetiva y a pedir que se revise.</li><li class="frag">También tiene <strong>deberes</strong>: respetar al profesorado y a la clase.</li><li class="frag">Camino: pedir ver el examen y preguntar. Si sigue sin estar de acuerdo, puede hacer una reclamación.</li><li class="frag">Conclusión: derechos y deberes van juntos. Defender un derecho no exige saltarse un deber.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>11/17</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>Caso trampa</b> · Bloque 2 · Casos resueltos</div><h2>⚠ Con la cuadrilla, ¿mal?</h2><div class="caso">Yasmin irá a Bachillerato de Humanidades. Le encanta la historia y quiere ser periodista. Además, van tres amigas suyas. (Ejemplo inventado.)</div><p class="q">Elige lo mismo que su grupo. ¿Se está dejando llevar?</p><ol class="pasos"><li class="frag">Parece que sí: hemos visto que seguir al grupo sin pensar es un error.</li><li class="frag">Pero Yasmin tiene razones propias: le gusta la historia y sabe a qué quiere dedicarse.</li><li class="frag">Ir con amigas es una razón más, no la única. Eso no es dejarse llevar.</li><li class="frag">Conclusión: coincidir con el grupo no es el error. El error es que el grupo sea la <strong>única</strong> razón.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>12/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 3</div><h1>Error típico: la escalera</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>13/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 3</b> · Error típico: la escalera</div><h2>¿Escalera o mapa?</h2><div class="cols"><div class="col no"><h3>Falso dilema (sesión 20)</h3><ul><li>«O universidad o fracaso»</li><li>«La FP es para los que no valen»</li><li>«Si eliges mal, ya no hay vuelta atrás»</li></ul></div><div class="col si"><h3>Mejor así</h3><ul><li>Hay varios caminos, y <strong>se cruzan</strong></li><li>La FP forma profesionales; desde grado superior se llega a la universidad</li><li>Se puede cambiar: de FP a Bachillerato y al revés</li><li>Cada camino vale según tus razones</li></ul></div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>14/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Lo de hoy en tres líneas</b></div><h2>Escríbelo tú primero, sin mirar</h2><ol class="resumen"><li class="frag">Con el título de la ESO puedes ir a Bachillerato o a FP de grado medio.</li><li class="frag">Los caminos se cruzan: la FP no es un camino peor, es otro camino.</li><li class="frag">Elige con razones propias e información; el alumnado tiene derechos y también deberes.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>15/17</span></div></section>
+<section class="slide video" data-notes=""><div class="top"><b>Vídeo</b></div><h2>Qué opciones hay después de la ESO: Bachillerato y Formación Profesional en Euskadi</h2><p class="q">Ver el mapa de caminos y comprobar que no es una escalera: los caminos se cruzan.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>16/17</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>Ahora, la hoja del día</b></div><h2>20 minutos · individual · en silencio</h2><div class="pel"><div><b>Peldaño 1 · Todos</b><span>6 puntos · 3 preguntas</span></div><div><b>Peldaño 2 · Repaso</b><span>2 puntos · 1 pregunta</span></div><div><b>Peldaño 3 · Reto</b><span>2 puntos · 1 pregunta</span></div></div><p class="q pasadas"><b>1.ª pasada:</b> sin apuntes, con bolígrafo. <b>2.ª pasada:</b> con los apuntes, corrige o completa en otro color. Junto a cada respuesta, marca <b>seguro</b> o <b>dudo</b>.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>17/17</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

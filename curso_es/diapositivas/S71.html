@@ -1,0 +1,87 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S71 · Construir tu propio argumento</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>Pensamiento crítico · Sesión 71</b> · Unidad 14 · Decidir y defender mis ideas</div><div class="guino">🙃</div><h1>Construir tu propio argumento</h1><div class="idea">Para defender una opinión: conclusión clara, dos o tres razones, un ejemplo y la objeción previsible con su respuesta.</div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>1/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Escribe en tu hoja las palabras que faltan</h2><ol class="recupera"><li>Un ______ es algo que quiero, pero sin lo que podría vivir igual de bien. <span class="de">sesión 70</span></li><li>El FOMO es el miedo a ______ algo: «todos lo tienen, no te quedes fuera». <span class="de">sesión 70</span></li><li>Una emoción o una autoridad no son trampa por sí solas: mira si hay ______ debajo. <span class="de">sesión 59</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>2/17</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>Antes de empezar</b> · sin mirar</div><h2>Corrige con otro color</h2><ol class="recupera"><li>Un <strong>deseo</strong> es algo que quiero, pero sin lo que podría vivir igual de bien. <span class="de">sesión 70</span></li><li>El FOMO es el miedo a <strong>perderse</strong> algo: «todos lo tienen, no te quedes fuera». <span class="de">sesión 70</span></li><li>Una emoción o una autoridad no son trampa por sí solas: mira si hay <strong>razones</strong> debajo. <span class="de">sesión 59</span></li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>3/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Para empezar</b></div><div class="quote">Leire escribe en el grupo de clase: «Deberían dejarnos usar el móvil en el recreo. Y punto».</div><p class="q">¿Te convence? ¿Qué le falta?</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>4/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 1</div><h1>Las cuatro piezas</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>5/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · Las cuatro piezas</div><h2>Cuatro piezas para defender una opinión</h2><p>Hoy construyes el tuyo: tú solo y por escrito.</p><ul><li><strong>1. Conclusión:</strong> lo que defiendo, dicho claro y en una frase.</li><li><strong>2. Razones:</strong> dos o tres, que pasen las tres preguntas (sesión 9).</li><li><strong>3. Ejemplo:</strong> un caso que muestre lo que digo.</li><li><strong>4. Objeción y respuesta:</strong> qué diría quien no está de acuerdo, y mi respuesta.</li></ul><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>6/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 1</b> · Las cuatro piezas</div><h2>Objeción</h2><div class="def">Una <strong>objeción</strong> es una razón en contra de tu conclusión: lo que diría alguien que no está de acuerdo.</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>La buscas tú, antes de que te la digan</div><div>La respondes con razones, no con un «y punto»</div><div>A veces te obliga a cambiar o matizar tu conclusión</div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>7/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 1</b> · Las cuatro piezas</div><h2>Repetir y argumentar</h2><div class="cols"><div class="col no"><h3>Repetir</h3><ul><li>Decir la conclusión más fuerte o más veces</li><li>«Porque sí» o «y punto»</li><li>Hacer como si nadie pudiera pensar distinto</li></ul></div><div class="col si"><h3>Argumentar</h3><ul><li>Dar razones que pasen las tres preguntas</li><li>Poner un ejemplo</li><li>Pensar qué diría el otro y responderle</li></ul></div></div><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>8/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 2</div><h1>Casos resueltos</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>9/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 1 · Un argumento completo, pieza a pieza</h2><table><tr><th>Pieza</th><th>En el ejemplo</th></tr><tr><td><strong>Conclusión</strong></td><td>«El instituto debería tener taquillas para el alumnado»</td></tr><tr><td><strong>Razones</strong></td><td>«Las mochilas pesan mucho y hacen daño en la espalda»</td></tr><tr><td><strong>Ejemplo</strong></td><td>«Ejemplo inventado: el lunes Chen cargó ocho kilos»</td></tr><tr><td><strong>Objeción y respuesta</strong></td><td>«Cuestan dinero.» «Sí, pero se pagan una vez y duran años»</td></tr></table><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>10/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Bloque 2</b> · Casos resueltos</div><h2>Caso 2 · Kevin y los fuegos</h2><div class="caso">Kevin quiere convencer a su familia, por escrito, para ir con su cuadrilla a los fuegos artificiales de Aste Nagusia.</div><ol class="pasos"><li class="frag">Conclusión: «Quiero ir a los fuegos del jueves con mi cuadrilla».</li><li class="frag">Razones: «Iremos cuatro juntos y volveremos en metro a las once». Ejemplo: «El año pasado fue Omar y todo salió bien».</li><li class="frag">Objeción previsible: «Hay mucha gente y os podéis perder». Respuesta: «Quedamos en un punto fijo y llevo el móvil cargado».</li><li class="frag">Conclusión: al responder a lo que le preocupa a su familia, el argumento es mucho más fuerte.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>11/17</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>Caso trampa</b> · Bloque 2 · Casos resueltos</div><h2>⚠ ¿Ya tiene la objeción?</h2><div class="caso">Aitor defiende el móvil en el recreo y escribe: «Alguien dirá que los que quieren prohibirlo odian la tecnología. Pero eso es ridículo».</div><p class="q">Aitor ha escrito una objeción y la ha respondido. ¿Su argumento está completo?</p><ol class="pasos"><li class="frag">Parece que sí: tiene la pieza 4.</li><li class="frag">Pero esa objeción está deformada: nadie ha dicho eso. Es un hombre de paja (sesión 15).</li><li class="frag">Con el principio de caridad (sesión 58), busca la objeción más fuerte: «el móvil aísla y se deja de jugar juntos».</li><li class="frag">Conclusión: responder a una objeción débil es trampa. La buena objeción es la mejor versión del otro.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>12/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">BLOQUE 3</div><h1>Antes de entregarlo</h1><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>13/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>Bloque 3</b> · Antes de entregarlo</div><h2>Revisa tu argumento</h2><ul><li>¿Se entiende la conclusión en una sola frase?</li><li>¿Cada razón es verdad, viene a cuento y es suficiente?</li><li>¿El ejemplo muestra de verdad lo que digo?</li><li>¿He respondido a la objeción más fuerte, no a una deformada?</li><li>Si no sé responderla, quizá toca cambiar de opinión (sesión 57).</li></ul><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>14/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>Lo de hoy en tres líneas</b></div><h2>Escríbelo tú primero, sin mirar</h2><ol class="resumen"><li class="frag">Un argumento propio tiene una conclusión clara, dos o tres razones y un ejemplo.</li><li class="frag">La objeción es lo que diría quien no está de acuerdo, y hay que responderla con razones.</li><li class="frag">Tener en cuenta la objeción más fuerte distingue argumentar de repetir.</li></ol><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>15/17</span></div></section>
+<section class="slide video" data-notes=""><div class="top"><b>Vídeo</b></div><h2>Cómo escribir un texto argumentativo: tesis, argumentos y contraargumento</h2><p class="q">Ver otro ejemplo de argumento completo, con la objeción y su respuesta.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>16/17</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>Ahora, la hoja del día</b></div><h2>20 minutos · individual · en silencio</h2><div class="pel"><div><b>Peldaño 1 · Todos</b><span>6 puntos · 3 preguntas</span></div><div><b>Peldaño 2 · Repaso</b><span>2 puntos · 1 pregunta</span></div><div><b>Peldaño 3 · Reto</b><span>2 puntos · 1 pregunta</span></div></div><p class="q pasadas"><b>1.ª pasada:</b> sin apuntes, con bolígrafo. <b>2.ª pasada:</b> con los apuntes, corrige o completa en otro color. Junto a cada respuesta, marca <b>seguro</b> o <b>dudo</b>.</p><div class="foot"><span>Pensamiento crítico · 2.º ESO</span><span>17/17</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

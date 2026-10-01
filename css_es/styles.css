@@ -1,0 +1,498 @@
+:root{
+  --bg:#f0ece3; --surface:#faf8f3; --surface-2:#f4f1ea; --ink:#22242b; --muted:#5f6270;
+  --line:#ddd6c9; --line-soft:#e7e1d6;
+  --accent:#1f5d5a; --accent-2:#2b7a75; --on-accent:#f7fbf9;
+  --fil:#2f6f6b; --hf:#8a3b3f; --ipc:#9a6a22;
+  --ok:#2f7a4d; --ok-bg:#e5f0e6; --bad:#a53b34; --bad-bg:#f3e3df;
+  --shadow:0 1px 2px rgba(30,28,22,.05), 0 6px 20px -12px rgba(30,28,22,.28);
+  --radius:14px;
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  /* épocas (30-09): los colores de Ilustres y del eje cronológico, para toda la web (js/epocas.js) */
+  --e-int:#6E6E78; --on-e:#fff;   /* int = temas introductorios de HF (1-2), en gris; --on-e = texto sobre el color */
+  --e-ant:#8F6600; --e-med:#8A4B84; --e-ren:#B83220; --e-mod:#0A76A0; --e-ilu:#5B4FC4; --e-con:#267A5B;
+  /* ramas (30-09): un color por rama en Filosofía 1.º (js/epocas.js), igual que las épocas en HF */
+  --r-ant:#B0672B; --r-con:#2B6CB0; --r-log:#6D5BA6; --r-eti:#3E8A5B; --r-pol:#C0392B; --r-est:#B04A8A;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --e-int:#A3A3AE; --on-e:#141519;
+    --e-ant:#E3B23C; --e-med:#C48ABF; --e-ren:#F07A66; --e-mod:#5BC3EA; --e-ilu:#A9A2F2; --e-con:#6FCBA6;
+    --r-ant:#E0A05C; --r-con:#7FB3E8; --r-log:#A89BD0; --r-eti:#85CE9C; --r-pol:#EE9387; --r-est:#D88FC0;
+    --bg:#141519; --surface:#1c1e25; --surface-2:#232631; --ink:#e9e6df; --muted:#a3a3b0;
+    --line:#31343f; --line-soft:#2a2c35;
+    --accent:#54b3ac; --accent-2:#6fc7c0; --on-accent:#0c1413;
+    --fil:#5cbdb5; --hf:#d98a8c; --ipc:#d6a75a;
+    --ok:#7bc98f; --ok-bg:#1c2f22; --bad:#e88a80; --bad-bg:#33211e;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 26px -14px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --e-int:#A3A3AE; --on-e:#141519;
+  --e-ant:#E3B23C; --e-med:#C48ABF; --e-ren:#F07A66; --e-mod:#5BC3EA; --e-ilu:#A9A2F2; --e-con:#6FCBA6;
+  --r-ant:#E0A05C; --r-con:#7FB3E8; --r-log:#A89BD0; --r-eti:#85CE9C; --r-pol:#EE9387; --r-est:#D88FC0;
+  --bg:#141519; --surface:#1c1e25; --surface-2:#232631; --ink:#e9e6df; --muted:#a3a3b0;
+  --line:#31343f; --line-soft:#2a2c35;
+  --accent:#54b3ac; --accent-2:#6fc7c0; --on-accent:#0c1413;
+  --fil:#5cbdb5; --hf:#d98a8c; --ipc:#d6a75a;
+  --ok:#7bc98f; --ok-bg:#1c2f22; --bad:#e88a80; --bad-bg:#33211e;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 26px -14px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:600;text-wrap:balance;line-height:1.15;margin:0}
+p{margin:0}
+a{color:var(--accent);text-decoration:none}
+button{font-family:inherit;color:inherit;cursor:pointer}
+.card,.face,.front-t,.back-t{color:var(--ink)}
+:focus-visible{outline:2.5px solid var(--accent-2);outline-offset:2px;border-radius:4px}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+
+/* Barra superior */
+header.bar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar-in{display:flex;align-items:center;gap:16px;min-height:62px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;font-size:1.15rem;letter-spacing:.2px;white-space:nowrap}
+.brand .owl{font-size:1.3rem;line-height:1}
+nav.tabs{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
+nav.tabs button{background:none;border:0;color:var(--muted);font-size:.92rem;font-weight:500;
+  padding:8px 12px;border-radius:9px;white-space:nowrap}
+nav.tabs button:hover{color:var(--ink);background:var(--surface-2)}
+nav.tabs button[aria-current="true"]{color:var(--ink);background:var(--surface);box-shadow:inset 0 0 0 1px var(--line)}
+.theme{background:var(--surface);border:1px solid var(--line);color:var(--muted);width:38px;height:38px;
+  border-radius:10px;font-size:1.05rem;display:grid;place-items:center;flex:0 0 auto}
+.theme:hover{color:var(--ink)}
+
+main{padding:clamp(28px,5vw,52px) 0 80px}
+.view{display:none;animation:rise .35s ease both}
+.view.active{display:block}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.view{animation:none}}
+@media print{
+  header.bar,.skiplink{display:none !important}
+  .filterbar,.chips,.glotools,.fc-ctrl,.ea-actions,.glocount,.subnav{display:none !important}
+  body{background:#fff}
+  .view{display:none !important}
+  .view.active{display:block !important;animation:none}
+}
+
+.eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.lead{font-size:1.08rem;color:var(--muted);max-width:60ch;margin-top:12px}
+h1.title{font-size:clamp(2rem,5vw,3rem);font-weight:700;margin-top:8px}
+h2.sec{font-size:1.5rem;margin:0 0 4px}
+.sec-head{margin:44px 0 18px}
+.sec-head p{color:var(--muted);margin-top:4px;max-width:62ch}
+
+/* Tarjetas de materia */
+.courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:28px}
+.course{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px;
+  box-shadow:var(--shadow);border-top:3px solid var(--c);display:flex;flex-direction:column;gap:10px}
+.course .kick{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--c)}
+.course h3{font-size:1.3rem}
+.course p{color:var(--muted);font-size:.94rem}
+.course .meta{margin-top:auto;display:flex;gap:14px;flex-wrap:wrap;font-size:.82rem;color:var(--muted);
+  padding-top:12px;border-top:1px solid var(--line-soft)}
+.course .meta b{color:var(--ink);font-weight:600}
+/* tarjetas de materia como acceso: son botones (abren su hub «Explora la materia») */
+.course[role="button"]{cursor:pointer;transition:transform .12s ease, box-shadow .12s ease, border-top-width .12s ease}
+.course[role="button"]:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.10);border-top-width:5px}
+.course[role="button"]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.course[role="button"]::after{content:"Abrir la materia →";margin-top:2px;font-size:.82rem;font-weight:600;color:var(--c);opacity:.85}
+@media (prefers-reduced-motion: reduce){.course[role="button"]{transition:none}.course[role="button"]:hover{transform:none}}
+
+/* Horario */
+.weekwrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);margin-top:22px;background:var(--surface)}
+table.week{border-collapse:collapse;width:100%;min-width:560px;font-size:.9rem}
+table.week th,table.week td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:top}
+table.week thead th{font-family:var(--sans);font-weight:600;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--muted);background:var(--surface-2)}
+table.week td.h{font-family:var(--mono);white-space:nowrap;color:var(--muted);font-size:.82rem}
+table.week tr:last-child td{border-bottom:0}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:500;padding:2px 9px;border-radius:999px;
+  background:var(--surface-2);border:1px solid var(--line-soft)}
+.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c,var(--muted))}
+.pill.fil{--c:var(--fil)} .pill.hf{--c:var(--hf)} .pill.ipc{--c:var(--ipc)}
+
+/* Vista de materia */
+.subhead{border-left:4px solid var(--c);padding-left:16px;margin-bottom:6px}
+.subhead .kick{color:var(--c);font-weight:600;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase}
+.subhead h1{font-size:2rem;margin-top:4px}
+.mats{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:8px}
+.mat{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:15px 16px;display:flex;flex-direction:column;gap:5px}
+.mat h4{font-family:var(--sans);font-size:.98rem;font-weight:600;margin:0}
+.mat p{font-size:.86rem;color:var(--muted)}
+.mat .tag{align-self:flex-start;margin-top:6px;font-size:.72rem;color:var(--muted);font-family:var(--mono)}
+.mat-link{cursor:pointer;transition:border-color .15s,box-shadow .15s}
+.mat-link:hover,.mat-link:focus-visible{border-color:var(--accent);box-shadow:var(--shadow)}
+.toolrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--on-accent);border:0;
+  padding:10px 16px;border-radius:10px;font-weight:600;font-size:.92rem}
+.btn:hover{background:var(--accent-2)}
+.btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{border-color:var(--accent)}
+
+/* Selectores de herramienta */
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}
+.chips .quiz-tema{flex:1 1 100%;display:grid;gap:6px}
+.quiz-tema-chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:var(--surface);border:1px solid var(--line);color:var(--muted);padding:8px 14px;border-radius:999px;font-size:.9rem;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:transparent}
+.chip:hover:not([aria-pressed="true"]){color:var(--ink);border-color:var(--accent)}
+
+/* Filtro de materia / bloque */
+.filterbar{display:flex;flex-direction:column;gap:8px;margin:18px 0 0}
+.fgroup{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.flabel{font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.fbtn{background:transparent;border:1px solid var(--line);color:var(--muted);padding:5px 12px;border-radius:999px;font-size:.82rem;font-weight:500;cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--surface-2);color:var(--ink);border-color:var(--accent);font-weight:600}
+.fbtn:hover{color:var(--ink);border-color:var(--accent)}
+
+/* Recursos multimedia (catálogo) */
+.medialist{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin:18px 0}
+.mcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.mcard h3{font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--hf);margin:0 0 8px}
+.mlist{list-style:none;margin:0;padding:0}
+.mlist li{padding:4px 0;font-size:.9rem;line-height:1.4;color:var(--ink)}
+.mlist li + li{border-top:1px solid var(--line-soft)}
+.m-v .m-i{display:block}
+.m-i{color:var(--muted)}
+.m-i{display:flex;align-items:center;gap:10px}
+.m-thumb{background:none;border:1px solid var(--line);border-radius:8px;padding:0;cursor:pointer;overflow:hidden;display:block;flex:0 0 auto}
+.m-thumb img{display:block;width:110px;height:auto}
+.m-thumb:hover{border-color:var(--accent)}
+
+/* Visor (lightbox) */
+.lightbox{position:fixed;inset:0;background:rgba(20,21,25,.88);display:none;align-items:center;justify-content:center;z-index:100;padding:24px}
+.lightbox.open{display:flex}
+.lightbox img{max-width:92vw;max-height:92vh;background:#faf8f3;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.lb-close{position:absolute;top:16px;right:16px;background:var(--surface);border:none;border-radius:50%;width:42px;height:42px;font-size:24px;line-height:1;cursor:pointer;color:var(--ink)}
+
+/* Infografías incrustadas en la teoría */
+.figwrap{display:flex;flex-wrap:wrap;gap:16px;margin:22px 0}
+.fig{flex:1 1 240px;max-width:320px;margin:0}
+.figimg{width:100%;height:auto;border:1px solid var(--line);border-radius:10px;cursor:zoom-in;display:block;background:var(--surface)}
+.figimg:hover{border-color:var(--accent)}
+.fig figcaption{font-family:var(--sans);font-size:.82rem;color:var(--muted);margin-top:6px;text-align:center}
+
+/* Rúbricas */
+.rubricaslist{display:flex;flex-direction:column;gap:28px}
+.rcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.r-html{overflow-x:auto}.r-html h2{font-size:1.2rem;margin:1.4em 0 .5em}.r-html h3{font-size:1.05rem;margin:1.1em 0 .4em}.r-html p,.r-html li{max-width:80ch}
+.r-html table{width:100%;border-collapse:collapse;font-size:.92rem;margin:.6em 0 1em}.r-html th,.r-html td{padding:6px 8px;border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:top}.r-html thead th{background:var(--surface-2)}
+.r-html blockquote{margin:1em 0;padding:.5em 1em;border-left:3px solid var(--accent);background:var(--surface-2)}
+.rcard h3{font-size:1.4rem;margin:0 0 4px}
+.r-tema{font-family:var(--sans);font-size:.8rem;color:var(--muted);margin:0 0 8px}
+.r-intro{font-size:.95rem;margin:0 0 16px}
+table.rubrica{width:100%;border-collapse:collapse;font-size:.92rem}
+table.rubrica th{background:var(--hf);color:#fff;text-align:left;padding:8px 10px;font-family:var(--sans);font-size:.82rem;font-weight:600}
+table.rubrica td{border-bottom:1px solid var(--line-soft);padding:7px 10px;vertical-align:top}
+table.rubrica tr.r-sec td{background:var(--surface-2);font-weight:600;color:var(--hf);font-family:var(--sans);font-size:.85rem;border-top:2px solid var(--line)}
+.r-code{font-family:var(--mono);font-size:.78rem;color:var(--muted);white-space:nowrap;width:96px}
+.r-pts{font-family:var(--mono);text-align:right;white-space:nowrap;width:64px}
+.r-max{font-weight:400;color:var(--muted);font-size:.78rem}
+
+/* Tarjetas (flashcards) */
+.fc-stage{max-width:600px;margin:10px auto 0}
+.fc-meta{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.86rem;margin-bottom:10px}
+.fc-meta .count{font-family:var(--mono)}
+.card{position:relative;width:100%;min-height:300px;perspective:1600px;background:none;border:0;padding:0;text-align:left;display:block}
+.card-inner{position:relative;width:100%;min-height:300px;transition:transform .5s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.card.flipped .card-inner{transform:rotateY(180deg)}
+@media (prefers-reduced-motion:reduce){.card-inner{transition:none}}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
+  padding:32px 30px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.face .side{position:absolute;top:16px;left:20px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.face .emoji{font-size:3.4rem;line-height:1}
+.face .front-t{font-family:var(--serif);font-size:1.55rem;font-weight:600}
+.face .back-t{font-size:1.06rem;line-height:1.55}
+.face .hint{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:.76rem;color:var(--muted)}
+.back{transform:rotateY(180deg);background:var(--surface-2)}
+.fc-ctrl{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.icon-btn{background:var(--surface);border:1px solid var(--line);color:var(--ink);width:44px;height:44px;border-radius:11px;font-size:1.1rem;display:grid;place-items:center}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+.known-btn{background:var(--surface);border:1px solid var(--line);color:var(--muted);padding:0 16px;height:44px;border-radius:11px;font-weight:600;font-size:.9rem}
+.known-btn.on{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.progress{height:6px;background:var(--surface-2);border-radius:999px;overflow:hidden;margin-top:18px;border:1px solid var(--line-soft)}
+.progress > i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s ease}
+
+/* Cuestionarios */
+.quiz{max-width:640px;margin:6px auto 0}
+.q-top{display:flex;justify-content:space-between;align-items:baseline;color:var(--muted);font-size:.86rem;margin-bottom:10px}
+.q-top .score{font-family:var(--mono)}
+.q-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 24px}
+.q-num{font-family:var(--mono);font-size:.78rem;color:var(--accent);font-weight:500;letter-spacing:.05em}
+.q-text{font-family:var(--serif);font-size:1.3rem;font-weight:500;margin:6px 0 18px;line-height:1.35}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:11px;padding:13px 15px;font-size:.98rem;color:var(--ink);transition:border-color .15s,background .15s}
+.opt:hover:not(:disabled){border-color:var(--accent)}
+.opt .k{flex:0 0 auto;width:24px;height:24px;border-radius:6px;background:var(--surface);border:1px solid var(--line);
+  display:grid;place-items:center;font-size:.8rem;font-weight:600;font-family:var(--mono);color:var(--muted)}
+.opt.correct{background:var(--ok-bg);border-color:var(--ok)}
+.opt.correct .k{background:var(--ok);border-color:var(--ok);color:#fff}
+.opt.wrong{background:var(--bad-bg);border-color:var(--bad)}
+.opt.wrong .k{background:var(--bad);border-color:var(--bad);color:#fff}
+.opt.dim{opacity:.55}
+.fb{margin-top:16px;padding:13px 15px;border-radius:11px;background:var(--surface-2);border:1px solid var(--line-soft);
+  font-size:.92rem;color:var(--ink);display:none}
+.fb.show{display:block}
+.fb b{color:var(--accent)}
+.q-foot{display:flex;justify-content:flex-end;margin-top:18px}
+.q-result{text-align:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:34px;box-shadow:var(--shadow)}
+.q-result .big{font-family:var(--serif);font-size:3rem;font-weight:700;color:var(--accent)}
+.q-result .best{color:var(--muted);font-size:.9rem;margin-top:6px}
+
+footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0 60px;color:var(--muted);font-size:.84rem}
+.empty{color:var(--muted);font-size:.94rem;padding:18px;border:1px dashed var(--line);border-radius:12px;background:var(--surface)}
+.hide{display:none!important}
+
+/* Teoría */
+.theory-layout{display:grid;grid-template-columns:1fr;gap:26px;margin-top:8px}
+@media(min-width:880px){.theory-layout{grid-template-columns:210px 1fr;align-items:start}}
+/* min-width:0 en las dos columnas del grid .theory-layout: por defecto un ítem de grid
+   tiene min-width:auto, que impide encogerlo por debajo de su contenido mínimo; a 375 px
+   eso ensancha el único track por encima del viewport y saca scroll horizontal (se ve en
+   el índice, que se estira para rellenar el track, pero lo fuerza la columna de texto).
+   overflow-wrap parte palabras/títulos muy largos. No afecta al sticky de escritorio
+   (allí el track del índice es de 210 px fijos). Ver también .theory. */
+.toc{font-size:.86rem;min-width:0}
+@media(min-width:880px){.toc{position:sticky;top:80px}}
+.toc .toc-title{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:8px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px;border-left:1px solid var(--line)}
+.toc a{display:block;padding:4px 12px;color:var(--muted);border-left:2px solid transparent;margin-left:-1px;overflow-wrap:anywhere}
+.toc a:hover{color:var(--ink);border-left-color:var(--line)}
+.theory{max-width:70ch;min-width:0;overflow-wrap:break-word;font-family:var(--serif);font-size:1.07rem;line-height:1.72;color:var(--ink)}
+.theory-head{margin-bottom:10px}
+.theory-head .kick{font-family:var(--sans);color:var(--hf);font-weight:600;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.theory-head h1{font-size:clamp(1.7rem,4vw,2.3rem);margin-top:4px}
+.theory h2{font-size:1.35rem;margin:34px 0 12px;scroll-margin-top:80px;line-height:1.25}
+.theory p{margin:0 0 15px}
+.theory ul{margin:0 0 16px;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.theory li{line-height:1.6}
+.theory blockquote.src{margin:0 0 16px;padding:12px 18px;border-left:3px solid var(--accent);background:var(--surface-2);border-radius:0 10px 10px 0;font-style:italic}
+.theory p.aporia{margin:2px 0 18px;padding:13px 16px;background:var(--surface-2);border:1px solid var(--line);border-left:3px solid var(--hf);border-radius:0 10px 10px 0;font-family:var(--sans);font-size:.95rem;font-style:normal;line-height:1.55}
+
+.theory table{border-collapse:collapse;width:100%;margin:6px 0 20px;font-family:var(--sans);font-size:.94rem;display:block;overflow-x:auto}
+.theory th,.theory td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+.theory thead th{background:var(--surface-2);font-weight:600;color:var(--ink)}
+.theory tbody td:first-child{font-weight:600;color:var(--muted)}
+
+.theory .tablewrap{overflow-x:auto;margin:6px 0 20px}
+.theory table.etapas{display:table;width:100%;min-width:620px;margin:0}
+.theory table.etapas td,.theory table.etapas th{font-size:.9rem;vertical-align:top}
+.theory table.etapas tbody td:first-child{color:var(--ink);font-weight:400}
+.theory .per{font-family:var(--mono);font-size:.78em;color:var(--muted);font-weight:400;display:inline-block;margin-top:2px}
+
+/* ----- Mapas conceptuales (Markmap) ----- */
+.mapstage{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:6px}
+.maphead{padding:12px 16px;border-bottom:1px solid #eadfce;background:#faf7f1}
+.maphead .kick{font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.maphead h2{font-family:var(--serif);font-size:1.2rem;margin:2px 0 0;color:#221f1a}
+#mapsvg{display:block;width:100%;height:68vh;min-height:420px;background:#fff;cursor:grab}
+#mapsvg:active{cursor:grabbing}
+
+/* ===== Hub de materia: mapa de recursos «Explora la materia» ===== */
+.hubmap{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:.6rem;margin:.2rem 0 1.4rem}
+.hubtile{display:flex;flex-direction:column;align-items:flex-start;gap:.15rem;padding:.7rem .85rem;
+  background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--c,var(--accent));
+  border-radius:12px;cursor:pointer;font:inherit;color:inherit;text-align:left;
+  transition:background .12s ease,transform .12s ease,box-shadow .12s ease}
+.hubtile:hover{background:var(--surface-2);transform:translateY(-1px);box-shadow:var(--shadow)}
+.hubtile:focus-visible{outline:2px solid var(--c,var(--accent));outline-offset:2px}
+.hubtile-n{font:800 1.5rem/1 var(--serif);color:var(--c,var(--accent));font-variant-numeric:tabular-nums}
+.hubtile-l{font-size:.9rem;color:var(--muted)}
+.hubtile-s{font-size:.78rem;color:var(--muted);opacity:.8}
+
+/* ===== «Continuar donde lo dejaste» (Inicio) ===== */
+.resume{display:flex;align-items:center;gap:.8rem;margin:0 0 1.4rem;padding:.7rem .9rem;
+  background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px}
+.resume[hidden]{display:none}
+.resume-txt{display:flex;flex-direction:column;gap:.1rem;min-width:0}
+.resume-kick{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.resume-go{background:none;border:0;padding:0;font:600 1rem/1.25 var(--sans);color:var(--accent);cursor:pointer;
+  text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.resume-go:hover{text-decoration:underline}
+.resume-x{margin-left:auto;flex:none;background:none;border:0;color:var(--muted);font-size:1.1rem;line-height:1;
+  cursor:pointer;padding:.2rem .35rem;border-radius:8px}
+.resume-x:hover{background:var(--surface-2);color:var(--ink)}
+
+/* ===== Botón «Imprimir» (vistas de contenido) ===== */
+.print-row{display:flex;justify-content:flex-end;margin:.2rem 0 .8rem}
+.print-btn{cursor:pointer}
+
+/* ===== Botón «volver arriba» + sección activa del índice ===== */
+.to-top{position:fixed;right:16px;bottom:16px;z-index:50;width:42px;height:42px;border-radius:50%;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:var(--shadow);
+  font-size:1.25rem;line-height:1;cursor:pointer;display:grid;place-items:center;
+  transition:background .15s ease,transform .15s ease}
+.to-top[hidden]{display:none}
+.to-top:hover{background:var(--surface-2);transform:translateY(-2px)}
+.to-top:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.toc a.active{color:var(--ink);border-left-color:var(--accent);font-weight:600}
+
+/* ===== Viaje del alumno (29-09-2026): migas de contexto, itinerarios y «cómo se juega» =====
+   js/itinerario.js (itinerario del tema e itinerario PAU, migas) y las pantallas de inicio de los juegos.
+   Mismas variables del tema; --c es el color de la materia. */
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:-8px 0 14px;font-size:.82rem;color:var(--muted)}
+.crumbs a{color:var(--c,var(--accent));font-weight:600}
+.crumbs a:hover{text-decoration:underline}
+.crumbs [aria-current="page"]{color:var(--ink);font-weight:600}
+.crumb-sep{opacity:.6}
+.itin{font-family:var(--sans);font-size:.95rem;line-height:1.45;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c,var(--accent));
+  border-radius:12px;padding:14px 16px 12px;margin:0 0 22px;max-width:70ch}
+.itin-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:10px}
+.itin-kick{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--c,var(--accent))}
+.itin-top b{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:var(--ink)}
+.itin-pau .itin-top b{font-family:var(--sans);font-weight:400;font-size:.9rem;color:var(--muted)}
+.itin ol.itin-steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.itin-step{display:flex;gap:10px;align-items:flex-start;padding:6px 8px;border-radius:9px}
+.itin-step.here{background:var(--surface-2)}
+.itin-n{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line);color:var(--muted);
+  font:600 .74rem/20px var(--mono);text-align:center;margin-top:2px}
+.itin-step.here .itin-n{background:var(--c,var(--accent));border-color:transparent;color:var(--on-accent)}
+.itin-body{min-width:0;display:flex;flex-direction:column;gap:4px}
+.itin-l{font-weight:600;color:var(--ink);font-size:.9rem}
+.itin-here{font-style:normal;font-weight:600;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--c,var(--accent));margin-left:6px}
+.itin-links{display:flex;flex-wrap:wrap;gap:6px}
+.itin-lnk{background:var(--surface);border:1px solid var(--line);color:var(--ink);padding:4px 10px;border-radius:999px;font:500 .84rem/1.3 var(--sans);text-align:left}
+.itin-lnk:hover{border-color:var(--c,var(--accent));color:var(--c,var(--accent))}
+.itin-lnk[aria-current="true"]{background:var(--c,var(--accent));border-color:transparent;color:var(--on-accent);cursor:default}
+.itin-lnk i{font-style:normal;font-size:.76rem;color:var(--muted);margin-left:4px}
+.itin-lnk[aria-current="true"] i{color:inherit;opacity:.85}
+.itin p.itin-next{margin:12px 0 0;font-family:var(--sans)}
+.itin p.itin-next .btn{font-size:.88rem;padding:8px 14px}
+/* barra de una línea (arriba de Teoría y de las vistas de PAU): solo los pasos, sin desplegar los recursos */
+.itin.itin-bar{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:8px 12px;margin:0 0 18px;border-left-width:3px}
+.itin-bar ol.itin-pills{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.itin-pill{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);color:var(--ink);padding:3px 10px 3px 4px;
+  border-radius:999px;font:500 .84rem/1.3 var(--sans)}
+.itin-pill .itin-n{width:18px;height:18px;font-size:.68rem;line-height:16px;margin:0}
+.itin-pill i{font-style:normal;font-size:.74rem;color:var(--muted)}
+.itin-pill:hover{border-color:var(--c,var(--accent));color:var(--c,var(--accent))}
+.itin-pill.here{border-color:var(--c,var(--accent));box-shadow:inset 0 0 0 1px var(--c,var(--accent))}
+.itin-pill.here .itin-n{background:var(--c,var(--accent));border-color:transparent;color:var(--on-accent)}
+/* tira «De este tema» completada y línea «Siguiente paso» (Teoría, Tarjetas, Cuestionarios, Clases) */
+.itin-strip{margin:.1rem 0 1.1rem;gap:6px}
+.itin-strip .btn{background:var(--surface);color:var(--ink);border:1px solid var(--line);padding:5px 11px;font-size:.84rem;font-weight:500;border-radius:999px}
+.itin-strip .btn:hover{border-color:var(--accent);color:var(--accent)}
+.theory .itin-strip{margin-top:30px}
+#itin-tarjetas .itin-strip,#itin-quiz .itin-strip{max-width:640px;margin:22px auto 0;justify-content:center}
+.theory p.itin-next{margin:14px 0 0;font-family:var(--sans)}
+/* dentro de la teoría (serif, 70ch): el bloque no hereda su tipografía */
+.theory .itin{font-size:.95rem}
+.theory .itin:not(.itin-bar){margin-top:34px}
+.theory .itin ol{margin:0;padding:0}
+.theory .itin li{line-height:1.45}
+/* hub de la materia: «Estudiar un tema» e «Itinerario PAU» */
+.itin-hub .itin{max-width:none}
+.itin-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.itin-card{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c,var(--accent));border-radius:var(--radius);padding:16px 16px 14px;
+  display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.itin-card .kick{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--c,var(--accent))}
+.itin-card h3{font-size:1.08rem}
+.itin-card ol.itin-mini{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px;counter-reset:paso}
+.itin-card ol.itin-mini li{display:contents}
+.itin-card ol.itin-mini .itin-lnk::before{counter-increment:paso;content:counter(paso) " · ";color:var(--muted);font-family:var(--mono);font-size:.76rem}
+.itin-card .meta{margin-top:auto;display:flex;gap:12px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);padding-top:10px;border-top:1px solid var(--line-soft)}
+.itin-card .btn{align-self:flex-start;font-size:.86rem;padding:8px 14px}
+.itin-chips{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 12px}
+.itin-chips .flabel{flex:0 0 100%}
+@media(min-width:761px){.itin-chips .flabel{flex:0 0 auto;min-width:200px}}
+/* épocas (30-09): data-ep fija --e; se usa en chips, cabecera del tema, lista de temas y paso anterior/siguiente */
+[data-ep="ant"]{--e:var(--e-ant)} [data-ep="med"]{--e:var(--e-med)} [data-ep="ren"]{--e:var(--e-ren)}
+[data-ep="mod"]{--e:var(--e-mod)} [data-ep="ilu"]{--e:var(--e-ilu)} [data-ep="con"]{--e:var(--e-con)}
+[data-ep="int"]{--e:var(--e-int)}
+/* bloque B de HF (Medieval-Moderna): dos tonos, medieval fuera y moderna dentro */
+[data-ep="medmod"]{--e:var(--e-med);--e2:var(--e-mod)}
+.chip[data-ep]{border-left:4px solid var(--e)}
+.chip[data-ep][aria-pressed="true"]{background:var(--e);border-color:var(--e);color:var(--on-e)}
+/* (30-09) también las etiquetas de los filtros: bloques, épocas, temas T1…T27 (js/epocas.js) */
+.fbtn[data-ep]{border-left:4px solid var(--e)}
+.fbtn[data-ep]:not([aria-pressed="true"]):hover{border-color:var(--e)}
+.fbtn[data-ep][aria-pressed="true"]{background:var(--e);border-color:var(--e);color:var(--on-e)}
+#cronogramas .cbtn[data-ep]{border-left:4px solid var(--e)}
+#cronogramas .cbtn[data-ep][aria-pressed="true"]{background:var(--e);border-color:var(--e);color:var(--on-e)}
+.chip[data-ep="medmod"],.fbtn[data-ep="medmod"]{box-shadow:inset 4px 0 0 var(--e2)}
+.chip[data-ep="medmod"][aria-pressed="true"],.fbtn[data-ep="medmod"][aria-pressed="true"]{background:linear-gradient(90deg,var(--e),var(--e2));box-shadow:none}
+/* Frases y Glosario: la tarjeta lleva el color de su época */
+#citas .citcard[data-ep]{border-left-color:var(--e)}
+#citas .citcard[data-ep] .cit-q::before{color:var(--e)}
+#glosario .gloitem[data-ep]{border-left-color:var(--e)}
+#glosario .gloitem[data-ep] .tag{color:var(--e)}
+.theory-head[data-ep] .kick{color:var(--e) !important}   /* la vista pone color:var(--hf) en línea */
+.theory-head[data-ep] h1{border-left:4px solid var(--e);padding-left:12px}
+.fin-pn-card[data-ep]{border-top:3px solid var(--e)}
+.fin-pn-card[data-ep] .kick{color:var(--e)}
+/* ramas (30-09): data-rama fija --r, igual que las épocas pero para Filosofía 1.º */
+[data-rama="ant"]{--r:var(--r-ant)} [data-rama="con"]{--r:var(--r-con)} [data-rama="log"]{--r:var(--r-log)}
+[data-rama="eti"]{--r:var(--r-eti)} [data-rama="pol"]{--r:var(--r-pol)} [data-rama="est"]{--r:var(--r-est)}
+.chip[data-rama]{border-left:4px solid var(--r)}
+.chip[data-rama][aria-pressed="true"]{background:var(--r);border-color:var(--r);color:#fff}
+.theory-head[data-rama] .kick{color:var(--r) !important}
+.theory-head[data-rama] h1{border-left:4px solid var(--r);padding-left:12px}
+.fin-pn-card[data-rama]{border-top:3px solid var(--r)}
+.fin-pn-card[data-rama] .kick{color:var(--r)}
+/* ficha de la materia: lista de temas (29-09) */
+.temas-b{font-family:var(--sans);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--muted);margin:14px 0 6px}
+.temas-b[data-ep]{color:var(--e);border-bottom:2px solid var(--e);padding-bottom:4px;display:flex;align-items:center;gap:8px}
+.temas-b[data-ep]::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--e)}
+.temas-b[data-rama]{color:var(--r);border-bottom:2px solid var(--r);padding-bottom:4px;display:flex;align-items:center;gap:8px}
+.temas-b[data-rama]::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--r)}
+ol.itin-temas li[data-ep]{--c:var(--e)}
+ol.itin-temas li[data-rama]{--c:var(--r)}
+ol.itin-temas{list-style:none;margin:0 0 6px;padding:0;display:flex;flex-direction:column;gap:4px}
+ol.itin-temas button{display:flex;gap:14px;align-items:baseline;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--c,var(--accent));
+  border-radius:10px;padding:9px 14px;font:inherit;color:inherit;cursor:pointer}
+ol.itin-temas button:hover{background:var(--surface-2);border-color:var(--c,var(--accent))}
+ol.itin-temas .temas-n{flex:0 0 5.2em;font:600 .78rem var(--mono);letter-spacing:.02em;color:var(--c,var(--accent))}
+ol.itin-temas .temas-t{font-family:var(--serif);font-size:1.02rem;line-height:1.3}
+ol.itin-temas li.temas-extra button{border-left-color:var(--line);margin-left:18px;width:calc(100% - 18px)}
+ol.itin-temas li.temas-extra .temas-t{font-size:.95rem;color:var(--muted)}
+/* final de cada tema: «Para seguir con este tema» + tema anterior/siguiente (29-09) */
+.itin-fin{margin:40px 0 0;padding:18px 0 0;border-top:1px solid var(--line);font-family:var(--sans);font-size:.95rem}
+.theory .itin-fin h2{font-size:1.25rem;margin:0 0 14px}
+.fin-row{display:flex;gap:12px;align-items:flex-start;margin:0 0 10px}
+.fin-l{flex:0 0 9.5em;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--muted);padding-top:6px}
+.fin-links{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.itin-term{background:transparent;border:1px dashed var(--line);color:var(--ink);padding:3px 9px;border-radius:999px;font:500 .82rem/1.3 var(--sans);cursor:help}
+.itin-term:hover{border-style:solid;border-color:var(--c,var(--accent));color:var(--c,var(--accent))}
+.fin-pager{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.fin-pn-card{display:flex;flex-direction:column;gap:4px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;color:inherit;cursor:pointer}
+.fin-pn-card.fin-next{text-align:right;align-items:flex-end}
+.fin-pn-card:hover{border-color:var(--c,var(--accent))}
+.fin-pn-card .kick{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.fin-pn-card b{font-family:var(--serif);font-weight:600;font-size:1rem;line-height:1.25}
+@media(max-width:600px){.fin-row{flex-direction:column;gap:4px}.fin-l{padding-top:0}.fin-pager{grid-template-columns:1fr}.fin-pn-card.fin-next{text-align:left;align-items:flex-start}}
+/* «Cómo se juega»: una línea al abrir cada juego */
+.howto{display:flex;gap:10px;align-items:flex-start;margin:0 0 16px;padding:10px 14px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line-soft);
+  font-family:var(--sans);font-size:.92rem;color:var(--ink);line-height:1.45;max-width:70ch}
+.howto::before{content:"👉";flex:0 0 auto}
+.howto b{color:var(--accent)}
+@media print{.crumbs,.itin,.itin-hub,.howto,.itin-fin,.itin-strip{display:none !important}}
+
+/* ===== Impresión: deja solo el contenido de la vista activa ===== */
+@media print{
+  /* cromo fijo y controles fuera */
+  .bar, .skiplink, #tabs, .navtoggle, #theme, #searchbtn, #searchoverlay, .resume,
+  .toc, .print-row, #comentariolink, .lightbox, .gallb, .to-top { display:none !important; }
+  /* dentro de la vista activa: intro genérica y filtros fuera (el título propio del
+     contenido va dentro del cuerpo y sí se imprime) */
+  .view.active > .eyebrow, .view.active > .title, .view.active > .lead,
+  .view.active > .filterbar, .view.active > .chips { display:none !important; }
+  .view:not(.active){ display:none !important; }
+  html, body{ background:#fff !important; }
+  body{ color:#000 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .wrap{ max-width:none !important; margin:0 !important; padding:0 !important; }
+  .theory-layout{ display:block !important; }
+  .theory{ max-width:none !important; }
+  .theory-head h1, .easchema, article, figure, table, img, .card{ break-inside:avoid; }
+  a[href]{ color:#000 !important; text-decoration:none; }
+}
+
+/* Anexos dados en clase: mini-etiqueta «En clase» */
+.theory-head .en-clase{display:inline-block;margin-left:.5rem;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--on-accent,#fff);background:var(--accent);border-radius:999px;padding:3px 10px;vertical-align:middle}
+.temas-anexo{display:inline-block;margin-left:.4rem;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 7px}

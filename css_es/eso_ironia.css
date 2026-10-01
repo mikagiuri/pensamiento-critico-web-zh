@@ -1,0 +1,49 @@
+/* ESO (Pensamiento crítico): «estilo ironía» ATENUADO, el mismo del curso (ipc/curso) y de las diapositivas de IPC.
+   Solo lo enlaza tools/build_eso.js (web de 2.º ESO, ES y EU). La web del profesor y las de Bachillerato no lo cargan.
+   Atenuado (decisión del profesor, 25-09-2026): Fredoka solo en títulos y como mucho a peso 500 (nada de letra gorda);
+   el texto que se lee (teoría, preguntas) en Nunito Sans; casi sin emojis. Guía: tools/diapositivas/ESTILO.md */
+:root{
+  --bg:#FBF7EF; --surface:#FFFFFF; --surface-2:#EAF0F7; --ink:#1F2A44; --muted:#4A5568;
+  --line:#E2DDD2; --line-soft:#EDE8DE;
+  --accent:#2F6FB5; --accent-2:#E8793A; --on-accent:#FFFFFF;
+  --ipc:#E8793A; --fil:#2F6FB5; --hf:#2F6FB5;
+  --ok:#2f7a4d; --ok-bg:#e5f0e6; --bad:#a53b34; --bad-bg:#f6e4df;
+  --shadow:0 1px 2px rgba(31,42,68,.05), 0 6px 20px -12px rgba(31,42,68,.25);
+  --radius:18px;
+  --serif:"Fredoka","Nunito Sans","Segoe UI",system-ui,sans-serif;
+  --sans:"Nunito Sans","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#161E31; --surface:#1F2A44; --surface-2:#26334F; --ink:#FBF7EF; --muted:#C9D3E6;
+    --line:#34425F; --line-soft:#2B3853;
+    --accent:#8DB6E6; --accent-2:#F4B183; --on-accent:#161E31;
+    --ipc:#F4B183; --fil:#8DB6E6; --hf:#8DB6E6;
+    --ok:#7bc98f; --ok-bg:#1c2f22; --bad:#e88a80; --bad-bg:#33211e;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 26px -14px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161E31; --surface:#1F2A44; --surface-2:#26334F; --ink:#FBF7EF; --muted:#C9D3E6;
+  --line:#34425F; --line-soft:#2B3853;
+  --accent:#8DB6E6; --accent-2:#F4B183; --on-accent:#161E31;
+  --ipc:#F4B183; --fil:#8DB6E6; --hf:#8DB6E6;
+  --ok:#7bc98f; --ok-bg:#1c2f22; --bad:#e88a80; --bad-bg:#33211e;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 26px -14px rgba(0,0,0,.6);
+}
+
+/* Fredoka se carga solo hasta 500 y sin negrita sintética: ningún título sale «gordo» aunque su regla pida 600-800. */
+body{font-synthesis:none}
+h1,h2,h3,.brand{font-weight:500;letter-spacing:0}
+h1{letter-spacing:-.005em}
+.brand .owl{display:none}   /* sin la lechuza del aula: esta web tiene nombre propio */
+
+/* Lo que se lee de corrido va en Nunito Sans, no en la letra redondeada de los títulos. */
+.theory,.q-text,#reto .reto-q,#dilemas .dil-cierre,.lead{font-family:var(--sans)}
+.theory{font-size:1.05rem;line-height:1.7}
+.theory h2,.theory h3{font-family:var(--serif)}
+.q-text,#reto .reto-q{font-weight:600}
+
+/* Piezas del estilo: etiquetas en naranja espaciadas y botones redondeados. */
+.eyebrow{color:var(--accent-2);letter-spacing:.14em;text-transform:uppercase;font-weight:800;font-size:.78rem}
+nav.tabs button[aria-current="true"]{background:var(--surface-2);box-shadow:none;color:var(--ink)}

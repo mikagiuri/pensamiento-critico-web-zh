@@ -1,0 +1,38 @@
+/* ===== «Elige tu camino» ===== usa tokens de styles.css ===== */
+#camino #caminobox{ max-width:860px; }
+#camino .linkbtn{ font:inherit; background:none; border:0; padding:0; color:var(--accent); cursor:pointer; text-decoration:underline; text-underline-offset:2px; }
+#camino .pbtn{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface); color:var(--ink); padding:.45rem .9rem; border-radius:999px; }
+#camino .pbtn:hover{ border-color:var(--accent); }
+#camino .cam-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(min(260px,100%), 1fr)); gap:.8rem; }
+#camino .cam-card{ display:flex; flex-direction:column; gap:.35rem; align-items:flex-start; text-align:left; font:inherit; color:var(--ink);
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1rem 1.1rem; cursor:pointer; transition:transform .12s, border-color .15s, box-shadow .15s; }
+#camino .cam-card:hover{ transform:translateY(-2px); border-color:var(--ipc); box-shadow:var(--shadow); }
+#camino .cam-emoji{ font-size:2rem; line-height:1; }
+#camino .cam-emoji.big{ font-size:2.6rem; }
+#camino .cam-tag{ font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+#camino .cam-title{ font-family:var(--serif); font-weight:600; font-size:1.15rem; }
+#camino .cam-intro{ font-size:.92rem; color:var(--muted); line-height:1.45; }
+#camino .cam-found{ font-size:.85rem; color:var(--muted); margin-top:.3rem; }
+#camino .cam-back{ margin-bottom:.8rem; display:inline-block; }
+#camino .cam-head{ display:flex; gap:.9rem; align-items:center; margin-bottom:.9rem; }
+#camino .cam-head h2{ font-family:var(--serif); font-size:1.6rem; margin:.1rem 0 0; }
+#camino .cam-scene, #camino .cam-end{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.1rem 1.2rem; animation:cam-in .3s ease both; }
+#camino .cam-text{ font-size:1.08rem; line-height:1.65; margin:0 0 1rem; }
+#camino .cam-opts{ display:flex; flex-direction:column; gap:.6rem; }
+#camino .cam-opt{ display:flex; gap:.7rem; align-items:flex-start; text-align:left; font:inherit; color:var(--ink); background:var(--surface-2);
+  border:1px solid var(--line); border-radius:12px; padding:.75rem .9rem; cursor:pointer; line-height:1.45; transition:transform .12s, border-color .15s; }
+#camino .cam-opt:hover{ transform:translateX(3px); border-color:var(--ipc); }
+#camino .cam-n{ flex:none; width:1.7rem; height:1.7rem; border-radius:50%; display:grid; place-items:center; background:var(--ipc); color:var(--bg); font-weight:700; font-size:.9rem; }
+#camino .cam-end{ text-align:center; }
+#camino .cam-end-emoji{ font-size:3rem; }
+#camino .cam-end h3{ font-family:var(--serif); font-size:1.4rem; margin:.3rem 0 .4rem; }
+#camino .cam-end > p{ line-height:1.6; max-width:60ch; margin:.3rem auto; }
+#camino .cam-new{ display:inline-block; font-size:.78rem; font-weight:700; color:var(--bg); background:var(--ipc); border-radius:999px; padding:.1rem .6rem; }
+#camino .cam-idea, #camino .cam-path{ text-align:left; background:var(--surface-2); border-radius:12px; padding:.8rem 1rem; margin:.9rem 0 0; }
+#camino .cam-idea{ border-left:4px solid var(--ipc); }
+#camino .cam-idea p{ margin:.3rem 0 0; line-height:1.55; }
+#camino .cam-path ol{ margin:.3rem 0 0 1.2rem; line-height:1.5; font-size:.92rem; }
+#camino .cam-actions{ display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; margin-top:1rem; }
+#camino .cam-btn{ font:inherit; cursor:pointer; border:0; border-radius:999px; padding:.55rem 1.1rem; color:var(--on-accent); background:var(--accent); }
+@keyframes cam-in{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:none; } }
+@media (prefers-reduced-motion: reduce){ #camino .cam-scene, #camino .cam-end{ animation:none; } #camino .cam-card, #camino .cam-opt{ transition:none; } }

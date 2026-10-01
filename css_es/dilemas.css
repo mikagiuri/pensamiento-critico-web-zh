@@ -1,0 +1,117 @@
+/* ===== Juego «Elige A o B» (dilemas) ===== usa tokens de styles.css =====
+   A = azul, B = rojo (como la presentación original «Teknologia ez da neutroa»). */
+#dilemas{ --dil-a:#2d5b8f; --dil-a-bg:#e6f0fa; --dil-b:#a53b34; --dil-b-bg:#fde7e7; }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) #dilemas{ --dil-a:#8db8e8; --dil-a-bg:#1b2635; --dil-b:#e88a80; --dil-b-bg:#33211e; }
+}
+:root[data-theme="dark"] #dilemas{ --dil-a:#8db8e8; --dil-a-bg:#1b2635; --dil-b:#e88a80; --dil-b-bg:#33211e; }
+
+#dilemas .dil-wrap, #dilbox{ max-width:900px; }
+#dilemas .linkbtn{ font:inherit; background:none; border:0; padding:0; color:var(--accent); cursor:pointer; text-decoration:underline; text-underline-offset:2px; }
+#dilemas .pbtn{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface); color:var(--ink);
+  padding:.45rem .85rem; border-radius:999px; transition:transform .12s, border-color .15s, background .15s; }
+#dilemas .pbtn:hover{ transform:translateY(-1px); border-color:var(--accent); }
+#dilemas .pbtn[aria-pressed="true"]{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+#dilemas .pbtn .n{ opacity:.7; font-size:.85em; margin-left:.2rem; }
+
+/* portada */
+#dilemas .dil-pick{ display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin:.6rem 0 1rem; }
+#dilemas .dil-classmode{ margin-left:auto; font-size:.88rem; color:var(--muted); display:flex; gap:.4rem; align-items:center; cursor:pointer; }
+#dilemas .dil-intro{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1rem 1.2rem; margin-bottom:1rem; }
+#dilemas .dil-intro h2{ font-family:var(--serif); font-size:1.35rem; margin:0 0 .3rem; }
+#dilemas .dil-intro p{ margin:.3rem 0; line-height:1.55; }
+#dilemas .dil-progress{ color:var(--muted); font-size:.9rem; }
+#dilemas .dil-cierre{ font-family:var(--serif); font-style:italic; border-left:3px solid var(--ipc); padding-left:.8rem; }
+#dilemas .dil-play{ display:flex; align-items:center; gap:.7rem; flex-wrap:wrap; width:100%; margin-bottom:1rem;
+  padding:.9rem 1.2rem; border:0; border-radius:var(--radius); cursor:pointer; font:inherit; color:var(--on-accent);
+  background:linear-gradient(120deg, var(--accent), var(--accent-2)); box-shadow:var(--shadow); text-align:left; }
+#dilemas .dil-play b{ font-family:var(--serif); font-size:1.15rem; }
+#dilemas .dil-play span:last-child{ opacity:.85; font-size:.9rem; }
+#dilemas .dil-play:hover{ filter:brightness(1.05); }
+#dilemas .dil-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:.7rem; }
+#dilemas .dil-card{ display:flex; flex-direction:column; gap:.35rem; align-items:flex-start; text-align:left; font:inherit; color:var(--ink);
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:.9rem 1rem; cursor:pointer;
+  transition:transform .12s, border-color .15s, box-shadow .15s; }
+#dilemas .dil-card:hover{ transform:translateY(-2px); border-color:var(--ipc); box-shadow:var(--shadow); }
+#dilemas .dil-emoji{ font-size:1.8rem; line-height:1; }
+#dilemas .dil-emoji.big{ font-size:3rem; }
+#dilemas .dil-tag{ font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+#dilemas .dil-title{ font-family:var(--serif); font-weight:600; font-size:1.08rem; line-height:1.25; }
+#dilemas .dil-badge{ margin-top:auto; font-size:.78rem; border-radius:999px; padding:.15rem .6rem; border:1px solid var(--line); color:var(--muted); }
+#dilemas .dil-badge.dil-a{ color:var(--dil-a); background:var(--dil-a-bg); border-color:transparent; }
+#dilemas .dil-badge.dil-b{ color:var(--dil-b); background:var(--dil-b-bg); border-color:transparent; }
+
+/* un dilema */
+#dilemas .dil-back{ margin-bottom:.8rem; display:inline-block; }
+#dilemas .dil-one{ display:flex; flex-direction:column; gap:1rem; }
+#dilemas .dil-head{ display:flex; gap:1rem; align-items:center; }
+#dilemas .dil-head h2{ font-family:var(--serif); font-size:1.7rem; margin:.1rem 0 0; line-height:1.15; }
+#dilemas .dil-sit, #dilemas .dil-think, #dilemas .dil-ysi, #dilemas .dil-why{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1rem 1.2rem; }
+#dilemas .dil-sit{ background:var(--surface-2); }
+#dilemas h3{ font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 .4rem; }
+#dilemas .dil-sit p{ font-size:1.08rem; line-height:1.6; margin:0; }
+#dilemas .dil-ask{ font-weight:600; margin:0; }
+#dilemas .dil-opts{ display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
+#dilemas .dil-opt{ display:flex; gap:.8rem; align-items:flex-start; text-align:left; font:inherit; font-size:1.02rem; line-height:1.45; color:var(--ink);
+  border:2px solid transparent; border-radius:var(--radius); padding:1rem; cursor:pointer; transition:transform .12s, opacity .2s, border-color .15s; }
+#dilemas .dil-opt.dil-a{ background:var(--dil-a-bg); }
+#dilemas .dil-opt.dil-b{ background:var(--dil-b-bg); }
+#dilemas .dil-opt:hover{ transform:translateY(-2px); }
+#dilemas .dil-opt.dil-a.sel{ border-color:var(--dil-a); }
+#dilemas .dil-opt.dil-b.sel{ border-color:var(--dil-b); }
+#dilemas .dil-opt.dim{ opacity:.55; }
+#dilemas .dil-letter{ flex:none; font-family:var(--serif); font-weight:700; font-size:1.6rem; line-height:1; width:2.2rem; height:2.2rem; border-radius:50%;
+  display:grid; place-items:center; color:#fff; }
+#dilemas .dil-a .dil-letter{ background:var(--dil-a); }
+#dilemas .dil-b .dil-letter{ background:var(--dil-b); }
+:root[data-theme="dark"] #dilemas .dil-letter{ color:#141519; }
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) #dilemas .dil-letter{ color:#141519; } }
+#dilemas .dil-why label{ display:block; margin-bottom:.4rem; line-height:1.45; }
+#dilemas .dil-why textarea{ width:100%; box-sizing:border-box; font:inherit; color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:10px; padding:.6rem .7rem; resize:vertical; }
+#dilemas .dil-next{ margin-top:.7rem; font:inherit; cursor:pointer; border:0; border-radius:999px; padding:.55rem 1.1rem; color:var(--on-accent); background:var(--accent); }
+#dilemas .dil-next:hover{ filter:brightness(1.06); }
+#dilemas .dil-think p, #dilemas .dil-ysi p{ line-height:1.55; margin:.4rem 0; }
+#dilemas .dil-think ol{ margin:.5rem 0 .2rem 1.2rem; line-height:1.55; }
+#dilemas .dil-think li{ margin:.3rem 0; }
+#dilemas .dil-dato{ font-size:.95rem; color:var(--muted); }
+#dilemas .dil-ysi{ border-color:var(--ipc); }
+#dilemas .dil-keep{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.5rem; }
+#dilemas .dil-foot{ display:flex; justify-content:flex-end; }
+
+/* modo clase: votos */
+#dilemas .dil-votes{ display:flex; flex-direction:column; gap:.4rem; background:var(--surface); border:1px dashed var(--line); border-radius:var(--radius); padding:.7rem 1rem; }
+#dilemas .dil-vrow{ display:flex; align-items:center; gap:.5rem; }
+#dilemas .dil-vrow > b{ width:1.2rem; font-family:var(--serif); font-size:1.2rem; }
+#dilemas .dil-vrow.dil-a > b{ color:var(--dil-a); }
+#dilemas .dil-vrow.dil-b > b{ color:var(--dil-b); }
+#dilemas .vbtn{ font:inherit; width:2rem; height:2rem; border-radius:50%; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); cursor:pointer; }
+#dilemas .vbar{ flex:1; height:.8rem; border-radius:999px; background:var(--surface-2); overflow:hidden; }
+#dilemas .vbar span{ display:block; height:100%; transition:width .25s; }
+#dilemas .dil-a .vbar span{ background:var(--dil-a); }
+#dilemas .dil-b .vbar span{ background:var(--dil-b); }
+#dilemas .vnum{ min-width:5.5rem; text-align:right; font-variant-numeric:tabular-nums; font-size:.9rem; color:var(--muted); }
+#dilemas .dil-votes .linkbtn{ align-self:flex-end; font-size:.85rem; }
+
+@media (max-width:640px){
+  #dilemas .dil-opts{ grid-template-columns:1fr; }
+  #dilemas .dil-head h2{ font-size:1.35rem; }
+  #dilemas .dil-emoji.big{ font-size:2.4rem; }
+  #dilemas .dil-classmode{ margin-left:0; width:100%; }
+}
+@media (prefers-reduced-motion: reduce){ #dilemas .dil-card, #dilemas .dil-opt, #dilemas .vbar span{ transition:none; } }
+/* ===== Bachillerato (25-09): pregunta de fondo, escuelas, debate de época, reflexión PAU ===== */
+#dilemas .dil-preg{ font-size:1.05rem; }
+#dilemas .dil-esc, #dilemas .dil-debate, #dilemas .dil-pau{ margin:1rem 0; padding:.9rem 1rem; border:1px solid var(--line); border-radius:12px; background:var(--surface); }
+#dilemas .dil-esc h3, #dilemas .dil-debate h3, #dilemas .dil-pau h3{ margin:0 0 .5rem; font-size:1rem; }
+#dilemas .dil-esc ul{ list-style:none; margin:0; padding:0; display:grid; gap:.6rem; }
+#dilemas .dil-esc li{ display:flex; gap:.7rem; align-items:flex-start; }
+#dilemas .dil-esc li .dil-letter{ flex:0 0 auto; width:1.7rem; height:1.7rem; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-weight:700; }
+#dilemas .dil-esc li.dil-a .dil-letter{ background:var(--accent); color:var(--on-accent); }
+#dilemas .dil-esc li.dil-b .dil-letter{ background:var(--ink); color:var(--bg); }
+#dilemas .dil-esc li a{ text-decoration:underline; text-underline-offset:2px; }
+#dilemas .dil-debate .dil-epoca{ margin:0 0 .4rem; color:var(--muted); font-size:.9rem; text-transform:uppercase; letter-spacing:.04em; }
+#dilemas .dil-debate blockquote{ margin:.3rem 0 .5rem; padding:.2rem 0 .2rem .9rem; border-left:3px solid var(--accent); font-style:italic; }
+#dilemas .dil-debate .dil-fuente{ margin:0; color:var(--muted); font-size:.9rem; }
+#dilemas .dil-debate .dil-teo{ margin:.5rem 0 0; }
+#dilemas .dil-pau{ border-color:var(--accent); }
+#dilemas .dil-pau p{ margin:0; }
