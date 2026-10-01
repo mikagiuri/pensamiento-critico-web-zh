@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body style="margin:0">
+<title>理由的较量</title>
+<meta name="description" content="批判性思维辩论游戏：围绕一个主题展开对话，你要决定是指出对手的谬误，还是用更有力的理由反击，同时不失沉着。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Spline+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Layout: un hilo de conversación con el medidor de público y el temple arriba, y abajo tus dos jugadas. */
+  :root{
+    --bg:#e8eaf0; --surface:#ffffff; --surface-2:#f1f2f7; --ink:#191d28; --muted:#5a6173;
+    --line:#d3d7e2; --accent:#4356d6; --good:#15806a; --good-ink:#0a4b3e; --bad:#c4362a; --bad-ink:#7c1d16;
+    --warn:#b5691a; --cpu-bubble:#eceef5; --paper:#faf7ef; --paper-line:#e7dfcb; --shadow:0 10px 30px rgba(20,25,45,.12);
+    --fdisp:"Bricolage Grotesque",Georgia,serif; --fbody:"Spline Sans",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#11141c; --surface:#1a1f2b; --surface-2:#222838; --ink:#e9ebf2; --muted:#9aa2b5;
+    --line:#2d3446; --accent:#8a97f5; --good:#4cc3a3; --good-ink:#b8f0e2; --bad:#f08478; --bad-ink:#ffd6cf;
+    --warn:#e2a15a; --cpu-bubble:#232a39; --paper:#20242f; --paper-line:#333a4c; --shadow:0 10px 30px rgba(0,0,0,.4); color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#11141c; --surface:#1a1f2b; --surface-2:#222838; --ink:#e9ebf2; --muted:#9aa2b5;
+    --line:#2d3446; --accent:#8a97f5; --good:#4cc3a3; --good-ink:#b8f0e2; --bad:#f08478; --bad-ink:#ffd6cf;
+    --warn:#e2a15a; --cpu-bubble:#232a39; --paper:#20242f; --paper-line:#333a4c; --shadow:0 10px 30px rgba(0,0,0,.4); color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--fbody);line-height:1.5;margin:0}
+  .wrap{max-width:720px;margin:0 auto;padding-block:20px;padding-inline:16px}
+  h1,h2,h3{font-family:var(--fdisp);text-wrap:balance;margin:0}
+  button{font-family:var(--fbody);cursor:pointer}
+  .btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;
+    padding:12px 16px;font-size:1rem;font-weight:600;transition:transform .08s,border-color .15s,background .15s;width:100%}
+  .btn:hover{border-color:var(--accent)}
+  .btn:active{transform:translateY(1px)}
+  .btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn-primary:hover{filter:brightness(1.05)}
+  .center{text-align:center}
+
+  .intro{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 22px;box-shadow:var(--shadow)}
+  .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .intro h1{font-size:clamp(2rem,7vw,3rem);margin:6px 0 10px;line-height:1.02}
+  .lede{color:var(--muted);font-size:1.02rem;max-width:56ch;margin:0 auto}
+  .rules{display:grid;gap:10px;margin:22px 0;text-align:left}
+  .rule{display:flex;gap:12px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .rule .n{font-family:var(--fdisp);font-weight:800;color:var(--accent);font-size:1.3rem;line-height:1;min-width:1.2em}
+  .rule p{margin:0;font-size:.95rem}
+  .pick{display:grid;gap:10px;margin-top:6px;text-align:left}
+  .pick .btn{width:100%}
+  .pick .sides{display:block;color:var(--muted);font-weight:500;font-size:.82rem;margin-top:3px}
+
+  .hud{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+  .temple{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px 12px;text-align:center;min-width:92px}
+  .temple .who{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .temple .dots{font-size:1.05rem;letter-spacing:2px;line-height:1.2}
+  .temple.low{border-color:var(--bad)} .temple.low .who{color:var(--bad)}
+  .turnlbl{font-size:.82rem;color:var(--muted);font-weight:600}
+  .turnlbl b{color:var(--ink);font-family:var(--fdisp)}
+
+  .meter-wrap{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px}
+  .meter-top{display:flex;justify-content:space-between;font-size:.72rem;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .meter-top .you{color:var(--good)} .meter-top .cpu{color:var(--bad)}
+  .meter{height:12px;border-radius:999px;background:color-mix(in srgb,var(--bad) 35%,var(--surface-2));overflow:hidden;position:relative}
+  .meter .fill{height:100%;background:var(--good);border-radius:999px;transition:width .5s ease}
+  .meter .mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;background:var(--line)}
+
+  .theme-topic{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:.9rem}
+  .theme-topic b{font-family:var(--fdisp)}
+  .theme-topic .you-side{color:var(--good);font-weight:600}
+
+  .thread{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;max-height:46vh;overflow-y:auto;padding:2px}
+  .bubble{max-width:88%;padding:11px 14px;border-radius:14px;font-size:.98rem;line-height:1.4}
+  .bubble .nm{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:3px;opacity:.8}
+  .bubble.cpu{align-self:flex-start;background:var(--cpu-bubble);border:1px solid var(--line);border-bottom-left-radius:4px}
+  .bubble.cpu .nm{color:var(--bad)}
+  .bubble.you{align-self:flex-end;background:color-mix(in srgb,var(--good) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--good) 40%,var(--line));border-bottom-right-radius:4px}
+  .bubble.you .nm{color:var(--good-ink)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bubble.you .nm{color:var(--good)}}
+  :root[data-theme="dark"] .bubble.you .nm{color:var(--good)}
+  .bubble.latest{box-shadow:0 0 0 2px color-mix(in srgb,var(--bad) 45%,transparent)}
+
+  .phase-tag{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:var(--accent);
+    background:color-mix(in srgb,var(--accent) 12%,transparent);border-radius:999px;padding:5px 12px;margin-bottom:10px}
+  .phase-tag.hot{color:var(--bad);background:color-mix(in srgb,var(--bad) 13%,transparent)}
+  .choices{display:grid;gap:10px}
+  .choice{text-align:left;line-height:1.3}
+  .choice small{display:block;color:var(--muted);font-weight:500;font-size:.82rem;margin-top:3px}
+  .grid-fal{grid-template-columns:1fr 1fr}
+  @media (max-width:470px){.grid-fal{grid-template-columns:1fr}}
+  .btn-a{border-color:var(--bad)} .btn-a:hover{background:color-mix(in srgb,var(--bad) 10%,transparent)}
+  .btn-b{border-color:var(--accent)} .btn-b:hover{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+  .pips{font-size:.8rem;letter-spacing:1px;color:var(--accent);font-weight:700}
+  .back{background:transparent;border:none;color:var(--muted);font-weight:600;font-size:.85rem;width:auto;padding:4px 2px;cursor:pointer}
+
+  .fb{border-radius:16px;padding:16px;margin-top:4px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+  .fb.win{border-color:var(--good);background:color-mix(in srgb,var(--good) 9%,var(--surface))}
+  .fb.lose{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 9%,var(--surface))}
+  .fb.mid{border-color:var(--warn)}
+  .fb .head{font-family:var(--fdisp);font-weight:800;font-size:1.1rem;display:flex;align-items:center;gap:8px}
+  .fb.win .head{color:var(--good-ink)} .fb.lose .head{color:var(--bad-ink)} .fb.mid .head{color:var(--warn)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fb.win .head{color:var(--good)} :root:not([data-theme="light"]) .fb.lose .head{color:var(--bad)}}
+  :root[data-theme="dark"] .fb.win .head{color:var(--good)} :root[data-theme="dark"] .fb.lose .head{color:var(--bad)}
+  .fb .name{margin-top:7px}
+  .fb .desmonta{margin-top:8px;font-size:.92rem;background:var(--surface-2);border-radius:10px;padding:9px 12px}
+  .fb .desmonta b{color:var(--accent)}
+  .fb .schop{margin-top:8px;font-size:.82rem;color:var(--muted)} .fb .schop b{color:var(--warn)}
+  .fb .delta{font-weight:700;font-family:var(--fdisp)} .fb .delta.pos{color:var(--good)} .fb .delta.neg{color:var(--bad)}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .brand{font-family:var(--fdisp);font-weight:800}
+  .brand .accent{color:var(--accent)}
+  .ghost{background:transparent;border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:.82rem;font-weight:600;color:var(--muted);width:auto}
+  .foot{margin-top:18px;text-align:center;font-size:.78rem;color:var(--muted)}
+  .fade{animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.fade{animation:none}}
+  .verdict{font-family:var(--fdisp);font-weight:800;font-size:2rem;margin:6px 0}
+  .verdict.win{color:var(--good)} .verdict.lose{color:var(--bad)} .verdict.tie{color:var(--warn)}
+</style>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">理由的<span class="accent">较量</span></div>
+    <button class="ghost" id="theme">主题 ◐</button>
+  </div>
+  <div id="app"></div>
+  <div class="foot">批判性思维 · 中学二年级（2.º ESO） · 马丁·德·贝尔滕多纳中学（IES Martín de Bertendona）。识破陷阱的人未必总是赢家：有时赢的是用理由打得更狠的人。</div>
+</div>
+
+<script>
+/* ---------- Las 10 falacias ---------- */
+const FALACIAS = {
+  persona:{nombre:"攻击对方本人", tec:"ad hominem（人身攻击）", q:"一个人是什么样，跟他的想法好不好有什么关系？"},
+  famoso: {nombre:"名人这么说", tec:"虚假权威", q:"他真的是这方面的专家，还是只是出名而已？"},
+  siempre:{nombre:"一直都是这么做的", tec:"诉诸传统", q:"由来已久，就说明它是好的吗？"},
+  pena:   {nombre:"用博同情代替讲理由", tec:"诉诸怜悯", q:"他给了我一个理由，还是只想博取我的同情？"},
+  deformar:{nombre:"歪曲你说过的话", tec:"稻草人谬误", q:"我真的说过那话吗，还是他夸大了来好攻击？"},
+  pocos:  {nombre:"凭几个例子就推及全部", tec:"草率概括", q:"凭几个例子？真的适用于所有情况吗？"},
+  causa:  {nombre:"后发生就当成是原因", tec:"虚假因果", q:"有证据表明一个导致另一个吗，还是只是先后出现？"},
+  dos:    {nombre:"只有两个选项", tec:"虚假两难", q:"你确定没有别的选项了吗？"},
+  miedo:  {nombre:"用恐吓来说服", tec:"诉诸恐惧", q:"他给了我一个理由，还是只在吓唬我？"},
+  todos:  {nombre:"大家都这么说", tec:"ad populum（诉诸大众）", q:"很多人都这么做，就让它成为真理了吗？"},
+  notrue: {nombre:"随意重新定义", tec:"«no true scotsman»（没有真正的苏格兰人）", q:"你改定义只是为了躲开反例吗？（苏格拉底接受了这个区分……然后反将了一军。）"},
+};
+const ORDEN_FAL = ["persona","famoso","siempre","pena","deformar","pocos","causa","dos","miedo","todos","notrue"];
+const FIBRA = new Set(["persona"]); // falacias que, además de trampa, son una falta de respeto: cuestan temple aunque las caces
+
+/* ---------- Estratagemas eristas: atacan el temple, no el tema ---------- */
+const ESTRAT = {
+  insulto:  {t:"“你真的这么想？看不出来的人得多蠢啊。算了吧，别说了。”", nombre:"辱骂", schop:"第38计，即「最后手段」", q:"这不是理由，是辱骂。请他谈主题，而不是谈你。"},
+  ira:      {t:"“当然啦，你干什么都慢吞吞的；想不通也正常。”", nombre:"激怒对方", schop:"第8计", q:"「人一发怒，就判断不清。」深呼吸：别上钩。"},
+  persona:  {t:"“你对人生一无所知，所以这件事还是别发表意见了。”", nombre:"人身攻击", schop:"ad hominem（人身攻击），第21计", q:"由你说出来，并不会改变这想法是好是坏。"},
+  categoria:{t:"“你说的这种话就是个法西斯分子才说得出来。只有废物才会这么想。”", nombre:"硬扣上一顶可憎的帽子", schop:"归入某个可憎的类别", q:"贴标签驳不倒任何东西。理由在哪里？"},
+  miedo:    {t:"“你要是再跟我唱反调，就等着没朋友吧。”", nombre:"威胁", schop:"诉诸恐惧（ad baculum，诉诸武力）", q:"恐惧不是理由。他说的凭什么是真的？"},
+  desvio:   {t:"“那你呢？那天你还不是一样。我们不如来说说这个。”", nombre:"转移话题并反指你", schop:"第18计和第29计", q:"我有错，并不能回答这个问题。回到主题吧。"},
+  autoridad:{t:"“这可是一位诺贝尔奖得主说的，早就被证实了。没什么好谈的。”", nombre:"搬出权威让你闭嘴", schop:"第30计", q:"谁说的、在哪说的、为什么？没有理由的引用，不能终结讨论。"},
+};
+const ORDEN_ESTRAT = Object.keys(ESTRAT);
+const REACCIONES = [
+  {lbl:"你也回敬他一句辱骂", t:"“切，你才更蠢呢，少来了！”"},
+  {lbl:"认输，随他去说", t:"“行行行……你说什么都对。”"},
+  {lbl:"逃避话题", t:"“算了，我们说点别的吧。”"},
+];
+
+/* ---------- Temas de debate. cpu defiende una postura; tú la contraria. ----------
+   opp: argumentos del ordenador. f=null es limpio; con f es falacia, y peso (1-3) = cuánto se apoya su postura en esa trampa.
+   counters: tus contraargumentos. str (1-3) = fuerza; con f es un contraargumento tramposo que te saldrá mal. */
+const TEMAS = [
+ {nivel:["eso"], claim:"手机该不该放在教室外？",
+  cpuLado:"电脑一方主张：«课堂上手机应当自由使用»。",
+  tuLado:"你主张：«最好放在教室外»。",
+  opp:[
+   {t:"手机能让你随时查词典、用计算器；用得好就是一种学习工具。", f:null},
+   {t:"一位科技大咖在演讲里说过：禁用手机是数字文盲的做法。", f:"famoso", peso:1},
+   {t:"所有现代化的学校都已经在用了；落在后面就太土了。", f:"todos", peso:2},
+   {t:"要么手机自由使用，要么就养出一群没法在21世纪生活的孩子。", f:"dos", peso:3},
+   {t:"我认识两个人靠在手机上查东西考及格了；可见它对所有人都有帮助。", f:"pocos", peso:2},
+   {t:"如果我们教他们有规矩地使用，他们比完全禁用更能学会自我约束。", f:null},
+  ],
+  counters:[
+   {t:"在收走手机的那些班级里，注意力提高了，作弊减少了：这是有数据的。", str:3},
+   {t:"有用的工具可以在特定时刻用，而不是整节课都带在身上。", str:2},
+   {t:"真有需要，学校有平板可用，而且没有私人通知来打扰。", str:2},
+   {t:"很多人乐意有一段时间断开连接；教室可以是这样一个地方。", str:1},
+   {t:"要么手机放外面，要么这里就成了网吧，没人学得进去。", f:"dos"},
+   {t:"我叔叔说的，他当了30年老师，所以就该放外面，没什么好说的。", f:"famoso"},
+  ]},
+ {nivel:["eso"], claim:"每天吃快餐合适吗？",
+  cpuLado:"电脑一方主张：«合适，没问题，天天吃»。",
+  tuLado:"你主张：«偶尔吃可以，天天吃不行»。",
+  opp:[
+   {t:"它又便宜又快；对时间少的人来说，一顿饭就解决了。", f:null},
+   {t:"全世界最有名的足球运动员代言它，所以也不会太糟吧。", f:"famoso", peso:1},
+   {t:"全班每周五都去那儿吃；总有道理吧。", f:"todos", peso:2},
+   {t:"我表哥天天吃汉堡，壮得很：这种吃法让人强壮。", f:"causa", peso:2},
+   {t:"要么吃这个，要么饿肚子；没有别的便宜选择。", f:"dos", peso:3},
+   {t:"别夺走我一天里唯一的乐趣嘛，我过得已经够惨了。", f:"pena", peso:1},
+  ],
+  counters:[
+   {t:"标签上写着，一份套餐几乎含有一整天的盐和脂肪：天天吃是要付代价的。", str:3},
+   {t:"偶尔吃一次不是问题；问题是天天吃。", str:2},
+   {t:"用每天一份套餐的钱，一周能做出花样更多、更省钱的饭菜。", str:2},
+   {t:"三明治和水果一样快，而且更便宜。", str:1},
+   {t:"我认识一个人吃那个吃病了；可见凡是吃它的人都会生病。", f:"pocos"},
+   {t:"你要是再吃那个，肯定得进医院。", f:"miedo"},
+  ]},
+ {nivel:["eso"], claim:"我们今天就领养一只宠物吧？",
+  cpuLado:"电脑一方主张：«好，就今天»。",
+  tuLado:"你主张：«先好好准备，别今天就冲动领养»。",
+  opp:[
+   {t:"收容所里有动物需要尽快有个家；等待对它们也是煎熬。", f:null},
+   {t:"你看它这小脸蛋；今天不把它带回来，我会难过死的。", f:"pena", peso:2},
+   {t:"我们家一直都养狗，所以现在就得养一只。", f:"siempre", peso:1},
+   {t:"我所有朋友都有宠物；就我一个没有。", f:"todos", peso:1},
+   {t:"要么今天领养，要么我们就永远养不上宠物了。", f:"dos", peso:3},
+   {t:"兽医说要再等等，可她又没孩子，哪懂什么家庭。", f:"persona", peso:2},
+  ],
+  counters:[
+   {t:"一只狗能活十到十五年，每天都要喂食、遛它、付兽医费：这得提前安排好。", str:3},
+   {t:"等我们弄清楚每天谁来遛它，就可以领养；这是做准备，不是放弃。", str:2},
+   {t:"要是没计划就把它带回来，之后又照顾不了，最遭罪的是那只动物。", str:2},
+   {t:"花一周时间准备好房子和日程，也不算多。", str:1},
+   {t:"这么说，照你看动物一点都不重要咯。", f:"deformar"},
+   {t:"一位网红兽医说越早越好，所以就今天。", f:"famoso"},
+  ]},
+ {nivel:["fil","hf"], claim:"正义只是强者的利益吗？· 苏格拉底 对 色拉叙马霍斯",
+  cpuLado:"电脑一方是色拉叙马霍斯：不正义更划算也更幸福；正义只为有权势者服务。",
+  tuLado:"你是苏格拉底：正义是一种美德，让拥有它的人受益，正义的生活更幸福。",
+  estrat:[
+   {t:"他像头野兽一样闯进来：“你们从头到尾讲的都是一堆蠢话！”", nombre:"粗暴登场", schop:"在论证之前先恐吓", q:"语气不是论证。他对主题有什么要说的？"},
+   {t:"他放声大笑：“瞧，苏格拉底又在耍他那套反讽了；我就知道你会溜掉。”", nombre:"嘲笑", schop:"用奚落代替反驳", q:"嘲笑驳不倒任何东西。请他给出理由。"},
+   {t:"“苏格拉底，你还有奶妈吗？因为她把你鼻涕挂着也不给你擦。”", nombre:"奶妈式辱骂", schop:"第38计，即「最后手段」", q:"这是辱骂，不是回答。回到主题。"},
+  ],
+  opp:[
+   {t:"正义的人总是吃亏：做生意不骗人，照章纳税，执政时让别人得益而非自己。", f:null},
+   {t:"当一个医生犯错时，那一刻他就不是在以医生的身份行事。执政者也一样：严格说来，统治者不会犯错。", f:"notrue", peso:1},
+   {t:"你提问只是为了取胜，出于好名；你并不追求真理，所以你的问题不算数。", f:"persona", peso:3},
+   {t:"看看谁成功了：暴君和骗子。明摆着，不正义才让人幸福。", f:"pocos", peso:2},
+   {t:"要么你不正义、捞到好处，要么你正义、被人生吞活剥；没有中间地带。", f:"dos", peso:2},
+   {t:"正义的人是个被剥削的傻瓜；不正义的人是行剥削的聪明人。非此即彼。所以不正义才是美德。", f:"dos", fAlt:["persona"], peso:2},
+  ],
+  counters:[
+   {t:"就连一伙盗贼，彼此之间也需要一点正义才能办成事；不正义让他们内斗并自我毁灭。", str:3},
+   {t:"统治者会犯错，制定出损害自己的法律；那么遵守这些法律就不利于强者了。", str:2},
+   {t:"医生，就其为医生而言，追求的是病人的好处，而非自己的；善于统治的人追求的是被统治者的好处。", str:2},
+   {t:"如果灵魂的功能是活着，而正义是灵魂的美德，那么正义的人活得好；活得好就是幸福。", str:2},
+   {t:"诡辩家收钱教人在没理时也能显得有理；我们怎么能信你呢？", f:"persona"},
+   {t:"要么你承认正义是一种美德，要么你就得承认你希望自己被偷；选一个。", f:"dos"},
+  ]},
+ {nivel:["hf"], claim:"无神论之争（Atheismusstreit，1798）：把上帝等同于世界的道德秩序，是无神论吗？",
+  cpuLado:"电脑一方是费希特的控告者：那就是无神论，而无神论必须被禁止。",
+  tuLado:"你是费希特：值得信仰的上帝，就是世界那活生生的道德秩序；一个作为独立「物」的上帝，反倒是偶像。",
+  estrat:[
+   {t:"一份匿名小册子在流传，《一位父亲给求学儿子的信》：谁读你的杂志，就会失去信仰和灵魂。", nombre:"匿名小册子", schop:"不露面地攻击（投毒于井）", q:"在暗处指控的人并没有论证。他主张什么，又有什么证据？"},
+   {t:"萨克森政府威胁要没收这本杂志，并惩罚阅读它的人。", nombre:"审查的威胁", schop:"用强力代替理由（ad baculum，诉诸武力）", q:"封堵一个观点驳不倒它。论证在哪里？"},
+   {t:"“无神论者！”这个词就够了；跟你没什么好谈的。", nombre:"污名化的标签", schop:"归入某个可憎的类别", q:"贴标签驳不倒任何东西。我说的究竟是什么意思？"},
+  ],
+  opp:[
+   {t:"一个既非实体、又非位格、也非创造者，而只是「道德秩序」的上帝，跟根本没有上帝有什么区别？", f:null},
+   {t:"费希特说上帝只是我们构想出的一个观念；也就是说，他否认上帝。他是个无神论者。", f:"deformar", peso:3},
+   {t:"如果你去掉位格的上帝，道德、誓言和国家都会崩塌。必须马上禁止。", f:"miedo", peso:3},
+   {t:"费希特是个雅各宾党人，是个捣乱分子；这种人能搞出什么样的哲学，大家都清楚。", f:"persona", peso:2},
+   {t:"全体基督徒所信奉的教理问答说，上帝是位格、是创造者；他算什么，竟敢来修改它？", f:"siempre", peso:1},
+   {t:"所有正派人都被那本杂志惊到了；总有道理吧。", f:"todos", peso:1},
+  ],
+  counters:[
+   {t:"真正的上帝是世界那活生生的道德秩序，是你行善时所信赖的东西：这不是「我的一个观念」，而是最真实的存在。", str:3},
+   {t:"把上帝变成一个物或一个位格，变成众多存在者中的又一个，是把它贬为偶像；否认那个偶像，不等于否认上帝。", str:3},
+   {t:"用审查来惩罚一个观点，驳不倒它：我若错了，就请证明，而不是堵住我的嘴。", str:2},
+   {t:"请评判我的理由，别评判我的政治立场：我是不是雅各宾党人，并不说明我有没有理。", str:2},
+   {t:"要么你们全盘接受我的唯心论，要么你们就是一群迷信的狂热分子。", f:"dos"},
+   {t:"指控我的人是个无知的神父，连一行康德都没读过。", f:"persona"},
+  ]},
+];
+
+// Nivel de cada tema: cada objeto de TEMAS trae su `nivel`. Se filtra según la web por el hash del enlace (#eso/#fil/#hf; sin hash, todos).
+TEMAS.forEach(t=>{ if(!t.nivel) t.nivel=["eso","fil","hf"]; });
+const LEVELS=["eso","fil","hf"];
+function activeLevel(){ try{ const h=(location.hash||"").replace("#","").toLowerCase(); return LEVELS.includes(h)?h:null; }catch(e){ return null; } }
+
+const MAXT = 6;
+let S=null, _seed=1;
+function rnd(){ _seed=(_seed*1103515245+12345)&0x7fffffff; return _seed/0x7fffffff; }
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const app=()=>document.getElementById('app');
+
+function freshState(ti){
+  return {ti, meter:50, temple:3, lastHit:false, turno:0, thread:[], move:null, hand:null,
+          fase:"turn", _oppQueue:shuffle(TEMAS[ti].opp.map((_,i)=>i))};
+}
+function clamp(v){ return Math.max(0,Math.min(100,v)); }
+
+function render(){
+  if(!S || S.fase==="intro") return renderIntro();
+  if(S.fase==="end") return renderEnd();
+  renderGame();
+}
+
+function renderIntro(){
+  app().innerHTML = `
+   <div class="intro fade">
+     <div class="center">
+       <div class="eyebrow">辩论游戏 · 一场对话，一个主题</div>
+       <h1>辩论并说服</h1>
+       <p class="lede">你就一个主题与电脑辩论，一个指示器标示着公众正被谁说服。每一回合，面对对方刚说的话，你来选择自己的出招。</p>
+     </div>
+     <div class="rules">
+       <div class="rule"><span class="n">A</span><p><b>指出谬误。</b> 如果他的论证耍了花招，你就点出它的名字，逼他去为它辩护。当这个花招正是他立场的核心时，这一招会给他造成重创。</p></div>
+       <div class="rule"><span class="n">B</span><p><b>反驳。</b> 你放过他的这一招，用你自己的一个理由来回应。如果理由够强，比起纠缠着去纠正一个小花招，它更能说服人……但如果理由很弱，而他的花招又很大，你就会被压垮。</p></div>
+       <div class="rule"><span class="n">♦</span><p><b>沉着。</b> 当别人不尊重你、戳你痛处时（辱骂、威胁、人身攻击），你会失去沉着，即便你识破了这一招：这一击照样会痛。它不会自行恢复，所以会不断累积。归零时你就会失去理智（你只能骂回去、认输或逃避）；这时就停下来深呼吸，找回一点冷静。</p></div>
+     </div>
+     <div class="center" style="font-weight:600;margin:4px 0 8px">选择本局的主题：</div>
+     <div class="pick">
+       ${TEMAS.map((t,i)=>({t,i})).filter(({t})=>{const L=activeLevel();return !L||(t.nivel&&t.nivel.includes(L));}).map(({t,i})=>`<button class="btn" data-ti="${i}">${t.claim}<span class="sides">${t.tuLado}</span></button>`).join('')}
+     </div>
+   </div>`;
+  app().querySelectorAll('[data-ti]').forEach(b=>b.onclick=()=>{ _seed=(Date.now()&0x7fffffff)||1; S=freshState(+b.dataset.ti); S.fase="turn"; nextTurn(true); });
+}
+
+function pushThread(side, text, nm){ S.thread.push({side, text, nm}); }
+
+function nextTurn(first){
+  if(S.turno>=MAXT){ S.fase="end"; return render(); }
+  // el temple ya no se rellena solo: los golpes se acumulan y solo se recupera parando a respirar (a cero)
+  // elige jugada del ordenador
+  const T=TEMAS[S.ti];
+  if(!first && rnd()<0.32){
+    const pool = (T.estrat && T.estrat.length) ? T.estrat : ORDEN_ESTRAT.map(k=>ESTRAT[k]);
+    const e = pool[Math.floor(rnd()*pool.length)];
+    S.move={kind:"estrat", e, t:e.t};
+  } else {
+    if(!S._oppQueue.length) S._oppQueue=shuffle(TEMAS[S.ti].opp.map((_,i)=>i));
+    const idx=S._oppQueue.shift();
+    const m=T.opp[idx];
+    S.move={kind:"arg", t:m.t, f:m.f, peso:m.peso||0};
+  }
+  S.lastHit = (S.move.kind==="estrat");
+  pushThread("cpu", S.move.t, "电脑");
+  S.fase="turn";
+  render();
+}
+
+function hud(){
+  const T=TEMAS[S.ti], you=S.meter, cpu=100-S.meter;
+  return `<div class="hud">
+      <div class="turnlbl">发言 <b>${Math.min(S.turno+1,MAXT)}</b> / ${MAXT}</div>
+      <div class="temple ${S.temple<=1?'low':''}"><div class="who">沉着</div><div class="dots" style="color:${S.temple<=1?'var(--bad)':'var(--good)'}">${"♦".repeat(S.temple)+"♢".repeat(3-S.temple)}</div></div>
+    </div>
+    <div class="meter-wrap">
+      <div class="meter-top"><span class="you">你 ${you}%</span><span>公众的信服度</span><span class="cpu">电脑 ${cpu}%</span></div>
+      <div class="meter"><div class="fill" style="width:${you}%"></div><div class="mid"></div></div>
+    </div>
+    <div class="theme-topic"><b>${T.claim}</b> &nbsp;·&nbsp; <span class="you-side">${T.tuLado}</span></div>`;
+}
+
+function threadHTML(){
+  return `<div class="thread" id="thread">`+
+    S.thread.map((m,i)=>`<div class="bubble ${m.side} ${i===S.thread.length-1 && m.side==='cpu'?'latest':''}"><div class="nm">${m.side==='cpu'?'电脑':'你'}</div>${m.text}</div>`).join('')+
+    `</div>`;
+}
+
+function renderGame(){
+  let html=hud()+threadHTML();
+  if(S.fase==="turn"){
+    if(S.temple<=0){
+      html+=`<div class="phase-tag hot">🥵 你失去了理智 —— 你要怎么回应？</div><div class="choices fade">`;
+      html+=`<button class="btn btn-primary choice" id="respira">停下来深呼吸<small>不在火头上回应；找回冷静</small></button>`;
+      REACCIONES.forEach((r,i)=>{ html+=`<button class="btn btn-a choice" data-rx="${i}">${r.lbl}<small>${r.t}</small></button>`; });
+      html+=`</div>`;
+      app().innerHTML=html; scrollThread();
+      document.getElementById('respira').onclick=()=>{ S.temple=1;
+        showFB("mid","你及时停下来了。",`这次你没抢到地盘，但找回了冷静。有时候，最聪明的做法就是不在火头上回应。`,{},0,()=>{ S.turno++; nextTurn(false); }); };
+      app().querySelectorAll('[data-rx]').forEach(b=>b.onclick=()=>reaccion(+b.dataset.rx));
+      return;
+    }
+    const hot=S.move.kind==="estrat";
+    html+=`<div class="phase-tag ${hot?'hot':''}">${hot?'💢 他在挑衅你 —— 回应':'轮到你了 —— 你怎么回应？'}</div>`;
+    html+=`<div class="choices fade">
+       <button class="btn btn-a choice" data-act="a">${hot?'指出这是花招（不是论证）':'指出谬误，逼他为之辩护'}<small>${hot?'你告诉他这并没有回应主题':'你点出它的名字；如果它是他立场的核心，就重创他'}</small></button>
+       <button class="btn btn-b choice" data-act="b">用你自己的一个理由来反驳<small>你放过他这一招，用你自己的理由出击</small></button>
+     </div>`;
+    app().innerHTML=html; scrollThread();
+    app().querySelector('[data-act="a"]').onclick=()=>chooseA();
+    app().querySelector('[data-act="b"]').onclick=()=>chooseB();
+
+  } else if(S.fase==="name"){
+    html+=`<div class="phase-tag">🎯 这是哪种谬误？点出它的名字来拆穿它</div><div class="choices grid-fal fade">`;
+    ORDEN_FAL.forEach(k=>{ html+=`<button class="btn choice" data-fal="${k}">${FALACIAS[k].nombre}<small>${FALACIAS[k].tec}</small></button>`; });
+    html+=`</div><div style="margin-top:8px"><button class="back" id="back">‹ 返回</button></div>`;
+    app().innerHTML=html; scrollThread();
+    app().querySelectorAll('[data-fal]').forEach(b=>b.onclick=()=>nameFal(b.dataset.fal));
+    document.getElementById('back').onclick=()=>{ S.fase="turn"; render(); };
+
+  } else if(S.fase==="counter"){
+    html+=`<div class="phase-tag">⚔️ 选择你的反驳</div><div class="choices fade">`;
+    S.hand.forEach((c,i)=>{ const pips="●".repeat(c.f?1:c.str)+"○".repeat(3-(c.f?1:c.str));
+      html+=`<button class="btn choice" data-c="${i}" style="padding:14px"><span style="font-family:var(--fdisp);font-weight:600">${c.t}</span><small><span class="pips">${pips}</span> 表面力度</small></button>`; });
+    html+=`</div><div style="margin-top:8px"><button class="back" id="back">‹ 返回</button></div>`;
+    app().innerHTML=html; scrollThread();
+    app().querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>playCounter(+b.dataset.c));
+    document.getElementById('back').onclick=()=>{ S.fase="turn"; render(); };
+  }
+}
+function scrollThread(){ const t=document.getElementById('thread'); if(t) t.scrollTop=t.scrollHeight; }
+
+function chooseA(){
+  if(S.move.kind==="estrat"){
+    const e=S.move.e; S.temple=Math.max(0,S.temple-1);
+    pushThread("you", `那不是论证：那是${e.nombre}。请就主题回答我。`);
+    const d=8; S.meter=clamp(S.meter+d);
+    return showFB("win","你把他顶了回去。",`你指出了${e.nombre}，而没有上钩。公众看在眼里，站到了你这边。即便如此，你还是失去一点沉着：他戳到了你的痛处。`,{q:e.q,schop:e.schop},d);
+  }
+  S.fase="name"; render();
+}
+
+function nameFal(k){
+  const m=S.move, fa=FALACIAS[k];
+  const fibra = m.f && FIBRA.has(m.f); if(fibra) S.temple=Math.max(0,S.temple-1); // te ha faltado al respeto: cuesta temple aunque la caces
+  const notaFibra = fibra ? " 而且，因为这同时也是一种不尊重，即使你识破了，你也会失去一点沉着。" : "";
+  if(m.f===null){
+    pushThread("you", `那是${fa.nombre}。`);
+    const d=-10; S.meter=clamp(S.meter+d);
+    return showFB("lose","那里并没有花招。",`那是一个正当的论证，你却指控它是「${fa.nombre}」。在没有谬误的地方乱指谬误，会显得你在躲避主题，于是公众对你冷淡了下来。`,{},d);
+  }
+  const real=FALACIAS[m.f], alts=m.fAlt||[];
+  if(k===m.f || alts.includes(k)){
+    const elegida=FALACIAS[k];
+    pushThread("you", `那是${elegida.nombre}：${elegida.q}`);
+    const d=6+m.peso*3; S.meter=clamp(S.meter+d);
+    let extra = m.peso>=3?" 这是他整个立场的核心：拆穿它堪称毁灭性的一击。":(m.peso===1?" 这是个小花招，不过也罢，积少成多。":"");
+    if(alts.length){ const todas=[m.f,...alts].map(x=>FALACIAS[x].nombre).join("和"); extra = ` 这张牌同时藏着两个花招（${todas}）：任选其一都算对。`+extra; }
+    return showFB("win","识破了，还叫出了名字！",`那是 <b>${elegida.nombre}</b> <span style="color:var(--muted)">(${elegida.tec})</span>，你逼他去为它辩护。${extra}${notaFibra}`,{q:elegida.q},d);
+  }
+  if(fibra){ pushThread("you", `那是${fa.nombre}……`); const d=3; S.meter=clamp(S.meter+d);
+    return showFB("mid","你看出了那份不尊重，但不是这种谬误。",`那是 <b>${real.nombre}</b> <span style="color:var(--muted)">(${real.tec})</span>，不是「${fa.nombre}」。${notaFibra}`,{q:real.q},d); }
+  pushThread("you", `那是${fa.nombre}……`);
+  const d=3; S.meter=clamp(S.meter+d);
+  showFB("mid","你看出了花招，但不是这一种。",`确实有花招，但不是「${fa.nombre}」：那是 <b>${real.nombre}</b> <span style="color:var(--muted)">(${real.tec})</span>。算你答对一半。`,{q:real.q},d);
+}
+
+function chooseB(){
+  const pool=shuffle(TEMAS[S.ti].counters.slice());
+  // mano de 3 con al menos un contraargumento sólido
+  const solidos=pool.filter(c=>!c.f), tramp=pool.filter(c=>c.f);
+  S.hand=shuffle([solidos[0], solidos[1]||solidos[0], (rnd()<0.6&&tramp[0])?tramp[0]:(solidos[2]||solidos[0])]).slice(0,3);
+  // asegura 3 distintas si se puede
+  S.hand=[...new Set(S.hand)];
+  let pi=0; while(S.hand.length<3 && pi<pool.length){ if(!S.hand.includes(pool[pi])) S.hand.push(pool[pi]); pi++; }
+  S.fase="counter"; render();
+}
+
+function playCounter(i){
+  const c=S.hand[i], m=S.move;
+  if(m.kind==="estrat" || (m.f && FIBRA.has(m.f))) S.temple=Math.max(0,S.temple-1); // una provocación o un ataque personal te tocan la fibra aunque pases de ellos
+  pushThread("you", c.t);
+  if(c.f){
+    const fa=FALACIAS[c.f]; const d=-10; S.meter=clamp(S.meter+d);
+    return showFB("lose","你自己这一击才是耍花招。",`你用 <b>${fa.nombre}</b> <span style="color:var(--muted)">(${fa.tec})</span> 来反击，被电脑逮个正着。公众把这笔账记在你头上。`,{q:fa.q},d);
+  }
+  const unchallenged = (m.kind==="arg" && m.f) ? m.peso : 0;
+  const d = c.str*5 - unchallenged*4;
+  S.meter=clamp(S.meter+d);
+  if(unchallenged===0){
+    return showFB(d>0?"win":"mid", "不错的反驳。", `你用了一个力度为 ${c.str} 的理由来回应。${m.kind==="estrat"?"而且你无视了他的挑衅：漂亮。":"他那一招没有花招；这里正该讲道理。"}`,{},d);
+  }
+  if(d>0){
+    const fa=FALACIAS[m.f];
+    return showFB("win","你打得比他的花招还狠。",`你放过了他的 <b>${fa.nombre}</b>（一个小花招），打出了一个强有力的反驳。有时候不必纠缠着去纠正：公众记住的是你的理由。`,{},d);
+  }
+  const fa=FALACIAS[m.f];
+  return showFB("lose","他的花招还立着。",`他的 <b>${fa.nombre}</b> 是他立场的核心，你却放过了它；而你的反驳撑不起这么多。这里本该<b>指出它</b>。`,{q:fa.q},d);
+}
+
+function reaccion(i){
+  pushThread("you", REACCIONES[i].t);
+  const d=-12; S.meter=clamp(S.meter+d); S.temple=1;
+  showFB("lose","你乱了阵脚。",`你慌了神，只会${REACCIONES[i].lbl}。公众倒向了电脑。所以首要的是不上钩。`,{},d);
+}
+
+function showFB(cls, head, body, extra, delta, cont){
+  extra=extra||{};
+  const last=(S.turno+1>=MAXT);
+  const dtxt = (typeof delta==="number" && delta!==0) ? `<div class="name">公众的信服度：<span class="delta ${delta>0?'pos':'neg'}">${delta>0?'+':''}${delta}</span> → ${S.meter}%</div>`:``;
+  let html=hud()+threadHTML();
+  html+=`<div class="fb ${cls} fade">
+     <div class="head">${cls==='win'?'✓':(cls==='lose'?'✕':'◆')} ${head}</div>
+     <div class="name">${body}</div>
+     ${dtxt}
+     ${extra.q?`<div class="desmonta">拆穿它可以问：<b>${extra.q}</b></div>`:``}
+     ${extra.schop?`<div class="schop">叔本华在《辩论的艺术》中把它列为<b>${extra.schop}</b>。</div>`:``}
+   </div>
+   <div class="choices" style="margin-top:12px"><button class="btn btn-primary" id="cont">${last?'查看裁决':'继续辩论'}</button></div>`;
+  app().innerHTML=html; scrollThread();
+  document.getElementById('cont').onclick = cont || (()=>{ S.turno++; nextTurn(false); });
+}
+
+function renderEnd(){
+  const you=S.meter, win=you>55, lose=you<45;
+  const cls=win?'win':(lose?'lose':'tie');
+  const titulo=win?'你说服了公众':(lose?'公众倒向了电脑':'辩论势均力敌，没有明显的赢家');
+  const msg=win?'你懂得什么时候该指出花招，什么时候该用理由狠狠出击，还不失理智。这就是会辩论。'
+    :(lose?'你被人塞进了花招，或者把回合花在了小事上，而大问题却没回应，又或者你被弄得乱了阵脚。看看指示器，换个思路再试试。'
+      :'打了个平手。再把握好什么时候指出谬误、什么时候反击，你就能把局面扭向自己这边。');
+  app().innerHTML=`${hud()}
+    <div class="intro center fade">
+      <div class="eyebrow">辩论结束</div>
+      <div class="verdict ${cls}">${you}% 的公众</div>
+      <h2>${titulo}</h2>
+      <p class="lede" style="margin-top:10px">${msg}</p>
+      <div class="pick" style="margin-top:18px">
+        <button class="btn btn-primary" id="again">再辩一次（同一主题）</button>
+        <button class="btn" id="home">换个主题</button>
+      </div>
+    </div>`;
+  document.getElementById('again').onclick=()=>{ _seed=(Date.now()&0x7fffffff)||1; const ti=S.ti; S=freshState(ti); S.fase="turn"; nextTurn(true); };
+  document.getElementById('home').onclick=()=>{ S=null; renderIntro(); };
+}
+
+/* ---------- Tema claro/oscuro ---------- */
+(function(){
+  const root=document.documentElement, btn=document.getElementById('theme');
+  let saved=null; try{saved=localStorage.getItem('dr_theme');}catch(e){}
+  if(saved) root.setAttribute('data-theme',saved);
+  btn.onclick=()=>{ const cur=root.getAttribute('data-theme');
+    const dark=cur? cur==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+    const next=dark?'light':'dark'; root.setAttribute('data-theme',next);
+    try{localStorage.setItem('dr_theme',next);}catch(e){} };
+})();
+
+/* ---------- Arranque con hot-reload ---------- */
+function start(data){ if(data&&data.S){ S=data.S; if(typeof data.seed==='number') _seed=data.seed; } else { S=null; } render(); }
+try{ window.claude?.hot?.snapshot && window.claude.hot.snapshot(()=>({S, seed:_seed})); }catch(e){}
+if(window.claude?.hot?.ready) window.claude.hot.ready(start); else start(window.claude?.hot?.data ?? {});
+</script>
+
+</body>
+</html>

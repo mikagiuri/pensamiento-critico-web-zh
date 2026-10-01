@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body style="margin:0">
+<title>Duelo de razones</title>
+<meta name="description" content="Juego de debate de Pensamiento crítico: una conversación sobre un tema en la que decides si señalar la falacia del rival o contraatacar con una razón más fuerte, sin perder el temple.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Spline+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Layout: un hilo de conversación con el medidor de público y el temple arriba, y abajo tus dos jugadas. */
+  :root{
+    --bg:#e8eaf0; --surface:#ffffff; --surface-2:#f1f2f7; --ink:#191d28; --muted:#5a6173;
+    --line:#d3d7e2; --accent:#4356d6; --good:#15806a; --good-ink:#0a4b3e; --bad:#c4362a; --bad-ink:#7c1d16;
+    --warn:#b5691a; --cpu-bubble:#eceef5; --paper:#faf7ef; --paper-line:#e7dfcb; --shadow:0 10px 30px rgba(20,25,45,.12);
+    --fdisp:"Bricolage Grotesque",Georgia,serif; --fbody:"Spline Sans",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#11141c; --surface:#1a1f2b; --surface-2:#222838; --ink:#e9ebf2; --muted:#9aa2b5;
+    --line:#2d3446; --accent:#8a97f5; --good:#4cc3a3; --good-ink:#b8f0e2; --bad:#f08478; --bad-ink:#ffd6cf;
+    --warn:#e2a15a; --cpu-bubble:#232a39; --paper:#20242f; --paper-line:#333a4c; --shadow:0 10px 30px rgba(0,0,0,.4); color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#11141c; --surface:#1a1f2b; --surface-2:#222838; --ink:#e9ebf2; --muted:#9aa2b5;
+    --line:#2d3446; --accent:#8a97f5; --good:#4cc3a3; --good-ink:#b8f0e2; --bad:#f08478; --bad-ink:#ffd6cf;
+    --warn:#e2a15a; --cpu-bubble:#232a39; --paper:#20242f; --paper-line:#333a4c; --shadow:0 10px 30px rgba(0,0,0,.4); color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--fbody);line-height:1.5;margin:0}
+  .wrap{max-width:720px;margin:0 auto;padding-block:20px;padding-inline:16px}
+  h1,h2,h3{font-family:var(--fdisp);text-wrap:balance;margin:0}
+  button{font-family:var(--fbody);cursor:pointer}
+  .btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;
+    padding:12px 16px;font-size:1rem;font-weight:600;transition:transform .08s,border-color .15s,background .15s;width:100%}
+  .btn:hover{border-color:var(--accent)}
+  .btn:active{transform:translateY(1px)}
+  .btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn-primary:hover{filter:brightness(1.05)}
+  .center{text-align:center}
+
+  .intro{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 22px;box-shadow:var(--shadow)}
+  .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .intro h1{font-size:clamp(2rem,7vw,3rem);margin:6px 0 10px;line-height:1.02}
+  .lede{color:var(--muted);font-size:1.02rem;max-width:56ch;margin:0 auto}
+  .rules{display:grid;gap:10px;margin:22px 0;text-align:left}
+  .rule{display:flex;gap:12px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .rule .n{font-family:var(--fdisp);font-weight:800;color:var(--accent);font-size:1.3rem;line-height:1;min-width:1.2em}
+  .rule p{margin:0;font-size:.95rem}
+  .pick{display:grid;gap:10px;margin-top:6px;text-align:left}
+  .pick .btn{width:100%}
+  .pick .sides{display:block;color:var(--muted);font-weight:500;font-size:.82rem;margin-top:3px}
+
+  .hud{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+  .temple{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px 12px;text-align:center;min-width:92px}
+  .temple .who{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .temple .dots{font-size:1.05rem;letter-spacing:2px;line-height:1.2}
+  .temple.low{border-color:var(--bad)} .temple.low .who{color:var(--bad)}
+  .turnlbl{font-size:.82rem;color:var(--muted);font-weight:600}
+  .turnlbl b{color:var(--ink);font-family:var(--fdisp)}
+
+  .meter-wrap{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px}
+  .meter-top{display:flex;justify-content:space-between;font-size:.72rem;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .meter-top .you{color:var(--good)} .meter-top .cpu{color:var(--bad)}
+  .meter{height:12px;border-radius:999px;background:color-mix(in srgb,var(--bad) 35%,var(--surface-2));overflow:hidden;position:relative}
+  .meter .fill{height:100%;background:var(--good);border-radius:999px;transition:width .5s ease}
+  .meter .mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;background:var(--line)}
+
+  .theme-topic{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:.9rem}
+  .theme-topic b{font-family:var(--fdisp)}
+  .theme-topic .you-side{color:var(--good);font-weight:600}
+
+  .thread{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;max-height:46vh;overflow-y:auto;padding:2px}
+  .bubble{max-width:88%;padding:11px 14px;border-radius:14px;font-size:.98rem;line-height:1.4}
+  .bubble .nm{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:3px;opacity:.8}
+  .bubble.cpu{align-self:flex-start;background:var(--cpu-bubble);border:1px solid var(--line);border-bottom-left-radius:4px}
+  .bubble.cpu .nm{color:var(--bad)}
+  .bubble.you{align-self:flex-end;background:color-mix(in srgb,var(--good) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--good) 40%,var(--line));border-bottom-right-radius:4px}
+  .bubble.you .nm{color:var(--good-ink)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bubble.you .nm{color:var(--good)}}
+  :root[data-theme="dark"] .bubble.you .nm{color:var(--good)}
+  .bubble.latest{box-shadow:0 0 0 2px color-mix(in srgb,var(--bad) 45%,transparent)}
+
+  .phase-tag{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:var(--accent);
+    background:color-mix(in srgb,var(--accent) 12%,transparent);border-radius:999px;padding:5px 12px;margin-bottom:10px}
+  .phase-tag.hot{color:var(--bad);background:color-mix(in srgb,var(--bad) 13%,transparent)}
+  .choices{display:grid;gap:10px}
+  .choice{text-align:left;line-height:1.3}
+  .choice small{display:block;color:var(--muted);font-weight:500;font-size:.82rem;margin-top:3px}
+  .grid-fal{grid-template-columns:1fr 1fr}
+  @media (max-width:470px){.grid-fal{grid-template-columns:1fr}}
+  .btn-a{border-color:var(--bad)} .btn-a:hover{background:color-mix(in srgb,var(--bad) 10%,transparent)}
+  .btn-b{border-color:var(--accent)} .btn-b:hover{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+  .pips{font-size:.8rem;letter-spacing:1px;color:var(--accent);font-weight:700}
+  .back{background:transparent;border:none;color:var(--muted);font-weight:600;font-size:.85rem;width:auto;padding:4px 2px;cursor:pointer}
+
+  .fb{border-radius:16px;padding:16px;margin-top:4px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+  .fb.win{border-color:var(--good);background:color-mix(in srgb,var(--good) 9%,var(--surface))}
+  .fb.lose{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 9%,var(--surface))}
+  .fb.mid{border-color:var(--warn)}
+  .fb .head{font-family:var(--fdisp);font-weight:800;font-size:1.1rem;display:flex;align-items:center;gap:8px}
+  .fb.win .head{color:var(--good-ink)} .fb.lose .head{color:var(--bad-ink)} .fb.mid .head{color:var(--warn)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fb.win .head{color:var(--good)} :root:not([data-theme="light"]) .fb.lose .head{color:var(--bad)}}
+  :root[data-theme="dark"] .fb.win .head{color:var(--good)} :root[data-theme="dark"] .fb.lose .head{color:var(--bad)}
+  .fb .name{margin-top:7px}
+  .fb .desmonta{margin-top:8px;font-size:.92rem;background:var(--surface-2);border-radius:10px;padding:9px 12px}
+  .fb .desmonta b{color:var(--accent)}
+  .fb .schop{margin-top:8px;font-size:.82rem;color:var(--muted)} .fb .schop b{color:var(--warn)}
+  .fb .delta{font-weight:700;font-family:var(--fdisp)} .fb .delta.pos{color:var(--good)} .fb .delta.neg{color:var(--bad)}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .brand{font-family:var(--fdisp);font-weight:800}
+  .brand .accent{color:var(--accent)}
+  .ghost{background:transparent;border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:.82rem;font-weight:600;color:var(--muted);width:auto}
+  .foot{margin-top:18px;text-align:center;font-size:.78rem;color:var(--muted)}
+  .fade{animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.fade{animation:none}}
+  .verdict{font-family:var(--fdisp);font-weight:800;font-size:2rem;margin:6px 0}
+  .verdict.win{color:var(--good)} .verdict.lose{color:var(--bad)} .verdict.tie{color:var(--warn)}
+</style>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">Duelo de <span class="accent">razones</span></div>
+    <button class="ghost" id="theme">Tema ◐</button>
+  </div>
+  <div id="app"></div>
+  <div class="foot">Pensamiento crítico · 2.º ESO · IES Martín de Bertendona. No siempre gana quien pilla la trampa: a veces gana quien pega más fuerte con razones.</div>
+</div>
+
+<script>
+/* ---------- Las 10 falacias ---------- */
+const FALACIAS = {
+  persona:{nombre:"Atacar a la persona", tec:"ad hominem", q:"¿Qué tiene que ver cómo es la persona con si su idea es buena?"},
+  famoso: {nombre:"Lo dice un famoso", tec:"falsa autoridad", q:"¿Es experto de verdad en ESTO, o solo es famoso?"},
+  siempre:{nombre:"Siempre se ha hecho así", tec:"apelación a la tradición", q:"Que sea de toda la vida, ¿lo hace bueno?"},
+  pena:   {nombre:"Dar pena en vez de razones", tec:"apelación a la pena", q:"¿Me da una razón, o solo busca que me dé lástima?"},
+  deformar:{nombre:"Deformar lo que has dicho", tec:"hombre de paja", q:"¿De verdad he dicho eso, o lo ha exagerado para atacarlo?"},
+  pocos:  {nombre:"Con pocos casos, concluir de todos", tec:"generalización apresurada", q:"¿Con cuántos casos? ¿De verdad vale para todos?"},
+  causa:  {nombre:"Pasó después, luego fue la causa", tec:"falsa causa", q:"¿Hay prueba de que uno causa el otro, o solo vienen seguidos?"},
+  dos:    {nombre:"Solo hay dos opciones", tec:"falso dilema", q:"¿Seguro que no hay ninguna opción más?"},
+  miedo:  {nombre:"Asustar para convencer", tec:"apelación al miedo", q:"¿Me da una razón, o solo me mete miedo?"},
+  todos:  {nombre:"Lo dice todo el mundo", tec:"ad populum", q:"Que lo haga mucha gente, ¿lo convierte en verdad?"},
+  notrue: {nombre:"Redefinir a conveniencia", tec:"«no true scotsman»", q:"¿Cambias la definición solo para esquivar el contraejemplo? (Sócrates aceptó la distinción… y se la dio la vuelta.)"},
+};
+const ORDEN_FAL = ["persona","famoso","siempre","pena","deformar","pocos","causa","dos","miedo","todos","notrue"];
+const FIBRA = new Set(["persona"]); // falacias que, además de trampa, son una falta de respeto: cuestan temple aunque las caces
+
+/* ---------- Estratagemas eristas: atacan el temple, no el tema ---------- */
+const ESTRAT = {
+  insulto:  {t:"“¿En serio piensas eso? Hay que ser muy corto para no verlo. Anda, déjalo.”", nombre:"el insulto", schop:"estratagema 38, la «última ratio»", q:"No es una razón, es un insulto. Pídele que hable del tema, no de ti."},
+  ira:      {t:"“Claro, tú siempre tan lento para todo; normal que no lo pilles.”", nombre:"provocar la ira", schop:"estratagema 8", q:"«Encolerizado, nadie juzga bien.» Respira: no muerdas el anzuelo."},
+  persona:  {t:"“Tú no tienes ni idea de la vida, así que mejor no opines de esto.”", nombre:"el ataque personal", schop:"ad hominem, estratagema 21", q:"Que lo digas tú no cambia si la idea es buena o mala."},
+  categoria:{t:"“Eso que dices es típico de un facha. Solo un pringado pensaría así.”", nombre:"meterte en un saco odioso", schop:"subsumir en una categoría aborrecible", q:"La etiqueta no refuta nada. ¿Dónde está la razón?"},
+  miedo:    {t:"“Como sigas llevándome la contraria, te vas a quedar sin amigos.”", nombre:"la amenaza", schop:"apelación al miedo (ad baculum)", q:"El miedo no es una razón. ¿Por qué sería verdad lo que dice?"},
+  desvio:   {t:"“¿Y tú qué? El otro día hiciste lo mismo. Hablemos de eso mejor.”", nombre:"desviar y señalarte", schop:"estratagemas 18 y 29", q:"Que yo falle no responde a la pregunta. Volvamos al tema."},
+  autoridad:{t:"“Lo dijo un premio Nobel y está más que demostrado. No hay más que hablar.”", nombre:"la autoridad para callarte", schop:"estratagema 30", q:"¿Quién, dónde y por qué? Una cita sin razón no cierra el tema."},
+};
+const ORDEN_ESTRAT = Object.keys(ESTRAT);
+const REACCIONES = [
+  {lbl:"Insultarle tú también", t:"“¡Pues tú más tonto, anda ya!”"},
+  {lbl:"Rendirte y darle la razón", t:"“Vale, vale… lo que tú digas.”"},
+  {lbl:"Huir del tema", t:"“Paso, hablemos de otra cosa.”"},
+];
+
+/* ---------- Temas de debate. cpu defiende una postura; tú la contraria. ----------
+   opp: argumentos del ordenador. f=null es limpio; con f es falacia, y peso (1-3) = cuánto se apoya su postura en esa trampa.
+   counters: tus contraargumentos. str (1-3) = fuerza; con f es un contraargumento tramposo que te saldrá mal. */
+const TEMAS = [
+ {nivel:["eso"], claim:"¿Hay que dejar los móviles fuera de clase?",
+  cpuLado:"El ordenador defiende: «que se usen libremente en clase».",
+  tuLado:"Tú defiendes: «mejor fuera del aula».",
+  opp:[
+   {t:"El móvil te da diccionario y calculadora al instante; bien usado es una herramienta de estudio.", f:null},
+   {t:"Lo dijo un gurú de la tecnología en una charla: prohibir el móvil es de analfabetos digitales.", f:"famoso", peso:1},
+   {t:"En todos los institutos modernos ya se usan; quedarse atrás es de pueblo.", f:"todos", peso:2},
+   {t:"O móvil libre, o criaremos a chavales incapaces de vivir en el siglo XXI.", f:"dos", peso:3},
+   {t:"Conozco a dos que aprobaron buscando cosas en el móvil; está claro que ayuda a todos.", f:"pocos", peso:2},
+   {t:"Si enseñamos a usarlo con normas, aprenden a autorregularse mejor que si se prohíbe del todo.", f:null},
+  ],
+  counters:[
+   {t:"En las aulas que recogieron los móviles subió la atención y bajaron las copias: hay datos.", str:3},
+   {t:"Una herramienta útil puede usarse en momentos concretos, no tenerla encima toda la hora.", str:2},
+   {t:"Para lo que haga falta están las tablets del centro, sin notificaciones personales.", str:2},
+   {t:"Mucha gente agradece desconectar un rato; el aula puede ser ese sitio.", str:1},
+   {t:"O el móvil fuera, o esto será un cibercafé y nadie aprenderá nada.", f:"dos"},
+   {t:"Lo dice mi tío, que lleva 30 años de profe, así que fuera y punto.", f:"famoso"},
+  ]},
+ {nivel:["eso"], claim:"¿Conviene comer comida rápida cada día?",
+  cpuLado:"El ordenador defiende: «sí, adelante, cada día».",
+  tuLado:"Tú defiendes: «de vez en cuando sí, a diario no».",
+  opp:[
+   {t:"Es barata y rápida; para quien tiene poco tiempo, resuelve la comida.", f:null},
+   {t:"La anuncia el futbolista más famoso del mundo, así que tan mala no será.", f:"famoso", peso:1},
+   {t:"Toda la clase come ahí los viernes; por algo será.", f:"todos", peso:2},
+   {t:"Mi primo come hamburguesas y está fortísimo: esta comida te pone fuerte.", f:"causa", peso:2},
+   {t:"O comes esto, o te quedas con hambre; no hay otra opción barata.", f:"dos", peso:3},
+   {t:"No me quites el único gusto del día, con lo mal que lo paso ya.", f:"pena", peso:1},
+  ],
+  counters:[
+   {t:"En la etiqueta pone que un menú lleva casi toda la sal y la grasa de un día entero: a diario pasa factura.", str:3},
+   {t:"Comerla de vez en cuando no es el problema; el problema es cada día.", str:2},
+   {t:"Con lo que cuesta un menú diario cocinas variado por menos a la semana.", str:2},
+   {t:"Hay bocadillos y fruta igual de rápidos y más baratos.", str:1},
+   {t:"Conozco a uno que enfermó comiendo eso; luego todo el que lo come enferma.", f:"pocos"},
+   {t:"Como sigas comiendo eso, acabarás en el hospital seguro.", f:"miedo"},
+  ]},
+ {nivel:["eso"], claim:"¿Adoptamos una mascota hoy mismo?",
+  cpuLado:"El ordenador defiende: «sí, hoy mismo».",
+  tuLado:"Tú defiendes: «prepararlo bien antes, no hoy a lo loco».",
+  opp:[
+   {t:"Hay animales en la protectora que necesitan un hogar cuanto antes; esperar también les cuesta.", f:null},
+   {t:"Mira qué carita; si no lo traemos hoy me voy a poner tristísimo.", f:"pena", peso:2},
+   {t:"En mi familia siempre hemos tenido perro, así que hay que tener uno ya.", f:"siempre", peso:1},
+   {t:"Todos mis amigos tienen mascota; soy el único que no.", f:"todos", peso:1},
+   {t:"O lo adoptamos hoy, o nos quedamos sin mascota para siempre.", f:"dos", peso:3},
+   {t:"La veterinaria dice de esperar, pero como no tiene hijos, no sabe de familias.", f:"persona", peso:2},
+  ],
+  counters:[
+   {t:"Un perro vive diez o quince años y cada día hay que darle de comer, sacarlo y pagar veterinario: hay que organizarlo antes.", str:3},
+   {t:"Podemos adoptar en cuanto sepamos quién lo saca cada día; es prepararlo, no renunciar.", str:2},
+   {t:"Si lo traemos sin plan y luego no podemos cuidarlo, el que peor lo pasa es el animal.", str:2},
+   {t:"Una semana para preparar la casa y el horario no es tanto.", str:1},
+   {t:"O sea, que según tú los animales no importan nada.", f:"deformar"},
+   {t:"Un veterinario influencer dijo que cuanto antes mejor, así que hoy.", f:"famoso"},
+  ]},
+ {nivel:["fil","hf"], claim:"¿La justicia es solo la conveniencia del más fuerte? · Sócrates vs. Trasímaco",
+  cpuLado:"El ordenador es Trasímaco: ser injusto es más rentable y más feliz; la justicia solo sirve al poderoso.",
+  tuLado:"Tú eres Sócrates: la justicia es una virtud que beneficia a quien la tiene, y la vida justa es más feliz.",
+  estrat:[
+   {t:"Irrumpe como una fiera: “¡Menuda sarta de tonterías lleváis diciendo todo el rato!”", nombre:"la entrada a lo bestia", schop:"amedrentar antes de argumentar", q:"El tono no es un argumento. ¿Qué tiene que decir del tema?"},
+   {t:"Suelta una risotada: “Ahí está la ironía de siempre de Sócrates; ya sabía yo que te escabullirías.”", nombre:"la burla", schop:"ridiculizar en vez de refutar", q:"Reírse no refuta nada. Pídele la razón."},
+   {t:"“Sócrates, ¿todavía tienes niñera? Porque te deja con los mocos colgando y no te los limpia.”", nombre:"el insulto de la nodriza", schop:"estratagema 38, la «última ratio»", q:"Es un insulto, no una respuesta. Vuelve al tema."},
+  ],
+  opp:[
+   {t:"El justo siempre saca menos: no engaña en los negocios, paga sus impuestos y, al gobernar, beneficia a otros y no a sí mismo.", f:null},
+   {t:"Cuando un médico se equivoca, en ese instante no actúa como médico. Igual el que manda: en sentido estricto, el gobernante no yerra.", f:"notrue", peso:1},
+   {t:"Tú solo preguntas para ganar, por amor al honor; no buscas la verdad, así que tus preguntas no cuentan.", f:"persona", peso:3},
+   {t:"Mira quién triunfa: tiranos y tramposos. Está clarísimo que la injusticia es lo que hace feliz.", f:"pocos", peso:2},
+   {t:"O eres injusto y sacas tajada, o eres justo y te comen vivo; no hay término medio.", f:"dos", peso:2},
+   {t:"El justo es un primo al que explotan; el injusto, el listo que explota. O una cosa o la otra. Por eso la injusticia es la virtud.", f:"dos", fAlt:["persona"], peso:2},
+  ],
+  counters:[
+   {t:"Hasta una banda de ladrones necesita algo de justicia entre ellos para lograr algo; la injusticia los enfrenta y los destruye.", str:3},
+   {t:"Los gobernantes se equivocan y dictan leyes que les perjudican; entonces obedecerlas no beneficia al fuerte.", str:2},
+   {t:"El médico, en cuanto médico, busca el bien del enfermo, no el suyo; quien manda bien busca el bien del gobernado.", str:2},
+   {t:"Si la función del alma es vivir, y la justicia es su virtud, el justo vive bien; y vivir bien es ser feliz.", str:2},
+   {t:"Un sofista cobra por enseñar a tener razón sin tenerla; ¿cómo vamos a creerte a ti?", f:"persona"},
+   {t:"O admites que la justicia es una virtud, o reconoces que te gustaría que te robaran; elige.", f:"dos"},
+  ]},
+ {nivel:["hf"], claim:"El Atheismusstreit (1798): ¿es ateo identificar a Dios con el orden moral del mundo?",
+  cpuLado:"El ordenador son los acusadores de Fichte: eso es ateísmo, y el ateísmo hay que prohibirlo.",
+  tuLado:"Eres Fichte: el Dios digno de fe es el orden moral vivo del mundo; un Dios-cosa aparte sería un ídolo.",
+  estrat:[
+   {t:"Circula un panfleto anónimo, “Carta de un padre a su hijo estudiante”: quien lea tu revista perderá la fe y el alma.", nombre:"el panfleto anónimo", schop:"atacar sin dar la cara (envenenar el pozo)", q:"Quien acusa en la sombra no argumenta. ¿Qué afirma y con qué prueba?"},
+   {t:"El gobierno de Sajonia amenaza con confiscar la revista y castigar a quien la lea.", nombre:"la amenaza de censura", schop:"la fuerza en vez de razones (ad baculum)", q:"Amordazar una idea no la refuta. ¿Dónde está el argumento?"},
+   {t:"“¡Ateo!” Con esa palabra basta; no hay más que hablar contigo.", nombre:"la etiqueta infamante", schop:"subsumir en una categoría aborrecible", q:"La etiqueta no refuta nada. ¿En qué consiste exactamente lo que digo?"},
+  ],
+  opp:[
+   {t:"Un Dios que no es sustancia, ni persona, ni creador, sino solo “el orden moral”, ¿en qué se distingue de no tener Dios?", f:null},
+   {t:"Fichte dice que Dios es solo una idea que nos hacemos; o sea, que niega a Dios. Es un ateo.", f:"deformar", peso:3},
+   {t:"Si quitas al Dios personal, se derrumban la moral, el juramento y el Estado. Hay que prohibirlo ya.", f:"miedo", peso:3},
+   {t:"Fichte es un jacobino y un revoltoso; ya se sabe qué clase de filosofía sale de un hombre así.", f:"persona", peso:2},
+   {t:"El catecismo que toda la cristiandad confiesa dice que Dios es persona y creador; ¿quién es él para enmendarlo?", f:"siempre", peso:1},
+   {t:"Toda la gente de bien se escandaliza con esa revista; por algo será.", f:"todos", peso:1},
+  ],
+  counters:[
+   {t:"El Dios verdadero es el orden moral vivo del mundo, aquello en lo que confías al obrar bien: eso no es “una idea mía”, es lo más real.", str:3},
+   {t:"Hacer de Dios una cosa o una persona, un ser más entre los seres, lo rebaja a ídolo; negar ese ídolo no es negar a Dios.", str:3},
+   {t:"Castigar una idea con la censura no la refuta: si me equivoco, demostradlo, no me amordacéis.", str:2},
+   {t:"Juzgad mis razones, no mi política: que yo sea jacobino o no, no dice si tengo razón.", str:2},
+   {t:"O aceptáis mi idealismo entero, o sois unos fanáticos supersticiosos.", f:"dos"},
+   {t:"Quien me acusa es un cura ignorante que no ha leído una línea de Kant.", f:"persona"},
+  ]},
+];
+
+// Nivel de cada tema: cada objeto de TEMAS trae su `nivel`. Se filtra según la web por el hash del enlace (#eso/#fil/#hf; sin hash, todos).
+TEMAS.forEach(t=>{ if(!t.nivel) t.nivel=["eso","fil","hf"]; });
+const LEVELS=["eso","fil","hf"];
+function activeLevel(){ try{ const h=(location.hash||"").replace("#","").toLowerCase(); return LEVELS.includes(h)?h:null; }catch(e){ return null; } }
+
+const MAXT = 6;
+let S=null, _seed=1;
+function rnd(){ _seed=(_seed*1103515245+12345)&0x7fffffff; return _seed/0x7fffffff; }
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const app=()=>document.getElementById('app');
+
+function freshState(ti){
+  return {ti, meter:50, temple:3, lastHit:false, turno:0, thread:[], move:null, hand:null,
+          fase:"turn", _oppQueue:shuffle(TEMAS[ti].opp.map((_,i)=>i))};
+}
+function clamp(v){ return Math.max(0,Math.min(100,v)); }
+
+function render(){
+  if(!S || S.fase==="intro") return renderIntro();
+  if(S.fase==="end") return renderEnd();
+  renderGame();
+}
+
+function renderIntro(){
+  app().innerHTML = `
+   <div class="intro fade">
+     <div class="center">
+       <div class="eyebrow">Juego de debate · una conversación, un tema</div>
+       <h1>Discute y convence</h1>
+       <p class="lede">Debates un tema contra el ordenador y un medidor marca a quién va convenciendo el público. En cada turno, ante lo que acaba de decir, eliges tu jugada.</p>
+     </div>
+     <div class="rules">
+       <div class="rule"><span class="n">A</span><p><b>Señalar la falacia.</b> Si su argumento hace trampa, la nombras y le obligas a defenderla. Cuando la trampa es el corazón de su postura, esto le hace mucho daño.</p></div>
+       <div class="rule"><span class="n">B</span><p><b>Contraargumentar.</b> Dejas pasar su jugada y respondes con una razón tuya. Si es lo bastante fuerte, convence más que entretenerte en corregir una trampa pequeña… pero si es floja y su trampa era gorda, te hunde.</p></div>
+       <div class="rule"><span class="n">♦</span><p><b>Temple.</b> Cuando te faltan al respeto o te tocan la fibra (un insulto, una amenaza, un ataque personal) pierdes temple, aunque caces la jugada: el golpe duele igual. No se recupera solo, así que se acumula. A cero pierdes los estribos (solo te sale insultar, rendirte o huir); entonces para y respira para recobrar algo de calma.</p></div>
+     </div>
+     <div class="center" style="font-weight:600;margin:4px 0 8px">Elige el tema de esta partida:</div>
+     <div class="pick">
+       ${TEMAS.map((t,i)=>({t,i})).filter(({t})=>{const L=activeLevel();return !L||(t.nivel&&t.nivel.includes(L));}).map(({t,i})=>`<button class="btn" data-ti="${i}">${t.claim}<span class="sides">${t.tuLado}</span></button>`).join('')}
+     </div>
+   </div>`;
+  app().querySelectorAll('[data-ti]').forEach(b=>b.onclick=()=>{ _seed=(Date.now()&0x7fffffff)||1; S=freshState(+b.dataset.ti); S.fase="turn"; nextTurn(true); });
+}
+
+function pushThread(side, text, nm){ S.thread.push({side, text, nm}); }
+
+function nextTurn(first){
+  if(S.turno>=MAXT){ S.fase="end"; return render(); }
+  // el temple ya no se rellena solo: los golpes se acumulan y solo se recupera parando a respirar (a cero)
+  // elige jugada del ordenador
+  const T=TEMAS[S.ti];
+  if(!first && rnd()<0.32){
+    const pool = (T.estrat && T.estrat.length) ? T.estrat : ORDEN_ESTRAT.map(k=>ESTRAT[k]);
+    const e = pool[Math.floor(rnd()*pool.length)];
+    S.move={kind:"estrat", e, t:e.t};
+  } else {
+    if(!S._oppQueue.length) S._oppQueue=shuffle(TEMAS[S.ti].opp.map((_,i)=>i));
+    const idx=S._oppQueue.shift();
+    const m=T.opp[idx];
+    S.move={kind:"arg", t:m.t, f:m.f, peso:m.peso||0};
+  }
+  S.lastHit = (S.move.kind==="estrat");
+  pushThread("cpu", S.move.t, "Ordenador");
+  S.fase="turn";
+  render();
+}
+
+function hud(){
+  const T=TEMAS[S.ti], you=S.meter, cpu=100-S.meter;
+  return `<div class="hud">
+      <div class="turnlbl">Intervención <b>${Math.min(S.turno+1,MAXT)}</b> / ${MAXT}</div>
+      <div class="temple ${S.temple<=1?'low':''}"><div class="who">Temple</div><div class="dots" style="color:${S.temple<=1?'var(--bad)':'var(--good)'}">${"♦".repeat(S.temple)+"♢".repeat(3-S.temple)}</div></div>
+    </div>
+    <div class="meter-wrap">
+      <div class="meter-top"><span class="you">Tú ${you}%</span><span>Convicción del público</span><span class="cpu">Ordenador ${cpu}%</span></div>
+      <div class="meter"><div class="fill" style="width:${you}%"></div><div class="mid"></div></div>
+    </div>
+    <div class="theme-topic"><b>${T.claim}</b> &nbsp;·&nbsp; <span class="you-side">${T.tuLado}</span></div>`;
+}
+
+function threadHTML(){
+  return `<div class="thread" id="thread">`+
+    S.thread.map((m,i)=>`<div class="bubble ${m.side} ${i===S.thread.length-1 && m.side==='cpu'?'latest':''}"><div class="nm">${m.side==='cpu'?'Ordenador':'Tú'}</div>${m.text}</div>`).join('')+
+    `</div>`;
+}
+
+function renderGame(){
+  let html=hud()+threadHTML();
+  if(S.fase==="turn"){
+    if(S.temple<=0){
+      html+=`<div class="phase-tag hot">🥵 Has perdido los estribos — ¿con qué sales?</div><div class="choices fade">`;
+      html+=`<button class="btn btn-primary choice" id="respira">Parar y respirar<small>no respondes en caliente; recuperas la calma</small></button>`;
+      REACCIONES.forEach((r,i)=>{ html+=`<button class="btn btn-a choice" data-rx="${i}">${r.lbl}<small>${r.t}</small></button>`; });
+      html+=`</div>`;
+      app().innerHTML=html; scrollThread();
+      document.getElementById('respira').onclick=()=>{ S.temple=1;
+        showFB("mid","Has parado a tiempo.",`No ganas terreno esta vez, pero recuperas la calma. A veces lo más inteligente es no responder en caliente.`,{},0,()=>{ S.turno++; nextTurn(false); }); };
+      app().querySelectorAll('[data-rx]').forEach(b=>b.onclick=()=>reaccion(+b.dataset.rx));
+      return;
+    }
+    const hot=S.move.kind==="estrat";
+    html+=`<div class="phase-tag ${hot?'hot':''}">${hot?'💢 Te está provocando — responde':'Tu turno — ¿cómo respondes?'}</div>`;
+    html+=`<div class="choices fade">
+       <button class="btn btn-a choice" data-act="a">${hot?'Señalar que es una trampa (no un argumento)':'Señalar la falacia y obligarle a defenderla'}<small>${hot?'le dices que eso no responde al tema':'la nombras; si es el eje de su postura, le haces mucho daño'}</small></button>
+       <button class="btn btn-b choice" data-act="b">Contraargumentar con una razón tuya<small>dejas pasar su jugada y pegas con lo tuyo</small></button>
+     </div>`;
+    app().innerHTML=html; scrollThread();
+    app().querySelector('[data-act="a"]').onclick=()=>chooseA();
+    app().querySelector('[data-act="b"]').onclick=()=>chooseB();
+
+  } else if(S.fase==="name"){
+    html+=`<div class="phase-tag">🎯 ¿Qué falacia es? Nómbrala para desmontarla</div><div class="choices grid-fal fade">`;
+    ORDEN_FAL.forEach(k=>{ html+=`<button class="btn choice" data-fal="${k}">${FALACIAS[k].nombre}<small>${FALACIAS[k].tec}</small></button>`; });
+    html+=`</div><div style="margin-top:8px"><button class="back" id="back">‹ volver</button></div>`;
+    app().innerHTML=html; scrollThread();
+    app().querySelectorAll('[data-fal]').forEach(b=>b.onclick=()=>nameFal(b.dataset.fal));
+    document.getElementById('back').onclick=()=>{ S.fase="turn"; render(); };
+
+  } else if(S.fase==="counter"){
+    html+=`<div class="phase-tag">⚔️ Elige tu contraargumento</div><div class="choices fade">`;
+    S.hand.forEach((c,i)=>{ const pips="●".repeat(c.f?1:c.str)+"○".repeat(3-(c.f?1:c.str));
+      html+=`<button class="btn choice" data-c="${i}" style="padding:14px"><span style="font-family:var(--fdisp);font-weight:600">${c.t}</span><small><span class="pips">${pips}</span> fuerza aparente</small></button>`; });
+    html+=`</div><div style="margin-top:8px"><button class="back" id="back">‹ volver</button></div>`;
+    app().innerHTML=html; scrollThread();
+    app().querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>playCounter(+b.dataset.c));
+    document.getElementById('back').onclick=()=>{ S.fase="turn"; render(); };
+  }
+}
+function scrollThread(){ const t=document.getElementById('thread'); if(t) t.scrollTop=t.scrollHeight; }
+
+function chooseA(){
+  if(S.move.kind==="estrat"){
+    const e=S.move.e; S.temple=Math.max(0,S.temple-1);
+    pushThread("you", `Eso no es un argumento: es ${e.nombre}. Respóndeme al tema.`);
+    const d=8; S.meter=clamp(S.meter+d);
+    return showFB("win","Le paras los pies.",`Has señalado ${e.nombre} en vez de picar. El público lo nota y te da la razón. Aun así pierdes un punto de temple: te ha tocado la fibra.`,{q:e.q,schop:e.schop},d);
+  }
+  S.fase="name"; render();
+}
+
+function nameFal(k){
+  const m=S.move, fa=FALACIAS[k];
+  const fibra = m.f && FIBRA.has(m.f); if(fibra) S.temple=Math.max(0,S.temple-1); // te ha faltado al respeto: cuesta temple aunque la caces
+  const notaFibra = fibra ? " Y como además es una falta de respeto, pierdes un punto de temple aunque la hayas cazado." : "";
+  if(m.f===null){
+    pushThread("you", `Eso es ${fa.nombre}.`);
+    const d=-10; S.meter=clamp(S.meter+d);
+    return showFB("lose","No había trampa ahí.",`Era un argumento legítimo, y lo has acusado de «${fa.nombre}». Señalar falacias donde no las hay parece que esquivas el tema, y el público se enfría contigo.`,{},d);
+  }
+  const real=FALACIAS[m.f], alts=m.fAlt||[];
+  if(k===m.f || alts.includes(k)){
+    const elegida=FALACIAS[k];
+    pushThread("you", `Eso es ${elegida.nombre}: ${elegida.q}`);
+    const d=6+m.peso*3; S.meter=clamp(S.meter+d);
+    let extra = m.peso>=3?" Era el eje de toda su postura: desmontarla ha sido demoledor.":(m.peso===1?" Era una trampa menor, pero oye, suma.":"");
+    if(alts.length){ const todas=[m.f,...alts].map(x=>FALACIAS[x].nombre).join(" y "); extra = ` Esta carta esconde dos trampas a la vez (${todas}): cualquiera de las dos vale.`+extra; }
+    return showFB("win","¡Cazada y con nombre!",`Era <b>${elegida.nombre}</b> <span style="color:var(--muted)">(${elegida.tec})</span> y le obligas a defenderla.${extra}${notaFibra}`,{q:elegida.q},d);
+  }
+  if(fibra){ pushThread("you", `Eso es ${fa.nombre}…`); const d=3; S.meter=clamp(S.meter+d);
+    return showFB("mid","Viste la falta de respeto, pero no era esa falacia.",`Era <b>${real.nombre}</b> <span style="color:var(--muted)">(${real.tec})</span>, no «${fa.nombre}».${notaFibra}`,{q:real.q},d); }
+  pushThread("you", `Eso es ${fa.nombre}…`);
+  const d=3; S.meter=clamp(S.meter+d);
+  showFB("mid","Viste la trampa, pero no era esa.",`Había trampa, sí, pero no «${fa.nombre}»: era <b>${real.nombre}</b> <span style="color:var(--muted)">(${real.tec})</span>. Media razón.`,{q:real.q},d);
+}
+
+function chooseB(){
+  const pool=shuffle(TEMAS[S.ti].counters.slice());
+  // mano de 3 con al menos un contraargumento sólido
+  const solidos=pool.filter(c=>!c.f), tramp=pool.filter(c=>c.f);
+  S.hand=shuffle([solidos[0], solidos[1]||solidos[0], (rnd()<0.6&&tramp[0])?tramp[0]:(solidos[2]||solidos[0])]).slice(0,3);
+  // asegura 3 distintas si se puede
+  S.hand=[...new Set(S.hand)];
+  let pi=0; while(S.hand.length<3 && pi<pool.length){ if(!S.hand.includes(pool[pi])) S.hand.push(pool[pi]); pi++; }
+  S.fase="counter"; render();
+}
+
+function playCounter(i){
+  const c=S.hand[i], m=S.move;
+  if(m.kind==="estrat" || (m.f && FIBRA.has(m.f))) S.temple=Math.max(0,S.temple-1); // una provocación o un ataque personal te tocan la fibra aunque pases de ellos
+  pushThread("you", c.t);
+  if(c.f){
+    const fa=FALACIAS[c.f]; const d=-10; S.meter=clamp(S.meter+d);
+    return showFB("lose","Tu propio golpe era tramposo.",`Has contraatacado con <b>${fa.nombre}</b> <span style="color:var(--muted)">(${fa.tec})</span>, y el ordenador te caza. El público te lo descuenta.`,{q:fa.q},d);
+  }
+  const unchallenged = (m.kind==="arg" && m.f) ? m.peso : 0;
+  const d = c.str*5 - unchallenged*4;
+  S.meter=clamp(S.meter+d);
+  if(unchallenged===0){
+    return showFB(d>0?"win":"mid", "Buen contraargumento.", `Has respondido con una razón de fuerza ${c.str}. ${m.kind==="estrat"?"Y has pasado de su provocación: elegante.":"Su jugada no tenía trampa; aquí tocaba argumentar."}`,{},d);
+  }
+  if(d>0){
+    const fa=FALACIAS[m.f];
+    return showFB("win","Has pegado más fuerte que su trampa.",`Dejaste pasar su <b>${fa.nombre}</b> (una trampa menor) y metiste un contraargumento potente. A veces conviene no entretenerse en corregir: el público se queda con tu razón.`,{},d);
+  }
+  const fa=FALACIAS[m.f];
+  return showFB("lose","Su trampa seguía en pie.",`Su <b>${fa.nombre}</b> era el eje de su postura y la has dejado pasar; tu contraargumento no daba para tanto. Aquí habría convenido <b>señalarla</b>.`,{q:fa.q},d);
+}
+
+function reaccion(i){
+  pushThread("you", REACCIONES[i].t);
+  const d=-12; S.meter=clamp(S.meter+d); S.temple=1;
+  showFB("lose","Has perdido los papeles.",`Descolocado, solo te ha salido ${REACCIONES[i].lbl.toLowerCase()}. El público se va con el ordenador. Por eso lo primero es no picar.`,{},d);
+}
+
+function showFB(cls, head, body, extra, delta, cont){
+  extra=extra||{};
+  const last=(S.turno+1>=MAXT);
+  const dtxt = (typeof delta==="number" && delta!==0) ? `<div class="name">Convicción del público: <span class="delta ${delta>0?'pos':'neg'}">${delta>0?'+':''}${delta}</span> → ${S.meter}%</div>`:``;
+  let html=hud()+threadHTML();
+  html+=`<div class="fb ${cls} fade">
+     <div class="head">${cls==='win'?'✓':(cls==='lose'?'✕':'◆')} ${head}</div>
+     <div class="name">${body}</div>
+     ${dtxt}
+     ${extra.q?`<div class="desmonta">Para desmontarla: <b>${extra.q}</b></div>`:``}
+     ${extra.schop?`<div class="schop">Schopenhauer la recogió como <b>${extra.schop}</b> en «El arte de tener razón».</div>`:``}
+   </div>
+   <div class="choices" style="margin-top:12px"><button class="btn btn-primary" id="cont">${last?'Ver el veredicto':'Seguir el debate'}</button></div>`;
+  app().innerHTML=html; scrollThread();
+  document.getElementById('cont').onclick = cont || (()=>{ S.turno++; nextTurn(false); });
+}
+
+function renderEnd(){
+  const you=S.meter, win=you>55, lose=you<45;
+  const cls=win?'win':(lose?'lose':'tie');
+  const titulo=win?'Has convencido al público':(lose?'El público se ha ido con el ordenador':'Debate reñido, sin ganador claro');
+  const msg=win?'Has sabido cuándo señalar una trampa y cuándo pegar fuerte con una razón, sin perder los estribos. Eso es discutir bien.'
+    :(lose?'Te han colado trampas, o has gastado turnos en nimiedades mientras lo gordo quedaba sin responder, o te descolocaron. Mira el medidor y prueba otra línea.'
+      :'Ha estado igualado. Afina cuándo señalar la falacia y cuándo contraatacar y lo inclinas a tu favor.');
+  app().innerHTML=`${hud()}
+    <div class="intro center fade">
+      <div class="eyebrow">Fin del debate</div>
+      <div class="verdict ${cls}">${you}% del público</div>
+      <h2>${titulo}</h2>
+      <p class="lede" style="margin-top:10px">${msg}</p>
+      <div class="pick" style="margin-top:18px">
+        <button class="btn btn-primary" id="again">Debatir otra vez (este tema)</button>
+        <button class="btn" id="home">Elegir otro tema</button>
+      </div>
+    </div>`;
+  document.getElementById('again').onclick=()=>{ _seed=(Date.now()&0x7fffffff)||1; const ti=S.ti; S=freshState(ti); S.fase="turn"; nextTurn(true); };
+  document.getElementById('home').onclick=()=>{ S=null; renderIntro(); };
+}
+
+/* ---------- Tema claro/oscuro ---------- */
+(function(){
+  const root=document.documentElement, btn=document.getElementById('theme');
+  let saved=null; try{saved=localStorage.getItem('dr_theme');}catch(e){}
+  if(saved) root.setAttribute('data-theme',saved);
+  btn.onclick=()=>{ const cur=root.getAttribute('data-theme');
+    const dark=cur? cur==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+    const next=dark?'light':'dark'; root.setAttribute('data-theme',next);
+    try{localStorage.setItem('dr_theme',next);}catch(e){} };
+})();
+
+/* ---------- Arranque con hot-reload ---------- */
+function start(data){ if(data&&data.S){ S=data.S; if(typeof data.seed==='number') _seed=data.seed; } else { S=null; } render(); }
+try{ window.claude?.hot?.snapshot && window.claude.hot.snapshot(()=>({S, seed:_seed})); }catch(e){}
+if(window.claude?.hot?.ready) window.claude.hot.ready(start); else start(window.claude?.hot?.data ?? {});
+</script>
+
+</body>
+</html>

@@ -242,3 +242,6 @@
 
 /* ESO: una sola materia → sin filtro de materia. */
 .fgroup:has([data-subj]), .fgroup:has([data-sa]) { display: none; }
+/* enlace del juego «Duelo de razones» en el menú Juegos, con el mismo aspecto que los botones. */
+#tabs .navmenu a.gamelink { display:block; width:100%; text-align:left; white-space:nowrap; padding:9px 12px; border-radius:8px; text-decoration:none; color:inherit; font:inherit; }
+#tabs .navmenu a.gamelink:hover { background:rgba(127,127,127,.14); }

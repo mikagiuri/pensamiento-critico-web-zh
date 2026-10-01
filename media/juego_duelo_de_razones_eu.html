@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="eu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+</head>
+<body style="margin:0">
+<title>Arrazoien dueloa</title>
+<meta name="description" content="Pentsamendu kritikoko eztabaida-jokoa: gai bati buruzko elkarrizketa bat, non aurkariaren faltsukeria seinalatzea edo arrazoi sendoago batekin kontraerasotzea erabakitzen duzun, patxada galdu gabe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Spline+Sans:wght@400;500;600&display=swap">
+<style>
+  /* Layout: un hilo de conversación con el medidor de público y el temple arriba, y abajo tus dos jugadas. */
+  :root{
+    --bg:#e8eaf0; --surface:#ffffff; --surface-2:#f1f2f7; --ink:#191d28; --muted:#5a6173;
+    --line:#d3d7e2; --accent:#4356d6; --good:#15806a; --good-ink:#0a4b3e; --bad:#c4362a; --bad-ink:#7c1d16;
+    --warn:#b5691a; --cpu-bubble:#eceef5; --paper:#faf7ef; --paper-line:#e7dfcb; --shadow:0 10px 30px rgba(20,25,45,.12);
+    --fdisp:"Bricolage Grotesque",Georgia,serif; --fbody:"Spline Sans",system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#11141c; --surface:#1a1f2b; --surface-2:#222838; --ink:#e9ebf2; --muted:#9aa2b5;
+    --line:#2d3446; --accent:#8a97f5; --good:#4cc3a3; --good-ink:#b8f0e2; --bad:#f08478; --bad-ink:#ffd6cf;
+    --warn:#e2a15a; --cpu-bubble:#232a39; --paper:#20242f; --paper-line:#333a4c; --shadow:0 10px 30px rgba(0,0,0,.4); color-scheme:dark;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#11141c; --surface:#1a1f2b; --surface-2:#222838; --ink:#e9ebf2; --muted:#9aa2b5;
+    --line:#2d3446; --accent:#8a97f5; --good:#4cc3a3; --good-ink:#b8f0e2; --bad:#f08478; --bad-ink:#ffd6cf;
+    --warn:#e2a15a; --cpu-bubble:#232a39; --paper:#20242f; --paper-line:#333a4c; --shadow:0 10px 30px rgba(0,0,0,.4); color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--fbody);line-height:1.5;margin:0}
+  .wrap{max-width:720px;margin:0 auto;padding-block:20px;padding-inline:16px}
+  h1,h2,h3{font-family:var(--fdisp);text-wrap:balance;margin:0}
+  button{font-family:var(--fbody);cursor:pointer}
+  .btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;
+    padding:12px 16px;font-size:1rem;font-weight:600;transition:transform .08s,border-color .15s,background .15s;width:100%}
+  .btn:hover{border-color:var(--accent)}
+  .btn:active{transform:translateY(1px)}
+  .btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn-primary:hover{filter:brightness(1.05)}
+  .center{text-align:center}
+
+  .intro{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px 22px;box-shadow:var(--shadow)}
+  .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .intro h1{font-size:clamp(2rem,7vw,3rem);margin:6px 0 10px;line-height:1.02}
+  .lede{color:var(--muted);font-size:1.02rem;max-width:56ch;margin:0 auto}
+  .rules{display:grid;gap:10px;margin:22px 0;text-align:left}
+  .rule{display:flex;gap:12px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+  .rule .n{font-family:var(--fdisp);font-weight:800;color:var(--accent);font-size:1.3rem;line-height:1;min-width:1.2em}
+  .rule p{margin:0;font-size:.95rem}
+  .pick{display:grid;gap:10px;margin-top:6px;text-align:left}
+  .pick .btn{width:100%}
+  .pick .sides{display:block;color:var(--muted);font-weight:500;font-size:.82rem;margin-top:3px}
+
+  .hud{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+  .temple{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px 12px;text-align:center;min-width:92px}
+  .temple .who{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .temple .dots{font-size:1.05rem;letter-spacing:2px;line-height:1.2}
+  .temple.low{border-color:var(--bad)} .temple.low .who{color:var(--bad)}
+  .turnlbl{font-size:.82rem;color:var(--muted);font-weight:600}
+  .turnlbl b{color:var(--ink);font-family:var(--fdisp)}
+
+  .meter-wrap{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:12px}
+  .meter-top{display:flex;justify-content:space-between;font-size:.72rem;font-weight:600;color:var(--muted);margin-bottom:6px}
+  .meter-top .you{color:var(--good)} .meter-top .cpu{color:var(--bad)}
+  .meter{height:12px;border-radius:999px;background:color-mix(in srgb,var(--bad) 35%,var(--surface-2));overflow:hidden;position:relative}
+  .meter .fill{height:100%;background:var(--good);border-radius:999px;transition:width .5s ease}
+  .meter .mid{position:absolute;left:50%;top:-3px;bottom:-3px;width:2px;background:var(--line)}
+
+  .theme-topic{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:12px;font-size:.9rem}
+  .theme-topic b{font-family:var(--fdisp)}
+  .theme-topic .you-side{color:var(--good);font-weight:600}
+
+  .thread{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;max-height:46vh;overflow-y:auto;padding:2px}
+  .bubble{max-width:88%;padding:11px 14px;border-radius:14px;font-size:.98rem;line-height:1.4}
+  .bubble .nm{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:3px;opacity:.8}
+  .bubble.cpu{align-self:flex-start;background:var(--cpu-bubble);border:1px solid var(--line);border-bottom-left-radius:4px}
+  .bubble.cpu .nm{color:var(--bad)}
+  .bubble.you{align-self:flex-end;background:color-mix(in srgb,var(--good) 14%,var(--surface));border:1px solid color-mix(in srgb,var(--good) 40%,var(--line));border-bottom-right-radius:4px}
+  .bubble.you .nm{color:var(--good-ink)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .bubble.you .nm{color:var(--good)}}
+  :root[data-theme="dark"] .bubble.you .nm{color:var(--good)}
+  .bubble.latest{box-shadow:0 0 0 2px color-mix(in srgb,var(--bad) 45%,transparent)}
+
+  .phase-tag{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:600;color:var(--accent);
+    background:color-mix(in srgb,var(--accent) 12%,transparent);border-radius:999px;padding:5px 12px;margin-bottom:10px}
+  .phase-tag.hot{color:var(--bad);background:color-mix(in srgb,var(--bad) 13%,transparent)}
+  .choices{display:grid;gap:10px}
+  .choice{text-align:left;line-height:1.3}
+  .choice small{display:block;color:var(--muted);font-weight:500;font-size:.82rem;margin-top:3px}
+  .grid-fal{grid-template-columns:1fr 1fr}
+  @media (max-width:470px){.grid-fal{grid-template-columns:1fr}}
+  .btn-a{border-color:var(--bad)} .btn-a:hover{background:color-mix(in srgb,var(--bad) 10%,transparent)}
+  .btn-b{border-color:var(--accent)} .btn-b:hover{background:color-mix(in srgb,var(--accent) 10%,transparent)}
+  .pips{font-size:.8rem;letter-spacing:1px;color:var(--accent);font-weight:700}
+  .back{background:transparent;border:none;color:var(--muted);font-weight:600;font-size:.85rem;width:auto;padding:4px 2px;cursor:pointer}
+
+  .fb{border-radius:16px;padding:16px;margin-top:4px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow)}
+  .fb.win{border-color:var(--good);background:color-mix(in srgb,var(--good) 9%,var(--surface))}
+  .fb.lose{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 9%,var(--surface))}
+  .fb.mid{border-color:var(--warn)}
+  .fb .head{font-family:var(--fdisp);font-weight:800;font-size:1.1rem;display:flex;align-items:center;gap:8px}
+  .fb.win .head{color:var(--good-ink)} .fb.lose .head{color:var(--bad-ink)} .fb.mid .head{color:var(--warn)}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fb.win .head{color:var(--good)} :root:not([data-theme="light"]) .fb.lose .head{color:var(--bad)}}
+  :root[data-theme="dark"] .fb.win .head{color:var(--good)} :root[data-theme="dark"] .fb.lose .head{color:var(--bad)}
+  .fb .name{margin-top:7px}
+  .fb .desmonta{margin-top:8px;font-size:.92rem;background:var(--surface-2);border-radius:10px;padding:9px 12px}
+  .fb .desmonta b{color:var(--accent)}
+  .fb .schop{margin-top:8px;font-size:.82rem;color:var(--muted)} .fb .schop b{color:var(--warn)}
+  .fb .delta{font-weight:700;font-family:var(--fdisp)} .fb .delta.pos{color:var(--good)} .fb .delta.neg{color:var(--bad)}
+
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .brand{font-family:var(--fdisp);font-weight:800}
+  .brand .accent{color:var(--accent)}
+  .ghost{background:transparent;border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:.82rem;font-weight:600;color:var(--muted);width:auto}
+  .foot{margin-top:18px;text-align:center;font-size:.78rem;color:var(--muted)}
+  .fade{animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.fade{animation:none}}
+  .verdict{font-family:var(--fdisp);font-weight:800;font-size:2rem;margin:6px 0}
+  .verdict.win{color:var(--good)} .verdict.lose{color:var(--bad)} .verdict.tie{color:var(--warn)}
+</style>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="brand">Arrazoien <span class="accent">dueloa</span></div>
+    <button class="ghost" id="theme">Itxura ◐</button>
+  </div>
+  <div id="app"></div>
+  <div class="foot">Pentsamendu kritikoa · DBH 2 · Martín de Bertendona BHI. Ez du beti irabazten tranpa harrapatzen duenak: batzuetan arrazoiekin gogorren jotzen duenak irabazten du.</div>
+</div>
+
+<script>
+/* ---------- Las 10 falacias ---------- */
+const FALACIAS = {
+  persona:{nombre:"Pertsonari erasotzea", tec:"ad hominem", q:"Zer ikusteko du pertsona nolakoa den bere ideia ona den ala ez?"},
+  famoso: {nombre:"Ospetsu batek dio", tec:"autoritate faltsua", q:"HONETAN benetan aditua da, ala ospetsua besterik ez?"},
+  siempre:{nombre:"Beti horrela egin da", tec:"tradiziorako deia", q:"Betikoa izateak, ona bihurtzen al du?"},
+  pena:   {nombre:"Arrazoiak eman ordez, errukia ematea", tec:"errukirako deia", q:"Arrazoi bat ematen al dit, ala errukia ematea besterik ez du bilatzen?"},
+  deformar:{nombre:"Esan duzuna desitxuratzea", tec:"lastozko gizona", q:"Benetan hori esan dut, ala puztu egin du erasotzeko?"},
+  pocos:  {nombre:"Kasu gutxirekin, guztiei buruz ondorioztatzea", tec:"orokortze presatua", q:"Zenbat kasurekin? Benetan balio al du guztientzat?"},
+  causa:  {nombre:"Ondoren gertatu zen, beraz hori izan zen kausa", tec:"kausa faltsua", q:"Batak bestea eragiten duen frogarik ba al dago, ala segidan datoz besterik gabe?"},
+  dos:    {nombre:"Bi aukera baino ez daude", tec:"dilema faltsua", q:"Ziur beste aukerarik ez dagoela?"},
+  miedo:  {nombre:"Beldurtzea, konbentzitzeko", tec:"beldurrarako deia", q:"Arrazoi bat ematen al dit, ala beldurra sartzen besterik ez?"},
+  todos:  {nombre:"Mundu guztiak dio", tec:"ad populum", q:"Jende askok egiteak, egia bihurtzen al du?"},
+  notrue: {nombre:"Komeni den bezala birdefinitzea", tec:"«no true scotsman»", q:"Definizioa aldatzen al duzu kontradibidea saihesteko soilik? (Sokratesek bereizketa onartu zuen… eta buelta eman zion.)"},
+};
+const ORDEN_FAL = ["persona","famoso","siempre","pena","deformar","pocos","causa","dos","miedo","todos","notrue"];
+const FIBRA = new Set(["persona"]); // falacias que, además de trampa, son una falta de respeto: cuestan temple aunque las caces
+
+/* ---------- Estratagemas eristas: atacan el temple, no el tema ---------- */
+const ESTRAT = {
+  insulto:  {t:"«Benetan hori pentsatzen duzu? Oso motela izan behar da hori ez ikusteko. Tira, utzi.»", nombre:"iraina", schop:"38. estratagema, «ultima ratio»-a", q:"Ez da arrazoi bat, irain bat da. Eskatu gaiaz hitz egin dezala, ez zutaz."},
+  ira:      {t:"«Jakina, zu beti hain motela gauza guztietarako; normala da ez harrapatzea.»", nombre:"haserrea eragitea", schop:"8. estratagema", q:"«Haserre dagoenak ez du ongi epaitzen.» Arnasa hartu: ez kosk egin amuari."},
+  persona:  {t:"«Zuk ez duzu bizitzaz ezer ere ez dakizu, beraz hobe honetaz iritzirik ez ematea.»", nombre:"eraso pertsonala", schop:"ad hominem, 21. estratagema", q:"Zuk esateak ez du aldatzen ideia ona ala txarra den."},
+  categoria:{t:"«Diozun hori faxista baten tipikoa da. Ergel batek baino ez luke horrela pentsatuko.»", nombre:"zaku gorrotagarri batean sartzea", schop:"kategoria higuingarri batean sartzea", q:"Etiketak ez du ezer errefusatzen. Non dago arrazoia?"},
+  miedo:    {t:"«Kontra egiten jarraitzen baduzu, lagunik gabe geratuko zara.»", nombre:"mehatxua", schop:"beldurrarako deia (ad baculum)", q:"Beldurra ez da arrazoi bat. Zergatik izango litzateke egia dioena?"},
+  desvio:   {t:"«Eta zu zer? Lehengoan gauza bera egin zenuen. Hobe horretaz hitz egitea.»", nombre:"desbideratu eta zu seinalatzea", schop:"18. eta 29. estratagemak", q:"Nik huts egiteak ez dio galderari erantzuten. Itzul gaitezen gaira."},
+  autoridad:{t:"«Nobel sari batek esan zuen eta frogatuta baino frogatuago dago. Ez dago gehiago hitz egitekorik.»", nombre:"autoritatea zu isilarazteko", schop:"30. estratagema", q:"Nork, non eta zergatik? Arrazoirik gabeko aipamen batek ez du gaia ixten."},
+};
+const ORDEN_ESTRAT = Object.keys(ESTRAT);
+const REACCIONES = [
+  {lbl:"Zuk ere iraindu", t:"«Ba zu ergelagoa, bai zera!»"},
+  {lbl:"Amore eman eta arrazoia eman", t:"«Ongi, ongi… zuk diozuna.»"},
+  {lbl:"Gaitik ihes egin", t:"«Pasa, beste zerbaitez hitz egin dezagun.»"},
+];
+
+/* ---------- Temas de debate. cpu defiende una postura; tú la contraria. ----------
+   opp: argumentos del ordenador. f=null es limpio; con f es falacia, y peso (1-3) = cuánto se apoya su postura en esa trampa.
+   counters: tus contraargumentos. str (1-3) = fuerza; con f es un contraargumento tramposo que te saldrá mal. */
+const TEMAS = [
+ {nivel:["eso"], claim:"Mugikorrak klasetik kanpo utzi behar dira?",
+  cpuLado:"Ordenagailuak defendatzen du: «klasean askatasunez erabil daitezela».",
+  tuLado:"Zuk defendatzen duzu: «hobe ikasgelatik kanpo».",
+  opp:[
+   {t:"Mugikorrak hiztegia eta kalkulagailua ematen dizkizu berehala; ongi erabilita, ikasteko tresna bat da.", f:null},
+   {t:"Teknologiako guru batek esan zuen hitzaldi batean: mugikorra debekatzea analfabeto digitalena da.", f:"famoso", peso:1},
+   {t:"Institutu moderno guztietan jada erabiltzen dira; atzean geratzea baserritarrena da.", f:"todos", peso:2},
+   {t:"Edo mugikorra aske, edo XXI. mendean bizitzeko gai ez diren gaztetxoak haziko ditugu.", f:"dos", peso:3},
+   {t:"Bi ezagutzen ditut mugikorrean gauzak bilatuz gainditu zutenak; argi dago guztiei laguntzen diela.", f:"pocos", peso:2},
+   {t:"Arauekin erabiltzen irakasten badiegu, erabat debekatuta baino hobeto ikasten dute autoerregulatzen.", f:null},
+  ],
+  counters:[
+   {t:"Mugikorrak kendu zituzten ikasgeletan arreta igo zen eta kopiak jaitsi: datuak daude.", str:3},
+   {t:"Tresna baliagarri bat une jakinetan erabil daiteke, ez eduki gainean ordu osoan.", str:2},
+   {t:"Behar denerako ikastetxeko tabletak daude, jakinarazpen pertsonalik gabe.", str:2},
+   {t:"Jende askok eskertzen du une batez deskonektatzea; ikasgela leku hori izan daiteke.", str:1},
+   {t:"Edo mugikorra kanpora, edo hau zibergune bat izango da eta inork ez du ezer ikasiko.", f:"dos"},
+   {t:"Nire osabak dio, 30 urte baitaramatza irakasle, beraz kanpora eta kito.", f:"famoso"},
+  ]},
+ {nivel:["eso"], claim:"Komeni al da egunero janari azkarra jatea?",
+  cpuLado:"Ordenagailuak defendatzen du: «bai, aurrera, egunero».",
+  tuLado:"Zuk defendatzen duzu: «noizean behin bai, egunero ez».",
+  opp:[
+   {t:"Merkea eta azkarra da; denbora gutxi duenarentzat, bazkaria konpontzen du.", f:null},
+   {t:"Munduko futbolari ospetsuenak iragartzen du, beraz ez da hain txarra izango.", f:"famoso", peso:1},
+   {t:"Klase osoak han jaten du ostiraletan; zerbaitengatik izango da.", f:"todos", peso:2},
+   {t:"Nire lehengusuak hanburgesak jaten ditu eta sendo-sendo dago: janari honek indartsu jartzen zaitu.", f:"causa", peso:2},
+   {t:"Edo hau jaten duzu, edo gose geratzen zara; ez dago beste aukera merkerik.", f:"dos", peso:3},
+   {t:"Ez kendu egunean dudan gustu bakarra, nahikoa gaizki pasatzen dut eta.", f:"pena", peso:1},
+  ],
+  counters:[
+   {t:"Etiketan jartzen du menu batek egun oso bateko ia gatz eta koipe guztia daramala: egunero kalte egiten du.", str:3},
+   {t:"Noizean behin jatea ez da arazoa; arazoa egunero da.", str:2},
+   {t:"Eguneroko menu batek balio duenarekin, astean gutxiagoren truke askotariko janaria kozinatzen duzu.", str:2},
+   {t:"Ogitartekoak eta fruta daude, berdin azkarrak eta merkeagoak.", str:1},
+   {t:"Bat ezagutzen dut hori jaten gaixotu zena; beraz, jaten duten guztiak gaixotzen dira.", f:"pocos"},
+   {t:"Hori jaten jarraitzen baduzu, ospitalean bukatuko duzu ziur.", f:"miedo"},
+  ]},
+ {nivel:["eso"], claim:"Maskota bat hartuko dugu gaur bertan?",
+  cpuLado:"Ordenagailuak defendatzen du: «bai, gaur bertan».",
+  tuLado:"Zuk defendatzen duzu: «lehenik ondo prestatu, ez gaur ero moduan».",
+  opp:[
+   {t:"Babeslekuan lehenbailehen etxe bat behar duten animaliak daude; itxaroteak ere kostatzen zaie.", f:null},
+   {t:"Begira zer aurpegitxo; gaur ekartzen ez badugu oso triste jarriko naiz.", f:"pena", peso:2},
+   {t:"Nire familian beti izan dugu txakurra, beraz bat eduki behar dugu jada.", f:"siempre", peso:1},
+   {t:"Nire lagun guztiek dute maskota; ni naiz ez duen bakarra.", f:"todos", peso:1},
+   {t:"Edo gaur hartzen dugu, edo maskotarik gabe geratuko gara betiko.", f:"dos", peso:3},
+   {t:"Albaitariak itxaroteko dio, baina seme-alabarik ez duenez, ez daki familiez.", f:"persona", peso:2},
+  ],
+  counters:[
+   {t:"Txakur batek hamar edo hamabost urte bizi ditu eta egunero jaten eman, atera eta albaitaria ordaindu behar zaio: lehenago antolatu behar da.", str:3},
+   {t:"Hartu dezakegu egunero nork aterako duen jakin bezain laster; prestatzea da, ez uko egitea.", str:2},
+   {t:"Planik gabe ekartzen badugu eta gero zaindu ezin badugu, okerren pasatzen duena animalia da.", str:2},
+   {t:"Aste bat etxea eta ordutegia prestatzeko ez da hainbeste.", str:1},
+   {t:"Hau da, zure ustez animaliek ez dute batere axola.", f:"deformar"},
+   {t:"Albaitari influencer batek esan zuen zenbat eta lehenago hobe, beraz gaur.", f:"famoso"},
+  ]},
+ {nivel:["fil","hf"], claim:"Justizia indartsuenaren komenentzia baino ez al da? · Sokrates vs. Trasimako",
+  cpuLado:"Ordenagailua Trasimako da: bidegabea izatea errentagarriagoa eta zoriontsuagoa da; justiziak boteretsuari baino ez dio balio.",
+  tuLado:"Zu Sokrates zara: justizia bertute bat da, duenari mesede egiten diona, eta bizitza zuzena zoriontsuagoa da.",
+  estrat:[
+   {t:"Piztia baten gisan sartzen da: «Hau da denbora guztian esaten ari zareten astakeria pila!»", nombre:"sarrera basatia", schop:"argudiatu aurretik izutzea", q:"Tonua ez da argudio bat. Zer esan behar du gaiaz?"},
+   {t:"Barre-algara bota du: «Hor dago Sokratesen betiko ironia; banekien ihes egingo zenuela.»", nombre:"iseka", schop:"errefusatu ordez barregarri uztea", q:"Barre egiteak ez du ezer errefusatzen. Eskatu arrazoia."},
+   {t:"«Sokrates, oraindik haurtzaina duzu? Mukiak dilindan uzten baitizu eta ez dizkizu garbitzen.»", nombre:"inudearen iraina", schop:"38. estratagema, «ultima ratio»-a", q:"Irain bat da, ez erantzun bat. Itzuli gaira."},
+  ],
+  opp:[
+   {t:"Zuzenak beti ateratzen du gutxiago: ez du iruzurrik egiten negozioetan, zergak ordaintzen ditu eta, gobernatzean, besteei egiten die mesede eta ez bere buruari.", f:null},
+   {t:"Mediku batek huts egiten duenean, une horretan ez du mediku gisa jokatzen. Berdin agintzen duenak: zentzu hertsian, agintariak ez du hutsik egiten.", f:"notrue", peso:1},
+   {t:"Zuk irabazteko soilik galdetzen duzu, ohorearen maitasunagatik; ez duzu egia bilatzen, beraz zure galderek ez dute balio.", f:"persona", peso:3},
+   {t:"Begira nor garaitzen den: tiranoak eta tranpatiak. Argi-argi dago bidegabekeriak egiten duela zoriontsu.", f:"pocos", peso:2},
+   {t:"Edo bidegabea zara eta etekina ateratzen duzu, edo zuzena zara eta bizirik jaten zaituzte; ez dago erdiko biderik.", f:"dos", peso:2},
+   {t:"Zuzena ustiatzen duten inozo bat da; bidegabea, ustiatzen duen azkarra. Edo bata edo bestea. Horregatik da bertutea bidegabekeria.", f:"dos", fAlt:["persona"], peso:2},
+  ],
+  counters:[
+   {t:"Lapur-talde batek ere justizia apur bat behar du beren artean zerbait lortzeko; bidegabekeriak aurrez aurre jartzen eta suntsitzen ditu.", str:3},
+   {t:"Agintariek huts egiten dute eta kalte egiten dieten legeak ematen dituzte; orduan, haiek betetzeak ez dio indartsuari mesederik egiten.", str:2},
+   {t:"Medikuak, mediku den aldetik, gaixoaren ongia bilatzen du, ez berea; ongi agintzen duenak gobernatuaren ongia bilatzen du.", str:2},
+   {t:"Arimaren eginkizuna bizitzea bada, eta justizia haren bertutea, zuzenak ongi bizi du; eta ongi bizitzea zoriontsu izatea da.", str:2},
+   {t:"Sofista batek arrazoia izan gabe arrazoia izaten irakasteagatik kobratzen du; nola sinetsiko dizugu zuri?", f:"persona"},
+   {t:"Edo onartzen duzu justizia bertute bat dela, edo aitortzen duzu lapurtzea gustatuko litzaizukeela; aukeratu.", f:"dos"},
+  ]},
+ {nivel:["hf"], claim:"Atheismusstreit (1798): ateoa al da Jainkoa munduaren ordena moralarekin identifikatzea?",
+  cpuLado:"Ordenagailua Fichteren salatzaileak dira: hori ateismoa da, eta ateismoa debekatu egin behar da.",
+  tuLado:"Fichte zara: fedea merezi duen Jainkoa munduaren ordena moral bizia da; aparteko Jainko-gauza bat idolo bat litzateke.",
+  estrat:[
+   {t:"Panfleto anonimo bat dabil, «Aita batek bere seme ikasleari gutuna»: zure aldizkaria irakurtzen duenak fedea eta arima galduko ditu.", nombre:"panfleto anonimoa", schop:"aurpegia eman gabe erasotzea (putzua pozoitzea)", q:"Itzalpean salatzen duenak ez du argudiatzen. Zer dio eta zer frogarekin?"},
+   {t:"Saxoniako gobernuak aldizkaria konfiskatzeko eta irakurtzen duena zigortzeko mehatxua egiten du.", nombre:"zentsura-mehatxua", schop:"indarra arrazoien ordez (ad baculum)", q:"Ideia bat isilaraztea ez da errefusatzea. Non dago argudioa?"},
+   {t:"«Ateoa!» Hitz horrekin nahikoa; ez dago zurekin gehiago hitz egitekorik.", nombre:"etiketa laidogarria", schop:"kategoria higuingarri batean sartzea", q:"Etiketak ez du ezer errefusatzen. Zertan datza zehazki esaten dudana?"},
+  ],
+  opp:[
+   {t:"Substantzia, pertsona, ez sortzaile ez den Jainko bat, «ordena morala» besterik ez dena, zertan bereizten da Jainkorik ez edukitzetik?", f:null},
+   {t:"Fichtek dio Jainkoa guk egiten dugun ideia bat baino ez dela; hau da, Jainkoa ukatzen du. Ateoa da.", f:"deformar", peso:3},
+   {t:"Jainko pertsonala kentzen baduzu, morala, zina eta Estatua erortzen dira. Jada debekatu behar da.", f:"miedo", peso:3},
+   {t:"Fichte jakobino eta istilugile bat da; jakina da nolako filosofia ateratzen den horrelako gizon batengandik.", f:"persona", peso:2},
+   {t:"Kristautasun osoak aitortzen duen katiximak dio Jainkoa pertsona eta sortzaile dela; nor da bera hori zuzentzeko?", f:"siempre", peso:1},
+   {t:"Jende zintzo guztia eskandalizatzen da aldizkari horrekin; zerbaitengatik izango da.", f:"todos", peso:1},
+  ],
+  counters:[
+   {t:"Egiazko Jainkoa munduaren ordena moral bizia da, ongi jokatzean fidatzen zaren hura: hori ez da «nire ideia bat», errealena da.", str:3},
+   {t:"Jainkoa gauza edo pertsona bihurtzea, izakien arteko izaki bat gehiago, idolo mailara jaistea da; idolo hori ukatzea ez da Jainkoa ukatzea.", str:3},
+   {t:"Ideia bat zentsurarekin zigortzeak ez du errefusatzen: oker banago, frogatu ezazue, ez nazazue isilarazi.", str:2},
+   {t:"Epaitu nire arrazoiak, ez nire politika: ni jakobino izateak edo ez izateak ez du esaten arrazoia dudan ala ez.", str:2},
+   {t:"Edo nire idealismo osoa onartzen duzue, edo fanatiko sineskeriati batzuk zarete.", f:"dos"},
+   {t:"Ni salatzen nauena apaiz ezjakin bat da, Kanten lerro bat ere irakurri ez duena.", f:"persona"},
+  ]},
+];
+
+// Nivel de cada tema: cada objeto de TEMAS trae su `nivel`. Se filtra según la web por el hash del enlace (#eso/#fil/#hf; sin hash, todos).
+TEMAS.forEach(t=>{ if(!t.nivel) t.nivel=["eso","fil","hf"]; });
+const LEVELS=["eso","fil","hf"];
+function activeLevel(){ try{ const h=(location.hash||"").replace("#","").toLowerCase(); return LEVELS.includes(h)?h:null; }catch(e){ return null; } }
+
+const MAXT = 6;
+let S=null, _seed=1;
+function rnd(){ _seed=(_seed*1103515245+12345)&0x7fffffff; return _seed/0x7fffffff; }
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(rnd()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+const app=()=>document.getElementById('app');
+
+function freshState(ti){
+  return {ti, meter:50, temple:3, lastHit:false, turno:0, thread:[], move:null, hand:null,
+          fase:"turn", _oppQueue:shuffle(TEMAS[ti].opp.map((_,i)=>i))};
+}
+function clamp(v){ return Math.max(0,Math.min(100,v)); }
+
+function render(){
+  if(!S || S.fase==="intro") return renderIntro();
+  if(S.fase==="end") return renderEnd();
+  renderGame();
+}
+
+function renderIntro(){
+  app().innerHTML = `
+   <div class="intro fade">
+     <div class="center">
+       <div class="eyebrow">Eztabaida-jokoa · elkarrizketa bat, gai bat</div>
+       <h1>Eztabaidatu eta konbentzitu</h1>
+       <p class="lede">Gai bat eztabaidatzen duzu ordenagailuaren aurka eta neurgailu batek erakusten du publikoa norengana ari den konbentzitzen. Txanda bakoitzean, esan berri duenaren aurrean, zure jokaldia aukeratzen duzu.</p>
+     </div>
+     <div class="rules">
+       <div class="rule"><span class="n">A</span><p><b>Faltsukeria seinalatu.</b> Bere argudioak tranpa egiten badu, izendatu eta hura defendatzera behartzen duzu. Tranpa bere jarreraren bihotza denean, horrek kalte handia egiten dio.</p></div>
+       <div class="rule"><span class="n">B</span><p><b>Kontraargudiatu.</b> Bere jokaldia pasatzen uzten duzu eta zeure arrazoi batekin erantzuten duzu. Behar bezain sendoa bada, tranpa txiki bat zuzentzen entretenitzea baino gehiago konbentzitzen du… baina ahula bada eta bere tranpa handia bazen, hondoratu egiten zaitu.</p></div>
+       <div class="rule"><span class="n">♦</span><p><b>Patxada.</b> Errespetua galtzen dizutenean edo mina ematen dizutenean (irain bat, mehatxu bat, eraso pertsonal bat) patxada galtzen duzu, jokaldia harrapatuta ere: kolpeak berdin egiten du min. Ez da bere kabuz berreskuratzen, beraz pilatu egiten da. Zeron, onetik ateratzen zara (iraindu, amore eman edo ihes egin baino ez zaizu ateratzen); orduan gelditu eta arnasa hartu lasaitasun pixka bat berreskuratzeko.</p></div>
+     </div>
+     <div class="center" style="font-weight:600;margin:4px 0 8px">Aukeratu partida honetako gaia:</div>
+     <div class="pick">
+       ${TEMAS.map((t,i)=>({t,i})).filter(({t})=>{const L=activeLevel();return !L||(t.nivel&&t.nivel.includes(L));}).map(({t,i})=>`<button class="btn" data-ti="${i}">${t.claim}<span class="sides">${t.tuLado}</span></button>`).join('')}
+     </div>
+   </div>`;
+  app().querySelectorAll('[data-ti]').forEach(b=>b.onclick=()=>{ _seed=(Date.now()&0x7fffffff)||1; S=freshState(+b.dataset.ti); S.fase="turn"; nextTurn(true); });
+}
+
+function pushThread(side, text, nm){ S.thread.push({side, text, nm}); }
+
+function nextTurn(first){
+  if(S.turno>=MAXT){ S.fase="end"; return render(); }
+  // el temple ya no se rellena solo: los golpes se acumulan y solo se recupera parando a respirar (a cero)
+  // elige jugada del ordenador
+  const T=TEMAS[S.ti];
+  if(!first && rnd()<0.32){
+    const pool = (T.estrat && T.estrat.length) ? T.estrat : ORDEN_ESTRAT.map(k=>ESTRAT[k]);
+    const e = pool[Math.floor(rnd()*pool.length)];
+    S.move={kind:"estrat", e, t:e.t};
+  } else {
+    if(!S._oppQueue.length) S._oppQueue=shuffle(TEMAS[S.ti].opp.map((_,i)=>i));
+    const idx=S._oppQueue.shift();
+    const m=T.opp[idx];
+    S.move={kind:"arg", t:m.t, f:m.f, peso:m.peso||0};
+  }
+  S.lastHit = (S.move.kind==="estrat");
+  pushThread("cpu", S.move.t, "Ordenagailua");
+  S.fase="turn";
+  render();
+}
+
+function hud(){
+  const T=TEMAS[S.ti], you=S.meter, cpu=100-S.meter;
+  return `<div class="hud">
+      <div class="turnlbl">Esku-hartzea <b>${Math.min(S.turno+1,MAXT)}</b> / ${MAXT}</div>
+      <div class="temple ${S.temple<=1?'low':''}"><div class="who">Patxada</div><div class="dots" style="color:${S.temple<=1?'var(--bad)':'var(--good)'}">${"♦".repeat(S.temple)+"♢".repeat(3-S.temple)}</div></div>
+    </div>
+    <div class="meter-wrap">
+      <div class="meter-top"><span class="you">Zu ${you}%</span><span>Publikoaren konbentzimendua</span><span class="cpu">Ordenagailua ${cpu}%</span></div>
+      <div class="meter"><div class="fill" style="width:${you}%"></div><div class="mid"></div></div>
+    </div>
+    <div class="theme-topic"><b>${T.claim}</b> &nbsp;·&nbsp; <span class="you-side">${T.tuLado}</span></div>`;
+}
+
+function threadHTML(){
+  return `<div class="thread" id="thread">`+
+    S.thread.map((m,i)=>`<div class="bubble ${m.side} ${i===S.thread.length-1 && m.side==='cpu'?'latest':''}"><div class="nm">${m.side==='cpu'?'Ordenagailua':'Zu'}</div>${m.text}</div>`).join('')+
+    `</div>`;
+}
+
+function renderGame(){
+  let html=hud()+threadHTML();
+  if(S.fase==="turn"){
+    if(S.temple<=0){
+      html+=`<div class="phase-tag hot">🥵 Onetik atera zara — zerekin ateratzen zara?</div><div class="choices fade">`;
+      html+=`<button class="btn btn-primary choice" id="respira">Gelditu eta arnasa hartu<small>ez duzu bero-beroan erantzuten; lasaitasuna berreskuratzen duzu</small></button>`;
+      REACCIONES.forEach((r,i)=>{ html+=`<button class="btn btn-a choice" data-rx="${i}">${r.lbl}<small>${r.t}</small></button>`; });
+      html+=`</div>`;
+      app().innerHTML=html; scrollThread();
+      document.getElementById('respira').onclick=()=>{ S.temple=1;
+        showFB("mid","Garaiz gelditu zara.",`Oraingoan ez duzu lurrik irabazten, baina lasaitasuna berreskuratzen duzu. Batzuetan gauzarik argiena bero-beroan ez erantzutea da.`,{},0,()=>{ S.turno++; nextTurn(false); }); };
+      app().querySelectorAll('[data-rx]').forEach(b=>b.onclick=()=>reaccion(+b.dataset.rx));
+      return;
+    }
+    const hot=S.move.kind==="estrat";
+    html+=`<div class="phase-tag ${hot?'hot':''}">${hot?'💢 Probokatzen ari zaizu — erantzun':'Zure txanda — nola erantzuten duzu?'}</div>`;
+    html+=`<div class="choices fade">
+       <button class="btn btn-a choice" data-act="a">${hot?'Seinalatu tranpa bat dela (ez argudio bat)':'Seinalatu faltsukeria eta hura defendatzera behartu'}<small>${hot?'esaten diozu horrek ez diola gaiari erantzuten':'izendatzen duzu; bere jarreraren ardatza bada, kalte handia egiten diozu'}</small></button>
+       <button class="btn btn-b choice" data-act="b">Kontraargudiatu zeure arrazoi batekin<small>bere jokaldia pasatzen uzten duzu eta zeurearekin jotzen duzu</small></button>
+     </div>`;
+    app().innerHTML=html; scrollThread();
+    app().querySelector('[data-act="a"]').onclick=()=>chooseA();
+    app().querySelector('[data-act="b"]').onclick=()=>chooseB();
+
+  } else if(S.fase==="name"){
+    html+=`<div class="phase-tag">🎯 Zein faltsukeria da? Izendatu desmuntatzeko</div><div class="choices grid-fal fade">`;
+    ORDEN_FAL.forEach(k=>{ html+=`<button class="btn choice" data-fal="${k}">${FALACIAS[k].nombre}<small>${FALACIAS[k].tec}</small></button>`; });
+    html+=`</div><div style="margin-top:8px"><button class="back" id="back">‹ atzera</button></div>`;
+    app().innerHTML=html; scrollThread();
+    app().querySelectorAll('[data-fal]').forEach(b=>b.onclick=()=>nameFal(b.dataset.fal));
+    document.getElementById('back').onclick=()=>{ S.fase="turn"; render(); };
+
+  } else if(S.fase==="counter"){
+    html+=`<div class="phase-tag">⚔️ Aukeratu zure kontraargudioa</div><div class="choices fade">`;
+    S.hand.forEach((c,i)=>{ const pips="●".repeat(c.f?1:c.str)+"○".repeat(3-(c.f?1:c.str));
+      html+=`<button class="btn choice" data-c="${i}" style="padding:14px"><span style="font-family:var(--fdisp);font-weight:600">${c.t}</span><small><span class="pips">${pips}</span> itxurazko indarra</small></button>`; });
+    html+=`</div><div style="margin-top:8px"><button class="back" id="back">‹ atzera</button></div>`;
+    app().innerHTML=html; scrollThread();
+    app().querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>playCounter(+b.dataset.c));
+    document.getElementById('back').onclick=()=>{ S.fase="turn"; render(); };
+  }
+}
+function scrollThread(){ const t=document.getElementById('thread'); if(t) t.scrollTop=t.scrollHeight; }
+
+function chooseA(){
+  if(S.move.kind==="estrat"){
+    const e=S.move.e; S.temple=Math.max(0,S.temple-1);
+    pushThread("you", `Hori ez da argudio bat: ${e.nombre} da. Erantzun iezadazu gaiari.`);
+    const d=8; S.meter=clamp(S.meter+d);
+    return showFB("win","Gelditu egin duzu.",`${e.nombre} seinalatu duzu amuari kosk egin beharrean. Publikoak nabaritzen du eta arrazoia ematen dizu. Hala ere, patxada puntu bat galtzen duzu: mina egin dizu.`,{q:e.q,schop:e.schop},d);
+  }
+  S.fase="name"; render();
+}
+
+function nameFal(k){
+  const m=S.move, fa=FALACIAS[k];
+  const fibra = m.f && FIBRA.has(m.f); if(fibra) S.temple=Math.max(0,S.temple-1); // te ha faltado al respeto: cuesta temple aunque la caces
+  const notaFibra = fibra ? " Eta errespetu falta ere badenez, patxada puntu bat galtzen duzu harrapatu arren." : "";
+  if(m.f===null){
+    pushThread("you", `Hori ${fa.nombre} da.`);
+    const d=-10; S.meter=clamp(S.meter+d);
+    return showFB("lose","Han ez zegoen tranparik.",`Argudio zilegi bat zen, eta «${fa.nombre}» egotzi diozu. Faltsukeriarik ez dagoen lekuan seinalatzeak gaiari ihes egiten ari zarela ematen du, eta publikoa hoztu egiten da zurekin.`,{},d);
+  }
+  const real=FALACIAS[m.f], alts=m.fAlt||[];
+  if(k===m.f || alts.includes(k)){
+    const elegida=FALACIAS[k];
+    pushThread("you", `Hori ${elegida.nombre} da: ${elegida.q}`);
+    const d=6+m.peso*3; S.meter=clamp(S.meter+d);
+    let extra = m.peso>=3?" Bere jarrera osoaren ardatza zen: hura desmuntatzea suntsitzailea izan da.":(m.peso===1?" Tranpa txiki bat zen, baina tira, batzen du.":"");
+    if(alts.length){ const todas=[m.f,...alts].map(x=>FALACIAS[x].nombre).join(" eta "); extra = ` Karta honek bi tranpa ezkutatzen ditu aldi berean (${todas}): bietako edozeinek balio du.`+extra; }
+    return showFB("win","Harrapatua eta izenarekin!",`<b>${elegida.nombre}</b> <span style="color:var(--muted)">(${elegida.tec})</span> zen eta hura defendatzera behartzen duzu.${extra}${notaFibra}`,{q:elegida.q},d);
+  }
+  if(fibra){ pushThread("you", `Hori ${fa.nombre} da…`); const d=3; S.meter=clamp(S.meter+d);
+    return showFB("mid","Errespetu falta ikusi duzu, baina ez zen faltsukeria hori.",`<b>${real.nombre}</b> <span style="color:var(--muted)">(${real.tec})</span> zen, ez «${fa.nombre}».${notaFibra}`,{q:real.q},d); }
+  pushThread("you", `Hori ${fa.nombre} da…`);
+  const d=3; S.meter=clamp(S.meter+d);
+  showFB("mid","Tranpa ikusi duzu, baina ez zen hori.",`Tranpa bazegoen, bai, baina ez «${fa.nombre}»: <b>${real.nombre}</b> <span style="color:var(--muted)">(${real.tec})</span> zen. Arrazoi erdia.`,{q:real.q},d);
+}
+
+function chooseB(){
+  const pool=shuffle(TEMAS[S.ti].counters.slice());
+  // mano de 3 con al menos un contraargumento sólido
+  const solidos=pool.filter(c=>!c.f), tramp=pool.filter(c=>c.f);
+  S.hand=shuffle([solidos[0], solidos[1]||solidos[0], (rnd()<0.6&&tramp[0])?tramp[0]:(solidos[2]||solidos[0])]).slice(0,3);
+  // asegura 3 distintas si se puede
+  S.hand=[...new Set(S.hand)];
+  let pi=0; while(S.hand.length<3 && pi<pool.length){ if(!S.hand.includes(pool[pi])) S.hand.push(pool[pi]); pi++; }
+  S.fase="counter"; render();
+}
+
+function playCounter(i){
+  const c=S.hand[i], m=S.move;
+  if(m.kind==="estrat" || (m.f && FIBRA.has(m.f))) S.temple=Math.max(0,S.temple-1); // una provocación o un ataque personal te tocan la fibra aunque pases de ellos
+  pushThread("you", c.t);
+  if(c.f){
+    const fa=FALACIAS[c.f]; const d=-10; S.meter=clamp(S.meter+d);
+    return showFB("lose","Zeure kolpea bera tranposoa zen.",`<b>${fa.nombre}</b> <span style="color:var(--muted)">(${fa.tec})</span> erabiliz kontraerasotu duzu, eta ordenagailuak harrapatu egiten zaitu. Publikoak deskontatu egiten dizu.`,{q:fa.q},d);
+  }
+  const unchallenged = (m.kind==="arg" && m.f) ? m.peso : 0;
+  const d = c.str*5 - unchallenged*4;
+  S.meter=clamp(S.meter+d);
+  if(unchallenged===0){
+    return showFB(d>0?"win":"mid", "Kontraargudio ona.", `${c.str} indarreko arrazoi batekin erantzun duzu. ${m.kind==="estrat"?"Eta bere probokazioari jaramonik ez: dotorea.":"Bere jokaldiak ez zuen tranparik; hemen argudiatzea zegokion."}`,{},d);
+  }
+  if(d>0){
+    const fa=FALACIAS[m.f];
+    return showFB("win","Bere tranpa baino gogorrago jo duzu.",`Bere <b>${fa.nombre}</b> (tranpa txiki bat) pasatzen utzi duzu eta kontraargudio indartsu bat sartu duzu. Batzuetan komeni da zuzentzen ez entretenitzea: publikoak zure arrazoia hartzen du gogoan.`,{},d);
+  }
+  const fa=FALACIAS[m.f];
+  return showFB("lose","Bere tranpa zutik jarraitzen zuen.",`Bere <b>${fa.nombre}</b> bere jarreraren ardatza zen eta pasatzen utzi duzu; zure kontraargudioak ez zuen horretarako ematen. Hemen hura <b>seinalatzea</b> komeniko zatekeen.`,{q:fa.q},d);
+}
+
+function reaccion(i){
+  pushThread("you", REACCIONES[i].t);
+  const d=-12; S.meter=clamp(S.meter+d); S.temple=1;
+  showFB("lose","Onetik atera zara.",`Deseroso, ${REACCIONES[i].lbl.toLowerCase()} baino ez zaizu atera. Publikoa ordenagailuarekin joaten da. Horregatik, lehenengo gauza amuari kosk ez egitea da.`,{},d);
+}
+
+function showFB(cls, head, body, extra, delta, cont){
+  extra=extra||{};
+  const last=(S.turno+1>=MAXT);
+  const dtxt = (typeof delta==="number" && delta!==0) ? `<div class="name">Publikoaren konbentzimendua: <span class="delta ${delta>0?'pos':'neg'}">${delta>0?'+':''}${delta}</span> → ${S.meter}%</div>`:``;
+  let html=hud()+threadHTML();
+  html+=`<div class="fb ${cls} fade">
+     <div class="head">${cls==='win'?'✓':(cls==='lose'?'✕':'◆')} ${head}</div>
+     <div class="name">${body}</div>
+     ${dtxt}
+     ${extra.q?`<div class="desmonta">Desmuntatzeko: <b>${extra.q}</b></div>`:``}
+     ${extra.schop?`<div class="schop">Schopenhauerrek <b>${extra.schop}</b> gisa jaso zuen «Arrazoia izateko artea» liburuan.</div>`:``}
+   </div>
+   <div class="choices" style="margin-top:12px"><button class="btn btn-primary" id="cont">${last?'Ikusi epaia':'Eztabaidan jarraitu'}</button></div>`;
+  app().innerHTML=html; scrollThread();
+  document.getElementById('cont').onclick = cont || (()=>{ S.turno++; nextTurn(false); });
+}
+
+function renderEnd(){
+  const you=S.meter, win=you>55, lose=you<45;
+  const cls=win?'win':(lose?'lose':'tie');
+  const titulo=win?'Publikoa konbentzitu duzu':(lose?'Publikoa ordenagailuarekin joan da':'Eztabaida estua, irabazle argirik gabe');
+  const msg=win?'Jakin duzu noiz seinalatu tranpa bat eta noiz jo gogor arrazoi batekin, onetik atera gabe. Hori ongi eztabaidatzea da.'
+    :(lose?'Tranpak sartu dizkizute, edo txandak huskerietan gastatu dituzu garrantzitsua erantzun gabe geratzen zen bitartean, edo deseroso jarri zaituzte. Begiratu neurgailua eta probatu beste bide bat.'
+      :'Berdinduta egon da. Doitu noiz seinalatu faltsukeria eta noiz kontraerasotu eta zure alde okertuko duzu.');
+  app().innerHTML=`${hud()}
+    <div class="intro center fade">
+      <div class="eyebrow">Eztabaidaren amaiera</div>
+      <div class="verdict ${cls}">publikoaren %${you}</div>
+      <h2>${titulo}</h2>
+      <p class="lede" style="margin-top:10px">${msg}</p>
+      <div class="pick" style="margin-top:18px">
+        <button class="btn btn-primary" id="again">Berriz eztabaidatu (gai hau)</button>
+        <button class="btn" id="home">Beste gai bat aukeratu</button>
+      </div>
+    </div>`;
+  document.getElementById('again').onclick=()=>{ _seed=(Date.now()&0x7fffffff)||1; const ti=S.ti; S=freshState(ti); S.fase="turn"; nextTurn(true); };
+  document.getElementById('home').onclick=()=>{ S=null; renderIntro(); };
+}
+
+/* ---------- Tema claro/oscuro ---------- */
+(function(){
+  const root=document.documentElement, btn=document.getElementById('theme');
+  let saved=null; try{saved=localStorage.getItem('dr_theme');}catch(e){}
+  if(saved) root.setAttribute('data-theme',saved);
+  btn.onclick=()=>{ const cur=root.getAttribute('data-theme');
+    const dark=cur? cur==='dark' : matchMedia('(prefers-color-scheme:dark)').matches;
+    const next=dark?'light':'dark'; root.setAttribute('data-theme',next);
+    try{localStorage.setItem('dr_theme',next);}catch(e){} };
+})();
+
+/* ---------- Arranque con hot-reload ---------- */
+function start(data){ if(data&&data.S){ S=data.S; if(typeof data.seed==='number') _seed=data.seed; } else { S=null; } render(); }
+try{ window.claude?.hot?.snapshot && window.claude.hot.snapshot(()=>({S, seed:_seed})); }catch(e){}
+if(window.claude?.hot?.ready) window.claude.hot.ready(start); else start(window.claude?.hot?.data ?? {});
+</script>
+
+</body>
+</html>
