@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S73 · 个人身份认同和集体身份认同</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第73课</b> · 第15单元 · 我是谁？</div><div class="guino">🙃</div><h1>个人身份认同和集体身份认同</h1><div class="idea">我们有一个个人身份认同，同时还有几个集体身份认同；把一个人简化成只属于一个集体，是不公平的，也是危险的。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>______是一个人的为人：比如害羞或外向。 <span class="de">第72课</span></li><li>只考了一次试就说“我数学不好”，是一种______的概括。 <span class="de">第72课</span></li><li>在对话中，对手是______，不是另一个人。 <span class="de">第61课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/15</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li><strong>性格</strong>是一个人的为人：比如害羞或外向。 <span class="de">第72课</span></li><li>只考了一次试就说“我数学不好”，是一种<strong>草率</strong>的概括。 <span class="de">第72课</span></li><li>在对话中，对手是<strong>问题</strong>，不是另一个人。 <span class="de">第61课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">艾托尔来自圣图奇区，是毕尔巴鄂竞技的球迷，会说巴斯克语，是哥哥，玩PlayStation，他的外婆是加利西亚人。</div><p class="q">这些东西里，哪一个是“真正的艾托尔”？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>我和我们</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 我和我们</div><h2>个人身份认同</h2><div class="def">它是让你独一无二的东西：你的经历、你的性格、你的爱好和你的决定。</div><div class="tarjetas" style="grid-template-columns:repeat(2,1fr)"><div>它回答的问题是：<strong>我是谁？</strong></div><div>没有人的身份认同和另一个人完全一样</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 我和我们</div><h2>集体身份认同</h2><div class="def">它是你和一个你觉得自己属于的集体共有的东西：一个“我们”。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>它回答的问题是：<strong>我和谁是“我们”？</strong></div><div>朋友圈、球队、语言、街区、出身、宗教</div><div>就像我们在第64课看到的：一个集体会有一种“我们”的感觉</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 我和我们</div><h2>阿明·马洛夫的一个想法</h2><p>一位出生在黎巴嫩、住在法国的作家。在他的书《致命的身份认同》（1998）里，他用别的话主张：</p><ul><li>每个人同时有<strong>很多归属</strong></li><li>其中任何一个单独都不能说明你是谁</li><li>把一个人简化成<strong>只有一个</strong>，可能导致<strong>仇恨</strong></li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 我和我们</div><div class="quote">刻板印象的问题不在于它们是假的，而在于它们是不完整的。</div><p class="q">奇玛曼达·恩戈兹·阿迪契，尼日利亚作家，在她的演讲《单一故事的危险》（2009）中</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例1 · 同时有很多身份认同</h2><div class="caso">我们回到艾托尔：来自圣图奇区、毕尔巴鄂竞技的球迷、说巴斯克语的人、哥哥、玩PlayStation的人、有一位加利西亚外婆的孙子。（编造的例子。）</div><ol class="pasos"><li class="frag">个人的：他的性格、他的经历、他喜欢玩PlayStation。</li><li class="frag">集体的：毕尔巴鄂竞技、巴斯克语、街区、加利西亚的家人。</li><li class="frag">它们并不互相竞争：艾托尔可以觉得自己是毕尔巴鄂人，同时也爱着加利西亚。</li><li class="frag">结论：没有人只是一种东西。我们同时有好几种身份认同，而且它们和平共处。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例2 · “他是皇家社会的”</h2><div class="caso">一场德比之后，在班级的WhatsApp群里，有人写到陈：“他是皇家社会的。千万别相信他。”</div><ol class="pasos"><li class="frag">陈被简化成了<strong>只有一个</strong>归属：他的球队。</li><li class="frag">这就是“我们和他们”（第66课）：因为是外人，就对外人更差。</li><li class="frag">这相关吗？是皇家社会的人，并不能说明陈是不是可靠。</li><li class="frag">结论：把一个人简化成只属于一个集体是不公平的，还会为蔑视打开大门。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/15</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 最好不属于任何集体</h2><div class="caso">学完第66课之后，玛亚伦想：“如果集体会造成‘我们和他们’，最好就不要觉得自己属于任何一个。”</div><p class="q">不属于任何集体是个好主意吗？</p><ol class="pasos"><li class="frag">看起来有道理：没有集体，就不会有对立。</li><li class="frag">但是归属能带来支持、陪伴和意义。我们每个人都需要它。</li><li class="frag">问题不在于有一个“我们”，而在于蔑视“他们”，或把他们简化成一件事。</li><li class="frag">结论：这是一个虚假的<strong>两难</strong>（第20课）。我们可以属于一些集体，同时善待外人。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">个人身份认同是让你独一无二的东西；集体身份认同是你和一个集体共有的东西。</li><li class="frag">我们每个人同时有好几个集体身份认同，而且它们可以和平共处。</li><li class="frag">把一个人简化成只属于一个集体是不公平的：刻板印象是不完整的。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/15</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/15</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

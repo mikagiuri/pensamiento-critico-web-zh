@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S21 · 滑坡谬误</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第21课</b> · 第4单元 · 谬误 II：错误的推理</div><div class="guino">🙃</div><h1>滑坡谬误</h1><div class="idea">滑坡把越来越糟的后果一环扣一环地连起来，却没有给出理由说明每一步一定会导致下一步。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>在虚假两难里，被藏起来的选项可能在______，可能是两个都选，也可能是别的。 <span class="de">第20课</span></li><li>虚假两难只给出______个选项，其实还有更多。 <span class="de">第20课</span></li><li>如果理由是______的，论证就站不住。 <span class="de">第9课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/16</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>在虚假两难里，被藏起来的选项可能在<strong>中间</strong>，可能是两个都选，也可能是别的。 <span class="de">第20课</span></li><li>虚假两难只给出<strong>两</strong>个选项，其实还有更多。 <span class="de">第20课</span></li><li>如果理由是<strong>假的</strong>的，论证就站不住。 <span class="de">第9课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">“如果今天我让你待到十点，明天你就会想待到十二点，最后就会不回家了。”</div><p class="q">一步一定会导致下一步吗？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>一连串的后果</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 一连串的后果</div><h2>滑坡谬误</h2><div class="def">说一个小小的第一步一定会导致一连串可怕的后果，却没有给出每一步的理由。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>就像滑梯：一旦上去，就停不下来</div><div>就算每一步都有可能，整个链条也很不可能</div><div>要问：<strong>为什么一步一定会导致下一步？</strong></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 一连串的后果</div><h2>怎样识别它</h2><ul><li>从小事开始，以<strong>可怕</strong>的事结束</li><li>很多“然后……”一个接一个</li><li>没有人解释<strong>为什么</strong>每一步会导致下一步</li><li>它有点像诉诸恐惧：用结局来吓人（第 16 课）</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 1 · 到十点</h2><div class="caso">“如果今天我让你待到十点，明天你就会想待到十二点，最后就会不回家了。”</div><ol class="pasos"><li class="frag">第一步？有一天待到十点。</li><li class="frag">结局？不回家了。</li><li class="frag">一步一定会导致下一步吗？不一定：父母可以在十二点说不行。</li><li class="frag">结论：滑坡。可以谈第一步，不必直接跳到结局。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 2 · 语文作业</h2><div class="caso">凯文：“如果我今天不做语文作业，我就会不及格，就会留级，就会辍学，就永远找不到工作。”</div><ol class="pasos"><li class="frag">有多少步？四步，一步比一步糟。</li><li class="frag">有哪一步有理由吗？没有：一天没做作业不会让一门课不及格。</li><li class="frag">每一个跳跃都需要理由，而这里一个也没有。</li><li class="frag">结论：滑坡。做作业是好事，但这个理由不成立。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 3 · 一个真实的链条</h2><div class="caso">奈亚拉的手机只剩 5% 的电：“如果我不充电，它今天下午就会关机，我训练完出来就没法通知我妈妈了。”</div><ol class="pasos"><li class="frag">有多少步？两步。</li><li class="frag">每一步都有理由吗？有：只剩 5% 的电，手机很快就会关机。</li><li class="frag">结局夸张吗？不夸张：没法通知别人是真实的，而且是小事。</li><li class="frag">结论：这不是谬误。当每一步都有充分支持时，有些后果是真实的。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/16</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 只是在聚会上</h2><div class="caso">迪伦：“如果你从‘只在聚会上’吸烟开始，很容易发展成每天都吸。尼古丁会让人上瘾。”</div><p class="q">它从小事开始，以糟糕的结局收场……是滑坡吗？</p><ol class="pasos"><li class="frag">看起来像滑梯：一个小小的第一步，一个糟糕的结局。</li><li class="frag">但这一步是有理由的：尼古丁会让人上瘾，这一点有很多研究。</li><li class="frag">而且他没有说“一定”：他说的是很容易发生。他没有夸大。</li><li class="frag">结论：这不是谬误。重要的是每一步有没有理由，而不是结局好不好。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第3部分</div><h1>不是每个链条都是谬误</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第3部分</b> · 不是每个链条都是谬误</div><h2>滑梯，还是真实的后果？</h2><div class="cols"><div class="col no"><h3>滑坡谬误</h3><ul><li>没有理由的步骤</li><li>夸大的结局</li><li>把每一步都当成一定会发生</li></ul></div><div class="col si"><h3>真实的后果</h3><ul><li>每一步都有理由</li><li>说的是“可能发生”，不是“一定会发生”</li><li>每一步都可以核实</li></ul></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">滑坡把越来越糟的后果连起来，却没有给出理由。</li><li class="frag">要拆穿它：为什么一步一定会导致下一步？</li><li class="frag">不是每个链条都是谬误：如果每一步都有理由，这个提醒就有价值。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/16</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/16</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

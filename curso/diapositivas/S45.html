@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S45 · 光环效应和第一印象</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第45课</b> · 第8单元 · 偏见：大脑也会骗人</div><div class="guino">🙃</div><h1>光环效应和第一印象</h1><div class="idea">光环效应就是只凭一个特点来评判一个人的全部，比如他的外表、名气或第一印象。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>在沃森的2-4-6任务中，秘密规则是：三个数字依次______。 <span class="de">第44课</span></li><li>拒绝一条______的证据不是确认偏见；无视一条好的证据才是。 <span class="de">第44课</span></li><li>我们转发谣言，是因为它让我们______，也因为是信任的人发来的。 <span class="de">第33课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/15</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>在沃森的2-4-6任务中，秘密规则是：三个数字依次<strong>递增</strong>。 <span class="de">第44课</span></li><li>拒绝一条<strong>糟糕</strong>的证据不是确认偏见；无视一条好的证据才是。 <span class="de">第44课</span></li><li>我们转发谣言，是因为它让我们<strong>激动</strong>，也因为是信任的人发来的。 <span class="de">第33课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">一个新来的男生穿着名牌衣服、笑着走进教室。另一个板着脸、头发乱糟糟地走进来。</div><p class="q">你觉得哪一个成绩会更好？你为什么这样想？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>一个特点染上了一切</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 一个特点染上了一切</div><h2>光环效应</h2><div class="def">它是让我们喜欢（或不喜欢）的一个特点，染上了我们对一个人的所有看法。</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div><strong>光环：</strong>画里圣人头上的那圈光</div><div>一个好的特点照亮了一切：“他长得帅，一定聪明”</div><div>反过来也一样：一个坏的特点让一切变暗</div><div>这是心理学家爱德华·桑代克（Edward Thorndike）在1920年描述的</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 一个特点染上了一切</div><h2>第一印象</h2><p>我们在很短的时间里就对一个人形成了看法。</p><ul><li>看一张脸一下，就能判断他看起来可不可信</li><li>这第一个想法往往很难改变</li><li>后来我们会去找证据来证实它（第44课）</li><li>但是一张脸或一身衣服，对一个人是什么样的，说明的很少</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 一个特点染上了一切</div><h2>光环出现在哪里</h2><table><tr><th>情境</th><th>这个特点</th><th>没有证据就推出的结论</th></tr><tr><td>广告</td><td>一位著名的足球运动员</td><td>“这个产品很好”</td></tr><tr><td>考试</td><td>字迹漂亮整洁</td><td>“答案更好”</td></tr><tr><td>社交网络</td><td>很多粉丝</td><td>“他知道自己在说什么”</td></tr><tr><td>求职面试</td><td>衣着得体</td><td>“他会是个好员工”</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例1 · 广告里的名人</h2><div class="caso">一位著名的足球运动员给一款洗发水做广告。“如果他用，那一定好。”</div><ol class="pasos"><li class="frag">我看到了什么特点？他足球踢得很好。</li><li class="frag">我推出了什么？他懂洗发水。这两件事毫无关系。</li><li class="frag">这就是光环效应，而品牌很清楚：所以才给他付钱。</li><li class="frag">结论：擅长一件事，并不会让你成为另一件事的专家。我们在第27课里见过这一点。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例2 · 漂亮的字迹</h2><div class="caso">两份考卷答案相同。一份字迹清楚整洁；另一份字迹难认，还有涂改。（编造的例子。）</div><ol class="pasos"><li class="frag">内容是一样的：它们应该得同样的分数。</li><li class="frag">但漂亮的字迹让人对整份考卷印象很好。</li><li class="frag">很容易在不知不觉中，给整洁的那份打得稍微高一点。</li><li class="frag">结论：光环效应。所以按书面标准批改、而且不看名字，是有帮助的。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例3 · 第一天</h2><div class="caso">第一天，Aitor没有跟任何人打招呼。有些人就断定：“他是个冷冰冰的人。”其实他是紧张。</div><ol class="pasos"><li class="frag">第一印象在一瞬间就形成了。</li><li class="frag">后来，Aitor做的每件事看起来都在证实它（第44课）。</li><li class="frag">没有人想过别的解释：紧张、害羞、糟糕的一天。</li><li class="frag">结论：第一印象是一个猜测，不是最终的判断。给这个人一些时间。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/15</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 一个确实算数的特点？</h2><div class="caso">为课间足球队选人，Leire先选了Aitor。她看到他每个星期都进很多球。</div><p class="q">她只凭一个特点选他……这是光环效应吗？</p><ol class="pasos"><li class="frag">看起来是的：她只凭一件事来评判他，就是进球。</li><li class="frag">但这个特点和她要决定的事有关：谁足球踢得好。</li><li class="frag">光环效应是这样想：因为他会进球，所以他学习也好，或者人也好。</li><li class="frag">结论：用一个切题的特点是一个好理由。光环效应是把它延伸到其他方面。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">光环效应就是只凭一个特点来评判一个人的全部。</li><li class="frag">第一印象形成得非常快，而且很难改变。</li><li class="frag">一个特点不能说明一个人是什么样的：给他时间，去找证据。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/15</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/15</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

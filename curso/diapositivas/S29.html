@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S29 · 服从与跟随群体</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第29课</b> · 第5单元 · 权威与影响</div><div class="guino">🙃</div><h1>服从与跟随群体</h1><div class="idea">Asch 和 Milgram 的实验表明，群体和权威可以让我们做出和自己想法相反的事。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>很多人这样做，可能是一个______，但不是可靠的证据。 <span class="de">第28课</span></li><li>______证明就是，在我们不知道该怎么做的时候，照着别人做。 <span class="de">第28课</span></li><li>英语里，红鲱鱼叫作 red ______。 <span class="de">第17课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/17</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>很多人这样做，可能是一个<strong>线索</strong>，但不是可靠的证据。 <span class="de">第28课</span></li><li><strong>社会</strong>证明就是，在我们不知道该怎么做的时候，照着别人做。 <span class="de">第28课</span></li><li>英语里，红鲱鱼叫作 red <strong>herring</strong>。 <span class="de">第17课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">七个人大声说出一个答案，而你清楚地看到它是错的。现在轮到你了。</div><p class="q">你会说出你看到的，还是和他们一样？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>Asch：跟随群体（1951年）</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · Asch：跟随群体（1951年）</div><h2>从众</h2><div class="def">从众是为了和群体一致而改变我们说的或者做的。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>心理学家 <strong>Solomon Asch</strong> 在美国研究了它</div><div>即使群体是错的，也会发生</div><div>记住第28课：社会认同</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · Asch：跟随群体（1951年）</div><h2>这就是 Asch 的实验</h2><div class="caso">一群人看着一条线，一个接一个大声说出另外三条（A、B 或 C）中哪一条和它一样长。这非常容易。</div><ol class="pasos"><li class="frag">花招：除了一个人以外，所有人都是事先说好的演员。真正的参与者几乎是倒数第二个回答。</li><li class="frag">在有些轮次里，演员们故意给出同一个错误答案。</li><li class="frag">在这些轮次里，三个答案里有2个是对的。但三个里有1个跟着群体走了。</li><li class="frag">结论：大约<strong>四个人里有3个</strong>至少有一次让步；四个人里有1个，从来没有。有一个同伴的时候，几乎所有人都能坚持。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>Milgram：服从权威（1961—1962年）</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · Milgram：服从权威（1961—1962年）</div><h2>服从</h2><div class="def">服从是照权威的命令去做，即使我们不同意。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>服从公平的规则对共同生活是必要的</div><div>问题是<strong>不假思索地</strong>服从</div><div>记住第25课：凭权力的权威</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · Milgram：服从权威（1961—1962年）</div><h2>这就是 Milgram 的实验</h2><div class="caso">Stanley Milgram 是美国耶鲁大学的心理学家，他对一些志愿者说，他在研究惩罚对记忆有什么影响。</div><ol class="pasos"><li class="frag">志愿者是“<strong>老师</strong>”。“<strong>学生</strong>”被绑在另一个房间的椅子上，是一个演员。</li><li class="frag">每答错一次，老师就电击一次，电击一次比一次强。电击是<strong>假的</strong>，但他不知道。</li><li class="frag">演员抗议，敲墙，最后不再回答。如果老师犹豫，科学家就说：“请继续。”</li><li class="frag">结论：在最有名的版本里，有<strong>65%</strong>的人一直电击到最强的一档，450伏。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · Milgram：服从权威（1961—1962年）</div><h2>对 Milgram 实验的批评</h2><ul><li>志愿者<strong>很痛苦</strong>：他们出汗，发抖，有些人还会紧张地大笑</li><li>他们被<strong>欺骗</strong>了：不知道这到底是怎么回事</li><li>很难<strong>停下来</strong>：科学家一再坚持</li><li>今天，这样的实验，完整地做，<strong>是不被允许的</strong></li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · Milgram：服从权威（1961—1962年）</div><h2>仍然有争论的地方</h2><ul><li>Milgram 做了很多版本：有的几乎没有人服从，有的几乎所有人都服从</li><li>有些志愿者怀疑电击是不是真的</li><li>当科学家说“你没有别的选择”时，很多人拒绝了</li><li>也许很多人并不是盲目服从：他们认为自己是在帮助科学</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第3部分</div><h1>我们学到什么</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第3部分</b> · 我们学到什么</div><h2>Asch 和 Milgram</h2><table><tr><th></th><th>Asch</th><th>Milgram</th></tr><tr><td><strong>研究什么</strong></td><td>从众：跟随群体</td><td>服从：跟随权威</td></tr><tr><td><strong>谁在施压</strong></td><td>一群同伴</td><td>一个穿白大褂的科学家</td></tr><tr><td><strong>发生了什么</strong></td><td>四个人里有3个至少让步一次；四个人里有1个从来没有</td><td>在最有名的版本里，65%的人一直做到最后</td></tr><tr><td><strong>什么帮助人坚持</strong></td><td>有一个同伴</td><td>看到别人拒绝；权威离得远</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/17</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第3部分 · 我们学到什么</div><h2>⚠ 消防演习</h2><div class="caso">演习的警报响了。老师说：“排成队，走B楼梯。”所有人排队出去。Maialen 也是，没有争论。</div><p class="q">他服从，并且和群体做一样的事……像 Asch 和 Milgram 那样吗？</p><ol class="pasos"><li class="frag">是的：她服从了一个权威，并且和其他人做了一样的事。</li><li class="frag">但这个命令是合理的：老师知道疏散方案，而且他并没有要求伤害任何人。</li><li class="frag">在紧急情况下，对每个命令都争论是危险的。</li><li class="frag">结论：服从或者跟随群体本身并不坏。坏的是在被要求做错事的时候也这样做。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">Asch：很多人至少有一次向群体让步，虽然大多数答案是对的。</li><li class="frag">Milgram：很多人一直服从到最后，但具体有多少，很大程度上取决于情境。</li><li class="frag">只要一个同伴就能帮助人坚持，而你可以成为那个同伴。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/17</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>17/17</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

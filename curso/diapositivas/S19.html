@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S19 · 以偏概全</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第19课</b> · 第4单元 · 谬误 II：错误的推理</div><div class="guino">🙃</div><h1>以偏概全</h1><div class="idea">草率概括是根据几个不够多的例子，就对所有人或所有情况下结论。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>如果是个把戏，就给它起个______，并向它提出对应的问题。 <span class="de">第18课</span></li><li>稻草人______对方的想法。 <span class="de">第18课</span></li><li>结论不一定放在______。 <span class="de">第7课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/17</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>如果是个把戏，就给它起个<strong>名字</strong>，并向它提出对应的问题。 <span class="de">第18课</span></li><li>稻草人<strong>歪曲</strong>对方的想法。 <span class="de">第18课</span></li><li>结论不一定放在<strong>最后</strong>。 <span class="de">第7课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">“我表哥在网上买了一双运动鞋，到手的是坏的。在网上买东西总是骗局。”</div><p class="q">他看了多少个例子？这样够说“总是”吗？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>从一个例子到“所有”</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 从一个例子到“所有”</div><h2>以偏概全</h2><div class="def">根据几个不够多的例子，就对所有人（或者“总是”）下结论。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>也叫<strong>仓促的</strong>概括</div><div>不过关的是问题：<strong>它足够吗？</strong>（第 9 课）</div><div>要问：<strong>你看了多少个例子？够不够？</strong></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 从一个例子到“所有”</div><h2>怎样识别它</h2><ul><li>常常用到这样的词：<strong>所有</strong>、<strong>从不</strong>、<strong>总是</strong>、<strong>没有一个</strong></li><li>证据只是一个例子、两个例子，或者“我认识的一个人”</li><li>常常说的是整整一群人</li><li>很多<strong>刻板印象</strong>就是这样产生的：对一个群体的固定看法</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 从一个例子到“所有”</div><h2>从几个例子到“所有”</h2><table><tr><th>例子</th><th>草率的结论</th></tr><tr><td>另一个班的两个男生抄作业</td><td>“那个班的人都是抄作业的”</td></tr><tr><td>某个品牌的一款电子游戏让我觉得无聊</td><td>“那个品牌的游戏都很差”</td></tr><tr><td>有一天地铁晚点了</td><td>“地铁从来不准点”</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 1 · 运动鞋</h2><div class="caso">“我表哥在网上买了一双运动鞋，到手的是坏的。在网上买东西总是骗局。”</div><ol class="pasos"><li class="frag">结论是什么？在网上买东西总是骗局。</li><li class="frag">有多少个例子？一个：表哥的那个。</li><li class="frag">够吗？不够：每天都有非常多的网购，而且大多数都顺利收到。</li><li class="frag">结论：草率概括。更公正的说法是：“有时会出问题；应该看清楚这家店。”</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 2 · 一整个年级</h2><div class="caso">陈：“一个一年级的男生昨天在走廊里推了我。一年级的人都是没礼貌的。”</div><ol class="pasos"><li class="frag">有多少个例子？一个。</li><li class="frag">一年级有多少学生？很多：一个人代表不了他们。</li><li class="frag">公平吗？不公平：因为一个人做的事，去怪很多人。每个人都不一样。</li><li class="frag">结论：草率概括。刻板印象就是这样开始的。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 3 · 什么时候可以概括</h2><div class="caso">想象一次对比斯开省（Bizkaia）20 所中学的 500 名学生的调查。其中 80% 说他们用手机学习（虚构的数据）。</div><ol class="pasos"><li class="frag">有多少个例子？很多：500 个。</li><li class="frag">它们有差别吗？有：来自 20 所不同的中学。</li><li class="frag">够吗？说“大多数”够了；说“所有”不够。而且它没有说到每一个学生。</li><li class="frag">结论：这不是谬误。根据很多不同的例子来概括，是做得对的归纳（第 10 课）。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/17</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 一勺汤</h2><div class="caso">玛亚伦尝了一勺汤，说：“这汤太咸了。”她只看了一个例子。</div><p class="q">用一个例子来说整锅汤……是草率概括吗？</p><ol class="pasos"><li class="frag">看起来是这样：她只尝了一勺，就对整锅汤下了结论。</li><li class="frag">但是汤是搅匀的：每一勺几乎都一样。</li><li class="frag">人、商店或比赛就不是这样：每个例子都可能很不一样。</li><li class="frag">结论：这不是谬误。需要多少个例子，要看这些事物有多<strong>不一样</strong>。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第3部分</div><h1>概括得对与不对</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第3部分</b> · 概括得对与不对</div><h2>草率，还是做得对？</h2><div class="cols"><div class="col no"><h3>草率的</h3><ul><li>例子很少，却用来说彼此很不相同的事物</li><li>例子非常相似，或者是故意挑选的</li><li>说的比例子所显示的更多</li></ul></div><div class="col si"><h3>做得对的</h3><ul><li>例子的数量对这些事物的差异来说是足够的</li><li>例子是多种多样的</li><li>只说例子所显示的：“大多数”“常常”</li></ul></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">草率概括是从几个不够多的例子一下跳到“所有”或“总是”。</li><li class="frag">要拆穿它：你看了多少个例子？够不够？</li><li class="frag">概括没有问题，只要例子足够多、足够多样，而且不说得比例子所显示的更多。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/17</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>17/17</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

@@ -1,0 +1,84 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S51 · 网红与隐形广告</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第51课</b> · 第9单元 · 说服和操纵</div><div class="guino">🙃</div><h1>网红与隐形广告</h1><div class="idea">网红可以推荐，也可以卖货；隐形广告隐藏了它是广告这一点，并把真实感当作产品来用。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/14</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>______利用你喜欢的人。 <span class="de">第50课</span></li><li>买之前：等一等，识破花招，再______。 <span class="de">第50课</span></li><li>和总体不相像的样本是______的。 <span class="de">第39课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/14</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li><strong>好感</strong>利用你喜欢的人。 <span class="de">第50课</span></li><li>买之前：等一等，识破花招，再<strong>比较</strong>。 <span class="de">第50课</span></li><li>和总体不相像的样本是<strong>有偏</strong>的。 <span class="de">第39课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/14</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">一位游戏博主说：“这个鼠标改变了我的生活。我所有的比赛都用它。”视频最后有一个折扣码。</div><p class="q">这是推荐还是广告？你怎么判断？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/14</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>推荐与卖货</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/14</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 推荐与卖货</div><h2>网红</h2><div class="def">在社交网络上有很多粉丝、能影响别人买什么或想什么的人。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div><strong>推荐：</strong>他告诉你自己喜欢什么，和品牌没有合作</div><div><strong>卖货：</strong>品牌付钱给他，或送他东西，让他展示产品</div><div>乍一看，往往看不出区别</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/14</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 推荐与卖货</div><h2>隐形广告</h2><div class="def">这是伪装成个人意见的广告：它不会说明品牌付了钱或送了东西。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>看起来像朋友的建议</div><div>所以我们放下了戒心</div><div>在西班牙，广告必须标明是广告</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/14</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 推荐与卖货</div><h2>如何识别社交网络上的广告</h2><p>在西班牙，广告不能隐藏。常见的提示方式：</p><ul><li>清晰可见的标签，如 <strong>#publi</strong> 或 <strong>#ad</strong></li><li>信息中出现“广告”这个词</li><li>平台自带的标签：“付费合作”</li><li>折扣码通常说明与品牌有合作</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/14</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/14</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例1 · 开头的那个鼠标</h2><div class="caso">“这个鼠标改变了我的生活。我所有的比赛都用它。”最后有一个折扣码。没有写 #publi。</div><ol class="pasos"><li class="frag">他说了什么？他说这个鼠标改变了他的生活。</li><li class="frag">有生意的线索吗？有：折扣码通常说明与品牌有合作。</li><li class="frag">他标明这是广告了吗？没有：既没有 #publi，也没有“广告”这个词。</li><li class="frag">结论：我不把他的意见当作朋友的意见。我去找不收钱的人做的分析。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/14</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例2 · 把真实感当作产品</h2><div class="caso">陈（Chen）关注了一位看起来像她朋友的女主播：她讲自己的烦恼，回复评论，还说“你们是我的家人”。后来她开始推广能量饮料。</div><ol class="pasos"><li class="frag">为什么有效？陈像相信朋友一样相信她。</li><li class="frag">品牌买下的正是这份信任：<strong>真实感</strong>（看起来自然、真诚）是可以卖的。</li><li class="frag">即使写上了 #publi，好感（第50课）依然在起作用。</li><li class="frag">结论：我可以关注她，同时把这条广告当作广告来看。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/14</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ “他们没给我付钱”</h2><div class="caso">一个品牌送给一位抖音博主一双运动鞋。她展示了鞋，并说：“这不是广告：他们没给我付钱。”</div><p class="q">她不收钱……那这就是没有利益关系的推荐吗？</p><ol class="pasos"><li class="frag">看起来是这样：她没有收到钱。</li><li class="frag">但她从品牌那里得到了东西。礼物、旅行或折扣码同样会产生利益关系。</li><li class="frag">她的意见可能是真诚的，但不是一个什么好处都没有的人的意见。</li><li class="frag">结论：不要只看钱。要问：她和品牌有没有什么协议或利益关系？</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/14</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">网红可以不带利益地推荐，也可以因为品牌付钱或送东西而卖货。</li><li class="frag">隐形广告隐藏了它是广告这一点；在西班牙必须标明，例如用 #publi。</li><li class="frag">网红给人的亲近感也是一种产品：品牌买下的是他的真实感。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/14</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/14</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

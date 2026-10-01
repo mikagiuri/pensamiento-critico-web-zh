@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S76 · 冲突不是打架</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第76课</b> · 第16单元 · 情绪和冲突</div><div class="guino">🙃</div><h1>冲突不是打架</h1><div class="idea">冲突是利益或需要的碰撞；可以用几种方式去面对，区分我提出的要求和我真正的需要会有帮助。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>情绪强烈时：说出名字、______、再提问。 <span class="de">第75课</span></li><li>恐惧提醒我们可能有______。 <span class="de">第75课</span></li><li>我论证中的每个理由都必须是真的、相关的，并且______。 <span class="de">第71课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/15</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>情绪强烈时：说出名字、<strong>等待</strong>、再提问。 <span class="de">第75课</span></li><li>恐惧提醒我们可能有<strong>危险</strong>。 <span class="de">第75课</span></li><li>我论证中的每个理由都必须是真的、相关的，并且<strong>充分</strong>。 <span class="de">第71课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">蕾尔和她的弟弟艾托尔想在同一时间用家里的电脑。每个人都在喊：“是我先要的！”没有人让步。</div><p class="q">每个人真正想要什么？有没有一条出路，让两个人都赢？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>什么是冲突</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 什么是冲突</div><h2>冲突</h2><div class="def">它是一种碰撞，发生在想要或需要的东西在那一刻看起来互不相容的人之间。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>它是<strong>正常的</strong>：在任何集体里都会出现</div><div>它和<strong>打架</strong>不是一回事</div><div>打架是<strong>面对</strong>冲突的一种糟糕的方式</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 什么是冲突</div><h2>按碰撞的内容分的冲突类型</h2><table><tr><th>类型</th><th>碰撞的是什么</th><th>例子</th></tr><tr><td><strong>资源方面的</strong></td><td>只有一样东西，却有两个人想要</td><td>电脑、手柄、足球</td></tr><tr><td><strong>需要方面的</strong></td><td>一个人需要的东西打扰了另一个人</td><td>安静地学习，和听音乐</td></tr><tr><td><strong>观念或价值观方面的</strong></td><td>对重要的事情想法不同</td><td>在分配中什么是公平的</td></tr><tr><td><strong>误会</strong></td><td>一个人误解了另一个人说的话</td><td>一条用另一种语气读出来的消息</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 什么是冲突</div><h2>面对冲突的五种态度</h2><p>这是一个著名的模型，来自托马斯和基尔曼（1974）。它不是定律：它是用来帮助思考的。</p><ul><li><strong>回避：</strong>我装作什么也没发生。</li><li><strong>让步：</strong>我让对方得到他想要的。</li><li><strong>竞争：</strong>我想赢，哪怕对方输。</li><li><strong>妥协：</strong>每个人放弃一部分。</li><li><strong>合作：</strong>我们一起找一条对两个人都好的出路。</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 什么是冲突</div><h2>立场和利益</h2><div class="def">立场是我提出的要求。利益是我真正需要的，是我提出这个要求的原因。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div><strong>立场</strong>比利益更容易碰撞</div><div>关键问题：“你要它做什么？”</div><div>罗杰·费舍尔和威廉·尤里的想法（哈佛，1981）</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例1 · 家里的电脑</h2><div class="caso">蕾尔的立场：“我现在就要电脑。”艾托尔的立场：“我要用。”他们的妈妈问他们每个人：“你要它做什么？”</div><ol class="pasos"><li class="frag">蕾尔的利益：在晚上8点之前交一份作业。</li><li class="frag">艾托尔的利益：和他的朋友们在线玩游戏，他们约在晚上9点。</li><li class="frag">立场是冲突的；利益却不冲突：两个人在一个晚上都能用上。</li><li class="frag">结论：蕾尔用到晚上8点，艾托尔再用。关注利益，就能合作。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例2 · 公交车的座位</h2><div class="caso">去乌尔代拜的郊游。陈想坐靠窗的位置。玛亚伦无所谓，但陈如果不看窗外就会晕车。</div><ol class="pasos"><li class="frag">对玛亚伦来说，哪种态度合理？让步。</li><li class="frag">为什么要让步？她几乎不在乎，而陈很在乎。</li><li class="frag">让步不是输：是在这件事对你来说很小的时候做出的好选择。</li><li class="frag">结论：没有哪种态度总是好的。好的态度取决于每个人有多在乎。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/15</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 完美的朋友圈</h2><div class="caso">奥马尔吹嘘：“在我的朋友圈里从来没有冲突。”但奈亚拉总是让步，凯文遇到不喜欢的事就不说话。</div><p class="q">如果他们从不争论，这就是一个没有冲突的朋友圈吗？</p><ol class="pasos"><li class="frag">看起来是这样：没有喊叫，没有吵架。</li><li class="frag">但奈亚拉总是让步，凯文总是回避。冲突是存在的，只是被藏起来了。</li><li class="frag">被藏起来的冲突不会消失：它可能越长越大，就像群体思维那样（第66课）。</li><li class="frag">结论：没有吵架并不意味着没有冲突。有时是缺一个说“不”的人。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">冲突是利益或需要的碰撞；它是正常的，不是打架。</li><li class="frag">有五种态度：回避、让步、竞争、妥协和合作；没有哪一种总是适用。</li><li class="frag">立场是我提出的要求；利益是我需要的东西。问一问“为了什么？”会有帮助。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/15</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/15</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

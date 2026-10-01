@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S18 · 第三单元的复习和考试</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第18课</b> · 第3单元 · 谬误 I：攻击、转移、煽动</div><div class="guino">🙃</div><h1>第三单元的复习和考试</h1><div class="idea">我们来复习什么是谬误，以及攻击个人、歪曲想法、转移话题或利用情绪的那些谬误。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>红鲱鱼就是为了不回答而转移______。 <span class="de">第17课</span></li><li>拆穿它的问题：这和我们刚才谈的有什么______？ <span class="de">第17课</span></li><li>谬误是一种______好论证、实际上并不好的论证。 <span class="de">第13课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/15</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>红鲱鱼就是为了不回答而转移<strong>话题</strong>。 <span class="de">第17课</span></li><li>拆穿它的问题：这和我们刚才谈的有什么<strong>关系</strong>？ <span class="de">第17课</span></li><li>谬误是一种<strong>看起来像</strong>好论证、实际上并不好的论证。 <span class="de">第13课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">“你别发表意见，你总是迟到。而且，如果你不同意我，你就没有朋友了。对了，你看比赛了吗？”</div><p class="q">在这三句话里，你能找出多少个花招？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>单元复习</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 单元复习</div><h2>谬误（第 13 课）</h2><div class="def">看起来不错、其实不然的论证：它的理由撑不起结论。</div><div class="tarjetas" style="grid-template-columns:repeat(2,1fr)"><div>常常出错在：切题吗？或者：足够吗？</div><div>可以有一个真的结论：错的是过程</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 单元复习</div><h2>攻击与歪曲（第 14、15 课）</h2><table><tr><th>谬误</th><th>花招</th><th>能拆穿它的问题</th></tr><tr><td>攻击个人（ad hominem）</td><td>攻击说话的人</td><td>说话的人是谁，和这有什么关系？</td></tr><tr><td>“你也一样”（tu quoque）</td><td>你自己也没做到</td><td>这会让建议变成假的吗？</td></tr><tr><td>稻草人</td><td>歪曲别人的想法</td><td>我说的真的就是这个意思吗？</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 单元复习</div><h2>煽动与转移（第 16、17 课）</h2><table><tr><th>谬误</th><th>花招</th><th>能拆穿它的问题</th></tr><tr><td>诉诸恐惧（ad metum）</td><td>没有证据就吓唬人</td><td>这个危险是真的吗？</td></tr><tr><td>诉诸同情（ad misericordiam）</td><td>博同情，不给理由</td><td>如果去掉同情，还剩下什么理由？</td></tr><tr><td>假线索</td><td>转移话题</td><td>这和我们刚才说的有什么关系？</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 单元复习</div><h2>不是谬误的情况</h2><div class="cols"><div class="col no"><h3>谬误</h3><ul><li>单纯攻击个人</li><li>夸大别人的想法</li><li>没有证据就吓唬人</li><li>转移话题来躲闪</li></ul></div><div class="col si"><h3>正当的</h3><ul><li>怀疑靠它赚钱的人</li><li>公正地概括这个想法</li><li>用理由提醒一个真实的危险</li><li>因为紧急的事而转移话题</li></ul></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 单元复习</div><h2>怎样分析一句可疑的话</h2><ul><li>1. 他们要我相信什么，或做什么？</li><li>2. 他们给了我什么理由？</li><li>3. 切题吗？说的是这个想法，还是别的事情？</li><li>4. 如果是花招，给它起个<strong>名字</strong>，问它那个<strong>问题</strong></li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 解决的案例</div><h2>三句话里的三个花招</h2><div class="caso">“你别发表意见，你总是迟到。而且，如果你不同意我，你就没有朋友了。对了，你看比赛了吗？”</div><ol class="pasos"><li class="frag">“你总是迟到”：攻击个人，而不是他的观点。</li><li class="frag">“你就没有朋友了”：诉诸恐惧，没有证据。</li><li class="frag">“你看比赛了吗？”：假线索，转移话题。</li><li class="frag">结论：三个谬误，没有一个理由。对方的观点依然没有得到回应。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/15</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 解决的案例</div><h2>⚠ 恐惧和着急：总是谬误吗？</h2><div class="caso">火警响了。老师：“马上出去，排好队，不要拿书包！”</div><p class="q">它让人害怕、让人着急，就像微信（WhatsApp）连锁消息一样。它是诉诸恐惧吗？</p><ol class="pasos"><li class="frag">既有恐惧，也有着急：让人没法冷静思考。</li><li class="frag">但危险是真的，或者可能是真的：警报就是信号。</li><li class="frag">这里停下来争论才是危险的。以后再去核实。</li><li class="frag">结论：这不是谬误。要看危险是不是真的，而不只是看它吓不吓人。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">谬误看起来像好论证，但它的理由撑不起结论。</li><li class="frag">这个单元里的谬误攻击个人、歪曲想法、转移话题或利用情绪。</li><li class="frag">每一种谬误都有一个能拆穿它的问题。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/15</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做考试卷</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 6 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 2 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas">不看笔记。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/15</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

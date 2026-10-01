@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S36 · 第6单元复习和测验</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第36课</b> · 第6单元 · 信息与来源</div><div class="guino">🙃</div><h1>第6单元复习和测验</h1><div class="idea">我们复习是什么让一个来源可靠、标题党、谣言、怎样核实，以及图片和视频是怎样被篡改的。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>一张脱离______的照片是真实的，但来自别的地方或别的日期。 <span class="de">第35课</span></li><li>想发现深度伪造，比盯着视频看更好的办法是去找______。 <span class="de">第35课</span></li><li>______来源是亲眼看到、测量或决定这件事的人。 <span class="de">第31课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/15</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>一张脱离<strong>背景</strong>的照片是真实的，但来自别的地方或别的日期。 <span class="de">第35课</span></li><li>想发现深度伪造，比盯着视频看更好的办法是去找<strong>来源</strong>。 <span class="de">第35课</span></li><li><strong>原始</strong>来源是亲眼看到、测量或决定这件事的人。 <span class="de">第31课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">每天都有几十条消息、标题、照片和视频发到你这里。</div><p class="q">这个单元的工具里，你最常用哪一个？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>单元复习</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 单元复习</div><h2>对一个来源的三个问题（第31课）</h2><table><tr><th>问题</th><th>我看什么</th></tr><tr><td><strong>是谁说的？</strong></td><td>他有名字吗？他懂这个话题吗？</td></tr><tr><td><strong>他是怎么知道的？</strong></td><td>他是亲眼看到的、测量的，还是抄来的？</td></tr><tr><td><strong>他能得到什么？</strong></td><td>钱、浏览量、选票、名气？</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 单元复习</div><h2>标题与标题党（第32课）</h2><p>标题党夸大或者隐藏信息，让你去点击。</p><ul><li>隐藏关键信息：“你不会相信发生了什么”</li><li>夸大：“难以置信”“太猛了”；大写字母和感叹号</li><li>但是，吸引眼球的标题并不一定是标题党</li><li>分享之前，先把整篇新闻读完</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 单元复习</div><h2>谣言（第33课）</h2><p>谣言是冒充新闻的编造的谎话。</p><ul><li>常见成分：很紧急、情绪强烈、来源模糊、没有日期</li><li>这些是让人起疑的信号，不是证据</li><li>我们转发它，是因为它打动了我们，而且来自我们信任的人</li><li>真实的照片配上虚假的背景说明，也是谣言</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 单元复习</div><h2>验证的三个步骤（第34课）</h2><table><tr><th>步骤</th><th>我怎么做</th></tr><tr><td><strong>横向阅读</strong></td><td>我离开这个页面，去查别人是怎么说的</td></tr><tr><td><strong>日期</strong></td><td>我看它是什么时候发布的，而不是我什么时候收到的</td></tr><tr><td><strong>图片来源</strong></td><td>我做一次反向搜索</td></tr><tr><td><strong>如果什么也找不到</strong></td><td>说明没有被核实：我先等一等</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 单元复习</div><h2>被篡改的图片（第35课）</h2><table><tr><th>花招</th><th>是什么</th></tr><tr><td><strong>裁剪</strong></td><td>把照片切掉来藏起一部分</td></tr><tr><td><strong>合成</strong></td><td>把图片的几部分拼在一起或者替换</td></tr><tr><td><strong>脱离背景</strong></td><td>照片是真的，但来自别的地方或者别的时间</td></tr><tr><td><strong>深度伪造</strong></td><td>用AI制作的；光看是不够的，我要去找来源</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>一个把所有内容混在一起的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 一个把所有内容混在一起的案例</div><h2>案例 · 群里的消息</h2><div class="caso">班级群里有人发：“不敢相信！！一位著名的油管博主在毕尔巴鄂的一家商店偷东西被抓到了”，还配了一张模糊的照片。没有链接，也没有日期。</div><ol class="pasos"><li class="frag">标题党标题：全是大写字母、“不敢相信”、强烈的情绪。</li><li class="frag">来源：没有。是谁说的？他是怎么知道的？也没有日期：这些都是谣言的成分。</li><li class="frag">我来验证：对照片做反向搜索，再做横向阅读。正规媒体有报道吗？</li><li class="frag">结论：在核实之前我不转发。这可能会伤害到一个真实的人。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/15</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 一个把所有内容混在一起的案例</div><h2>⚠ 没有名字的账号</h2><div class="caso">一个没有名字的账号在社交网络上发出提醒：“高速公路上发生事故，全部封路了。”一小时后，正规媒体证实了这件事。（编造的例子。）</div><p class="q">它没有名字，也没有来源。它是谣言吗？</p><ol class="pasos"><li class="frag">没有名字也没有来源，我没有完全相信它是对的。</li><li class="frag">但是匿名的来源也可能说对：也许有人正好亲眼看到了。</li><li class="frag">“没有名字”不等于“假的”：它的意思是“没有被核实”。</li><li class="frag">结论：这些信号不能告诉我们一件事是不是真的；它们告诉我们，在相信之前需要核实多少。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">没有哪个来源是绝对可靠的：看看是谁说的、他怎么知道的、他能得到什么好处。</li><li class="frag">标题党和谣言利用情绪，让你点击和转发。</li><li class="frag">要验证：做横向阅读，查日期和图片来源；如果什么也找不到，就等一等。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/15</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做考试卷</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 6 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 2 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas">不看笔记。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/15</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

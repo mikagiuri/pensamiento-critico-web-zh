@@ -1,0 +1,81 @@
+/* ===== Reto: modo juego de los cuestionarios ===== usa los tokens de styles.css ===== */
+#reto .reto-wrap{ max-width:720px; margin:0 auto; }
+#reto .reto-lead{ color:var(--muted); margin:.2rem 0 1.4rem; }
+
+/* --- pantalla de inicio --- */
+#reto .reto-start h1{ font-family:var(--serif); font-weight:700; font-size:clamp(1.7rem,4vw,2.4rem); margin:.2rem 0; }
+#reto .reto-pick{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.6rem 0 1rem; }
+#reto .reto-pick .flabel{ width:100%; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+#reto .rbtn{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface); color:var(--ink);
+  padding:.5rem .85rem; border-radius:999px; transition:transform .12s, border-color .15s, background .15s; }
+#reto .rbtn:hover{ transform:translateY(-1px); border-color:var(--accent); }
+#reto .rbtn[aria-pressed="true"]{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+#reto .reto-modes{ display:grid; gap:.7rem; margin-top:.4rem; }
+#reto .reto-quick{ display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:1.1rem 1.3rem; border-radius:var(--radius); color:var(--on-accent);
+  background:linear-gradient(120deg, var(--accent), var(--accent-2)); box-shadow:var(--shadow); border:0; cursor:pointer; font:inherit; text-align:left; }
+#reto .reto-quick b{ font-family:var(--serif); font-size:1.25rem; display:block; }
+#reto .reto-quick span{ opacity:.9; font-size:.9rem; }
+#reto .reto-quick .go{ font-size:1.7rem; }
+#reto .reto-quick:hover{ filter:brightness(1.05); }
+#reto .reto-list{ display:flex; flex-wrap:wrap; gap:.45rem; margin-top:.3rem; }
+#reto .reto-list .chip{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2);
+  color:var(--ink); padding:.4rem .7rem; border-radius:10px; font-size:.86rem; transition:border-color .15s, transform .12s; }
+#reto .reto-list .chip:hover{ border-color:var(--accent); transform:translateY(-1px); }
+
+/* --- HUD durante el juego --- */
+#reto .reto-hud{ display:flex; align-items:center; justify-content:space-between; gap:.8rem; margin-bottom:.5rem; }
+#reto .reto-count{ font-size:.85rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+#reto .reto-streak{ font-size:.95rem; font-weight:600; transition:transform .18s; }
+#reto .reto-streak.bump{ transform:scale(1.35); }
+#reto .reto-score{ font-family:var(--mono); font-weight:600; font-variant-numeric:tabular-nums; font-size:1.05rem; }
+#reto .reto-timer{ height:8px; border-radius:999px; background:var(--surface-2); overflow:hidden; margin-bottom:.4rem; }
+#reto .reto-timer > i{ display:block; height:100%; width:100%; border-radius:999px;
+  background:linear-gradient(90deg, var(--ok), var(--accent-2)); transition:width .1s linear; }
+#reto .reto-timer.low > i{ background:linear-gradient(90deg, var(--bad), #d98a4a); }
+#reto .reto-progress{ height:4px; border-radius:999px; background:var(--surface-2); overflow:hidden; margin-bottom:1rem; }
+#reto .reto-progress > i{ display:block; height:100%; background:var(--accent); transition:width .3s ease; }
+
+/* --- tarjeta de pregunta --- */
+#reto .reto-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); }
+#reto .reto-tag{ font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
+#reto .reto-q{ font-family:var(--serif); font-size:1.25rem; line-height:1.35; margin:.35rem 0 1rem; text-wrap:balance; }
+#reto .reto-opts{ display:grid; gap:.55rem; }
+#reto .reto-opt{ display:flex; gap:.7rem; align-items:flex-start; text-align:left; font:inherit; cursor:pointer;
+  border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.7rem .85rem; border-radius:12px;
+  transition:border-color .15s, background .15s, transform .1s; }
+#reto .reto-opt .k{ font-family:var(--mono); font-weight:600; color:var(--accent); flex:0 0 auto; }
+#reto .reto-opt:not(:disabled):hover{ border-color:var(--accent); transform:translateY(-1px); }
+#reto .reto-opt.dim{ opacity:.5; }
+#reto .reto-opt.correct{ border-color:var(--ok); background:var(--ok-bg); }
+#reto .reto-opt.correct .k{ color:var(--ok); }
+#reto .reto-opt.wrong{ border-color:var(--bad); background:var(--bad-bg); }
+#reto .reto-opt.wrong .k{ color:var(--bad); }
+#reto .reto-fb{ margin-top:.9rem; padding:.75rem .85rem; border-left:3px solid var(--accent); background:var(--surface-2);
+  border-radius:8px; font-size:.92rem; line-height:1.45; opacity:0; max-height:0; overflow:hidden; transition:opacity .25s; }
+#reto .reto-fb.show{ opacity:1; max-height:none; }
+#reto .reto-foot{ margin-top:1rem; display:flex; justify-content:flex-end; }
+#reto .reto-next{ font:inherit; cursor:pointer; border:0; border-radius:10px; padding:.6rem 1.1rem;
+  background:var(--accent); color:var(--on-accent); font-weight:600; }
+#reto .reto-gain{ font-family:var(--mono); font-weight:600; color:var(--ok); }
+
+/* --- pantalla de resultado --- */
+#reto .reto-result{ text-align:center; background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--radius); padding:2rem 1.3rem; box-shadow:var(--shadow); }
+#reto .reto-badge{ font-size:3.2rem; line-height:1; }
+#reto .reto-rank{ font-family:var(--serif); font-weight:700; font-size:1.5rem; margin:.3rem 0; }
+#reto .reto-final{ font-family:var(--mono); font-size:2.6rem; font-weight:600; color:var(--accent); font-variant-numeric:tabular-nums; }
+#reto .reto-stats{ color:var(--muted); margin:.4rem 0 1.2rem; }
+#reto .reto-actions{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
+#reto .reto-actions .btn2{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2);
+  color:var(--ink); padding:.6rem 1.1rem; border-radius:10px; font-weight:500; }
+#reto .reto-actions .btn2.primary{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+
+/* animaciones */
+@keyframes reto-pop{ 0%{transform:scale(.96)} 60%{transform:scale(1.02)} 100%{transform:scale(1)} }
+@keyframes reto-shake{ 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+#reto .reto-card.pop{ animation:reto-pop .3s ease; }
+#reto .reto-card.shake{ animation:reto-shake .3s ease; }
+@media (prefers-reduced-motion: reduce){
+  #reto .reto-card.pop, #reto .reto-card.shake, #reto .reto-streak.bump{ animation:none; transition:none; }
+}

@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S44 · 确认偏见</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第44课</b> · 第8单元 · 偏见：大脑也会骗人</div><div class="guino">🙃</div><h1>确认偏见</h1><div class="idea">确认偏见就是只去找、只去记、只去相信那些证明我们是对的东西，而忘掉那些证明我们错了的东西。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>一条思维______是不怎么费力思考、快速做决定的办法。 <span class="de">第43课</span></li><li>偏见会发生在______身上，连专家也不例外。 <span class="de">第43课</span></li><li>和总体不相像的样本是______的。 <span class="de">第39课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/17</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>一条思维<strong>捷径</strong>是不怎么费力思考、快速做决定的办法。 <span class="de">第43课</span></li><li>偏见会发生在<strong>所有</strong>身上，连专家也不例外。 <span class="de">第43课</span></li><li>和总体不相像的样本是<strong>有偏</strong>的。 <span class="de">第39课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">一个农夫丢了斧头，怀疑是邻居的儿子偷的。从那以后，那个男孩走路、说话、微笑，看上去都“像个小偷”。</div><p class="q">是男孩变了吗？还是别的东西变了？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>只看到证明我们是对的东西</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 只看到证明我们是对的东西</div><h2>确认偏见</h2><div class="def">这是一种倾向：只关注能证实我们已有想法的东西。</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div><strong>证实：</strong>认可，支持</div><div>我们<strong>寻找</strong>证明我们是对的东西</div><div>我们更好地<strong>记住</strong>证明我们是对的东西</div><div>我们把有疑问的数据<strong>解释</strong>得对我们有利</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 只看到证明我们是对的东西</div><h2>证实的三种方式</h2><table><tr><th>形式</th><th>例子</th></tr><tr><td>寻找</td><td>我只看那些说我的球队最棒的视频</td></tr><tr><td>记忆</td><td>我记得那天星座预测说中了</td></tr><tr><td>解释</td><td>对竞技俱乐部（Athletic）犯规：“黑哨！”对自己有利的：“明明很清楚”</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 只看到证明我们是对的东西</div><div class="quote">人的理智一旦接受了某个观点，就会把其他一切都拉过来支持它，使它们与它相符。</div><p class="q">弗朗西斯·培根，《新工具》（1620）</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例1 · 偷斧头的人</h2><div class="caso">一个中国的古老故事：一个农夫丢了斧头，怀疑是邻居的儿子偷的。那个男孩做的每一件事，他都觉得“像小偷”。后来他在自己的柴堆里找到了斧头。</div><ol class="pasos"><li class="frag">农夫相信什么？相信那个男孩偷了他的斧头。</li><li class="frag">所以他把一切都往对自己想法有利的方向解释：走得快、微笑或不说话，在他看来都“像小偷”。</li><li class="frag">他在自己的柴堆里找到了斧头……那个男孩在他眼里又变得正常了。</li><li class="frag">结论：确认偏见。男孩没有变：变的是农夫的眼光。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例2 · 上网搜索</h2><div class="caso">Dylan认为能量饮料帮他学习。他搜索：“能量饮料对学习的好处”。</div><ol class="pasos"><li class="frag">这个搜索已经带着答案：它只要求好处。</li><li class="frag">他会找到证明他是对的网页，然后放心。</li><li class="frag">一个更公平的搜索是：“能量饮料和学习：优点和风险”。</li><li class="frag">结论：搜索时的确认偏见。我们也要去找那些可能证明我们错了的东西。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例3 · 2-4-6任务</h2><div class="caso">彼得·沃森（Peter Wason）的实验（1960年）：“2-4-6这组数符合一条秘密规则。你提出别的数列，我告诉你它们是否符合这条规则。”</div><ol class="pasos"><li class="frag">很多人试8-10-12、20-22-24……全都符合。“规则是加2！”</li><li class="frag">但规则更简单：“三个越来越大的数”。</li><li class="frag">很少有人试那些有可能出错的数列，比如6-4-2或1-5-100。</li><li class="frag">结论：我们去找能证实自己想法的例子。更好的做法是去找反例，就像在第11课里那样。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/17</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 是固执还是消息灵通？</h2><div class="caso">Iker认为抽烟对健康有害。他看到一段没有任何来源的视频，说的恰恰相反。他不理它。</div><p class="q">他只接受证明他是对的东西……这是确认偏见吗？</p><ol class="pasos"><li class="frag">看起来是的：他拒绝了证明他错了的东西。</li><li class="frag">但他看了证据：他的想法背后有成千上万项研究；而那段视频没有任何来源。</li><li class="frag">偏见是仅仅因为一个证据说我错了，就更差地对待它。在这里，这个证据是差的。</li><li class="frag">结论：不因为一个糟糕的理由改变看法，不是偏见。无视一个好证据才是。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第3部分</div><h1>怎样刹住它</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第3部分</b> · 怎样刹住它</div><h2>对确认偏见的四个刹车</h2><ul><li>问问自己：“什么会让我改变看法？”</li><li>有意去找说法相反的东西</li><li>把做对的<strong>和</strong>做错的都记下来</li><li>倾听想法不同的人，不要提前准备好回应</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">确认偏见就是只关注证明我们是对的东西。</li><li class="frag">我们是朝着对自己已有看法有利的方向去寻找、记忆和解释的。</li><li class="frag">要刹住它，就有意去找那些可能证明你错了的东西。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/17</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>17/17</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

@@ -1,0 +1,84 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S60 · 学年总复习</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第60课</b> · 第10单元 · 自己思考</div><div class="guino">🙃</div><h1>学年总复习</h1><div class="idea">我们复习整个学年用来推理、获取信息和自己做决定的工具。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/14</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>面对一则广告，第一个问题是：他们要我______什么？ <span class="de">第59课</span></li><li>面对“10个学生里有9个”，我会问：他们问了______？ <span class="de">第59课</span></li><li>自主就是给自己制定______。 <span class="de">第55课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/14</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>面对一则广告，第一个问题是：他们要我<strong>相信</strong>什么？ <span class="de">第59课</span></li><li>面对“10个学生里有9个”，我会问：他们问了<strong>多少</strong>？ <span class="de">第59课</span></li><li>自主就是给自己制定<strong>规范</strong>。 <span class="de">第55课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/14</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">九月我们读到：“明天不上课。这是我表哥说的，他是在一个WhatsApp群里看到的。”</div><p class="q">今天，对于这条消息，你会做哪些九月时还不会做的事？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/14</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>全年复习</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/14</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 全年复习</div><h2>第一学期 · 讲道理</h2><table><tr><th>单元</th><th>核心思想</th></tr><tr><td>U1 · 思考、相信与知道</td><td>事实、观点与知道：“你怎么知道的？”</td></tr><tr><td>U2 · 论证</td><td>是真的吗？相关吗？足够吗？</td></tr><tr><td>U3 · 谬误 I</td><td>攻击、歪曲或转移话题都不是理由；情绪不够</td></tr><tr><td>U4 · 谬误 II</td><td>以偏概全、虚假两难和虚假因果</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/14</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 全年复习</div><h2>第二学期 · 获取信息</h2><table><tr><th>单元</th><th>核心思想</th></tr><tr><td>U5 · 权威与影响</td><td>相信自己领域的专家；出名不等于有知识</td></tr><tr><td>U6 · 信息与来源</td><td>是谁说的，他怎么知道的，他能得到什么</td></tr><tr><td>U7 · 会骗人的数字</td><td>百分比、图表和样本：看看它们从哪里来</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/14</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 全年复习</div><h2>第三学期 · 做决定</h2><table><tr><th>单元</th><th>核心思想</th></tr><tr><td>U8 · 偏见</td><td>有帮助但会按可预料的方式出错的思维捷径</td></tr><tr><td>U9 · 说服与操纵</td><td>说服给出理由；操纵绕开你的判断</td></tr><tr><td>U10 · 自己思考</td><td>核实、因理由而改变、先理解再批评</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/14</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 全年复习</div><h2>学年结束时的批判性思考者</h2><div class="cols"><div class="col no"><h3>不是</h3><ul><li>轻信的人：什么都信</li><li>多疑的人：什么都不信，连专家也不信</li><li>风向标：跟着最后一个说话的人变</li></ul></div><div class="col si"><h3>是</h3><ul><li>要求并给出理由</li><li>先核实再相信</li><li>因好的理由而改变主意</li><li>先理解再批评</li></ul></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/14</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>九月的那条消息</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/14</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 九月的那条消息</div><h2>案例 · 用上整个学年所学</h2><div class="caso">“明天不上课。是我表哥说的，他在WhatsApp群里看到的。”</div><ol class="pasos"><li class="frag">我表哥是怎么知道的？他只是在一个群里看到的。最先说的人是谁？（第6单元）</li><li class="frag">它传得很快，又没有来源：可能是谣言（第33课）。</li><li class="frag">我相信它，是因为我希望它是真的吗？要小心偏见（第8单元）。</li><li class="frag">结论：我去学校网站上核实。和第一天一样：要求理由。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/14</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 九月的那条消息</div><h2>⚠ 很多人和专家</h2><div class="caso">“全世界几乎所有医生都说吸烟会致癌。”</div><p class="q">很多人这么说，而且是权威。这是诉诸大众和权威谬误吗？</p><ol class="pasos"><li class="frag">看起来两者都是：“很多人这么说”和“专家这么说”。</li><li class="frag">但这不是随便什么人：他们是自己领域的专家，而且几乎全都一致（共识，第26课）。</li><li class="frag">而且他们不是要你凭信仰：有大量研究证明这一点。</li><li class="frag">结论：相信专家的共识是合理的。谬误是相信不懂的人。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/14</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">推理：要求并给出好的理由，并发现谬误。</li><li class="frag">获取信息：看是谁说的，他怎么知道的，他能得到什么。</li><li class="frag">做决定：了解偏见和把戏，并自己思考。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/14</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做考试卷</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 6 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 2 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas">不看笔记。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/14</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

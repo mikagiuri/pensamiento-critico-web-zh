@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S85 · 全球化与移民</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第85课</b> · 第19单元 · 全球本土化：文化与移民</div><div class="guino">🙃</div><h1>全球化与移民</h1><div class="idea">世界的联系越来越紧密，人们也一直在迁移；关于移民，流传着一些谣言和概括，需要去核实。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>文化是______来的：不在基因里。 <span class="de">第84课</span></li><li>______相对主义认为每种习俗都要放在它所在的文化里去理解。 <span class="de">第84课</span></li><li>______身份认同是你和你觉得自己属于的群体所共有的东西。 <span class="de">第73课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/16</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>文化是<strong>学</strong>来的：不在基因里。 <span class="de">第84课</span></li><li><strong>文化</strong>相对主义认为每种习俗都要放在它所在的文化里去理解。 <span class="de">第84课</span></li><li><strong>集体</strong>身份认同是你和你觉得自己属于的群体所共有的东西。 <span class="de">第73课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">你的手机在一个国家设计，在另一个国家组装，还用了来自更多国家的矿物。你的T恤也一样。而你在毕尔巴鄂使用它们。</div><p class="q">你今天身上的东西，涉及多少个国家？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>一个互相连接的世界</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 一个互相连接的世界</div><h2>全球化</h2><div class="def">指各个国家之间的联系越来越紧密：商品、资金、人员、新闻和思想在世界各地流动。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div><strong>经济上：</strong>来自各地的企业和产品</div><div><strong>文化上：</strong>来自世界各地的剧集、音乐、食物和社交网络</div><div><strong>互联网</strong>和便宜的交通使它成为可能</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 一个互相连接的世界</div><h2>全球本土化（glocal）</h2><div class="def">是全球的和本地的混合：从世界各地传来的东西，按我们自己的方式去过。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>一部外国剧集，被配成了巴斯克语</div><div>带着世界各地节奏的巴斯克语歌曲</div><div>一个用来约朋友圈的全球通用应用</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 一个互相连接的世界</div><h2>迁移</h2><div class="def">指长时间搬到另一个国家或另一个地区去生活。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div><strong>移出（emigrar）：</strong>离开原来生活的地方</div><div><strong>移入（inmigrar）：</strong>来到一个新的地方生活</div><div>同一个人，在那里是移出者，在这里是移入者</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 一个互相连接的世界</div><h2>人们为什么迁移？</h2><p>几乎总是有几个原因同时存在。</p><ul><li><strong>工作：</strong>寻找工作或更高的收入。</li><li><strong>战争或迫害：</strong>为了保命而逃离。</li><li><strong>气候和灾害：</strong>干旱、洪水、地震。</li><li><strong>家庭和学习：</strong>与家人团聚、去外地读书。</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 一个互相连接的世界</div><h2>人类一直在迁移</h2><ul><li>我们这个物种诞生在<strong>非洲</strong>，并从那里走遍了整个地球。</li><li>19世纪和20世纪：许多巴斯克人移居到<strong>美洲</strong>（阿根廷、乌拉圭、智利、美国……）。</li><li>20世纪：来自西班牙各地的人来到毕尔巴鄂，在工厂里工作。</li><li>今天，来自世界各地的人来到这里，也有巴斯克的年轻人离开。</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例1 · 家庭群里的一条消息</h2><div class="caso">Kevin 家的家庭群里收到一条消息：“紧急！移民一到就能领到几千欧元。这是在市政厅工作的朋友说的。快转发！”</div><ol class="pasos"><li class="frag">它具备谣言的特征（第33课）：紧急、强烈的情绪和模糊的来源。</li><li class="frag">谁说的？“一个朋友”。他是怎么知道的？没有解释。没有可靠的来源（第31课）。</li><li class="frag">它给了一个数字，却没说从哪里来的。在相信之前，要先到可靠的来源去查。</li><li class="frag">结论：这些是谣言的信号。在核实之前不要转发。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例2 · “我早就说过”</h2><div class="caso">Aitor 读到一条关于盗窃的新闻。被捕的人出生在另一个国家。Aitor 评论说：“我早就说过：外来的人就是来偷东西的。”</div><ol class="pasos"><li class="frag">他从一个例子得出了关于所有人的结论：草率概括（第19课）。</li><li class="frag">他看了多少个例子？一个。在毕尔巴鄂生活着非常多外来的人，他们在工作、在学习。</li><li class="frag">“我早就说过”：他只盯着能证实自己想法的东西（第44课）。</li><li class="frag">结论：一个例子并不能说明整个群体。每个人只对自己做的事负责。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/16</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 一种友善的概括</h2><div class="caso">Naiara 受够了那些针对移民的评论，在聊天里写道：“可移民们全都特别好，而且特别勤劳。”</div><p class="q">Naiara 在为移民辩护。她的推理是对的吗？</p><ol class="pasos"><li class="frag">看起来是这样：她的用意是好的，也没有攻击谁。</li><li class="frag">但她说了“全都”：把几百万个不同的人说得好像是一个人。</li><li class="frag">这是另一种草率概括，即使它是正面的（第19课）。</li><li class="frag">结论：移民是各种各样的人，和所有人一样。既不是“全都坏”，也不是“全都好”。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">全球化把世界连在一起；全球本土化就是按我们自己的方式去过全球的东西。</li><li class="frag">人们因为工作、战争、气候或家庭而迁移，而且人类一直在迁移。</li><li class="frag">关于移民，流传着谣言和概括：要核实来源，要数一数例子。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/16</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/16</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

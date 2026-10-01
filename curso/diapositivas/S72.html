@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S72 · 什么是身份认同？</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第72课</b> · 第15单元 · 我是谁？</div><div class="guino">🙃</div><h1>什么是身份认同？</h1><div class="idea">身份认同是让我们成为我们自己的东西；它由内部因素和外部因素、选择的和没有选择的因素构成，没有任何一个标签能概括它。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>为了捍卫一个观点，我先用一句话说出我明确的______。 <span class="de">第71课</span></li><li>考虑反对意见，是论证和______的区别。 <span class="de">第71课</span></li><li>生态足迹用______公顷来衡量。 <span class="de">第67课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/16</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>为了捍卫一个观点，我先用一句话说出我明确的<strong>结论</strong>。 <span class="de">第71课</span></li><li>考虑反对意见，是论证和<strong>重复</strong>的区别。 <span class="de">第71课</span></li><li>生态足迹用<strong>全球</strong>公顷来衡量。 <span class="de">第67课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">你的社交网络主页上有一个位置放一张照片和一句短话。你得用它概括你是谁。</div><p class="q">你会写什么？又有什么会被落下？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>是什么定义了我们</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 是什么定义了我们</div><h2>身份认同</h2><div class="def">它是让你成为你自己、并与别人区别开来的东西。也包括你怎么看自己、别人怎么看你。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>来自拉丁语 <strong>idem</strong>：“相同”</div><div>它有一部分<strong>不变</strong>，也有一部分在<strong>变化</strong></div><div>没有人的身份认同和另一个人完全一样</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 是什么定义了我们</div><h2>定义我们的因素</h2><table><tr><th>因素</th><th>例子</th></tr><tr><td><strong>身体方面</strong></td><td>身体、身高、声音、头发</td></tr><tr><td><strong>环境</strong></td><td>家庭、地方、语言、你生活的时代</td></tr><tr><td><strong>能力</strong>和<strong>爱好</strong></td><td>画画、踢足球、你听的音乐</td></tr><tr><td><strong>性格</strong>和<strong>价值观</strong></td><td>害羞或开朗；你觉得什么是公平的</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 是什么定义了我们</div><h2>内部因素和外部因素</h2><table><tr><th><strong>内部</strong>因素</th><th><strong>外部</strong>因素</th></tr><tr><td>它们在你的<strong>内部</strong></td><td>它们来自<strong>外部</strong></td></tr><tr><td>性格、爱好、价值观</td><td>家庭、出生的地方、语言、时代</td></tr><tr><td>有一部分是你自己塑造的</td><td>它们在很大程度上是不由你选择就来到你身上的</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 是什么定义了我们</div><h2>我们选择的和没有选择的</h2><ul><li><strong>不能选择：</strong>家庭、身体、出生的地方</li><li><strong>部分能选择：</strong>朋友、兴趣爱好、我们怎么对待别人</li><li>几乎所有东西都是<strong>混合</strong>：落到我们头上的，和我们用它去做的</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例1 · 奈亚拉的卡片</h2><div class="caso">奈亚拉在一张卡片上写道：“13岁。毕尔巴鄂。我弹特里基蒂克萨。我很喜欢读书。我很害羞。”她的身份认同里出现了哪些因素？（编造的例子。）</div><ol class="pasos"><li class="frag">“13岁”和“毕尔巴鄂”：环境。它们是外部因素：她没有选择它们。</li><li class="frag">“我弹特里基蒂克萨”和“我很喜欢读书”：一项能力和一个爱好。</li><li class="frag">“我很害羞”：性格，一个内部因素。</li><li class="frag">结论：五条信息给了我们一些关于奈亚拉的线索，但她远不止她的卡片。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例2 · “我数学不好”</h2><div class="caso">伊克尔数学考试没及格。那天下午他说：“我数学不好。我就是这样的，我不会改变。”</div><ol class="pasos"><li class="frag">你怎么知道？伊克尔只有一次考试。</li><li class="frag">这是<strong>草率的</strong>概括（第19课）：从一个事例就跳到“总是”。</li><li class="frag">而且，能力是可以训练的：它不是一个固定的印记。</li><li class="frag">结论：“我这次考试没及格”是一个事实。“我数学不好”是他给自己贴的一个标签。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例3 · 班上的搞笑大王</h2><div class="caso">在班上，所有人都叫迪伦“搞笑大王”。有一天他来了，神情严肃，一言不发。他们对他说：“你怎么了？你不是这样的。”</div><ol class="pasos"><li class="frag"><strong>标签</strong>是概括一个人、却把几乎所有其他东西都落下的一个词。</li><li class="frag">这就像光环效应（第45课）：一个特点盖住了其他所有的东西。</li><li class="frag">迪伦也可以难过，可以害怕，也可以认真地说话。</li><li class="frag">结论：“我”不是一个标签。一个人同时是很多东西。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/16</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 是我自己选的</h2><div class="caso">蕾尔说：“我最喜欢的音乐是我自己自由选择的。没有人影响过我。”</div><p class="q">她的爱好完全是她自己选择的吗？</p><ol class="pasos"><li class="frag">看起来是这样：没有人强迫她听任何东西。</li><li class="frag">但这些音乐她是在家里、在朋友圈里，以及在算法给她推荐的东西里听到的（第53课）。</li><li class="frag">这并不让它变假：它仍然是她的爱好，而且她决定怎么对待它。</li><li class="frag">结论：几乎没有什么是完全选择的，也几乎没有什么是完全强加的。几乎一切都是混合。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">身份认同是让你成为你自己、并与别人区别开来的东西。</li><li class="frag">定义我们的有内部因素，比如性格，也有外部因素，比如家庭或地方。</li><li class="frag">几乎一切都是落到我们身上的和我们选择的混合；没有人是一个标签。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/16</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/16</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

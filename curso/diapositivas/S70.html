@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S70 · 我是需要它，还是想要它？</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第70课</b> · 第14单元 · 决定并捍卫我的想法</div><div class="guino">🙃</div><h1>我是需要它，还是想要它？</h1><div class="idea">需要是我们过好生活所必需的；欲望则不是。广告把欲望伪装成需要，而且一次购买会带出另一次购买。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>______是把本不环保的东西宣传成环保的广告。 <span class="de">第69课</span></li><li>一个瓶子______并不意味着它真的会被回收。 <span class="de">第69课</span></li><li>在谢里夫的夏令营里，一个______目标让两个对立的小组走近了。 <span class="de">第65课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/17</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li><strong>漂绿</strong>是把本不环保的东西宣传成环保的广告。 <span class="de">第69课</span></li><li>一个瓶子<strong>可回收</strong>并不意味着它真的会被回收。 <span class="de">第69课</span></li><li>在谢里夫的夏令营里，一个<strong>共同</strong>目标让两个对立的小组走近了。 <span class="de">第65课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">伊克尔说：“我需要TikTok上出现的那双新球鞋。”他的鞋才买了三个月，还好好的。</div><p class="q">他是需要……还是想要？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>需要和欲望</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 需要和欲望</div><h2>需要</h2><div class="def"><strong>需要</strong>是我们过好生活所必需的东西。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>吃饭、睡觉、保暖、有一个家</div><div>学习、有朋友、感到安全</div><div>如果没有，我真的会过得更差</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 需要和欲望</div><h2>欲望</h2><div class="def"><strong>欲望</strong>是我想要的东西，但没有它我也能过得一样好。</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div>第三件名牌卫衣</div><div>当年的最新款手机，而我的手机还能用</div><div>有欲望并不坏：我们每个人都有想要的东西</div><div>关键问题：<strong>如果我没有它，会怎么样？</strong></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 需要和欲望</div><h2>两种伪装：欲望看起来像需要</h2><table><tr><th>花招</th><th>它对你说什么</th><th>例子</th></tr><tr><td><strong>憧憬式广告</strong></td><td>“买了这个，你就会成为你想成为的样子”</td><td>“用了这款香水，所有人都会想和你在一起”</td></tr><tr><td><strong>FOMO</strong>（英语，“害怕错过”）</td><td>“大家都有：别被落下”</td><td>“学校里一半的人已经有了这款新游戏”</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例1 · 球鞋广告</h2><div class="caso">一个男孩穿着新球鞋走进教室，所有人都看着他。文字：“做被所有人注视的那个。学校里一半的人已经有了。”</div><ol class="pasos"><li class="frag">“做被所有人注视的那个”：<strong>憧憬式广告</strong>。它卖给你的是你将成为的样子，而不是球鞋。</li><li class="frag">“学校里一半的人已经有了”：<strong>FOMO</strong>。它让你害怕被落下，就像归属感那样（第50课）。</li><li class="frag">如果我不买会怎么样？我的球鞋还能穿。这是一种<strong>欲望</strong>。</li><li class="frag">结论：广告把欲望伪装成了需要。想要它并不坏，但要清楚自己在买什么。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/17</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 又一个被伪装的欲望？</h2><div class="caso">奥马尔骑自行车摔倒了，他的手机坏了：开不了机。他训练完回来晚的时候，用它和家人联系。</div><p class="q">“我需要另一部手机。”这是又一个伪装成需要的欲望吗？</p><ol class="pasos"><li class="frag">看起来还是老样子：“我需要”常常其实是“我想要”。</li><li class="frag">但我来问关键问题：如果没有它，会怎么样？他没法通知家人。</li><li class="frag">这里有一个真正的<strong>需要</strong>：一部能用的手机。至于他是不是需要最贵的那款，则是另一回事。</li><li class="frag">结论：并不是所有的“我需要”都是花招。要一个一个情况去看，不能不假思索地贴标签。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第3部分</div><h1>一次购买会带出另一次购买</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第3部分</b> · 一次购买会带出另一次购买</div><h2>狄德罗的睡袍</h2><div class="caso">18世纪。法国哲学家德尼·狄德罗收到了一件礼物，一件很漂亮的新睡袍。他在一篇短文里讲了这件事：《告别我的旧睡袍》。</div><ol class="pasos"><li class="frag">有了新睡袍，他觉得自己的旧草椅很难看。他把它换成了一把皮扶手椅。</li><li class="frag">后来他换了桌子、窗帘、画……整个书房都得和睡袍“相配”。</li><li class="frag">最后他变得更穷了，却没有更幸福。他写道：“我曾是旧睡袍的主人；我却成了新睡袍的奴隶。”</li><li class="frag">结论：一次购买可能带出另一次购买。今天我们把它叫做<strong>狄德罗效应</strong>。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第3部分</b> · 一次购买会带出另一次购买</div><h2>象牙筷子</h2><div class="caso">一个中国的传统故事。一位国王给自己做了一双<strong>象牙</strong>筷子（用大象牙齿做的、极其昂贵的材料）。他的大臣看到后，担心起来。</div><ol class="pasos"><li class="frag">“用了象牙筷子，他就不会想要泥碗：他会想要玉碗”，一种珍贵的宝石。</li><li class="frag">“用了玉碗，他就会想要奢华的饭菜。然后是丝绸的衣服和宫殿。”</li><li class="frag">每一样奢侈品，都需要另一样与它相配的东西。这是一道阶梯。</li><li class="frag">结论：这和狄德罗的阶梯是同一道阶梯。第一级台阶看起来很小。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第3部分</b> · 一次购买会带出另一次购买</div><h2>今天的狄德罗效应</h2><p>买了一样东西，我们就会想要其他能和它“相配”的东西：</p><ul><li>新手机 → 手机壳、耳机、配套的手表</li><li>新游戏机 → 另一个手柄、更多游戏、电竞椅</li><li>毕尔巴鄂竞技的球衣 → 短裤、围巾、球袜</li><li><strong>刹车：</strong>我想要它本身，还是只是为了让它“相配”？</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">需要是我们过好生活所必需的；欲望则不是。有欲望并不坏。</li><li class="frag">憧憬式广告和FOMO把欲望伪装成需要。</li><li class="frag">一次购买会带出另一次购买：这就是狄德罗效应，就像象牙筷子的故事一样。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/17</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>17/17</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

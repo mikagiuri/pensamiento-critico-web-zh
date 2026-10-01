@@ -1,0 +1,179 @@
+/* ===== Capa móvil (mobile-first overrides) — Aula de Filosofía =====
+   No sustituye a styles.css (del otro carril): lo complementa para teléfono,
+   usando sus mismas variables de tema, así que light/dark siguen funcionando.
+   Cargar DESPUÉS de styles.css. Punto de corte principal: 760px. */
+
+/* Botón de menú: solo visible en móvil. Los encabezados de grupo se definen por breakpoint. */
+.navtoggle { display: none; }
+.navgroup { display: none; }
+
+/* Seguridades generales (cualquier tamaño): nada se sale de su caja. */
+.tablewrap, .weekwrap, .medialist { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.theory img, .fig img, .figimg { max-width: 100%; height: auto; }
+
+/* ===== Escritorio (>760px): los grupos son menús desplegables ("cajones"),
+   no una barra plana de 19 botones. Reutiliza el estado .navsec.open que ya
+   gestiona mobile.js (clic en el encabezado abre/cierra, uno cada vez). ===== */
+@media (min-width: 761px) {
+  #tabs .navsec { position: relative; display: inline-flex; align-items: center; }
+  #tabs .navgroup {
+    display: inline-flex; align-items: center; gap: 6px; cursor: pointer; user-select: none;
+    font-size: .92rem; font-weight: 600; color: var(--muted); margin: 0;
+    padding: 7px 12px; border: 1px solid transparent; border-radius: 999px;
+  }
+  #tabs .navgroup::after { content: "\25BE"; font-size: 10px; opacity: .65; }  /* ▾ */
+  #tabs .navgroup:hover { color: var(--ink); background: var(--surface-2); }
+  #tabs .navsec.open > .navgroup { color: var(--ink); background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
+  /* pista: resaltar el "cajón" que contiene la vista activa */
+  #tabs .navsec:has(button[aria-current="true"]) > .navgroup { color: var(--ink); }
+  #tabs .navmenu {
+    position: absolute; top: calc(100% + 6px); right: 0; z-index: 30;
+    display: none; flex-direction: column; gap: 2px; min-width: 208px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 12px; box-shadow: var(--shadow); padding: 6px;
+  }
+  #tabs .navsec.open > .navmenu { display: flex; }
+  #tabs .navmenu button { width: 100%; text-align: left; white-space: nowrap; padding: 9px 12px; border-radius: 8px; }
+}
+
+@media (max-width: 760px) {
+  /* ---- Cabecera compacta: marca · ☰ · tema, en una fila ---- */
+  .bar-in { flex-wrap: nowrap; gap: 8px; align-items: center; position: relative; }
+  .brand { flex: 1 1 auto; font-size: 18px; min-width: 0; }
+  .navtoggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 44px; min-height: 44px; padding: 0 12px; font-size: 20px; line-height: 1;
+    background: var(--surface-2); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 12px; cursor: pointer;
+  }
+  .navtoggle:hover { border-color: var(--accent); }
+  .theme { min-width: 44px; min-height: 44px; }
+
+  /* Las 19 pestañas: menú desplegable en vez de apilarse en 6 filas ---- */
+  #tabs {
+    display: none; position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+    flex-direction: column; gap: 2px; max-height: 72vh; overflow-y: auto;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; box-shadow: var(--shadow); padding: 8px; z-index: 60;
+  }
+  #tabs.open { display: flex; }
+  #tabs button {
+    width: 100%; text-align: left; min-height: 44px; padding: 11px 14px;
+    border-radius: 10px; font-size: 15px;
+  }
+  #tabs button[aria-current="true"] { background: var(--surface-2); }
+  /* Grupos plegables (acordeón): al abrir el menú solo se ven Inicio + 5 grupos */
+  #tabs .navsec { display: block; }
+  #tabs .navgroup {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    width: 100%; min-height: 46px; padding: 10px 14px; cursor: pointer;
+    font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); border-radius: 10px; margin: 0;
+  }
+  #tabs .navgroup:hover, #tabs .navsec.open > .navgroup { color: var(--ink); }
+  #tabs .navgroup::after { content: "\25B8"; font-size: 13px; transition: transform .15s ease; }
+  #tabs .navsec.open > .navgroup::after { transform: rotate(90deg); }
+  #tabs .navsec > .navmenu { display: none; }
+  #tabs .navsec.open > .navmenu { display: block; }
+
+  /* ---- Márgenes y tipografía a escala de teléfono ---- */
+  .wrap { padding-left: 16px; padding-right: 16px; }
+  .view { padding-top: 8px; }
+  .title { font-size: 30px; line-height: 1.08; }
+  .lead { font-size: 15.5px; }
+  .sec { font-size: 22px; }
+  h1.title, h2.sec { text-wrap: balance; }
+
+  /* ---- Objetivos táctiles ≥44px en todos los controles ---- */
+  .chip, .fbtn { min-height: 42px; padding: 9px 14px; font-size: 14px; }
+  .icon-btn, .known-btn, .btn, .opt, .seslink, .sesbtn { min-height: 44px; }
+  .filterbar, .chips { gap: 8px; }
+
+  /* ---- Rejillas a una columna ---- */
+  .courses, .sestemas, .glolist { grid-template-columns: 1fr; }
+  .theory-layout { grid-template-columns: 1fr; }
+  .toc { position: static; max-height: none; margin-bottom: 12px; }
+
+  /* ---- Tarjetas (flashcards): cómodas para el pulgar ---- */
+  .fc-stage { max-width: 100%; }
+  .card { min-height: 320px; }
+  .fc-ctrl { flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .fc-ctrl .icon-btn { min-width: 56px; }
+  .fc-ctrl .known-btn { order: -1; flex: 1 1 100%; }
+
+  /* ---- Cuestionarios: opciones a lo ancho ---- */
+  .opts { gap: 10px; }
+  .opt { width: 100%; text-align: left; padding: 12px 14px; }
+  .q-card { padding: 16px; }
+
+  /* ---- Mapas y esquemas: alto útil y scroll dentro de su caja ---- */
+  .mapstage { padding: 10px; overflow: auto; }
+  #mapsvg { min-height: 460px; }
+  #esqsvg { overflow: auto; }
+
+  /* ---- Recursos / diapositivas ---- */
+  .mcard { width: 100%; }
+}
+
+/* ===== Móvil compacto (29-09, js/compacto.js): filtros, lista de temas e índice plegados en una línea ===== */
+.ctl-toggle, .toc-toggle { display: none; }
+@media (max-width: 760px) {
+  .ctl-toggle, .toc-toggle {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 44px;
+    margin: 12px 0 0; padding: 9px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    color: var(--ink); font: 600 15px/1.3 var(--sans); text-align: left; cursor: pointer;
+  }
+  .ctl-toggle[hidden], .toc-toggle[hidden] { display: none; }
+  .ctl-toggle .ctl-l, .toc-toggle .ctl-l { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .toc-toggle .ctl-l i { font-style: normal; font-weight: 500; color: var(--muted); font-size: 13px; }
+  .ctl-caret { flex: none; color: var(--muted); transition: transform .15s ease; }
+  .ctl-open > .ctl-toggle .ctl-caret, .toc-open > .toc-toggle .ctl-caret { transform: rotate(180deg); }
+  .view:not(.ctl-open) > .filterbar, .view:not(.ctl-open) > .chips, .view:not(.ctl-open) > .crono-filter, .view:not(.ctl-open) > .crono-chips { display: none; }
+  .view.ctl-open > .filterbar { margin-top: 10px; }
+  .view.ctl-open > .chips { margin: 12px 0 6px; }
+  .theory-layout:not(.toc-open) > .toc { display: none; }
+  .theory-layout { gap: 12px; }
+  .toc-toggle { margin: 0; }
+  .theory-layout > .toc { margin: 0 0 8px; padding: 8px 4px 0; }
+  /* con el plegado, la entradilla de la sección sobra: el contenido ya se explica solo */
+  .view:has(> .ctl-toggle:not([hidden])) > .lead { display: none; }
+  .view:has(> .ctl-toggle:not([hidden])) > h1.title { font-size: 24px; }
+  /* la tira «De este tema» y «Siguiente paso» van al final del tema; en móvil, más pequeñas aún */
+  .itin-strip .btn { min-height: 36px; padding: 5px 11px; font-size: 14px; }
+}
+
+@media (max-width: 420px) {
+  .title { font-size: 25px; }
+  .sec { font-size: 20px; }
+  .brand .owl { font-size: 18px; }
+  .wrap { padding-left: 13px; padding-right: 13px; }
+  #sesiones .sescard .top { flex-direction: column; gap: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto; }
+}
+
+/* Accesibilidad: enlace para saltar al contenido (oculto hasta recibir foco de teclado). */
+.skiplink {
+  position: absolute;
+  left: 8px;
+  top: -48px;
+  z-index: 100;
+  padding: 8px 14px;
+  background: var(--accent-2, #245);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font: 600 15px/1.2 "IBM Plex Sans", system-ui, sans-serif;
+  transition: top .15s ease;
+}
+.skiplink:focus { top: 8px; outline: 2.5px solid var(--ink, #111); outline-offset: 2px; }
+
+/* Tarjetas: el anverso (emoji + palabra) va centrado, no a la izquierda. */
+#tarjetas .face.front { align-items: center; text-align: center; }
+#tarjetas .face.front .emoji { margin-bottom: 2px; }
+#tarjetas .face.front .front-t { max-width: 90%; text-wrap: balance; }
+
+/* ESO: una sola materia → sin filtro de materia. */
+.fgroup:has([data-subj]), .fgroup:has([data-sa]) { display: none; }

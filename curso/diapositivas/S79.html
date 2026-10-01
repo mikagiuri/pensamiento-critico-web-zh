@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S79 · 浪漫爱情的迷思</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第79课</b> · 第17单元 · 友谊、爱情与家庭</div><div class="guino">🙃</div><h1>浪漫爱情的迷思</h1><div class="idea">浪漫爱情的迷思是关于爱情的错误或夸大的信念，比如“嫉妒证明有爱”；它们可能把控制伪装成关爱。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>因______结成的友谊，建立在一起开心的基础上。 <span class="de">第78课</span></li><li>______压力是指为了不被排斥在外而去做某件事。 <span class="de">第78课</span></li><li>生态足迹用______公顷来衡量。 <span class="de">第67课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/16</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>因<strong>快乐</strong>结成的友谊，建立在一起开心的基础上。 <span class="de">第78课</span></li><li><strong>群体</strong>压力是指为了不被排斥在外而去做某件事。 <span class="de">第78课</span></li><li>生态足迹用<strong>全球</strong>公顷来衡量。 <span class="de">第67课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">一首虚构歌曲的歌词：“没有你我什么都不是。你是我的另一半。我爱你爱得嫉妒得要死。”</div><p class="q">这段歌词里有哪些关于爱情的想法？它们是真的吗？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>迷思、角色与控制</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 迷思、角色与控制</div><h2>浪漫爱情的迷思</h2><div class="def">浪漫爱情的<strong>迷思</strong>是关于爱情的一种信念，很多人以为它是真的，但其实是错误或夸大的。</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div>我们从电影、歌曲、剧集和社交网络里学到它</div><div>我们相信它是出于<strong>习惯</strong>和群体（第5课）</div><div>“另一半”的想法早在柏拉图的《会饮篇》里就出现了</div><div>心理学家卡洛斯·耶拉（Carlos Yela）在西班牙研究并分类过这些迷思</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 迷思、角色与控制</div><h2>四个迷思及其错在哪里</h2><table><tr><th>迷思</th><th>说什么</th><th>错在哪里</th></tr><tr><td><strong>另一半</strong></td><td>世上只有一个人是为你而生的</td><td>没有人是缺一半的；爱情可以不止一次到来</td></tr><tr><td><strong>嫉妒</strong>就是爱</td><td>他会嫉妒，说明他爱你</td><td>嫉妒说明的是恐惧和不安全感，而不是爱有多深</td></tr><tr><td>爱<strong>无所不能</strong></td><td>只要你们相爱，一切都会解决</td><td>如果有不尊重或伤害，光有爱是不够的</td></tr><tr><td>“如果他爱我，就会给我看他的<strong>手机</strong>”</td><td>爱的人没有秘密</td><td>每个人都有权保留自己的隐私，在恋爱中也一样</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 迷思、角色与控制</div><h2>恋爱关系中的性别角色</h2><p>关于男生和女生在恋爱中“应该”怎样的固定想法：</p><ul><li>“他保护并做决定；她等待并让步”</li><li>“男生哭或求助，就是软弱”</li><li>这些是<strong>刻板印象</strong>（第45课）：它们并不能描述真实的人</li><li>恋爱关系有很多种形式，不谈恋爱也是一种选择</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 迷思、角色与控制</div><h2>伪装成关爱的控制</h2><div class="def">当有人监视或限制自己的伴侣，并把它说成是爱或担心时，这就是<strong>控制</strong>。</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div>随时要求对方发位置，或者问“你和谁在一起？”</div><div>决定你和谁见面或穿什么衣服</div><div>要密码或检查手机</div><div>你没有马上回复就生气</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例1 · “把位置发给我”</h2><div class="caso">Iker 每小时都给女朋友 Leire 发消息：“你在哪儿？和谁在一起？把位置发给我。”他还补充说：“这是因为我担心你。”（虚构的例子。）</div><ol class="pasos"><li class="frag">Iker 说了什么？说这是担心、是关爱。</li><li class="frag">他做了什么？他随时监视 Leire 在哪里、和谁在一起。</li><li class="frag">我怎么知道？我看事实，而不是看标签。偶尔担心一下，不等于每小时监视一次。</li><li class="frag">结论：这是伪装成关爱的<strong>控制</strong>。把它叫作爱，它也不会变成爱。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例2 · 感到嫉妒和利用嫉妒</h2><div class="caso">Naiara 看到男朋友 Omar 和一个女同学笑得很开心。她感到嫉妒。（虚构的例子。）</div><ol class="pasos"><li class="frag">偶尔感到嫉妒是人之常情：这是一种情绪，不是罪过。</li><li class="frag">Naiara 怎么处理这种情绪是另一回事：她可以平静地谈一谈，也可以监视和禁止。</li><li class="frag">迷思就是相信嫉妒能<strong>证明</strong>爱，并且赋予人控制对方的权利。</li><li class="frag">结论：情绪不是我们选择的；但怎么处理它，是我们选择的。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>是控制，还是健康的关系？</h2><div class="cols"><div class="col no"><h3>控制</h3><ul><li>把嫉妒当作爱的证明</li><li>检查手机、要密码</li><li>让你远离你的朋友圈</li></ul></div><div class="col si"><h3>健康的关系</h3><ul><li><strong>尊重：</strong>你的决定和你的界限都算数</li><li><strong>信任：</strong>不需要监视</li><li><strong>自由：</strong>你有自己的生活、朋友和爱好</li></ul></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/16</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 不互相给对方看手机</h2><div class="caso">Yasmin 和陈已经在一起一年了。他们不检查对方的手机，也不互相要密码。Maialen 认为：“这说明他们互相不信任。”</div><p class="q">Maialen 说得对吗？</p><ol class="pasos"><li class="frag">看起来有道理：如果没有秘密，为什么不给对方看呢？</li><li class="frag">但不查对方的手机恰恰相反：这是<strong>信任</strong>。如果你信任，就不需要检查。</li><li class="frag">Maialen 是怎么知道的？她从一个其实指向相反方向的事实里得出了结论。而且隐私是一种权利。</li><li class="frag">结论：尊重对方的手机不是不信任；这通常是关系健康的标志。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">浪漫爱情的迷思是关于爱情的错误或夸大的信念。</li><li class="frag">嫉妒不能证明爱；监视和控制不是关爱。</li><li class="frag">健康的关系建立在尊重、信任和自由之上。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/16</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/16</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

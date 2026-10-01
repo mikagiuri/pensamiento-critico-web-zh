@@ -1,0 +1,26 @@
+/* (01-10) Tarjetas rápidas de comunicación — solo web en chino (ver tarjetas_rapidas.js) */
+.tr-fab { position: fixed; right: 16px; bottom: 16px; z-index: 9000; display: flex; align-items: center; gap: 6px;
+  padding: 10px 16px; border: 0; border-radius: 999px; background: #2e8b57; color: #fff; font: 600 16px/1 "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
+  box-shadow: 0 4px 14px rgba(0,0,0,.25); cursor: pointer; }
+.tr-fab span[aria-hidden] { font-size: 22px; }
+.tr-fab:focus-visible, .tr-card:focus-visible { outline: 3px solid #f5b400; outline-offset: 2px; }
+.tr-panel { position: fixed; right: 16px; bottom: 76px; z-index: 9001; width: min(440px, calc(100vw - 32px)); max-height: calc(100vh - 110px);
+  overflow: auto; background: #fff; color: #1d1d1d; border-radius: 14px; box-shadow: 0 10px 34px rgba(0,0,0,.3); padding: 10px; }
+.tr-panel[hidden], .tr-big[hidden] { display: none; }
+.tr-head { display: flex; justify-content: space-between; align-items: center; font: 700 17px "Microsoft YaHei", "PingFang SC", sans-serif; padding: 2px 4px 8px; }
+.tr-head small { font-weight: 400; color: #777; font-size: 13px; margin-left: 4px; }
+.tr-x { border: 0; background: none; font-size: 20px; cursor: pointer; color: #555; padding: 4px 8px; }
+.tr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tr-card { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 10px 4px; border: 2px solid #d8e9df; border-radius: 10px;
+  background: #f6fbf8; cursor: pointer; color: inherit; }
+.tr-card:hover { border-color: #2e8b57; }
+.tr-i { font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif; font-size: 30px; line-height: 1.1; }
+.tr-zh { font: 700 15px/1.25 "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; text-align: center; }
+.tr-es { font-size: 11px; color: #777; text-align: center; }
+.tr-big { position: fixed; inset: 0; z-index: 9002; background: #fffdf5; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 16px; cursor: pointer; color: #1d1d1d; }
+.tr-big-i { font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif; font-size: min(30vw, 200px); line-height: 1.1; }
+.tr-big-zh { font: 700 min(14vw, 110px)/1.2 "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif; margin-top: 12px; }
+.tr-big-es { font: 700 min(9vw, 72px)/1.2 "Segoe UI", Arial, sans-serif; color: #2e8b57; margin-top: 10px; }
+.tr-big-hint { margin-top: 28px; font-size: 14px; color: #999; }
+@media print { .tr-fab, .tr-panel, .tr-big { display: none !important; } }

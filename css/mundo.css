@@ -1,0 +1,29 @@
+/* ===== «Si la clase fuera el mundo» ===== usa tokens de styles.css ===== */
+#mundo #mundobox{ max-width:960px; }
+#mundo .mundo-intro{ line-height:1.55; margin:.4rem 0 1rem; }
+#mundo .linkbtn{ font:inherit; background:none; border:0; padding:0; color:var(--accent); cursor:pointer; text-decoration:underline; text-underline-offset:2px; }
+#mundo .mundo-bar{ display:flex; flex-wrap:wrap; gap:.8rem 1.4rem; align-items:center; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:.7rem 1rem; margin-bottom:1rem; }
+#mundo .mundo-bar input[type=number]{ width:4.2rem; font:inherit; padding:.25rem .4rem; border:1px solid var(--line); border-radius:8px; background:var(--bg); color:var(--ink); }
+#mundo .mundo-score b{ font-family:var(--mono); font-size:1.1rem; }
+#mundo .mundo-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(min(280px,100%), 1fr)); gap:.8rem; }
+#mundo .mundo-card{ background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--ipc); border-radius:var(--radius); padding:.8rem 1rem; display:flex; flex-direction:column; gap:.5rem; }
+#mundo .mundo-card h3{ font-size:1rem; line-height:1.35; margin:0; font-weight:600; }
+#mundo .mundo-card .me{ font-size:1.3rem; }
+#mundo .mundo-guess label{ display:flex; flex-wrap:wrap; gap:.4rem; align-items:center; font-size:.92rem; color:var(--muted); }
+#mundo .mundo-guess input[type=range]{ flex:1; min-width:120px; accent-color:var(--ipc); }
+#mundo .mundo-guess output{ font-family:var(--mono); font-weight:600; color:var(--ink); min-width:1.6rem; text-align:right; }
+#mundo .mundo-check{ margin-top:.4rem; font:inherit; cursor:pointer; border:0; border-radius:999px; padding:.4rem 1rem; color:var(--on-accent); background:var(--accent); }
+#mundo .mundo-check:hover{ filter:brightness(1.06); }
+#mundo .mdots{ display:flex; flex-wrap:wrap; gap:4px; }
+#mundo .md{ width:14px; height:14px; border-radius:50%; background:var(--surface-2); border:1px solid var(--line); }
+#mundo .md.on{ background:var(--ipc); border-color:var(--ipc); }
+#mundo .mundo-num{ margin:.2rem 0 0; font-size:.95rem; }
+#mundo .mundo-num .pct, #mundo .mundo-num .verd{ color:var(--muted); font-size:.88rem; }
+#mundo .mundo-dato{ margin:0; font-size:.88rem; line-height:1.45; color:var(--muted); }
+#mundo .mundo-think{ margin-top:1.2rem; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1rem 1.2rem; }
+#mundo .mundo-think h3{ font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 .4rem; }
+#mundo .mundo-think ol{ margin:.3rem 0 .6rem 1.2rem; line-height:1.55; }
+#mundo .mundo-nota{ font-size:.82rem; color:var(--muted); margin:0; }
+@media (prefers-reduced-motion: no-preference){ #mundo .md.on{ animation:md-in .35s ease both; } }
+@keyframes md-in{ from{ transform:scale(.4); opacity:.2; } to{ transform:scale(1); opacity:1; } }
+#mundo .mout{ white-space:nowrap; font-size:.92rem; color:var(--muted); }

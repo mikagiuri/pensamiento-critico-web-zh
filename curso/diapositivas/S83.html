@@ -1,0 +1,86 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S83 · 多样性与尊重</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第83课</b> · 第18单元 · 不同，但平等</div><div class="guino">🙃</div><h1>多样性与尊重</h1><div class="idea">人在性取向和性别认同上是多样的；尊重就是不嘲笑、不排斥，而且在恋爱关系里只有“愿意”才是“愿意”。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>面对数据中的差异，不要直接跳到第一个解释：要问______。 <span class="de">第82课</span></li><li>根据国家统计局（INE），女性平均每年挣得比男性______。 <span class="de">第82课</span></li><li>按善意原则，我回应最______的反对意见，而不是被歪曲的反对意见。 <span class="de">第71课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/16</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>面对数据中的差异，不要直接跳到第一个解释：要问<strong>为什么</strong>。 <span class="de">第82课</span></li><li>根据国家统计局（INE），女性平均每年挣得比男性<strong>少</strong>。 <span class="de">第82课</span></li><li>按善意原则，我回应最<strong>有力</strong>的反对意见，而不是被歪曲的反对意见。 <span class="de">第71课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">在更衣室里，一个人传球失误后，有人喊：“你真像个同性恋！”大家都笑了。</div><p class="q">为什么这句话能当作侮辱？它没有明说却说了什么？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>清楚的词语</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 清楚的词语</div><h2>性取向</h2><div class="def">指一个人对谁产生吸引和爱慕。</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div><strong>异性恋：</strong>对异性</div><div><strong>同性恋</strong>（男同或女同）：对同性</div><div><strong>双性恋：</strong>对不止一种性别的人</div><div>它不像爱好那样可以选择，而且<strong>不是一种疾病</strong></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 清楚的词语</div><h2>性别认同</h2><div class="def">指一个人怎样感受和认定自己：男人、女人或其他形式。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div><strong>顺性别者：</strong>性别认同与出生时被指定的性别一致</div><div><strong>跨性别者：</strong>性别认同与出生时被指定的性别不一致</div><div>取向和认同是<strong>不同的东西</strong></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 清楚的词语</div><h2>同意</h2><div class="def">指自由而明确地同意某件事。在恋爱关系中，<strong>只有“愿意”才是“愿意”</strong>。</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div>沉默或没有说“不”<strong>不等于</strong>“愿意”</div><div>在压力、恐惧或欺骗之下，就没有<strong>自由的</strong>同意</div><div>可以在任何时候<strong>改变主意</strong></div><div>适用于一个吻、一个拥抱或<strong>一张照片</strong></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 清楚的词语</div><h2>案例1 · 那张照片</h2><div class="caso">Naiara 在和 Iker 交往时给他发过一张私密照片。现在他们分手了，Iker 想把它转发到朋友群里。</div><ol class="pasos"><li class="frag">Naiara 允许别人看了吗？没有：她只发给了 Iker。</li><li class="frag">同意是针对一件具体的事。发出一张照片，并不是同意它被转发。</li><li class="frag">而且，未经许可传播私密图像在西班牙可能构成<strong>犯罪</strong>。</li><li class="frag">结论：没有 Naiara 明确的“愿意”，就不能转发。而且她可以改变主意。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/16</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>尊重与嘲笑</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 尊重与嘲笑</div><h2>恐同恐跨（LGTBI恐惧）</h2><div class="def">指因为某人的性取向或性别认同而排斥、嘲笑或攻击他。</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div><strong>LGTBI：</strong>女同性恋、男同性恋、跨性别、双性恋和间性人</div><div><strong>间性人：</strong>身体既不完全是典型的男性，也不完全是典型的女性</div><div>这是一种<strong>排斥</strong>：把某人排除在外</div><div>就像我们在第66课看到的：“<strong>我们</strong>”对“<strong>他们</strong>”</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/16</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 尊重与嘲笑</div><h2>嘲笑与尊重</h2><div class="cols"><div class="col no"><h3>嘲笑</h3><ul><li>把“同性恋”当作侮辱</li><li>嘲笑别人的穿着或说话方式</li><li>猜测并说出别人的性取向</li><li>“只是个玩笑”</li></ul></div><div class="col si"><h3>尊重</h3><ul><li>按每个人要求的名字称呼他</li><li>在群体里平等地对待所有人</li><li>让每个人自己决定要不要说自己的事</li><li>不要跟着嘲笑的人一起笑</li></ul></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 尊重与嘲笑</div><h2>案例2 · “只是个玩笑”</h2><div class="caso">在更衣室里，Aitor 传球失误，有人对他喊“你真像个同性恋！”。后来那人说只是个玩笑。</div><ol class="pasos"><li class="frag">这句话没有明说却说了什么？说做同性恋是件坏事，是值得嘲笑的事。</li><li class="frag">它伤害了谁？伤害了 Aitor，也伤害了任何听到这话的同性恋者，即使他们不出声。</li><li class="frag">大家都笑并不能让它变好：想想“大家都这么做”（第28课）。</li><li class="frag">结论：把一个群体当作侮辱来开的玩笑就是嘲笑。而且它把这个群体排除在外。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/16</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 尊重与嘲笑</div><h2>⚠ 从外表就能看出来</h2><div class="caso">Kevin 看到一个歌手涂着指甲油的视频，评论说：“看得出来他是同性恋。”</div><p class="q">可以这样知道吗？</p><ol class="pasos"><li class="frag">这看起来像条线索：“男生不涂指甲油。”</li><li class="frag">但这是一种<strong>性别角色</strong>（第81课）。而角色并不能说明性取向。</li><li class="frag">性取向是指一个人对谁产生吸引。从衣服或指甲上是看不出来的：你怎么知道？</li><li class="frag">结论：性取向不能凭外表来猜。而且这是每个人自己的事。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/16</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">性取向是指你对谁感到吸引；性别认同是指你怎样认定自己。</li><li class="frag">在恋爱关系中只有“愿意”才是“愿意”，而且可以改变主意。</li><li class="frag">因为性取向或性别认同而嘲笑别人，就是对 LGTBI 群体的歧视：一种排斥。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/16</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/16</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

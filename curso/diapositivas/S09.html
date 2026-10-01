@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S09 · 好理由</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第9课</b> · 第2单元 · 论证</div><div class="guino">🙃</div><h1>好理由</h1><div class="idea">一个好理由要通过三个问题：它是真的吗？它切题吗？它足够吗？只要有一个不过关，它就不能用来支持这个结论。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>重构时，我要去掉______的东西：修饰、重复、辱骂。 <span class="de">第8课</span></li><li>重构别人的论证时，要______他说的话。 <span class="de">第8课</span></li><li>“你怎么知道的？”问的是______和理由。 <span class="de">第4课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/17</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>重构时，我要去掉<strong>多余</strong>的东西：修饰、重复、辱骂。 <span class="de">第8课</span></li><li>重构别人的论证时，要<strong>尊重</strong>他说的话。 <span class="de">第8课</span></li><li>“你怎么知道的？”问的是<strong>来源</strong>和理由。 <span class="de">第4课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">“说服我今天别布置作业。”“因为不要。”“因为你是最好的老师。”“因为明天我们有数学考试。”</div><p class="q">你觉得哪一个才是真正的理由？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>一个理由的三个问题</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 一个理由的三个问题</div><h2>按顺序问三个问题</h2><p>这三个问题要<strong>按顺序</strong>问。只要有一个不过关，这个理由就不能用来支持这个结论。</p><ul><li>1. <strong>它是真的吗？</strong> 或者，至少是可信的吗？</li><li>2. <strong>它切题吗？</strong> 也就是说：它和结论有关系吗？</li><li>3. <strong>它足够吗？</strong> 够了，还是需要更多？</li><li>一个<strong>好</strong>理由要通过这三关</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 一个理由的三个问题</div><h2>1 · 它是真的吗？</h2><div class="def">如果理由是<strong>假的</strong>，论证就不成立。不用再往下问了。</div><div class="tarjetas" style="grid-template-columns:repeat(2,1fr)"><div>“每天睡四个小时就足够了”</div><div>假的：你这个年纪，建议睡 8 到 10 个小时</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 一个理由的三个问题</div><h2>2 · 它切题吗？</h2><div class="def">一个理由可能是真的，但和结论<strong>没有关系</strong>。</div><div class="tarjetas" style="grid-template-columns:repeat(2,1fr)"><div>“优素福应该当班长，因为他个子最高”</div><div>可能是真的，但个子高矮和当班长没关系</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 一个理由的三个问题</div><h2>3 · 它足够吗？</h2><div class="def">一个理由可能是真的，也切题，但<strong>不够</strong>。</div><div class="tarjetas" style="grid-template-columns:repeat(2,1fr)"><div>“那个班的人都是懒鬼：有一个人没交作业”</div><div>一个学生、一天的情况：不足以说明整个班</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 1 · 运动鞋</h2><div class="caso">“这双鞋是跑步最好的鞋：一个有名的足球运动员给它做广告。”</div><ol class="pasos"><li class="frag">它是真的吗？是的：他确实给这双鞋做了广告。</li><li class="frag">它切题吗？不切题：做广告并不能说明鞋适不适合跑步。而且做广告是有报酬的。</li><li class="frag">已经有一个问题不过关了：不用再往下问了。</li><li class="frag">结论：这是一个<strong>坏理由</strong>，因为它不切题。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 2 · 绕回起点</h2><div class="caso">“说服我今天别布置作业。”“因为不要。”“因为你是最好的老师。”“因为明天我们有数学考试。”</div><ol class="pasos"><li class="frag">“因为不要”：没有给出任何理由，只是把结论重复了一遍。</li><li class="frag">“因为你是最好的老师”：这是奉承，和作业没有关系。</li><li class="frag">“因为明天有考试”：它是真的，切题，而且足以用来申请下午休息。</li><li class="frag">结论：只有第三个是<strong>好理由</strong>。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/17</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 已解决的案例</div><h2>⚠ 个子高不切题吗？</h2><div class="caso">“伊克尔应该当我们的守门员：他是班上个子最高的。”</div><p class="q">和优素福当班长一样：个子高不切题，对吧？</p><ol class="pasos"><li class="frag">看起来和优素福的例子一样：又是个子高。</li><li class="frag">但结论不一样。个子高的守门员能够到更多的球：这里个子高是有关系的。</li><li class="frag">它足够吗？光靠它不够：反应能力和积极性也很重要。</li><li class="frag">结论：一个理由切不切题，要看结论是什么。不要只看它的样子来判断。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第3部分</div><h1>看起来像理由，其实不是</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第3部分</b> · 看起来像理由，其实不是</div><h2>它们带有“因为”，但不是理由</h2><table><tr><th>类型</th><th>例子</th><th>为什么它不是理由</th></tr><tr><td><strong>重复</strong></td><td>“要尊重老师，因为必须尊重他们”</td><td>同一句话说了两遍</td></tr><tr><td><strong>一种喜好</strong></td><td>“雷鬼是最好的音乐，因为我很喜欢”</td><td>说的是我，不是所有人</td></tr><tr><td><strong>一种威胁</strong></td><td>“选我当班长，不然我不借你笔记”</td><td>只是吓唬人</td></tr><tr><td><strong>一句侮辱</strong></td><td>“那是胡说，因为你是个窝囊废”</td><td>攻击的是说话的人，不是他说的内容</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">一个好理由要通过三个问题：它是真的吗？它切题吗？它足够吗？</li><li class="frag">只要这三个问题有一个不过关，这个理由就不能用来支持这个结论。</li><li class="frag">重复、一种喜好、一种威胁或一句侮辱都不是理由，哪怕带着“因为”。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/17</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>17/17</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

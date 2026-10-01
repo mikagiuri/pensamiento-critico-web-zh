@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S88 · 休闲、毒品与成瘾</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第88课</b> · 第20单元 · 潮流、休闲与未来</div><div class="guino">🙃</div><h1>休闲、毒品与成瘾</h1><div class="idea">休闲是自己选择的空闲时间；成瘾是失去控制。面对关于毒品的迷思，我要问：你怎么知道？是谁说的？</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>衣服是身份的一种______，不是整个人。 <span class="de">第87课</span></li><li>______是在一个群体里流行一段时间的穿着、说话或做事的方式。 <span class="de">第87课</span></li><li>即使你说过“是”，也可以随时______主意。 <span class="de">第83课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/17</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>衣服是身份的一种<strong>标志</strong>，不是整个人。 <span class="de">第87课</span></li><li><strong>时尚</strong>是在一个群体里流行一段时间的穿着、说话或做事的方式。 <span class="de">第87课</span></li><li>即使你说过“是”，也可以随时<strong>改变</strong>主意。 <span class="de">第83课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">一个点击量很高的视频：“电子烟不是抽烟。只是草莓味的水蒸气。”（虚构的例子。）</div><p class="q">你怎么才能知道这是不是真的？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>休闲与成瘾</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 休闲与成瘾</div><h2>休闲</h2><div class="def">是你用在自己选择的事情上的空闲时间，用来休息、开心或学点东西。</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div>一种看法：它有三个<strong>要素</strong></div><div><strong>空闲时间：</strong>在上课、作业和任务之外</div><div><strong>选择：</strong>你自己决定，没有人强迫你</div><div><strong>享受：</strong>让你舒服、开心或让你成长</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 休闲与成瘾</div><h2>成瘾</h2><div class="def">是对某种消费或行为失去控制：即使它伤害你，你也继续，而且很难停下来。</div><div class="tarjetas" style="grid-template-columns:repeat(4,1fr)"><div><strong>有物质的：</strong>酒精、尼古丁（烟草和电子烟）、大麻……</div><div><strong>无物质的：</strong>赌博、电子游戏</div><div>世界卫生组织承认赌博障碍和游戏障碍</div><div>“手机成瘾”不是正式的诊断：应该说“问题性使用”</div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 休闲与成瘾</div><h2>成瘾的信号</h2><p>医生不只看时间长短。他们看这样的信号：</p><ul><li><strong>失去控制：</strong>你想停下却停不了</li><li><strong>明知有害仍继续：</strong>影响睡眠、学习、家庭</li><li><strong>耐受性：</strong>需要更多才能得到同样的感觉</li><li><strong>戒断反应：</strong>停下来时不舒服、紧张或情绪不好</li><li>一切都围着它转，把其余的都排除在外</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>迷思与群体压力</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 迷思与群体压力</div><h2>常见的迷思和卫生机构的说法</h2><table><tr><th>迷思</th><th>卫生部和世界卫生组织怎么说</th></tr><tr><td>“电子烟只是水蒸气”</td><td>它是含有化学物质的气溶胶；大多数含有<strong>尼古丁</strong>，会让人上瘾</td></tr><tr><td>“是天然的，所以无害”（大麻）</td><td>天然不等于安全。对青少年来说，它可能影响记忆力和注意力</td></tr><tr><td>“我这个年纪喝一点酒没关系”</td><td>对未成年人，卫生部建议<strong>零</strong>饮酒：大脑还在发育</td></tr><tr><td>“如果我只在聚会时抽，就不会上瘾”</td><td>尼古丁非常容易成瘾：不是每天抽也可能上瘾</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 迷思与群体压力</div><h2>案例1 · 电子烟的视频</h2><div class="caso">开头的那个视频：“只是草莓味的水蒸气。”它是一个卖电子烟的账号发布的。（虚构的例子。）</div><ol class="pasos"><li class="frag">谁说的？一个卖电子烟的账号。它能得到什么？卖得更多（第31课）。</li><li class="frag">它是怎么知道的？它没有给出任何证据：只是在断言。</li><li class="frag">我拿卫生机构的说法去对照，比如卫生部或世界卫生组织：它们说不只是水蒸气。</li><li class="frag">结论：这个迷思用老问题就能推翻。不需要说教：需要的是去看来源。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 迷思与群体压力</div><h2>案例2 · “如果人人都这么做”</h2><div class="caso">在 Aste Nagusia 期间，朋友圈里有人把一支电子烟递给 Iker：“来嘛，人人都这么做。”（虚构的例子。）</div><ol class="pasos"><li class="frag">这是诉诸多数（第28课）：“如果大家都做，就应该没问题。”</li><li class="frag">这是真的吗？许多研究发现，我们总以为别人用得比实际<strong>更多</strong>。</li><li class="frag">而且即使这是真的，很多人这么做也不能说明它对我有好处。</li><li class="frag">结论：“人人都这样”不是理由。而且就像阿施实验那样，只要有一个盟友，就能帮助人抵抗。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第3部分</div><h1>时间长不等于成瘾</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/17</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第3部分 · 时间长不等于成瘾</div><h2>⚠ 对 Fortnite 成瘾了吗？</h2><div class="caso">陈每个星期六和表兄弟们玩三个小时 Fortnite。他睡得好，学习，也和朋友圈见面。他的姨妈说：“他成瘾了。”（虚构的例子。）</div><p class="q">三个小时很长。姨妈说得对吗？</p><ol class="pasos"><li class="frag">看起来是这样：连续三个小时已经很长了。</li><li class="frag">但成瘾不能只用小时数来衡量。要看有没有<strong>失去控制</strong>和伤害。</li><li class="frag">陈自己选择什么时候玩，而且没有耽误睡眠、学习和朋友圈。</li><li class="frag">结论：时间长和成瘾不是一回事。在贴标签之前，先看信号。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第3部分</b> · 时间长不等于成瘾</div><h2>健康的休闲</h2><p>一种看法：健康的休闲是这样的……</p><ul><li>是你自己选择的，而不是群体或应用程序替你选的（第52课）</li><li>它是<strong>多样的</strong>：运动、音乐、爬山、读书、和朋友圈见面</li><li>它不会夺走你的睡眠、学习或健康</li><li>你想放下时就能放下：你依然有<strong>控制</strong></li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">休闲是你自己选择的空闲时间，用来休息、开心或学习。</li><li class="frag">成瘾是失去控制：即使有害你也继续。可以有物质，也可以没有物质。</li><li class="frag">面对关于毒品的迷思：是谁说的，他怎么知道的，卫生机构怎么说？</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/17</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>17/17</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

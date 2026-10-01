@@ -1,0 +1,70 @@
+/* ===== Parejas: juego de emparejar término ↔ definición (glosario) ===== usa tokens de styles.css ===== */
+#parejas .par-wrap{ max-width:900px; }
+#parejas .par-pick{ display:flex; flex-wrap:wrap; gap:.5rem; margin:.4rem 0 1rem; align-items:center; }
+#parejas .par-pick .flabel{ width:100%; font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+#parejas .pbtn{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface); color:var(--ink);
+  padding:.45rem .85rem; border-radius:999px; transition:transform .12s, border-color .15s, background .15s; }
+#parejas .pbtn:hover{ transform:translateY(-1px); border-color:var(--accent); }
+#parejas .pbtn[aria-pressed="true"]{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+#parejas .par-play{ display:flex; align-items:center; gap:.8rem; margin-top:.3rem;
+  padding:1rem 1.3rem; border:0; border-radius:var(--radius); cursor:pointer; font:inherit; color:var(--on-accent);
+  background:linear-gradient(120deg, var(--accent), var(--accent-2)); box-shadow:var(--shadow); }
+#parejas .par-play b{ font-family:var(--serif); font-size:1.2rem; }
+#parejas .par-play:hover{ filter:brightness(1.05); }
+
+/* HUD */
+#parejas .par-hud{ display:flex; gap:1rem; align-items:center; justify-content:space-between; margin-bottom:.7rem; flex-wrap:wrap; }
+#parejas .par-hud .stat{ font-size:.9rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+#parejas .par-hud .stat b{ color:var(--ink); }
+#parejas .par-score{ font-family:var(--mono); font-weight:600; font-size:1.05rem; }
+
+/* tablero: dos columnas */
+#parejas .par-board{ display:grid; grid-template-columns:minmax(130px,220px) 1fr; gap:.6rem 1rem; align-items:start; }
+#parejas .par-col-h{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
+#parejas .par-terms, #parejas .par-defs{ display:flex; flex-direction:column; gap:.5rem; }
+#parejas .par-item{ text-align:left; font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface);
+  color:var(--ink); border-radius:12px; padding:.6rem .8rem; transition:border-color .15s, background .15s, transform .1s, opacity .2s; }
+#parejas .par-item:not(:disabled):hover{ border-color:var(--accent); transform:translateY(-1px); }
+#parejas .par-term{ font-family:var(--serif); font-weight:600; font-size:1.02rem; }
+#parejas .par-def{ font-size:.9rem; line-height:1.45; }
+#parejas .par-item.sel{ border-color:var(--accent); background:var(--surface-2); box-shadow:inset 0 0 0 1px var(--accent); }
+#parejas .par-item.matched{ border-color:var(--ok); background:var(--ok-bg); color:var(--ink); cursor:default; opacity:.75; }
+#parejas .par-item.wrong{ border-color:var(--bad); background:var(--bad-bg); animation:par-shake .3s ease; }
+
+@keyframes par-shake{ 0%,100%{transform:translateX(0)} 25%{transform:translateX(-5px)} 75%{transform:translateX(5px)} }
+@keyframes par-pop{ 0%{transform:scale(.97)} 60%{transform:scale(1.02)} 100%{transform:scale(1)} }
+#parejas .par-item.pop{ animation:par-pop .28s ease; }
+@media (prefers-reduced-motion: reduce){ #parejas .par-item.wrong, #parejas .par-item.pop{ animation:none; } }
+
+@media (max-width:640px){ #parejas .par-board{ grid-template-columns:1fr; } #parejas .par-defs{ margin-top:.4rem; } }
+
+/* resultado */
+#parejas .par-result{ text-align:center; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.8rem 1.3rem; box-shadow:var(--shadow); }
+#parejas .par-badge{ font-size:3rem; line-height:1; }
+#parejas .par-rank{ font-family:var(--serif); font-weight:700; font-size:1.4rem; margin:.3rem 0; }
+#parejas .par-final{ font-family:var(--mono); font-size:2.4rem; font-weight:600; color:var(--accent); }
+#parejas .par-stats{ color:var(--muted); margin:.3rem 0 1.1rem; }
+#parejas .par-actions{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
+#parejas .par-actions .btn2{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.6rem 1.1rem; border-radius:10px; }
+#parejas .par-actions .btn2.primary{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+
+/* panel de mejores marcas (pantalla de inicio) */
+#parejas .btn2{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.45rem .8rem; border-radius:9px; transition:background .15s, border-color .15s; }
+#parejas .btn2:hover{ background:var(--surface); border-color:var(--accent); }
+#parejas .btn2:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+#parejas .par-best{ margin-top:1.1rem; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:.9rem 1rem; }
+#parejas .par-best-top{ display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; margin-bottom:.6rem; }
+#parejas .par-best-h{ font-family:var(--serif); font-weight:700; flex:1; }
+#parejas .par-best-io{ display:flex; gap:.5rem; flex-wrap:wrap; }
+#parejas .par-best-list{ display:flex; gap:.5rem; flex-wrap:wrap; }
+#parejas .par-best-item{ background:var(--surface-2); border:1px solid var(--line); border-radius:9px; padding:.35rem .7rem; font-size:.9rem; }
+#parejas .par-best-item b{ font-family:var(--mono); color:var(--accent); }
+/* historial de rondas (pantalla de inicio) */
+#parejas .par-hist{ margin-top:1rem; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:.9rem 1rem; }
+#parejas .par-hist-top{ display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; margin-bottom:.6rem; }
+#parejas .par-hist-h{ font-family:var(--serif); font-weight:700; flex:1; }
+#parejas .par-hist-list{ display:flex; flex-direction:column; gap:.4rem; }
+#parejas .par-hist-item{ background:var(--surface-2); border:1px solid var(--line); border-radius:9px; padding:.4rem .7rem; font-size:.88rem; display:flex; align-items:baseline; gap:.35rem; flex-wrap:wrap; }
+#parejas .par-hist-badge{ font-size:1rem; }
+#parejas .par-hist-score{ font-family:var(--mono); color:var(--accent); }
+#parejas .par-hist-date{ color:var(--muted); font-size:.82rem; margin-left:auto; }

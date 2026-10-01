@@ -1,0 +1,87 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S16 · 诉诸情绪</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第16课</b> · 第3单元 · 谬误 I：攻击、转移、煽动</div><div class="guino">🙃</div><h1>诉诸情绪</h1><div class="idea">情绪很重要，有时也是理由；谬误是用吓唬或博同情来代替给出理由。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>在公平的概括中，对方会说：“对，我就是这么______的。” <span class="de">第15课</span></li><li>稻草人看起来像一个人，但一碰就______。 <span class="de">第15课</span></li><li>要推翻一个“所有”，有一个反例______。 <span class="de">第11课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/17</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>在公平的概括中，对方会说：“对，我就是这么<strong>说</strong>的。” <span class="de">第15课</span></li><li>稻草人看起来像一个人，但一碰就<strong>倒</strong>。 <span class="de">第15课</span></li><li>要推翻一个“所有”，有一个反例<strong>就够了</strong>。 <span class="de">第11课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">“如果你在午夜前不把这条消息转发给十个联系人，你的微信（WhatsApp）账号就会被删除。”</div><p class="q">读到它你有什么感觉？它给了你什么证据吗？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>用恐惧、同情和愧疚代替理由</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 用恐惧、同情和愧疚代替理由</div><h2>诉诸恐惧（ad metum）</h2><div class="def">用吓唬来说服别人，而不是给出理由：拿出一个没有被证明的危险，或者和话题无关的危险。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>想让你<strong>很快</strong>做决定，不要思考</div><div>微信（WhatsApp）连锁消息、广告、谣言</div><div>要问：<strong>这个危险是真的吗？有什么证据？</strong></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 用恐惧、同情和愧疚代替理由</div><h2>诉诸同情（ad misericordiam）</h2><div class="def">用博同情来说服别人，而不是就正在讨论的事情给出理由。</div><div class="tarjetas" style="grid-template-columns:repeat(3,1fr)"><div>也叫作诉诸<strong>怜悯</strong></div><div>同情可能是真的，但它没有回答问题</div><div>要问：<strong>如果去掉同情，还剩下什么理由？</strong></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 用恐惧、同情和愧疚代替理由</div><h2>怎样识别它们</h2><table><tr><th>谬误</th><th>信号</th><th>例子</th></tr><tr><td>恐惧</td><td>“如果不……，就会发生可怕的事”</td><td>“没有这个手机壳，你会丢掉所有的照片”</td></tr><tr><td>同情</td><td>用难过代替理由</td><td>“让我及格吧，不然他们会惩罚我”</td></tr><tr><td>愧疚</td><td>“如果你真的在乎你的家人……”</td><td>“转发它，不然你就是坏人”</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>已解决的案例</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 1 · 微信（WhatsApp）连锁消息</h2><div class="caso">“如果你在午夜前不把这条消息转发给十个联系人，你的微信（WhatsApp）账号就会被删除。”</div><ol class="pasos"><li class="frag">他们要我做什么？转发这条消息。</li><li class="frag">他们给了什么理由？一种恐惧：丢掉账号。</li><li class="frag">有什么证据？没有。微信（WhatsApp）不会因为不转发连锁消息就删除账号。</li><li class="frag">结论：诉诸恐惧。如果去掉恐惧，就没有剩下任何理由了。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/17</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 2 · 处分单</h2><div class="caso">伊克尔对老师说：“别因为我在课堂上用手机给我记处分。我妈妈会惩罚我，不让我去看毕尔巴鄂竞技（Athletic）的比赛。”</div><ol class="pasos"><li class="frag">在讨论什么？在课堂上用手机该不该记处分。</li><li class="frag">伊克尔给了什么理由？受到惩罚会让他很难过。</li><li class="frag">如果去掉同情，还剩下什么？关于他有没有用手机，什么也没有。</li><li class="frag">结论：诉诸同情。他的难过可能是真的，但不切题。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 已解决的案例</div><h2>案例 3 · 有理由的恐惧</h2><div class="caso">一家自行车学校的海报：“请戴头盔。摔倒时，它能保护头部。这是急诊科医生说的。”</div><ol class="pasos"><li class="frag">吓人吗？吓人：它说到了摔倒。</li><li class="frag">危险是真的吗？是的：骑自行车会摔倒。</li><li class="frag">有理由吗？有：它解释了头盔是怎么保护的，也说了是谁说的。</li><li class="frag">结论：这不是谬误。用理由来提醒一个真实的危险是正当的。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/17</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第3部分</div><h1>情绪伴随理由，还是代替理由</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第3部分</b> · 情绪伴随理由，还是代替理由</div><h2>什么时候是谬误？</h2><div class="cols"><div class="col no"><h3>谬误</h3><ul><li>恐惧、同情或愧疚<strong>代替</strong>了理由</li><li>危险没有被证明</li><li>他们催着你，不让你思考</li></ul></div><div class="col si"><h3>正当的</h3><ul><li>情绪<strong>伴随</strong>着理由</li><li>危险是真的，而且做了解释</li><li>你可以冷静地去核实</li></ul></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/17</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第3部分 · 情绪伴随理由，还是代替理由</div><h2>⚠ 博同情总是谬误吗？</h2><div class="caso">学校的海报：“我们正在为食物银行募集食物。街区里有些家庭连吃的都不够。”</div><p class="q">它让人同情。它是诉诸同情吗？</p><ol class="pasos"><li class="frag">是的，它让人同情：它说到了生活艰难的家庭。</li><li class="frag">但它要求的是什么？帮助。而有人挨饿，恰恰就是帮助的理由。</li><li class="frag">如果去掉同情，还剩下什么理由？一种真实的需要，而且可以去核实。</li><li class="frag">结论：这不是谬误。情绪伴随着一个切题的理由。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/17</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">诉诸恐惧是用吓唬代替给出理由：危险没有被证明。</li><li class="frag">诉诸同情是用博同情代替给出理由。</li><li class="frag">如果情绪伴随着理由，它就有价值；如果代替了理由，就没有。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>16/17</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>17/17</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>

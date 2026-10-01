@@ -1,0 +1,33 @@
+{
+  "name": "批判性思维 · 初中二年级 (2.º ESO)",
+  "short_name": "批判性思维",
+  "description": "批判性思维入门（初中二年级，2.º de ESO）：理论、练习单、卡片，以及帮助你思考得更好的工具。",
+  "lang": "es",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#f0ece3",
+  "theme_color": "#1f5d5a",
+  "icons": [
+    {
+      "src": "media/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "media/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "media/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

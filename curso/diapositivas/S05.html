@@ -1,0 +1,85 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S05 · 我们为什么会相信我们所相信的？</title><style>@font-face{font-family:"Fredoka";src:url("../fuentes/Fredoka.ttf") format("truetype");font-weight:300 700}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans.ttf") format("truetype");font-weight:200 1000;font-style:normal}@font-face{font-family:"Nunito Sans";src:url("../fuentes/NunitoSans-Italic.ttf") format("truetype");font-weight:200 1000;font-style:italic}</style>
+<style>
+:root{--bg:#f4efe4;--surface:#FBF7EF;--surface-2:#EAF0F7;--ink:#1F2A44;--muted:#4A5568;--line:#E2DDD2;--line-soft:#ECE6DA;
+ --ac:#E8793A;--accent:#2F6FB5;--ok:#2F6FB5;--ok-bg:#EAF0F7;--bad:#C2531C;--bad-bg:#FBE3D2;--tr-bg:#F6C9A8;
+ --dark:#1F2A44;--dark-ink:#FBF7EF;--dark-muted:#C9D3E6;--dark-ac:#F4B183;
+ --serif:"Fredoka",Verdana,"Segoe UI","Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif;--sans:"Nunito Sans","Segoe UI",system-ui,"Microsoft YaHei","PingFang SC","Noto Sans SC",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2a2b30;overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform-origin:center}
+.slide{position:absolute;inset:0;background:var(--surface);padding:58px 84px 60px;display:flex;flex-direction:column;
+ opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.slide.on{opacity:1;visibility:visible;transition:opacity .35s ease}
+.slide.alt{background:var(--surface-2)}
+.top{font-size:19px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-bottom:14px}
+.top b{color:var(--ac);font-weight:700}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0;text-wrap:balance}
+h1{font-size:64px;margin-bottom:22px}h2{font-size:56px;margin-bottom:24px}
+p,li,td,th{font-size:32px;line-height:1.36}ul,ol{margin:0;padding-left:1.15em}li{margin:.3em 0}li::marker{color:var(--ac);font-weight:600}
+.quote{font-family:var(--serif);font-size:50px;line-height:1.22;font-weight:600;color:var(--ink);border-left:8px solid var(--ac);padding:6px 0 6px 34px;margin:34px 0}
+.q{font-size:32px;color:var(--muted)}
+.portada{background:var(--surface);justify-content:flex-start}
+.portada h1{font-size:112px;line-height:1.02;margin-top:26px;max-width:1080px}
+.portada .guino{font-size:84px;line-height:1;position:absolute;right:84px;top:64px}
+.portada .idea{font-size:34px;line-height:1.34;max-width:1060px;color:var(--accent);font-weight:800;margin-top:auto}
+.seccion{background:var(--dark);color:var(--dark-ink);justify-content:center}.seccion .n{font-size:22px;color:var(--dark-ac);font-weight:700;letter-spacing:.16em}
+.seccion h1{font-size:76px;margin-top:10px;color:var(--dark-ink)}.seccion .foot{color:var(--dark-muted)}
+.def{font-family:var(--serif);font-size:42px;line-height:1.22;font-weight:500;margin:0 0 28px;max-width:1080px}
+.def strong{color:var(--accent);font-weight:600}
+.tarjetas{display:grid;gap:22px}.tarjetas div{background:#fff;border:2px solid var(--line);border-radius:24px;padding:22px 24px;font-size:27px;line-height:1.3}
+.tarjetas div strong{display:block;font-family:var(--serif);font-weight:600;font-size:32px;color:var(--ink);margin-bottom:4px}
+table{border-collapse:collapse;width:100%}
+th{text-align:left;padding:10px 14px;font-size:18px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;border-bottom:2px solid var(--line)}
+td{padding:14px 14px;border-bottom:1px solid var(--line-soft);font-size:28px;vertical-align:top}
+td strong{color:var(--ac)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1}
+.col{border-radius:20px;padding:22px 28px;border:2px solid var(--line)}.col h3{font-size:36px;margin:0 0 8px}
+.col.no{background:var(--bad-bg)}.col.no h3{color:var(--bad)}.col.si{background:var(--ok-bg)}.col.si h3{color:var(--ok)}
+.caso{font-size:33px;line-height:1.3;background:#fff;border:2px solid var(--line);border-radius:20px;padding:20px 28px;margin-bottom:18px;font-weight:700}
+.pasos{margin-top:0}.pasos li{font-size:29px;margin:.22em 0}.frag{visibility:hidden}.frag.vis{visibility:visible}
+.trampa{background:var(--tr-bg)}.trampa .top b{color:var(--ink)}.trampa h2{color:var(--ink)}
+.trampa .caso{background:var(--surface);border:3px dashed var(--ink);margin-bottom:12px}.trampa .q{font-size:28px;margin:0 0 4px;color:var(--ink)}
+.trampa li::marker{color:var(--ink)}
+.resumen li{font-size:38px;margin:.45em 0;color:var(--accent);font-weight:800}
+.recupera li{font-size:32px;margin:.5em 0}.recupera .de{font-size:18px;color:var(--muted);white-space:nowrap;margin-left:6px}
+.sol strong{color:var(--ac)}.pasadas{font-size:25px;margin-top:24px}
+.hoja{background:var(--dark);color:var(--dark-ink)}.hoja h2{color:var(--dark-ink)}.hoja .top,.hoja .q,.hoja .foot{color:var(--dark-muted)}.hoja .top b{color:var(--dark-ac)}
+.hoja .pel{display:flex;gap:18px;margin-top:16px}.hoja .pel div{flex:1;background:var(--surface);color:var(--ink);border:2px solid var(--line);border-top:6px solid var(--ac);border-radius:20px;padding:20px 24px}
+.hoja .pel b{display:block;font-family:var(--serif);font-size:30px}.hoja .pel span{font-size:22px;color:var(--muted)}
+.video{background:var(--dark);color:var(--dark-ink)}.video h2{color:var(--dark-ink);font-size:56px}.video .top,.video .foot{color:var(--dark-muted)}.video .top b{color:var(--dark-ac)}.video .q{color:var(--dark-muted)}
+.foot{position:absolute;left:84px;right:84px;bottom:22px;display:flex;justify-content:space-between;font-size:16px;color:var(--muted);opacity:.8}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--ac);transition:width .2s}
+#notes{position:fixed;left:0;right:0;bottom:4px;background:#000d;color:#fff;font:18px/1.4 var(--sans);padding:10px 16px;display:none}
+</style></head><body>
+<div id="stage"><section class="slide portada" data-notes=""><div class="top"><b>批判性思维 · 第5课</b> · 第1单元 · 思考、相信和知道</div><div class="guino">🙃</div><h1>我们为什么会相信我们所相信的？</h1><div class="idea">很多信念不是来自理由，而是来自习惯、群体、权威或者情绪，就像瘸腿国王的故事里那样。</div><div class="foot"><span>批判性思维 · 初中二年级</span><span>1/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>在你的练习单上写出缺少的词</h2><ol class="recupera"><li>好好提问是为了______，不是为了抓对方的把柄。 <span class="de">第4课</span></li><li>回答之前，先看看这个问题默认什么是______。 <span class="de">第4课</span></li><li>停了的钟的例子说明，“知道”的定义并不______。 <span class="de">第3课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>2/15</span></div></section>
+<section class="slide sol" data-notes=""><div class="top"><b>开始之前</b> · 不看笔记</div><h2>用另一种颜色订正</h2><ol class="recupera"><li>好好提问是为了<strong>理解</strong>，不是为了抓对方的把柄。 <span class="de">第4课</span></li><li>回答之前，先看看这个问题默认什么是<strong>事实</strong>。 <span class="de">第4课</span></li><li>停了的钟的例子说明，“知道”的定义并不<strong>完美</strong>。 <span class="de">第3课</span></li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>3/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>开场</b></div><div class="quote">你班上的人都穿一样的运动鞋。不知不觉，你也开始觉得它们是最好的。</div><p class="q">你这么想是因为有理由……还是因为别的什么？</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>4/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第1部分</div><h1>四条相信的路</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>5/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 四条相信的路</div><h2>我们的信念是从哪里来的？</h2><p>有很多事，我们没有看它们的理由就相信了。有四条路：</p><ul><li><strong>习惯：</strong>“一直都是这样做的”</li><li><strong>群体：</strong>“我们这一伙朋友都这么相信”</li><li><strong>权威：</strong>“一个重要的人说的”</li><li><strong>情绪：</strong>“我愿意相信它”或者“我害怕”</li></ul><div class="foot"><span>批判性思维 · 初中二年级</span><span>6/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第1部分</b> · 四条相信的路</div><h2>这四条路，配上例子</h2><table><tr><th>路</th><th>例子</th><th>用来检查它的问题</th></tr><tr><td><strong>习惯</strong></td><td>“就是这样做的，因为一直都是这样做的”</td><td>有什么理由吗，还是只是习惯？</td></tr><tr><td><strong>群体</strong></td><td>“那部剧特别烂：我所有的朋友都这么说”</td><td>我自己看过吗？</td></tr><tr><td><strong>权威</strong></td><td>“一个有几百万粉丝的网络视频博主这么说”</td><td>他懂这方面的事吗？</td></tr><tr><td><strong>情绪</strong></td><td>“那不是犯规：他是我们队的”</td><td>如果是对方球队，我还会这么说吗？</td></tr></table><div class="foot"><span>批判性思维 · 初中二年级</span><span>7/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第1部分</b> · 四条相信的路</div><h2>这些路总是不好的吗？</h2><div class="cols"><div class="col no"><h3>错误</h3><ul><li>“如果群体相信，它就是假的”</li><li>“永远不要听任何人的”</li><li>“情绪一点用也没有”</li></ul></div><div class="col si"><h3>这样更好</h3><ul><li>我们知道的差不多所有事，都是别人告诉我们的</li><li>相信<strong>懂这方面的人</strong>是合理的</li><li>情绪会提供信息：害怕会提醒我们有危险</li><li>问题是从来不去检查它们</li></ul></div></div><div class="foot"><span>批判性思维 · 初中二年级</span><span>8/15</span></div></section>
+<section class="slide seccion" data-notes=""><div class="n">第2部分</div><h1>瘸腿的国王</h1><div class="foot"><span>批判性思维 · 初中二年级</span><span>9/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 瘸腿的国王</div><h2>故事（1）· 整个王宫都在瘸</h2><div class="caso">从前有一位国王，他是个瘸子。他的大臣们为了讨他喜欢，开始瘸着走路。很快整个王宫都在瘸：大臣、卫兵、厨师……没有一个人是直着走路的。</div><ol class="pasos"><li class="frag">他们为什么瘸着走？他们什么地方也不疼。</li><li class="frag">一开始，是为了讨好<strong>权威</strong>：国王。</li><li class="frag">后来，是因为大家都这样做：<strong>群体</strong>。最后就成了<strong>习惯</strong>。</li><li class="frag">结论：没有一个人有瘸着走的好理由。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>10/15</span></div></section>
+<section class="slide " data-notes=""><div class="top"><b>第2部分</b> · 瘸腿的国王</div><h2>故事（2）· 骑士</h2><div class="caso">一位从外地来的骑士走了进来，他是直着走路的。所有人都笑了。国王生气了。骑士说：“陛下，我两只脚同时在瘸。”</div><ol class="pasos"><li class="frag">他们为什么笑？因为他和群体不一样，而不是因为他做错了什么。</li><li class="frag">这里起作用的是<strong>情绪</strong>：嘲笑，还有怕丢脸。</li><li class="frag">他的回答很机智：既嘲笑了这个习惯，又躲过了惩罚。</li><li class="frag">结论：唯一走得对的人，反而看起来像怪人。正常的，不一定就是合理的。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>11/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>第2部分</b> · 瘸腿的国王</div><h2>今天的案例 · 一种祛痘膏</h2><div class="caso">迈伦（Maialen）相信一种祛痘膏有效。她那一伙朋友都在用，她最喜欢的网红在做广告，而且她自己也特别期待。</div><ol class="pasos"><li class="frag">“她那一伙朋友都在用”：<strong>群体</strong>这条路。</li><li class="frag">“她最喜欢的网红在做广告”：<strong>权威</strong>这条路。可是，他懂皮肤吗？</li><li class="frag">“她自己特别期待”：<strong>情绪</strong>这条路。</li><li class="frag">结论：这些都没有说明这种膏有没有效。最好去问懂的人：医生或者药剂师。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>12/15</span></div></section>
+<section class="slide trampa" data-notes=""><div class="top"><b>陷阱案例</b> · 第2部分 · 瘸腿的国王</div><h2>⚠ 权威 = 不好的理由吗？</h2><div class="caso">陈（Chen）相信地球绕着太阳转。他从来没有验证过：是他的老师给他讲的。</div><p class="q">他是因为权威才相信的……那么，这是一个不好的理由吗？</p><ol class="pasos"><li class="frag">是的，这是权威这条路。</li><li class="frag">可是老师<strong>懂这方面的事</strong>，而且科学已经验证过很多很多次了。</li><li class="frag">这和那个祛痘膏的网红不一样：他不懂皮肤。</li><li class="frag">结论：问题不在于相信别人，而在于相信不懂的人。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>13/15</span></div></section>
+<section class="slide alt" data-notes=""><div class="top"><b>三句话总结今天的内容</b></div><h2>先自己写，不看笔记</h2><ol class="resumen"><li class="frag">很多信念来自习惯、群体、权威或者情绪。</li><li class="frag">这些路可能对，也可能错：相信懂这方面的人是合理的。</li><li class="frag">重要的是能够检查它们，而不是像那个瘸腿的王宫一样去相信。</li></ol><div class="foot"><span>批判性思维 · 初中二年级</span><span>14/15</span></div></section>
+<section class="slide hoja" data-notes=""><div class="top"><b>现在做今天的练习单</b></div><h2>20 分钟 · 独立完成 · 保持安静</h2><div class="pel"><div><b>台阶1 · 人人都做</b><span>6 分 · 3 道题</span></div><div><b>台阶2 · 复习</b><span>2 分 · 1 道题</span></div><div><b>台阶3 · 挑战</b><span>2 分 · 1 道题</span></div></div><p class="q pasadas"><b>第一遍：</b>不看笔记，用圆珠笔写。<b>第二遍：</b>看笔记，用另一种颜色订正或补充。在每个答案旁边标出<b>确定</b>或<b>不确定</b>。</p><div class="foot"><span>批判性思维 · 初中二年级</span><span>15/15</span></div></section></div><div id="bar"></div><div id="notes"></div>
+<script>
+const S=[...document.querySelectorAll('.slide')];let i=0;
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1280,innerHeight/720);st.style.transform='translate(-50%,-50%) scale('+k+')'}
+function show(n){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>s.classList.toggle('on',j===i));
+ document.getElementById('bar').style.width=((i+1)/S.length*100)+'%';document.getElementById('notes').textContent=S[i].dataset.notes||'';location.hash=i+1}
+function next(){const f=S[i].querySelector('.frag:not(.vis)');if(f){f.classList.add('vis');return}show(i+1)}
+function prev(){const v=[...S[i].querySelectorAll('.frag.vis')];if(v.length){v[v.length-1].classList.remove('vis');return}show(i-1)}
+addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();next()}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();prev()}
+ else if(e.key==='Home')show(0);else if(e.key==='End')show(S.length-1);
+ else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}
+ else if(e.key==='n'||e.key==='N'){const n=document.getElementById('notes');n.style.display=n.style.display==='block'?'none':'block'}});
+addEventListener('click',e=>{if(e.clientX<innerWidth/4)prev();else next()});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script></body></html>
