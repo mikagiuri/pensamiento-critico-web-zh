@@ -496,3 +496,7 @@ ol.itin-temas li.temas-extra .temas-t{font-size:.95rem;color:var(--muted)}
 /* Anexos dados en clase: mini-etiqueta «En clase» */
 .theory-head .en-clase{display:inline-block;margin-left:.5rem;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--on-accent,#fff);background:var(--accent);border-radius:999px;padding:3px 10px;vertical-align:middle}
 .temas-anexo{display:inline-block;margin-left:.4rem;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 7px}
+
+/* Cuentos: botón de descarga de la ficha de trabajo (PDF B/N). */
+.cuento-dl{margin:.6rem 0 0}
+.cuento-dl .btn{font-size:.9rem}
