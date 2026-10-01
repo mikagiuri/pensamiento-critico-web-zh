@@ -11,10 +11,12 @@
 .tablewrap, .weekwrap, .medialist { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .theory img, .fig img, .figimg { max-width: 100%; height: auto; }
 
-/* ===== Escritorio (>760px): los grupos son menús desplegables ("cajones"),
+/* ===== Escritorio (≥880px): los grupos son menús desplegables ("cajones"),
    no una barra plana de 19 botones. Reutiliza el estado .navsec.open que ya
-   gestiona mobile.js (clic en el encabezado abre/cierra, uno cada vez). ===== */
-@media (min-width: 761px) {
+   gestiona mobile.js (clic en el encabezado abre/cierra, uno cada vez).
+   Por debajo de 880 (móvil y tablet) se usa el menú ☰, para que no se parta
+   en dos filas y para casar con el layout a 2 columnas de Teoría (min-880). ===== */
+@media (min-width: 880px) {
   #tabs .navsec { position: relative; display: inline-flex; align-items: center; }
   #tabs .navgroup {
     display: inline-flex; align-items: center; gap: 6px; cursor: pointer; user-select: none;
@@ -177,6 +179,66 @@
 #tarjetas .face.front { align-items: center; text-align: center; }
 #tarjetas .face.front .emoji { margin-bottom: 2px; }
 #tarjetas .face.front .front-t { max-width: 90%; text-wrap: balance; }
+
+/* ===== Banda TABLET (761–879 px) — el hueco entre el móvil (≤760) y el layout
+   de 2 columnas de Teoría (≥880). Aquí la cabecera usa el menú ☰ (como en móvil,
+   para no partirse en dos filas) y los chips de temas / el índice se pliegan en
+   una línea, para que no empujen el contenido varias pantallas hacia abajo.
+   NO se tocan las rejillas ni la tipografía: en tablet mantienen su tamaño. ===== */
+@media (min-width: 761px) and (max-width: 879px) {
+  /* ---- Cabecera con menú ☰ ---- */
+  .bar-in { flex-wrap: nowrap; gap: 8px; align-items: center; position: relative; }
+  .brand { flex: 1 1 auto; min-width: 0; }
+  .navtoggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 44px; min-height: 44px; padding: 0 12px; font-size: 20px; line-height: 1;
+    background: var(--surface-2); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 12px; cursor: pointer;
+  }
+  .navtoggle:hover { border-color: var(--accent); }
+  #tabs {
+    display: none; position: absolute; top: calc(100% + 8px); left: 0; right: 0;
+    flex-direction: column; gap: 2px; max-height: 72vh; overflow-y: auto;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 14px; box-shadow: var(--shadow); padding: 8px; z-index: 60;
+  }
+  #tabs.open { display: flex; }
+  #tabs button { width: 100%; text-align: left; min-height: 44px; padding: 11px 14px; border-radius: 10px; font-size: 15px; }
+  #tabs button[aria-current="true"] { background: var(--surface-2); }
+  #tabs .navsec { display: block; }
+  #tabs .navgroup {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    width: 100%; min-height: 46px; padding: 10px 14px; cursor: pointer;
+    font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--muted); border-radius: 10px; margin: 0;
+  }
+  #tabs .navgroup:hover, #tabs .navsec.open > .navgroup { color: var(--ink); }
+  #tabs .navgroup::after { content: "\25B8"; font-size: 13px; transition: transform .15s ease; }
+  #tabs .navsec.open > .navgroup::after { transform: rotate(90deg); }
+  #tabs .navsec > .navmenu { display: none; }
+  #tabs .navsec.open > .navmenu { display: block; }
+
+  /* ---- Plegado de filtros, lista de temas e índice (como en móvil) ---- */
+  .ctl-toggle, .toc-toggle {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 44px;
+    margin: 12px 0 0; padding: 9px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    color: var(--ink); font: 600 15px/1.3 var(--sans); text-align: left; cursor: pointer;
+  }
+  .ctl-toggle[hidden], .toc-toggle[hidden] { display: none; }
+  .ctl-toggle .ctl-l, .toc-toggle .ctl-l { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .toc-toggle .ctl-l i { font-style: normal; font-weight: 500; color: var(--muted); font-size: 13px; }
+  .ctl-caret { flex: none; color: var(--muted); transition: transform .15s ease; }
+  .ctl-open > .ctl-toggle .ctl-caret, .toc-open > .toc-toggle .ctl-caret { transform: rotate(180deg); }
+  .view:not(.ctl-open) > .filterbar, .view:not(.ctl-open) > .chips, .view:not(.ctl-open) > .crono-filter, .view:not(.ctl-open) > .crono-chips { display: none; }
+  .view.ctl-open > .filterbar { margin-top: 10px; }
+  .view.ctl-open > .chips { margin: 12px 0 6px; }
+  .theory-layout:not(.toc-open) > .toc { display: none; }
+  .theory-layout { gap: 12px; }
+  .toc-toggle { margin: 0; }
+  .theory-layout > .toc { margin: 0 0 8px; padding: 8px 4px 0; }
+  /* con el plegado, la entradilla de la sección sobra: el contenido ya se explica solo */
+  .view:has(> .ctl-toggle:not([hidden])) > .lead { display: none; }
+}
 
 /* ESO: una sola materia → sin filtro de materia. */
 .fgroup:has([data-subj]), .fgroup:has([data-sa]) { display: none; }
