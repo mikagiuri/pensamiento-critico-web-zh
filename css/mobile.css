@@ -113,6 +113,9 @@
 
   /* ---- Recursos / diapositivas ---- */
   .mcard { width: 100%; }
+
+  /* ---- Texto preformateado: que envuelva en vez de estirar el layout ---- */
+  .view pre, .theory pre { white-space: pre-wrap; overflow-wrap: anywhere; max-width: 100%; }
 }
 
 /* ===== Móvil compacto (29-09, js/compacto.js): filtros, lista de temas e índice plegados en una línea ===== */
