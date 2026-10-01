@@ -497,7 +497,7 @@ const QUIZZES = {
     "fb": "Una falacia parece un buen razonamiento, pero sus razones no sostienen la conclusión."
    },
    {
-    "q": "En la asamblea de clase, Naroa propone cambiar de sitio las mochilas. Julen le contesta: «¿Y tú qué vas a proponer, si llegas tarde todos los días?».",
+    "q": "En la asamblea de clase, alguien propone cambiar de sitio las mochilas. Otra persona le contesta: «¿Y tú qué vas a proponer, si llegas tarde todos los días?».",
     "o": [
      "Hombre de paja.",
      "Falso dilema.",
@@ -505,7 +505,7 @@ const QUIZZES = {
      "Apelación a la tradición."
     ],
     "a": 2,
-    "fb": "Julen ataca a la persona (llega tarde) en vez de responder a su idea."
+    "fb": "Quien responde ataca a la otra persona (llega tarde) en vez de responder a su idea."
    },
    {
     "q": "«O venís todos al concierto del sábado o es que ya no sois mis amigos».",
@@ -530,7 +530,7 @@ const QUIZZES = {
     "fb": "Un streamer no es experto en alimentación; «lo dice él» no es una prueba."
    },
    {
-    "q": "Iker: «Deberíamos usar menos plástico en el comedor». Lucía: «Claro, tú lo que quieres es que comamos con las manos y sin bandeja».",
+    "q": "Alguien: «Deberíamos usar menos plástico en el comedor». Otra persona: «Claro, tú lo que quieres es que comamos con las manos y sin bandeja».",
     "o": [
      "Ad hominem.",
      "Falso dilema.",
@@ -538,7 +538,7 @@ const QUIZZES = {
      "Hombre de paja."
     ],
     "a": 3,
-    "fb": "Lucía deforma lo que dijo Iker (menos plástico no es comer con las manos) para tumbarlo más fácil."
+    "fb": "La otra persona deforma lo que dijo la primera (menos plástico no es comer con las manos) para tumbarlo más fácil."
    },
    {
     "q": "«Me puse los calcetines verdes y aprobé el examen de mates. Los calcetines verdes hacen aprobar».",
@@ -624,7 +624,7 @@ const QUIZZES = {
     "fb": "El sesgo es un atajo mental que deforma nuestro juicio, aunque no queramos."
    },
    {
-    "q": "Aitor solo sigue cuentas que piensan como él y da por falso todo lo demás. ¿Qué sesgo es?",
+    "q": "Alguien solo sigue cuentas que piensan como él y da por falso todo lo demás. ¿Qué sesgo es?",
     "o": [
      "Sesgo de confirmación.",
      "Efecto halo.",
@@ -1204,7 +1204,7 @@ const QUIZZES = {
   "subject": "ipc",
   "items": [
    {
-    "q": "En un debate de clase, Carlos dice: «Deberíamos prohibir las bebidas azucaradas en la cafetería, ya que tienen muchísimo azúcar y aumentan el riesgo de diabetes en los jóvenes». ¿Cuál es la razón que da?",
+    "q": "En un debate de clase, alguien dice: «Deberíamos prohibir las bebidas azucaradas en la cafetería, ya que tienen muchísimo azúcar y aumentan el riesgo de diabetes en los jóvenes». ¿Cuál es la razón que da?",
     "o": [
      "Las bebidas azucaradas tienen mucho azúcar y aumentan el riesgo de diabetes en los jóvenes.",
      "Deberíamos prohibir las bebidas azucaradas en la cafetería.",
@@ -1212,10 +1212,10 @@ const QUIZZES = {
      "La cafetería no debería vender ningún alimento procesado."
     ],
     "a": 0,
-    "fb": "La razón va detrás de «ya que». «Deberíamos prohibir…» es la conclusión: lo que Carlos quiere que aceptemos."
+    "fb": "La razón va detrás de «ya que». «Deberíamos prohibir…» es la conclusión: lo que esa persona quiere que aceptemos."
    },
    {
-    "q": "Marta dice: «El profesor debe ponernos un 10 en el proyecto porque nos hemos esforzado muchísimo y apenas hemos dormido». Con las tres preguntas (¿es verdadera?, ¿tiene que ver?, ¿basta?), ¿en cuál falla sobre todo?",
+    "q": "Alguien dice: «El profesor debe ponernos un 10 en el proyecto porque nos hemos esforzado muchísimo y apenas hemos dormido». Con las tres preguntas (¿es verdadera?, ¿tiene que ver?, ¿basta?), ¿en cuál falla sobre todo?",
     "o": [
      "En «¿Tiene que ver?»: el esfuerzo y el sueño no miden si el trabajo está bien hecho.",
      "En «¿Es verdadera?»: es imposible saber si durmieron o no.",
@@ -1248,7 +1248,7 @@ const QUIZZES = {
     "fb": "«Llegar puntual» y «estar a la hora» dicen lo mismo. Lleva «porque», pero no añade ninguna razón."
    },
    {
-    "q": "En un debate sobre el uniforme, Lucía explica cuánto ahorrarían las familias. Pablo responde: «No le hagáis caso; el año pasado suspendió dos asignaturas y siempre llega tarde». ¿Qué falacia comete Pablo?",
+    "q": "En un debate, una persona explica cuánto ahorrarían las familias. Otra persona responde: «No le hagáis caso; el año pasado suspendió dos asignaturas y siempre llega tarde». ¿Qué falacia comete?",
     "o": [
      "Ad hominem.",
      "Hombre de paja.",
@@ -1256,7 +1256,7 @@ const QUIZZES = {
      "Generalización precipitada."
     ],
     "a": 0,
-    "fb": "Pablo ataca a Lucía (sus notas, sus retrasos) en vez de responder a lo que dice sobre el ahorro."
+    "fb": "Quien responde ataca a la otra persona (sus notas, sus retrasos) en vez de responder a lo que dice sobre el ahorro."
    },
    {
     "q": "Un vídeo viral dice: «Este streamer famoso asegura que la vitamina C previene todas las enfermedades infecciosas, así que hay que tomarla a diario». ¿Por qué es una apelación a la autoridad?",
@@ -1325,7 +1325,7 @@ const QUIZZES = {
     "fb": "Que una cosa pase después de otra no quiere decir que la cause. Pregunta: ¿no será casualidad o habrá otra causa?"
    },
    {
-    "q": "En un debate sobre el tráfico, alguien dice: «O prohibimos del todo los coches en el centro, o aceptamos que la contaminación nos destroce los pulmones». ¿Qué falacia comete?",
+    "q": "En un debate, alguien dice: «O prohibimos del todo los coches en el centro, o aceptamos que la contaminación nos destroce los pulmones». ¿Qué falacia comete?",
     "o": [
      "Falso dilema.",
      "Hombre de paja.",
@@ -1606,7 +1606,7 @@ const QUIZZES = {
     "fb": "La filosofía empieza cuando examinamos nuestras creencias en lugar de aceptarlas sin pensar."
    },
    {
-    "q": "Unai dice en el recreo: «Este año mi equipo gana la liga seguro». No da ningún motivo más. ¿Qué está haciendo?",
+    "q": "Alguien dice en el recreo: «Este año mi equipo gana la liga seguro». No da ningún motivo más. ¿Qué está haciendo?",
     "o": [
      "Dar razones que se pueden discutir",
      "Expresar un saber ya comprobado",
@@ -1614,7 +1614,7 @@ const QUIZZES = {
      "Analizar los datos de la temporada"
     ],
     "a": 2,
-    "fb": "Sin ningún motivo, lo de Unai es una corazonada. Pensar bien sería añadir razones, como los fichajes o los puntos de ventaja."
+    "fb": "Sin ningún motivo, eso es una corazonada. Pensar bien sería añadir razones, como los fichajes o los puntos de ventaja."
    },
    {
     "q": "Aya comenta: «La peli se me hizo larga porque en la primera hora casi no pasa nada». ¿Qué hace bien Aya?",
@@ -1650,7 +1650,7 @@ const QUIZZES = {
     "fb": "Analizar es revisar si las razones son buenas o esconden trampa. Que la marca pague el estudio es un motivo para sospechar."
    },
    {
-    "q": "En un debate de clase, Mateo dice: «Aunque me enseñéis cualquier dato, no pienso cambiar de idea». Según el tema, ¿qué le pasa a Mateo?",
+    "q": "En un debate de clase, alguien dice: «Aunque me enseñéis cualquier dato, no pienso cambiar de idea». Según el tema, ¿qué le pasa a esa persona?",
     "o": [
      "Está pensando de forma crítica",
      "Está defendiendo un saber comprobado",
@@ -1661,7 +1661,7 @@ const QUIZZES = {
     "fb": "Quien no cambiaría de idea con nada no está pensando, está creyendo. Valorar incluye estar dispuesto a cambiar con nuevos datos."
    },
    {
-    "q": "Nora discute con su hermano sobre un videojuego y le suelta: «Es así porque lo digo yo, y no hay más que hablar». ¿En qué extremo cae Nora?",
+    "q": "Alguien discute con su hermano y le suelta: «Es así porque lo digo yo, y no hay más que hablar». ¿En qué extremo cae?",
     "o": [
      "En el dogmatismo",
      "En el «todo vale»",
@@ -1672,7 +1672,7 @@ const QUIZZES = {
     "fb": "«Es así porque sí» es la frase típica del dogmatismo: aceptar una idea sin examinarla ni admitir dudas."
    },
    {
-    "q": "Tu amiga Sara asegura que la Tierra es plana, pero no tiene ninguna prueba. ¿Qué sería lo más crítico por tu parte?",
+    "q": "Una amiga tuya asegura que la Tierra es plana, pero no tiene ninguna prueba. ¿Qué sería lo más crítico por tu parte?",
     "o": [
      "Dejar de hablarle, porque dice cosas sin sentido",
      "Aceptar su idea, porque todas las opiniones valen igual",
@@ -1683,10 +1683,10 @@ const QUIZZES = {
     "fb": "Respetar a una persona no obliga a aceptar lo que dice. Puedes tratarla bien y, a la vez, pedir pruebas de su idea."
    },
    {
-    "q": "Lucas dice: «Sé que el hielo se derrite con el calor: lo he comprobado muchas veces». ¿Por qué es un saber y no solo una creencia?",
+    "q": "Alguien dice: «Sé que el hielo se derrite con el calor: lo he comprobado muchas veces». ¿Por qué es un saber y no solo una creencia?",
     "o": [
-     "Porque Lucas lo dice con mucha seguridad",
-     "Porque es una postura personal de Lucas",
+     "Porque lo dice con mucha seguridad",
+     "Porque es una postura personal suya",
      "Porque se puede comprobar con pruebas",
      "Porque la mayoría de la gente lo piensa"
     ],
@@ -1694,7 +1694,7 @@ const QUIZZES = {
     "fb": "Lo que convierte algo en saber es que está justificado con pruebas y se puede comprobar, no la seguridad con que se dice."
    },
    {
-    "q": "Hugo piensa: «La profe de Lengua me tiene manía». ¿Qué tendría que hacer para convertir esa creencia en algo pensado?",
+    "q": "Alguien piensa: «La profe de Lengua me tiene manía». ¿Qué tendría que hacer para convertir esa creencia en algo pensado?",
     "o": [
      "Contárselo a todos para ver si le dan la razón",
      "Mirar los hechos, como si entregó los trabajos",
@@ -1705,7 +1705,7 @@ const QUIZZES = {
     "fb": "Para pasar de una creencia sin comprobar a algo pensado hay que mirar los hechos, por ejemplo si se entregaron los trabajos."
    },
    {
-    "q": "En el grupo de amigos le dicen a Marta: «Hazlo, no seas rara», para que acepte un reto. ¿En qué le ayuda pensar por sí misma?",
+    "q": "En el grupo de amigos le dicen a una compañera: «Hazlo, no seas rara», para que acepte un reto. ¿En qué le ayuda pensar por sí misma?",
     "o": [
      "A decidir con sus propias razones si lo hace o no",
      "A hacer lo que diga el grupo para no quedar fuera",
@@ -1716,7 +1716,7 @@ const QUIZZES = {
     "fb": "Pensar por uno mismo sirve para no dejarse manipular por la presión del grupo y decidir con razones propias."
    },
    {
-    "q": "Leire quiere gastar su paga en unos cascos. Antes compara precios, lee opiniones y piensa si de verdad los necesita. ¿Qué está haciendo?",
+    "q": "Alguien quiere gastar su paga en unos cascos. Antes compara precios, lee opiniones y piensa si de verdad los necesita. ¿Qué está haciendo?",
     "o": [
      "Caer en el dogmatismo por pensarlo tanto",
      "Aplicar el «todo vale» a sus compras",
@@ -1724,7 +1724,7 @@ const QUIZZES = {
      "Pensar críticamente antes de decidir"
     ],
     "a": 3,
-    "fb": "Leire pregunta, analiza y valora antes de gastar. Eso es pensar críticamente para tomar una decisión mejor."
+    "fb": "Esa persona pregunta, analiza y valora antes de gastar. Eso es pensar críticamente para tomar una decisión mejor."
    },
    {
     "q": "¿En qué se diferencian una opinión y un saber?",
@@ -1887,7 +1887,7 @@ const QUIZZES = {
     "fb": "Quien argumenta de verdad piensa qué le diría quien no está de acuerdo y le responde."
    },
    {
-    "q": "Leire dice: «Este videojuego es aburrido». ¿Qué es su frase?",
+    "q": "Alguien dice: «Este videojuego es aburrido». ¿Qué es su frase?",
     "o": [
      "Una opinión, porque no da ninguna razón.",
      "Un argumento, porque dice lo que ella piensa.",
@@ -1895,7 +1895,7 @@ const QUIZZES = {
      "Una objeción, porque critica el videojuego."
     ],
     "a": 0,
-    "fb": "Leire solo dice lo que piensa, sin dar razones. Por eso es una opinión y no un argumento."
+    "fb": "Solo dice lo que piensa, sin dar razones. Por eso es una opinión y no un argumento."
    },
    {
     "q": "Omar dice: «El entrenamiento debería empezar más tarde, porque muchos salimos de clase a las cinco y no llegamos». ¿Qué es su frase?",
@@ -1920,7 +1920,7 @@ const QUIZZES = {
     "fb": "La conclusión va tras el «por tanto»: hoy hay entrenamiento. Las otras dos frases son las premisas."
    },
    {
-    "q": "Nerea dice: «Voy a llevar paraguas, ya que el cielo está muy negro y la previsión dice que lloverá». ¿Cuáles son las premisas?",
+    "q": "Alguien dice: «Voy a llevar paraguas, ya que el cielo está muy negro y la previsión dice que lloverá». ¿Cuáles son las premisas?",
     "o": [
      "Que va a llevar paraguas y que el cielo está negro.",
      "Que va a llevar paraguas y que la previsión falla.",
@@ -1931,7 +1931,7 @@ const QUIZZES = {
     "fb": "Las premisas son las razones que van tras el «ya que». «Voy a llevar paraguas» es la conclusión."
    },
    {
-    "q": "Hugo razona: «Todas las frutas son rojas. El plátano es una fruta. Luego el plátano es rojo». ¿Qué falla?",
+    "q": "Alguien razona: «Todas las frutas son rojas. El plátano es una fruta. Luego el plátano es rojo». ¿Qué falla?",
     "o": [
      "La conclusión no se sigue de las premisas.",
      "No tiene conclusión, solo tiene premisas.",
@@ -1953,7 +1953,7 @@ const QUIZZES = {
     "fb": "Estrenar zapatillas no tiene nada que ver con marcar goles: la conclusión no se sigue. Es una superstición."
    },
    {
-    "q": "Unai dice: «Hace sol, por tanto hoy me van a elegir delegado». ¿Qué le pasa a este argumento?",
+    "q": "Alguien dice: «Hace sol, por tanto hoy me van a elegir delegado». ¿Qué le pasa a este argumento?",
     "o": [
      "Tiene una premisa falsa, porque hoy no hace nada de sol.",
      "La razón no tiene nada que ver con la conclusión.",
@@ -1964,18 +1964,18 @@ const QUIZZES = {
     "fb": "Que haga sol no apoya en nada que lo elijan delegado. La conclusión no se sigue de la premisa."
    },
    {
-    "q": "Sara dice en clase: «Habría que poner menos deberes». Pablo le responde: «O sea, que quieres que no estudiemos nada nunca». ¿Qué hace mal Pablo?",
+    "q": "Alguien dice en clase: «Habría que poner menos deberes». Otra persona le responde: «O sea, que quieres que no estudiemos nada nunca». ¿Qué hace mal esa otra persona?",
     "o": [
-     "No respeta el principio de caridad con Sara.",
+     "No respeta el principio de caridad con la otra persona.",
      "No pone ningún ejemplo que apoye su postura.",
      "No dice con claridad cuál es su conclusión.",
      "Parte de una premisa verdadera y creíble."
     ],
     "a": 0,
-    "fb": "Pablo responde a una caricatura de lo que dice Sara, no a su versión más fuerte. Rompe el principio de caridad."
+    "fb": "Responde a una caricatura de lo que dice la otra persona, no a su versión más fuerte. Rompe el principio de caridad."
    },
    {
-    "q": "Izan propone cambiar el menú del comedor y Marta no está de acuerdo. ¿Qué hace Marta si aplica el principio de caridad?",
+    "q": "Alguien propone cambiar el menú del comedor y otra persona no está de acuerdo. ¿Qué hace esa otra persona si aplica el principio de caridad?",
     "o": [
      "Resume la idea de Izan de la forma más ridícula.",
      "Le da la razón a Izan para que no se enfade con ella.",
@@ -1997,7 +1997,7 @@ const QUIZZES = {
     "fb": "Una objeción es una razón en contra. El coste de instalarlas pone a prueba la idea de Aitana."
    },
    {
-    "q": "Iván dice: «Deberíamos tener taquillas, porque las mochilas pesan mucho. Ayer llevé seis libros». ¿Qué papel cumple «Ayer llevé seis libros»?",
+    "q": "Alguien dice: «Deberíamos tener taquillas, porque las mochilas pesan mucho. Ayer llevé seis libros». ¿Qué papel cumple «Ayer llevé seis libros»?",
     "o": [
      "Es la conclusión que quiere defender.",
      "Es un ejemplo que apoya su razón.",
@@ -2008,7 +2008,7 @@ const QUIZZES = {
     "fb": "Es un caso concreto que ilustra la razón de que las mochilas pesan. Por eso es un ejemplo."
    },
    {
-    "q": "Lucas defiende que haya más salidas escolares. Alguien dice que así se pierden clases. Lucas contesta: «En las salidas también se aprende». ¿Qué ha hecho Lucas?",
+    "q": "Una persona defiende que haya más salidas escolares. Otra dice que así se pierden clases. La primera contesta: «En las salidas también se aprende». ¿Qué ha hecho?",
     "o": [
      "Ha repetido su conclusión sin más.",
      "Ha usado una premisa falsa.",
@@ -2016,10 +2016,10 @@ const QUIZZES = {
      "Ha respondido a una objeción."
     ],
     "a": 3,
-    "fb": "Perder clases es una razón en contra (objeción), y Lucas le responde. Eso refuerza su argumento."
+    "fb": "Perder clases es una razón en contra (objeción), y esa persona le responde. Eso refuerza su argumento."
    },
    {
-    "q": "Jon gana un debate de clase con un truco que hace reír a todos, pero sus razones eran malas. ¿Qué se puede decir?",
+    "q": "Alguien gana un debate de clase con un truco que hace reír a todos, pero sus razones eran malas. ¿Qué se puede decir?",
     "o": [
      "Que tenía razón, porque convenció a la clase.",
      "Que convenció, pero eso no significa que tuviera razón.",
@@ -2030,7 +2030,7 @@ const QUIZZES = {
     "fb": "Convencer y tener razón no son lo mismo: un buen truco puede convencer y, aun así, estar equivocado."
    },
    {
-    "q": "Ane dice: «Hay que cuidar el patio». ¿Cómo puede convertir su frase en un argumento?",
+    "q": "Alguien dice: «Hay que cuidar el patio». ¿Cómo puede convertir su frase en un argumento?",
     "o": [
      "Añadiendo una razón, como que así está limpio.",
      "Diciéndolo más veces y en voz más alta.",
@@ -2038,7 +2038,7 @@ const QUIZZES = {
      "Cambiándola por una pregunta a toda la clase."
     ],
     "a": 0,
-    "fb": "Un argumento es una opinión con razones. Ane tiene que explicar por qué hay que cuidar el patio."
+    "fb": "Un argumento es una opinión con razones. Esa persona tiene que explicar por qué hay que cuidar el patio."
    },
    {
     "q": "¿Cuál de estos argumentos es bueno?",
@@ -2113,7 +2113,7 @@ const QUIZZES = {
     "fb": "Una mentira da un dato falso. Una falacia es un argumento mal construido que parece bueno."
    },
    {
-    "q": "Amaia pide ir sola en bici al instituto. Su padre le dice: «Hoy la bici, mañana querrás irte sola a otra ciudad y acabarás perdida». ¿Qué falacia usa?",
+    "q": "Una chica pide ir sola en bici al instituto. Su padre le dice: «Hoy la bici, mañana querrás irte sola a otra ciudad y acabarás perdida». ¿Qué falacia usa?",
     "o": [
      "Pendiente resbaladiza",
      "Falso dilema",
@@ -2135,7 +2135,7 @@ const QUIZZES = {
     "fb": "El hombre de paja deforma lo que dijo el otro y rebate esa versión inventada, no la real."
    },
    {
-    "q": "En un debate de clase sobre videojuegos, Pablo explica sus razones. Marta le suelta: «Tú no opines, que siempre llevas la misma sudadera». ¿Qué falacia usa Marta?",
+    "q": "En un debate, alguien explica sus razones. Otra persona le suelta: «Tú no opines, que siempre llevas la misma sudadera». ¿Qué falacia usa esa otra persona?",
     "o": [
      "Hombre de paja",
      "Ad hominem",
@@ -2143,7 +2143,7 @@ const QUIZZES = {
      "Apelación a la mayoría"
     ],
     "a": 1,
-    "fb": "Marta no responde a las razones de Pablo: ataca a Pablo. Eso es un ad hominem."
+    "fb": "No responde a las razones de la otra persona: la ataca a ella. Eso es un ad hominem."
    },
    {
     "q": "Según el tema, ¿cuándo vale la opinión de una autoridad?",
@@ -2179,7 +2179,7 @@ const QUIZZES = {
     "fb": "Los dos esquivan el argumento real, pero el ad hominem va contra la persona y el hombre de paja cambia sus palabras."
    },
    {
-    "q": "Nerea ha leído dos libros de fantasía y no le han gustado. Concluye: «Los libros de fantasía son todos aburridos». ¿Qué falacia comete?",
+    "q": "Alguien ha leído dos libros de fantasía y no le han gustado. Concluye: «Los libros de fantasía son todos aburridos». ¿Qué falacia comete?",
     "o": [
      "Apelación a la mayoría",
      "Generalización apresurada",
@@ -2201,7 +2201,7 @@ const QUIZZES = {
     "fb": "Esta falacia intenta convencer provocando miedo, pena o rabia, sin dar razones."
    },
    {
-    "q": "Un vídeo con millones de visitas dice que dormir cuatro horas es suficiente. Lucas comenta: «Si lo ha visto tanta gente, será verdad». ¿Qué falacia es?",
+    "q": "Un vídeo con millones de visitas dice que dormir cuatro horas es suficiente. Alguien comenta: «Si lo ha visto tanta gente, será verdad». ¿Qué falacia es?",
     "o": [
      "Apelación a la mayoría",
      "Apelación a la autoridad",
@@ -2256,7 +2256,7 @@ const QUIZZES = {
     "fb": "Imagina una cadena de males sin remedio a partir de un primer paso pequeño."
    },
    {
-    "q": "Sara dice en casa que le gustaría tener algo más de tiempo libre entre semana. Su hermano responde: «Claro, tú lo que quieres es no estudiar en todo el curso». ¿Qué falacia es?",
+    "q": "Alguien dice en casa que le gustaría tener algo más de tiempo libre entre semana. Su hermano responde: «Claro, tú lo que quieres es no estudiar en todo el curso». ¿Qué falacia es?",
     "o": [
      "Ad hominem",
      "Falso dilema",
@@ -2264,7 +2264,7 @@ const QUIZZES = {
      "Pendiente resbaladiza"
     ],
     "a": 2,
-    "fb": "Sara no dijo eso: su hermano deforma sus palabras para rebatir algo más fácil."
+    "fb": "Esa persona no dijo eso: su hermano deforma sus palabras para rebatir algo más fácil."
    },
    {
     "q": "¿Qué diferencia a la generalización apresurada de la apelación a la mayoría?",
@@ -2333,7 +2333,7 @@ const QUIZZES = {
     "fb": "Reconocerlas nos protege de los engaños y nos ayuda a razonar mejor nosotros mismos."
    },
    {
-    "q": "Mikel sabe que el examen es el martes, pero dice a sus amigos que es el lunes para que no estudien. ¿Qué es lo que hace Mikel?",
+    "q": "Alguien sabe que el examen es el martes, pero dice a sus amigos que es el lunes para que no estudien. ¿Qué es lo que hace?",
     "o": [
      "Una generalización apresurada",
      "Un falso dilema",
@@ -2341,7 +2341,7 @@ const QUIZZES = {
      "Una mentira, no una falacia"
     ],
     "a": 3,
-    "fb": "Mikel da un dato falso a propósito. Eso es una mentira, no un fallo en el razonamiento."
+    "fb": "Alguien da un dato falso a propósito. Eso es una mentira, no un fallo en el razonamiento."
    },
    {
     "q": "Según el tema, ¿qué demuestra que mucha gente crea o haga algo?",
@@ -2548,7 +2548,7 @@ const QUIZZES = {
     "fb": "La teoría aconseja justo lo contrario: desconfiar de las decisiones tomadas con prisa."
    },
    {
-    "q": "Mikel dice que «se le da fatal el inglés». Recuerda cada examen suspendido, pero se olvida de los tres últimos que aprobó. ¿Qué sesgo actúa?",
+    "q": "Alguien dice que «se le da fatal el inglés». Recuerda cada examen suspendido, pero se olvida de los tres últimos que aprobó. ¿Qué sesgo actúa?",
     "o": [
      "Sesgo de confirmación",
      "Sesgo de anclaje",
@@ -2556,10 +2556,10 @@ const QUIZZES = {
      "Sesgo de disponibilidad"
     ],
     "a": 0,
-    "fb": "Mikel solo ve lo que confirma lo que ya pensaba de sí mismo y olvida lo que le lleva la contraria."
+    "fb": "Esa persona solo ve lo que confirma lo que ya pensaba de sí misma y olvida lo que le lleva la contraria."
    },
    {
-    "q": "Lucía ha visto muchos vídeos de perros que muerden. Ahora cree que los perros de su barrio son muy peligrosos, aunque nunca ha pasado nada. ¿Qué sesgo es?",
+    "q": "Alguien ha visto muchos vídeos de perros que muerden. Ahora cree que los perros de su barrio son muy peligrosos, aunque nunca ha pasado nada. ¿Qué sesgo es?",
     "o": [
      "Efecto arrastre",
      "Sesgo de confirmación",
@@ -2592,7 +2592,7 @@ const QUIZZES = {
     "fb": "El primer precio, 300 €, ancla el juicio del comprador y hace que 200 € le parezca barato."
    },
    {
-    "q": "En el recreo, todo el grupo hace un reto viral que consiste en vaciar las botellas de agua en el suelo. Nerea también lo hace, aunque le parece una tontería. ¿Qué sesgo es?",
+    "q": "En el recreo, todo el grupo hace un reto viral que consiste en vaciar las botellas de agua en el suelo. Una persona también lo hace, aunque le parece una tontería. ¿Qué sesgo es?",
     "o": [
      "Efecto arrastre",
      "Sesgo de disponibilidad",
@@ -2600,10 +2600,10 @@ const QUIZZES = {
      "Sesgo de confirmación"
     ],
     "a": 0,
-    "fb": "Nerea hace lo que hace el grupo solo por no quedarse fuera, no porque tenga una buena razón."
+    "fb": "Esa persona hace lo que hace el grupo solo por no quedarse fuera, no porque tenga una buena razón."
    },
    {
-    "q": "Toda la clase se ha comprado la misma funda de móvil. A Pablo no le gusta, pero se la compra para no quedarse fuera. ¿Qué sesgo actúa?",
+    "q": "Toda la clase se ha comprado la misma funda de móvil. A una persona no le gusta, pero se la compra para no quedarse fuera. ¿Qué sesgo actúa?",
     "o": [
      "Sesgo de anclaje",
      "Sesgo de confirmación",
@@ -2611,10 +2611,10 @@ const QUIZZES = {
      "Efecto arrastre"
     ],
     "a": 3,
-    "fb": "Pablo actúa como el grupo solo para no quedarse fuera. Eso es el efecto arrastre."
+    "fb": "Esa persona actúa como el grupo solo para no quedarse fuera. Eso es el efecto arrastre."
    },
    {
-    "q": "Ane solo ve en su feed vídeos que alaban a su equipo de fútbol, y está convencida de que todo el mundo opina como ella. ¿En qué está metida?",
+    "q": "Una persona solo ve en su feed vídeos que alaban a su equipo de fútbol, y está convencida de que todo el mundo opina como ella. ¿En qué está metida?",
     "o": [
      "En un efecto arrastre",
      "En un anclaje",
@@ -2625,7 +2625,7 @@ const QUIZZES = {
     "fb": "Las redes le enseñan solo lo que ya le gusta y parece que todos le dan la razón: está en una burbuja."
    },
    {
-    "q": "Irene cree que Dani, el nuevo, es un presumido. Cuando él cuenta su viaje, piensa «ya está fardando»; cuando ayuda a otros, ni lo nota. ¿Qué sesgo es?",
+    "q": "Alguien cree que un compañero nuevo es un presumido. Cuando él cuenta su viaje, piensa «ya está fardando»; cuando ayuda a otros, ni lo nota. ¿Qué sesgo es?",
     "o": [
      "Sesgo de confirmación",
      "Efecto arrastre",
@@ -2633,7 +2633,7 @@ const QUIZZES = {
      "Sesgo de anclaje"
     ],
     "a": 0,
-    "fb": "Irene se fija en lo que confirma su idea sobre Dani y no ve lo que la contradice."
+    "fb": "Esa persona se fija en lo que confirma su idea sobre el compañero y no ve lo que la contradice."
    },
    {
     "q": "Tras ver en las noticias un robo en una tienda del centro, Martín dice que su ciudad es cada vez más peligrosa, aunque hay menos robos que antes. ¿Qué sesgo es?",
@@ -2647,7 +2647,7 @@ const QUIZZES = {
     "fb": "Martín recuerda muy bien esa noticia y por eso cree que los robos son más frecuentes de lo que son."
    },
    {
-    "q": "A Sara le da pánico bañarse en el mar por los tiburones, pero cruza la calle mirando el móvil sin preocuparse. ¿Qué sesgo explica su miedo?",
+    "q": "A alguien le da pánico bañarse en el mar por los tiburones, pero cruza la calle mirando el móvil sin preocuparse. ¿Qué sesgo explica su miedo?",
     "o": [
      "Efecto arrastre",
      "Sesgo de anclaje",
@@ -2669,7 +2669,7 @@ const QUIZZES = {
     "fb": "El primer precio que oyó, 120 €, se convierte en el ancla con la que compara todo lo demás."
    },
    {
-    "q": "Ainhoa no encuentra su estuche y sospecha de Iker. Desde entonces, todo lo que él hace le parece raro. Luego lo encuentra en su mochila e Iker vuelve a parecerle normal. ¿Qué sesgo es?",
+    "q": "Alguien no encuentra su estuche y sospecha de un compañero. Desde entonces, todo lo que él hace le parece raro. Luego lo encuentra en su mochila y ese compañero vuelve a parecerle normal. ¿Qué sesgo es?",
     "o": [
      "Sesgo de anclaje",
      "Efecto arrastre",
@@ -2677,7 +2677,7 @@ const QUIZZES = {
      "Sesgo de confirmación"
     ],
     "a": 3,
-    "fb": "Es como el cuento del ladrón de hachas: Iker no cambió, cambió la mirada de Ainhoa."
+    "fb": "Es como el cuento del ladrón de hachas: el compañero no cambió, cambió la mirada de quien sospechaba."
    },
    {
     "q": "En clase votan la película para la excursión. Omar prefería otra, pero vota la misma que todos sus amigos para no quedarse fuera. ¿Qué sesgo es?",
@@ -2691,7 +2691,7 @@ const QUIZZES = {
     "fb": "Omar elige lo que elige el grupo solo por no quedarse fuera: efecto arrastre."
    },
    {
-    "q": "Leire, muy enfadada tras perder un partido, quiere dejar el equipo de baloncesto en ese mismo momento. ¿Qué consejo de la teoría le vendría bien?",
+    "q": "Una persona, muy enfadada tras perder un partido, quiere dejar el equipo de baloncesto en ese mismo momento. ¿Qué consejo de la teoría le vendría bien?",
     "o": [
      "Desconfiar de las decisiones tomadas con prisa y mucha emoción",
      "Hacer lo que decida la mayoría de las compañeras del equipo",
@@ -2851,7 +2851,7 @@ const QUIZZES = {
     "fb": "La calidad de los argumentos revisa si has apoyado tus ideas con razones y ejemplos."
    },
    {
-    "q": "En el debate sobre el uniforme, Hugo le dice a Sara: «Tú qué vas a saber, si vistes fatal». ¿Qué norma del diálogo rompe Hugo?",
+    "q": "En un debate, alguien le dice a otra persona: «Tú qué vas a saber, si vistes fatal». ¿Qué norma del diálogo rompe?",
     "o": [
      "Ir al problema, no a la persona",
      "Poder cambiar de idea",
@@ -2859,10 +2859,10 @@ const QUIZZES = {
      "El principio de caridad"
     ],
     "a": 0,
-    "fb": "Hugo ataca a Sara en vez de criticar su idea. En un diálogo se critican las ideas, nunca a quien las dice."
+    "fb": "Esa persona ataca a la otra en vez de criticar su idea. En un diálogo se critican las ideas, nunca a quien las dice."
    },
    {
-    "q": "Ane y Marco debaten sobre el móvil en el recreo. Ella repite «hay que prohibirlo» y él «pues yo digo que no», cada vez más alto y sin escucharse. ¿Qué es esto?",
+    "q": "Dos personas debaten sobre el móvil en el recreo. Una repite «hay que prohibirlo» y la otra «pues yo digo que no», cada vez más alto y sin escucharse. ¿Qué es esto?",
     "o": [
      "Una pelea",
      "Una discusión de sordos",
@@ -2873,7 +2873,7 @@ const QUIZZES = {
     "fb": "Cada uno repite su idea más alto sin escuchar al otro: es una discusión de sordos. No hay insultos, así que no es una pelea."
    },
    {
-    "q": "Unai propone un día de menú vegetariano en el comedor. Claudia responde: «O sea, que quieres prohibir la carne para siempre». ¿Qué norma NO respeta Claudia?",
+    "q": "Alguien propone un día de menú vegetariano en el comedor. Otra persona responde: «O sea, que quieres prohibir la carne para siempre». ¿Qué norma NO respeta?",
     "o": [
      "El turno de palabra",
      "Poder cambiar de idea",
@@ -2881,21 +2881,21 @@ const QUIZZES = {
      "El principio de caridad"
     ],
     "a": 3,
-    "fb": "Claudia responde a una caricatura de la idea de Unai, no a su mejor versión. Eso rompe el principio de caridad."
+    "fb": "Esa persona responde a una caricatura de la idea de la otra, no a su mejor versión. Eso rompe el principio de caridad."
    },
    {
-    "q": "Tras escuchar a Yasmin, Iván dice: «Tienes razón, no había pensado en eso. Cambio mi postura». ¿Qué está haciendo Iván?",
+    "q": "Tras escuchar a otra persona, alguien dice: «Tienes razón, no había pensado en eso. Cambio mi postura». ¿Qué está haciendo?",
     "o": [
      "Pierde el debate por no defender su idea",
      "Aplica la norma de cambiar de idea",
-     "Rompe el principio de caridad con Yasmin",
+     "Rompe el principio de caridad con la otra persona",
      "Evita dar razones para acabar antes"
     ],
     "a": 1,
-    "fb": "Reconocer «tienes razón» no es perder, es aprender. Iván sigue la norma de poder cambiar de idea."
+    "fb": "Reconocer «tienes razón» no es perder, es aprender. Esa persona sigue la norma de poder cambiar de idea."
    },
    {
-    "q": "En el debate de clase, Leire tenía ideas interesantes, pero no dijo nada en toda la hora. ¿Qué punto de la lista de control debería mejorar?",
+    "q": "En el debate de clase, alguien tenía ideas interesantes, pero no dijo nada en toda la hora. ¿Qué punto de la lista de control debería mejorar?",
     "o": [
      "Actitud",
      "Calidad de los argumentos",
@@ -2906,7 +2906,7 @@ const QUIZZES = {
     "fb": "La participación pregunta si has aportado al debate y si has dejado hablar a los demás."
    },
    {
-    "q": "En el debate, Mateo no da ninguna razón, pero hace reír a todos con sus chistes y cree que así ha ganado. ¿Qué norma olvida?",
+    "q": "En el debate, alguien no da ninguna razón, pero hace reír a todos con sus chistes y cree que así ha ganado. ¿Qué norma olvida?",
     "o": [
      "Escuchar de verdad",
      "Poder cambiar de idea",
@@ -2917,7 +2917,7 @@ const QUIZZES = {
     "fb": "En un diálogo gana el mejor argumento, no la voz más alta ni el más gracioso."
    },
    {
-    "q": "Durante un debate, Nerea se burla de cómo habla un compañero y pone caras mientras él interviene. ¿Qué punto de la lista de control debe revisar?",
+    "q": "Durante un debate, alguien se burla de cómo habla un compañero y pone caras mientras él interviene. ¿Qué punto de la lista de control debe revisar?",
     "o": [
      "Actitud",
      "Participación",
@@ -2925,10 +2925,10 @@ const QUIZZES = {
      "Mirada sobre el problema"
     ],
     "a": 0,
-    "fb": "La actitud revisa si has respetado los turnos y a las personas, y Nerea no respeta a su compañero."
+    "fb": "La actitud revisa si has respetado los turnos y a las personas, y esa persona no respeta a su compañero."
    },
    {
-    "q": "Lucas: «Creo que el móvil en clase distrae; ¿tú por qué piensas que no?». Irati: «Porque lo usamos para buscar información». Lucas: «Eso es verdad... ¿y si solo fuera para eso?». ¿Qué es?",
+    "q": "Una persona: «Creo que el móvil en clase distrae; ¿tú por qué piensas que no?». Otra: «Porque lo usamos para buscar información». La primera: «Eso es verdad... ¿y si solo fuera para eso?». ¿Qué es?",
     "o": [
      "Una discusión de sordos",
      "Una pelea",
@@ -2939,7 +2939,7 @@ const QUIZZES = {
     "fb": "Se escuchan, dan razones y las ideas se mueven: es un diálogo."
    },
    {
-    "q": "Sobre el viaje de fin de curso, Aimar le grita a Rocío «¡Eres una pesada!» y ella contesta «¡Y tú un creído!». ¿Qué tipo de escena es?",
+    "q": "Alguien le grita a otra persona «¡Eres una pesada!» y esta contesta «¡Y tú un creído!». ¿Qué tipo de escena es?",
     "o": [
      "Una pelea",
      "Una discusión de sordos",
@@ -3099,7 +3099,7 @@ const QUIZZES = {
     "fb": "Los palillos de lujo acaban pidiendo cuencos, banquetes y palacios: es la misma escalera que el efecto Diderot."
    },
    {
-    "q": "A Lucía le llega un audio de WhatsApp que dice que el agua del grifo del barrio está envenenada y termina con «¡reenvía esto a todos!». Ningún medio habla de ello. ¿Qué es probablemente?",
+    "q": "A alguien le llega un audio de WhatsApp que dice que el agua del grifo del barrio está envenenada y termina con «¡reenvía esto a todos!». Ningún medio habla de ello. ¿Qué es probablemente?",
     "o": [
      "Un bulo que busca asustar para que se comparta",
      "Un anuncio que usa la publicidad aspiracional",
@@ -3121,7 +3121,7 @@ const QUIZZES = {
     "fb": "Comprobar si una imagen es actual destapa muchos bulos que reciclan fotos viejas."
    },
    {
-    "q": "Hugo tiene dos sudaderas de marca que le quedan bien, pero quiere una tercera que ha visto en un anuncio. Según el tema, esa tercera sudadera es…",
+    "q": "Alguien tiene dos sudaderas de marca que le quedan bien, pero quiere una tercera que ha visto en un anuncio. Según el tema, esa tercera sudadera es…",
     "o": [
      "Una necesidad, porque la ropa sirve para abrigarse",
      "Un deseo superfluo, porque viviría igual de bien sin ella",
@@ -3129,10 +3129,10 @@ const QUIZZES = {
      "Un caso de posverdad, porque le hace ilusión"
     ],
     "a": 1,
-    "fb": "Hugo ya está abrigado; la tercera sudadera es algo que quiere, pero sin lo que viviría igual de bien."
+    "fb": "Esa persona ya está abrigada; la tercera sudadera es algo que quiere, pero sin lo que viviría igual de bien."
    },
    {
-    "q": "Nerea estrena unas zapatillas. De pronto su chándal le parece viejo y lo cambia; después quiere también una mochila a juego. ¿Qué explica lo que le pasa?",
+    "q": "Alguien estrena unas zapatillas. De pronto su chándal le parece viejo y lo cambia; después quiere también una mochila a juego. ¿Qué explica lo que le pasa?",
     "o": [
      "El FOMO: miedo a quedarse fuera de lo que hacen otros",
      "La escasez: la tienda le mete prisa para comprar",
@@ -3187,7 +3187,7 @@ const QUIZZES = {
     "fb": "No se trata de desconfiar de todo, sino de comprobar antes de decidir."
    },
    {
-    "q": "Un youtuber de videojuegos al que Pablo admira anuncia una crema para la piel, aunque no sabe nada de cuidar la piel. ¿Por qué es un truco?",
+    "q": "Un youtuber de videojuegos al que alguien admira anuncia una crema para la piel, aunque no sabe nada de cuidar la piel. ¿Por qué es un truco?",
     "o": [
      "Porque los youtubers nunca pueden hacer anuncios",
      "Porque la crema es seguro un producto falso",
@@ -3198,7 +3198,7 @@ const QUIZZES = {
     "fb": "El testimonio de famosos es una apelación a la autoridad mal usada: ser famoso no te hace experto en todo."
    },
    {
-    "q": "En un debate de clase, Leire dice: «Me da igual lo que digan los datos. Yo siento que es verdad y ya está». ¿Qué idea del tema refleja su actitud?",
+    "q": "En un debate de clase, alguien dice: «Me da igual lo que digan los datos. Yo siento que es verdad y ya está». ¿Qué idea del tema refleja su actitud?",
     "o": [
      "La posverdad",
      "El titular clickbait",
@@ -3209,7 +3209,7 @@ const QUIZZES = {
     "fb": "En la posverdad, las emociones y las creencias pesan más que los hechos comprobados."
    },
    {
-    "q": "Noa necesita un abrigo porque el suyo se le ha quedado pequeño y llega el invierno. Según el tema, ese abrigo es…",
+    "q": "Alguien necesita un abrigo porque el suyo se le ha quedado pequeño y llega el invierno. Según el tema, ese abrigo es…",
     "o": [
      "Un deseo superfluo, porque es ropa nueva",
      "Un efecto Diderot, porque es una compra",
@@ -3220,7 +3220,7 @@ const QUIZZES = {
     "fb": "Abrigarse es algo que nos hace falta para vivir bien, así que es una necesidad."
    },
    {
-    "q": "Iker ve una noticia en redes que le da muchísima rabia. ¿Qué señal, según el tema, debería hacerle frenar antes de compartirla?",
+    "q": "Alguien ve una noticia en redes que le da muchísima rabia. ¿Qué señal, según el tema, debería hacerle frenar antes de compartirla?",
     "o": [
      "Que la publica un medio serio y conocido",
      "Que la cuentan también otros sitios fiables",
@@ -3242,7 +3242,7 @@ const QUIZZES = {
     "fb": "El anuncio no habla del producto, sino de la familia y la felicidad, para que asocies esa emoción a la marca."
    },
    {
-    "q": "Paula ve el titular «¡No creerás lo que ha hecho este futbolista!». Lo abre y solo cuenta que se ha cortado el pelo. ¿Es un bulo?",
+    "q": "Alguien ve el titular «¡No creerás lo que ha hecho este futbolista!». Lo abre y solo cuenta que se ha cortado el pelo. ¿Es un bulo?",
     "o": [
      "Sí, porque todo titular exagerado es una noticia falsa",
      "No, es clickbait: exagera, pero lo que cuenta es cierto",
@@ -3369,7 +3369,7 @@ const QUIZZES = {
     "fb": "Eran actores: en algunas rondas decían todos a propósito la respuesta equivocada, «la A»."
    },
    {
-    "q": "En la asamblea de 2.º A siempre deciden Marcos y Leire, porque hablan más alto. Los demás se callan. ¿Qué dimensión de la cohesión falla?",
+    "q": "En la asamblea de 2.º A siempre deciden dos personas, porque hablan más alto. Los demás se callan. ¿Qué dimensión de la cohesión falla?",
     "o": [
      "Participación y acuerdos",
      "Solidaridad y convivencia",
@@ -3391,7 +3391,7 @@ const QUIZZES = {
     "fb": "La cohesión son las ganas de estar juntos. Si para estar unidos hay que callar o dejar fuera a alguien, es presión de grupo."
    },
    {
-    "q": "En tutoría, Ane primero piensa sola, luego comparte sus ideas con Omar, después se juntan con otra pareja y al final habla toda la clase. ¿Qué técnica usan?",
+    "q": "En tutoría, una persona primero piensa sola, luego comparte sus ideas con otra, después se juntan con otra pareja y al final habla toda la clase. ¿Qué técnica usan?",
     "o": [
      "Grupo nominal",
      "Opiniones contrapuestas",
@@ -3435,7 +3435,7 @@ const QUIZZES = {
     "fb": "Como todos escriben y hablan por turnos, en el grupo nominal participan también los tímidos."
    },
    {
-    "q": "En Música, todos dicen que la canción está en inglés. Pablo la oye claramente en portugués, pero dice «inglés» para no llevar la contraria. ¿Qué le pasa?",
+    "q": "En Música, todos dicen que la canción está en inglés. Alguien la oye claramente en portugués, pero dice «inglés» para no llevar la contraria. ¿Qué le pasa?",
     "o": [
      "Cohesión: quiere estar a gusto y hacer cosas con su clase",
      "Solidaridad: siente como suyos los problemas de otros",
@@ -3443,7 +3443,7 @@ const QUIZZES = {
      "Inclusión: quiere que nadie quede fuera por ser diferente"
     ],
     "a": 2,
-    "fb": "Como en el experimento de Asch, Pablo cambia lo que dice para coincidir con el grupo. Eso es conformidad."
+    "fb": "Como en el experimento de Asch, esa persona cambia lo que dice para coincidir con el grupo. Eso es conformidad."
    },
    {
     "q": "La clase duda entre dos propuestas para la fiesta de fin de curso. De cada una escriben sus ventajas y las consecuencias que no quieren. ¿Qué técnica usan?",
@@ -3479,7 +3479,7 @@ const QUIZZES = {
     "fb": "Con un solo aliado que decía la verdad, casi todos se atrevían a decirla también."
    },
    {
-    "q": "Cuando la profe propone un trabajo en grupo, en la clase de Hugo todos protestan: «Yo solo aprendo más y acabo antes». ¿Qué dimensión de la cohesión les falta?",
+    "q": "Cuando la profe propone un trabajo en grupo, en una clase todos protestan: «Yo solo aprendo más y acabo antes». ¿Qué dimensión de la cohesión les falta?",
     "o": [
      "Participación y acuerdos por consenso",
      "Conocerse y llevarse bien",
@@ -3490,7 +3490,7 @@ const QUIZZES = {
     "fb": "Esta dimensión consiste en valorar la cooperación y ver que juntos se aprende más que cada uno por su cuenta."
    },
    {
-    "q": "Mikel y Aroa hacen juntos una maqueta para Tecnología. Cuando a uno le sale bien su parte, al otro le resulta más fácil la suya. ¿Qué concepto lo explica?",
+    "q": "Dos personas hacen juntas una maqueta para Tecnología. Cuando a una le sale bien su parte, a la otra le resulta más fácil la suya. ¿Qué concepto lo explica?",
     "o": [
      "Cooperación",
      "Solidaridad",
@@ -3523,7 +3523,7 @@ const QUIZZES = {
     "fb": "Unas tres de cada cuatro personas dijeron alguna vez la respuesta del grupo, aunque veían que era otra."
    },
    {
-    "q": "Nerea se ha roto un brazo. Sus compañeros le pasan los apuntes, le llevan la mochila y se turnan para ayudarla. ¿Qué dimensión de la cohesión muestran?",
+    "q": "Una persona se ha roto un brazo. Sus compañeros le pasan los apuntes, le llevan la mochila y se turnan para ayudarla. ¿Qué dimensión de la cohesión muestran?",
     "o": [
      "Solidaridad y convivencia",
      "Participación y acuerdos",
@@ -3694,7 +3694,7 @@ const QUIZZES = {
     "fb": "Uno de los hábitos para reducir la huella de la comida es no tirar comida."
    },
    {
-    "q": "Mateo deja la consola y la tele encendidas toda la noche aunque nadie las usa. ¿Qué hábito le falta?",
+    "q": "Alguien deja la consola y la tele encendidas toda la noche aunque nadie las usa. ¿Qué hábito le falta?",
     "o": [
      "Reciclar los aparatos viejos",
      "Apagar los aparatos que no se usan",
@@ -3705,7 +3705,7 @@ const QUIZZES = {
     "fb": "En energía, uno de los hábitos es apagar lo que no se usa."
    },
    {
-    "q": "Nerea ya no compra zumos en brik: bebe agua del grifo y así no genera ese envase. ¿Qué paso de los residuos aplica?",
+    "q": "Alguien ya no compra zumos en brik: bebe agua del grifo y así no genera ese envase. ¿Qué paso de los residuos aplica?",
     "o": [
      "Reparar",
      "Reciclar",
@@ -3727,7 +3727,7 @@ const QUIZZES = {
     "fb": "El greenwashing es presentar como ecológico algo que no lo es, pintándose de verde en los anuncios."
    },
    {
-    "q": "En clase, Ainhoa pregunta: «¿Quién gana y quién paga con nuestra forma de vivir?». ¿Sobre qué idea está pensando?",
+    "q": "En clase, alguien pregunta: «¿Quién gana y quién paga con nuestra forma de vivir?». ¿Sobre qué idea está pensando?",
     "o": [
      "La justicia ambiental",
      "El greenwashing",
@@ -3738,7 +3738,7 @@ const QUIZZES = {
     "fb": "Preguntarse quién gana y quién paga con nuestra forma de vivir es pensar en la justicia ambiental."
    },
    {
-    "q": "En el comedor, Lucía elige a menudo legumbres y verduras de la zona y de temporada. ¿Qué parte de su huella reduce?",
+    "q": "En el comedor, alguien elige a menudo legumbres y verduras de la zona y de temporada. ¿Qué parte de su huella reduce?",
     "o": [
      "La de la ropa",
      "La de los aparatos electrónicos",
@@ -3760,7 +3760,7 @@ const QUIZZES = {
     "fb": "El orden es reducir, reutilizar y, al final, reciclar. Reciclar es el último paso, no el único."
    },
    {
-    "q": "En un debate, Marta dice que para cuidar el planeta basta con que cada persona apague la luz. Según el tema, ¿qué se le olvida?",
+    "q": "En un debate, alguien dice que para cuidar el planeta basta con que cada persona apague la luz. Según el tema, ¿qué se le olvida?",
     "o": [
      "Que también cuentan las decisiones colectivas",
      "Que solo deben cambiar las empresas",
@@ -3771,7 +3771,7 @@ const QUIZZES = {
     "fb": "Los gestos individuales importan, pero también las decisiones colectivas: cómo se produce la energía o cómo se diseñan las ciudades."
    },
    {
-    "q": "Leire lee que España llega a su día de sobrecapacidad en primavera, mucho antes que el mundo. ¿Qué indica?",
+    "q": "Alguien lee que España llega a su día de sobrecapacidad en primavera, mucho antes que el mundo. ¿Qué indica?",
     "o": [
      "Que en España se recicla más que en otros países",
      "Que España consume más que la media mundial",
@@ -3782,7 +3782,7 @@ const QUIZZES = {
     "fb": "Si España gasta antes lo que el planeta regenera en un año, es porque consume más que la media mundial."
    },
    {
-    "q": "Ander se ducha 25 minutos y pone la calefacción al máximo para estar en manga corta. ¿Qué área de su huella debería cuidar?",
+    "q": "Alguien se ducha 25 minutos y pone la calefacción al máximo para estar en manga corta. ¿Qué área de su huella debería cuidar?",
     "o": [
      "La ropa y el consumo",
      "La comida",

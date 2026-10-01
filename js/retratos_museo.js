@@ -61,18 +61,6 @@ const RETRATOS = [
   "page": "https://commons.wikimedia.org/wiki/File:Diogenes-statue-Sinop-enhanced.jpg"
  },
  {
-  "slug": "marco-aurelio",
-  "name": "马可·奥勒留",
-  "aliases": [
-   "马可·奥勒留"
-  ],
-  "file": "media/retratos/museo/marco-aurelio.jpg",
-  "title": "Head Marcus Aurelius archmus Heraklion",
-  "artist": "Jebulon",
-  "license": "CC0",
-  "page": "https://commons.wikimedia.org/wiki/File:Head_Marcus_Aurelius_archmus_Heraklion.jpg"
- },
- {
   "slug": "locke",
   "name": "约翰·洛克",
   "aliases": [

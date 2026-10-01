@@ -207,6 +207,7 @@ table.rubrica tr.r-sec td{background:var(--surface-2);font-weight:600;color:var(
   padding:32px 30px;display:flex;flex-direction:column;justify-content:center;gap:14px}
 .face .side{position:absolute;top:16px;left:20px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .face .emoji{font-size:3.4rem;line-height:1}
+.face .emoji.has-img img{display:block;width:100%;max-width:340px;aspect-ratio:4/3;object-fit:cover;border-radius:12px;margin:8px auto 0}
 .face .front-t{font-family:var(--serif);font-size:1.55rem;font-weight:600}
 .face .back-t{font-size:1.06rem;line-height:1.55}
 .face .hint{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:.76rem;color:var(--muted)}

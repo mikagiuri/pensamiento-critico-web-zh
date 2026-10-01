@@ -90,7 +90,10 @@ function drawCard(){
   const deck = DECKS[deckKey], idx = order[pos], c = deck.cards[idx];
   document.getElementById("deckname").textContent = deck.name;
   document.getElementById("fccount").textContent = (pos + 1) + " / " + deck.cards.length;
-  document.getElementById("fcemoji").textContent = c[0];
+  const em = document.getElementById("fcemoji"), img = typeof TARJETAS_IMG !== "undefined" && TARJETAS_IMG[deckKey + "|" + c[1]];
+  em.classList.toggle("has-img", !!img);
+  if (img) em.innerHTML = '<img src="media/tarjetas/' + img + '.webp" alt="" decoding="async">';
+  else em.textContent = c[0];
   document.getElementById("fcfront").textContent = c[1];
   document.getElementById("fcback").textContent = c[2];
   flipped = false; cardEl.classList.remove("flipped");
