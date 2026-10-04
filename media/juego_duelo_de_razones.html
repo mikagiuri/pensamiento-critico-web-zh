@@ -324,6 +324,30 @@ const TEMAS = [
    {t:"O piensas la totalidad como yo, o no eres más que un escéptico cobarde: elige.", f:"dos"},
    {t:"Kant era un viejo rutinario que nunca salió de Königsberg; ¿qué iba a saber del devenir?", f:"persona"},
   ]},
+ {nivel:["fil","hf"], claim:"Sócrates contra Calicles (Gorgias): ¿tiene razón la ley del más fuerte?",
+  cpuLado:"El ordenador es Calicles: por naturaleza, el fuerte debe mandar y tener más; reprimirse es de débiles.",
+  tuLado:"Eres Sócrates: es peor cometer una injusticia que sufrirla, y la vida sin medida no es feliz.",
+  estrat:[
+   {t:"“Deja de hacer preguntitas de esclavo y habla como un hombre.”", nombre:"el desprecio viril", schop:"subsumir en una categoría aborrecible", q:"El tono de hombría no es un argumento. ¿Qué es falso en lo que digo?"},
+   {t:"“¿No te da vergüenza, a tu edad, perder el tiempo jugando con las palabras?”", nombre:"la pulla por la edad", schop:"ad hominem", q:"Mi edad no decide si llevo razón."},
+   {t:"“Esto es ridículo, me aburres; responde tú, que tanto sabes.”", nombre:"la impaciencia", schop:"desviar y forzar", q:"Aburrirse no refuta nada. Volvamos a la pregunta."},
+  ],
+  opp:[
+   {t:"La justicia de la igualdad la inventan los muchos débiles para atar al fuerte por miedo; por naturaleza, el mejor debe tener más.", f:null},
+   {t:"Mira la naturaleza: el león no respeta leyes y el Estado fuerte se impone al débil. Así son las cosas, y así deben ser.", f:"pocos", peso:1},
+   {t:"La filosofía está bien para niños; un hombre hecho y derecho que sigue filosofando es ridículo y merece unos azotes.", f:"persona", peso:3},
+   {t:"O mandas y disfrutas, o te mandan y aguantas: no hay vida buena a medio camino.", f:"dos", peso:2},
+   {t:"Si no aprendes retórica y sigues con tus preguntas, cualquiera te llevará a juicio y te matará sin que sepas defenderte.", f:"miedo", peso:2},
+   {t:"Según tú habría que dejarse pisotear y no defenderse jamás; predicas ser un cobarde.", f:"deformar", peso:2},
+  ],
+  counters:[
+   {t:"Si el más fuerte es el que más puede, y los muchos pueden más que uno, entonces la justicia de los muchos es la de la naturaleza: tu propia ley te contradice.", str:3},
+   {t:"El alma sin medida es un tonel agujereado: por mucho que eches, nunca se llena; esa vida no es dicha, es una carencia sin fin.", str:3},
+   {t:"Placer y dolor se sienten a la vez (el sediento bebe con placer mientras aún sufre la sed), pero el bien y el mal no; luego el placer no es el bien.", str:2},
+   {t:"No digo dejarse pisotear: digo que cometer injusticia daña el alma más que sufrirla; por eso prefiero recibir el golpe a darlo.", str:2},
+   {t:"Tú defiendes esto porque eres un ambicioso sin escrúpulos; por eso no te creo.", f:"persona"},
+   {t:"O admites que la justicia vale, o reconoces que no eres más que un tirano: elige.", f:"dos"},
+  ]},
 ];
 
 // Nivel de cada tema: cada objeto de TEMAS trae su `nivel`. Se filtra según la web por el hash del enlace (#eso/#fil/#hf; sin hash, todos).

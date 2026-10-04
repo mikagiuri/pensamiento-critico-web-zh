@@ -324,6 +324,30 @@ const TEMAS = [
    {t:"Edo osotasuna nik bezala pentsatzen duzu, edo eszeptiko koldar bat besterik ez zara: aukeratu.", f:"dos"},
    {t:"Kant inoiz Königsbergetik atera ez zen agure errutinazale bat zen; zer jakingo zuen bilakaeraz?", f:"persona"},
   ]},
+ {nivel:["fil","hf"], claim:"Sokrates Kaliklesen aurka (Gorgias): arrazoia al du indartsuenaren legeak?",
+  cpuLado:"Ordenagailua Kalikles da: izatez, indartsuak agindu eta gehiago eduki behar du; bere burua hestea ahulen kontua da.",
+  tuLado:"Sokrates zara: injustizia egitea jasatea baino okerragoa da, eta neurririk gabeko bizitza ez da zoriontsua.",
+  estrat:[
+   {t:"«Utzi esklabo-galderatxoak egiteari eta hitz egin gizon batek bezala.»", nombre:"gizon-mespretxua", schop:"gorrotagarria den kategoria batean sartzea", q:"Gizontasun-doinua ez da argudio bat. Zer da faltsua diodanean?"},
+   {t:"«Ez al zaizu lotsa ematen, zure adinean, denbora hitzekin jolasten galtzeak?»", nombre:"adinagatiko ziria", schop:"ad hominem", q:"Nire adinak ez du erabakitzen arrazoia dudan ala ez."},
+   {t:"«Hau barregarria da, aspertzen nauzu; erantzun zuk, hainbeste dakizunez.»", nombre:"ezinegona", schop:"desbideratu eta behartu", q:"Aspertzeak ez du ezer errefusatzen. Itzul gaitezen galderara."},
+  ],
+  opp:[
+   {t:"Berdintasunaren justizia ahul askok asmatu zuten indartsua beldurrez lotzeko; izatez, onenak gehiago eduki behar du.", f:null},
+   {t:"Begiratu naturari: lehoiak ez du legerik errespetatzen eta estatu indartsuak ahula menderatzen du. Horrela dira gauzak, eta horrela izan behar dute.", f:"pocos", peso:1},
+   {t:"Filosofia ondo dago haurrentzat; filosofatzen jarraitzen duen gizon heldu bat barregarria da eta zartako batzuk merezi ditu.", f:"persona", peso:3},
+   {t:"Edo agintzen duzu eta gozatzen, edo agintzen dizute eta jasaten duzu: ez dago bizitza onik erdibidean.", f:"dos", peso:2},
+   {t:"Erretorika ikasten ez baduzu eta zure galderekin jarraitzen baduzu, edonork eramango zaitu auzitara eta hilko zaitu, defendatzen jakin gabe.", f:"miedo", peso:2},
+   {t:"Zure ustez utzi egin beharko genioke geure burua zapaltzen eta inoiz ez defendatzen; koldar izatea predikatzen duzu.", f:"deformar", peso:2},
+  ],
+  counters:[
+   {t:"Indartsuena gehien dezakeena bada, eta askok batek baino gehiago badezakete, orduan askoren justizia da naturarena: zeure legeak kontra egiten dizu.", str:3},
+   {t:"Neurririk gabeko arima upel zulatu bat da: bota ahala bota, inoiz ez da betetzen; bizitza hori ez da zoriona, amaierarik gabeko gabezia baizik.", str:3},
+   {t:"Plazera eta mina aldi berean sentitzen dira (egarri denak plazerez edaten du oraindik egarria jasaten duen bitartean), baina ongia eta gaizkia ez; beraz, plazera ez da ongia.", str:2},
+   {t:"Ez dut esaten geure burua zapaltzen utzi behar dugunik: injustizia egiteak sufritzeak baino gehiago kaltetzen duela arima diot; horregatik nahiago dut kolpea jaso, eman baino.", str:2},
+   {t:"Zuk hau defendatzen duzu eskrupulurik gabeko handinahia zarelako; horregatik ez dizut sinesten.", f:"persona"},
+   {t:"Edo justiziak balio duela onartzen duzu, edo tirano bat besterik ez zarela aitortzen duzu: aukeratu.", f:"dos"},
+  ]},
 ];
 
 // Nivel de cada tema: cada objeto de TEMAS trae su `nivel`. Se filtra según la web por el hash del enlace (#eso/#fil/#hf; sin hash, todos).

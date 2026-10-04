@@ -42,7 +42,8 @@ window.VIEW_LOADERS = {
   infografias: "loadInfografia", cuestionarios: "loadQuiz", tarjetas: "loadDeck",
   esquemas: "loadEsq", pau: "loadPau", mapas: "loadMap", cronogramas: "loadCrono", genealogias: "loadGenea",
   ilustres: "loadIlustre", clases: "loadClase",
-  pistas: "loadPista",   // (01-10) #pistas/kant-imperativo
+  pistas: "loadPista",
+  logica: "loadLogica",   // (01-10) #logica/tablas|silogismos|puertas   // (01-10) #pistas/kant-imperativo
   comentario: "loadComentario", disertaciones: "loadDisert"   // (29-09) enlaces profundos a un ejemplo resuelto o una disertación: #comentario/heraclito
 };
 
