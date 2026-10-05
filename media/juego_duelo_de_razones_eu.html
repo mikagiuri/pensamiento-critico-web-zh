@@ -146,8 +146,9 @@ const FALACIAS = {
   miedo:  {nombre:"Beldurtzea, konbentzitzeko", tec:"beldurrarako deia", q:"Arrazoi bat ematen al dit, ala beldurra sartzen besterik ez?"},
   todos:  {nombre:"Mundu guztiak dio", tec:"ad populum", q:"Jende askok egiteak, egia bihurtzen al du?"},
   notrue: {nombre:"Komeni den bezala birdefinitzea", tec:"«no true scotsman»", q:"Definizioa aldatzen al duzu kontradibidea saihesteko soilik? (Sokratesek bereizketa onartu zuen… eta buelta eman zion.)"},
+  equivoco:{nombre:"Esanahi bikoitzarekin jolastea", tec:"ekibokoa / anfibologia", q:"Hitz horrek bi esanahi ditu: zeinetan erabiltzen duzu? Bidearen erdian esanahiz aldatzen baduzu, ez duzu ezer frogatu."},
 };
-const ORDEN_FAL = ["persona","famoso","siempre","pena","deformar","pocos","causa","dos","miedo","todos","notrue"];
+const ORDEN_FAL = ["persona","famoso","siempre","pena","deformar","pocos","causa","dos","miedo","todos","notrue","equivoco"];
 const FIBRA = new Set(["persona"]); // falacias que, además de trampa, son una falta de respeto: cuestan temple aunque las caces
 
 /* ---------- Estratagemas eristas: atacan el temple, no el tema ---------- */
@@ -347,6 +348,78 @@ const TEMAS = [
    {t:"Ez dut esaten geure burua zapaltzen utzi behar dugunik: injustizia egiteak sufritzeak baino gehiago kaltetzen duela arima diot; horregatik nahiago dut kolpea jaso, eman baino.", str:2},
    {t:"Zuk hau defendatzen duzu eskrupulurik gabeko handinahia zarelako; horregatik ez dizut sinesten.", f:"persona"},
    {t:"Edo justiziak balio duela onartzen duzu, edo tirano bat besterik ez zarela aitortzen duzu: aukeratu.", f:"dos"},
+  ]},
+ {nivel:["fil","hf"], claim:"Sokrates Eutifronen aurka: zer da santutasuna?",
+  cpuLado:"Ordenagailua Eutifron da: erlijioan aditua dela uste duen igarle bat, bere aita salatzera doana; «santua» zer den badakiela ziurtatzen du.",
+  tuLado:"Sokrates zara: ez dituzu adibideak bilatzen, definizioa baizik: ekintza santu oro santu egiten duen ezaugarria.",
+  estrat:[
+   {t:"«Gauza hauetaz zuk baino askoz gehiago dakit, Sokrates; zerbaitegatik naiz igarlea.»", nombre:"adituaren harrokeria", schop:"norberaren autoritatera jotzea", q:"Igarlea izateak ez dio galderari erantzuten: esadazu zer den santua."},
+   {t:"«Hainbeste galderatxorekin nekatzen nauzu; hau edonork ulertzen du zuk izan ezik.»", nombre:"ezinegona", schop:"mespretxua / ad hominem", q:"Nekatzeak ez du ezer errefusatzen. Itzul gaitezen galderara."},
+   {t:"«Presa dut, Sokrates, zain naukate; beste egun baterako utziko dugu.»", nombre:"ihesa", schop:"galderari itzuri egitea", q:"Joatea ez da erantzutea: ihes egiteak galdera zutik uzten du."},
+  ],
+  opp:[
+   {t:"Zer da santua? Santua orain bertan egiten ari naizena da: krimena egiten duena jazartzea. Hor duzu.", f:null},
+   {t:"Zeusek berak kateatu zuen bere aita Krono; jainkoek gauza horiek egiten badituzte, nor naiz ni haiek ez imitatzeko?", f:"famoso", peso:2},
+   {t:"Argi-argi dago: santua jainkoek maite dutena da, eta santugabea haiei gorrotagarria zaiena.", f:null},
+   {t:"Orduan, santua jainko GUZTIEK salbuespenik gabe maite dutena izango da; benetan jainko den batek ere ez luke krimenik maiteko.", f:"notrue", peso:2},
+   {t:"Santua da jainkoek maite dutelako, eta kito; horrekin nahikoa duzu zer den jakiteko.", f:null},
+   {t:"Atenas osoak ongi asko daki zer den santutasuna; zuk bakarrik egiten duzu ez ulertzenarena.", f:"todos", peso:2},
+  ],
+  counters:[
+   {t:"ZER den santutasuna galdetu dizut, ez santua den zerbaiten adibidea. Emadazu ekintza santu oro santu egiten duen ezaugarria, edozein egintza harekin neurtzeko.", str:3},
+   {t:"Jainkoak elkarren artean liskarrean badabiltza, poetek dioten bezala, gauza bera batzuek maite eta besteek gorrotatuko dute: santua eta santugabea aldi berean. Zure definizioak bere burua kontraesaten du.", str:3},
+   {t:"Santua jainkoek maite dute santua DELAKO, ala santua da maite DUTELAKO? Dagoeneko santua delako maite badute, maitatua izatea ez da santu egiten duena: gertatzen zaiona esaten didazu, ez dena.", str:3},
+   {t:"Jainkoekiko zure «merkataritzak» hasierara darama berriro: haiei atsegin ematea haiek maitatua izatea besterik ez da, eta hori jada errefusatu dugu. Biribilean zabiltza.", str:2},
+   {t:"Bere aita auzitara eramateko gai den gizon batek ez du bihotzik; ez diot dioen ezeri sinesten.", f:"persona"},
+   {t:"Edo santutasuna hemen eta orain definitzen duzu, edo santugabe bat zarela aitortzen duzu: aukeratu.", f:"dos"},
+  ]},
+ {nivel:["fil","hf"], claim:"Sokrates Eutidemo eta Dionisodororen aurka: hitzekin irabazteko artea",
+  cpuLado:"Ordenagailua Eutidemo eta Dionisodoro anaia eristak dira: edozein gauza errefusatzeaz harro daude, besteak dioena diola ere, hitzen esanahi bikoitzarekin jolastuz.",
+  tuLado:"Sokrates zara: bereizi hitz bakoitzaren esanahiak eta erakutsi terminoa errefusatzen dutela, ez gauza.",
+  estrat:[
+   {t:"Biek batera egiten dute barre: «Ikusten? Sokrates handiak ez daki haurren galdera bati erantzuten ere.»", nombre:"bikoteko barrea", schop:"errefusatu ordez barregarri uztea", q:"Barre egiteak ez du ezer errefusatzen. Non dago diodanaren hutsa?"},
+   {t:"Txandaka estutzen zaituzte pentsatzen utzi gabe: «Erantzun orain! Bai edo ez! Azkar!»", nombre:"txandakako estutzea", schop:"gainera etortzea, bereizi ez dezazun", q:"Gainera etortzea ez da argudiatzea. Emadazu denbora esanahiak bereizteko."},
+   {t:"«Berdin dio zer erantzuten duzun, berdin eroriko zara; hobe orain amore ematea.»", nombre:"garaiezinen blufa", schop:"garaiezintasun faltsuz beldurtzea", q:"Irabazteaz harro egoteak ez du frogatzen arrazoia duzuenik."},
+  ],
+  opp:[
+   {t:"Ikasten dutenak jakintsuak ala ezjakinak dira? Jakintsuak badira, dagoeneko dakitena ikasten dute; ezjakinak badira, ezer ulertu gabe ikasten dute. Beraz, ikastea ezinezkoa da.", f:"equivoco", peso:2},
+   {t:"Zerbait badakizu? Orduan jakintsua zara. Eta dakienak, badaki. Beraz, DENA dakizu, eta beti jakin izan duzu.", f:"equivoco", peso:2},
+   {t:"Txakur bat duzu eta kumeen aita da? Orduan aita da eta zurea da: zure aita da. Eta zu kumeen anaia zara.", f:"equivoco", peso:2},
+   {t:"Gaztea jakintsu bihurtzea nahi duzu, hau da, den hori izateari uztea; izateari uztea nahi duzu: hil dadila nahi duzu!", f:"equivoco", peso:2},
+   {t:"Galdera orori bai edo ez erantzuten zaio. Erantzun bai edo ez soilik eta ikusiko duzu nola erortzen zaren; ñabardurak egitea tranpatien kontua da.", f:"dos", peso:2},
+   {t:"Lehen gauza bat esan duzu eta orain beste bat; beraz, zeure burua kontraesaten duzu eta galdu egin duzu, diozuna diozula.", f:"deformar", peso:1},
+  ],
+  counters:[
+   {t:"Bereizten dut: «ikastea»k bi gauza esan nahi ditu, jakite berri bat eskuratzea eta dagoeneko duena ulertzea. Ezjakinak lehen zentzuan ikasten du. Ekibokoa desegin eta gero, ez dago paradoxarik.", str:3},
+   {t:"«Zerbait jakitea» ez da «dena jakitea»: gauza bat jakiteak ez dakar guztiak jakitea. «Jakin» hitzarekin jolasten ari zara.", str:3},
+   {t:"«Aita da» eta «nirea da» egia dira bereiz, baina ez dira batzen: txakurra bere kumeen aita da eta nirea animalia gisa, ez nire aita. «Izan»en bi esanahi nahasten dituzu.", str:3},
+   {t:"Norbait jakintsu bihurtzea nahi izatea ez da «izateari uztea» nahi izatea: bera izaten jarraitzea eta gainera jakitea nahi izatea da. Hitz bat errefusatzen duzu, ez nire nahia.", str:2},
+   {t:"Azokako bi engainatzailek baino ez lukete horrelakorik esango; ez dizuet jaramonik egingo.", f:"persona"},
+   {t:"Edo zuen jolasa hitz-jario hutsa dela onartzen duzue, edo iruzurtiak zaretela: aukeratu.", f:"dos"},
+  ]},
+ {nivel:["fil","hf"], claim:"Sokrates Kritonen aurka: ihes egin behar al zaio kondena injustu bati?",
+  cpuLado:"Ordenagailua Kriton da: goizaldean kartzelara sartzen den lagun bat, Sokrates ihes egitera konbentzitzeko; dirua, kontaktuak eta plan bat ditu.",
+  tuLado:"Sokrates zara: kontua ez da zer esango duten, ezta zer komeni den ere, baizik eta ihes egitea justua den; eta inoiz ez da injustiziarik egin behar.",
+  estrat:[
+   {t:"«Bihotza hautsiko didazu; hiltzen bazara ordezkaezina den lagun bat galtzen dut, eta inork ez du sinetsiko ahal nuena egin nuenik.»", nombre:"lagunaren xantaia", schop:"pena ematea / errudun sentiaraztea", q:"Zure mina axola zait, baina ez du erabakitzen zer den justua."},
+   {t:"«Azkar ibili, itsasontzia iristear dago, gaur gauean edo inoiz ez; ez dago filosofatzeko astirik!»", nombre:"presa", schop:"gainera etortzea pentsa ez dezazun", q:"Presa ez da argudio bat; larria denez, hain zuzen, ondo pentsatu behar da."},
+   {t:"«Hor geldituko al zara hain lasai zure seme-alabak umezurtz geratzen diren bitartean? Nolako aita zara?»", nombre:"aitaren leporatzea", schop:"argudiatu ordez errudun sentiaraztea", q:"Aita txarra naizela iradokitzeak ez dio erantzuten ihes egitea justua den galderari."},
+  ],
+  opp:[
+   {t:"Ihes egiten ez baduzu, jendeak esango du zure lagunok zekenak eta koldarrak izan ginela zu salbatzeko dirurik gastatu ez genuelako. Pentsa gure ospean.", f:"todos", peso:2},
+   {t:"Pentsa zure seme-alabengan: umezurtz uzten dituzu, haztapenik eta hezkuntzarik gabe. Horrela abandonatzea berekoien kontua da.", f:"pena", peso:2},
+   {t:"Edo ihes egin eta bizi, edo gelditu eta injustuki kondenatu zintuztenei garaipena eman: ez dago besterik.", f:"dos", peso:2},
+   {t:"Gelditzea bide erosoa aukeratzea da; kemenen bat duen edonork ihes egingo zukeen jadanik.", f:"persona", fAlt:["todos"], peso:1},
+   {t:"Baliabideak eta zu ateratzeko prest dauden lagunak ditugu; guretzako arriskua gogo onez hartzen dugu.", f:null},
+   {t:"Zure heriotzak injustuki kondenatu zintuztenei mesede egiten die, eta maite zaitugunoi min.", f:null},
+  ],
+  counters:[
+   {t:"Ez zaio gehiengoak dioenari erreparatu behar, dakienari baizik: osasunean medikuari jarraitzen diogu, ez jendetzari; justuan, berdin. Masak hil dezake, baina ez du erabakitzen zer den justua.", str:3},
+   {t:"Galdera ez da zer esango duten, baizik eta ihes egitea justua den; eta inoiz ez da injustiziarik egin behar, ezta jasotako kalte bat itzultzeko ere.", str:3},
+   {t:"Norbanako bakoitzak gustuko ez dituen epaiak baliogabetzen baditu, ez da hiririk zutik mantentzen. Hemen biziz legeak obeditzea onartu nuen, eta ados ez banengoen alde egin nezakeen: itun hori orain haustea injustua litzateke.", str:3},
+   {t:"Nire seme-alabak hobeto hazten ditu bere itunak hausten ez dituen aita batek: ihes egiteak kontrakoa irakatsiko lieke. Hobe diet lagun onak eta eredu on bat uztea, aita iheslari bat baino.", str:2},
+   {t:"Zu bezalako koldar batek bakarrik, zer esango dutenaren beldur denak, eskatzen dit ihes egiteko.", f:"persona"},
+   {t:"Edo gaur gauean bertan ihes egiten dugu, edo heriotzaren esku uzten nauzu: aukeratu.", f:"dos"},
   ]},
 ];
 

@@ -146,8 +146,9 @@ const FALACIAS = {
   miedo:  {nombre:"Asustar para convencer", tec:"apelación al miedo", q:"¿Me da una razón, o solo me mete miedo?"},
   todos:  {nombre:"Lo dice todo el mundo", tec:"ad populum", q:"Que lo haga mucha gente, ¿lo convierte en verdad?"},
   notrue: {nombre:"Redefinir a conveniencia", tec:"«no true scotsman»", q:"¿Cambias la definición solo para esquivar el contraejemplo? (Sócrates aceptó la distinción… y se la dio la vuelta.)"},
+  equivoco:{nombre:"Jugar con el doble sentido", tec:"equívoco / anfibología", q:"Esa palabra tiene dos sentidos: ¿en cuál la usas? Si cambias de sentido a mitad de camino, no has probado nada."},
 };
-const ORDEN_FAL = ["persona","famoso","siempre","pena","deformar","pocos","causa","dos","miedo","todos","notrue"];
+const ORDEN_FAL = ["persona","famoso","siempre","pena","deformar","pocos","causa","dos","miedo","todos","notrue","equivoco"];
 const FIBRA = new Set(["persona"]); // falacias que, además de trampa, son una falta de respeto: cuestan temple aunque las caces
 
 /* ---------- Estratagemas eristas: atacan el temple, no el tema ---------- */
@@ -347,6 +348,78 @@ const TEMAS = [
    {t:"No digo dejarse pisotear: digo que cometer injusticia daña el alma más que sufrirla; por eso prefiero recibir el golpe a darlo.", str:2},
    {t:"Tú defiendes esto porque eres un ambicioso sin escrúpulos; por eso no te creo.", f:"persona"},
    {t:"O admites que la justicia vale, o reconoces que no eres más que un tirano: elige.", f:"dos"},
+  ]},
+ {nivel:["fil","hf"], claim:"Sócrates contra Eutifrón: ¿qué es la piedad?",
+  cpuLado:"El ordenador es Eutifrón: un adivino que se cree experto en religión y va a denunciar a su propio padre; asegura saber qué es «lo pío».",
+  tuLado:"Eres Sócrates: no buscas ejemplos, sino la definición: el rasgo por el que toda acción pía es pía.",
+  estrat:[
+   {t:"“Yo sé de estas cosas mucho más que tú, Sócrates; para algo soy adivino.”", nombre:"la suficiencia del experto", schop:"apelar a la propia autoridad", q:"Que seas adivino no responde a la pregunta: dime qué es lo pío."},
+   {t:"“Me cansas con tanta preguntita; esto lo entiende cualquiera menos tú.”", nombre:"la impaciencia", schop:"desdén / ad hominem", q:"Cansarte no refuta nada. Volvamos a la pregunta."},
+   {t:"“Tengo prisa, Sócrates, me esperan; lo dejamos para otro día.”", nombre:"la huida", schop:"esquivar la pregunta", q:"Irte no es responder: huir deja la pregunta en pie."},
+  ],
+  opp:[
+   {t:"¿Qué es lo pío? Pío es lo que hago ahora mismo: perseguir al que comete un crimen. Ahí lo tienes.", f:null},
+   {t:"El propio Zeus encadenó a su padre Crono; si los dioses hacen estas cosas, ¿quién soy yo para no imitarlos?", f:"famoso", peso:2},
+   {t:"Está clarísimo: lo pío es lo que resulta querido por los dioses, y lo impío lo que les resulta odioso.", f:null},
+   {t:"Pues lo pío será lo que aman TODOS los dioses sin excepción; ninguno que de verdad sea dios amaría un crimen.", f:"notrue", peso:2},
+   {t:"Es pío porque los dioses lo aman, y punto; con eso te basta para saber qué es.", f:null},
+   {t:"Todo Atenas sabe de sobra lo que es la piedad; solo tú finges no entenderlo.", f:"todos", peso:2},
+  ],
+  counters:[
+   {t:"Te pregunté QUÉ es la piedad, no un ejemplo de algo piadoso. Dame el rasgo por el que toda acción pía es pía, para medir con él cualquier acto.", str:3},
+   {t:"Si los dioses riñen entre sí, como cuentan los poetas, lo mismo será amado por unos y odiado por otros: pío e impío a la vez. Tu definición se contradice.", str:3},
+   {t:"¿Lo pío es amado por los dioses PORQUE es pío, o es pío PORQUE lo aman? Si lo aman porque ya es pío, ser amado no es lo que lo hace pío: me dices lo que le ocurre, no lo que es.", str:3},
+   {t:"Tu «comercio» con los dioses vuelve al principio: agradarles no es sino ser amado por ellos, y eso ya lo refutamos. Giras en círculo.", str:2},
+   {t:"Un hombre capaz de llevar a su propio padre a juicio no tiene corazón; no me fío de nada que diga.", f:"persona"},
+   {t:"O defines la piedad aquí y ahora, o reconoce que eres un impío: elige.", f:"dos"},
+  ]},
+ {nivel:["fil","hf"], claim:"Sócrates contra Eutidemo y Dionisodoro: el arte de vencer con palabras",
+  cpuLado:"El ordenador son los hermanos eristas Eutidemo y Dionisodoro: presumen de refutar cualquier cosa, diga lo que diga el otro, jugando con el doble sentido de las palabras.",
+  tuLado:"Eres Sócrates: distingue los sentidos de cada palabra y muestra que refutan el término, no la cosa.",
+  estrat:[
+   {t:"Se ríen a dúo: “¿Lo veis? El gran Sócrates no sabe ni responder una pregunta de niños.”", nombre:"la risa a dúo", schop:"ridiculizar en vez de refutar", q:"Reírse no refuta nada. ¿Dónde está el fallo de lo que digo?"},
+   {t:"Te acosan por turnos sin dejarte pensar: “¡Responde ya! ¡Sí o no! ¡Rápido!”", nombre:"el acoso por turnos", schop:"atropellar para que no distingas", q:"Atropellar no es argumentar. Dame tiempo de distinguir los sentidos."},
+   {t:"“Da igual lo que respondas, caerás igual; mejor ríndete ya.”", nombre:"el farol de invencibles", schop:"intimidar con falsa invencibilidad", q:"Que presumáis de ganar no prueba que tengáis razón."},
+  ],
+  opp:[
+   {t:"Los que aprenden, ¿son los sabios o los ignorantes? Si son los sabios, aprenden lo que ya saben; si los ignorantes, aprenden sin entender nada. Luego aprender es imposible.", f:"equivoco", peso:2},
+   {t:"¿Sabes algo? Entonces eres un sabio. Y el que sabe, sabe. Luego lo sabes TODO, y siempre lo has sabido.", f:"equivoco", peso:2},
+   {t:"¿Tienes un perro y es padre de cachorros? Entonces es padre y es tuyo: es tu padre. Y tú eres hermano de los cachorros.", f:"equivoco", peso:2},
+   {t:"Quieres que el joven se vuelva sabio, es decir, que deje de ser lo que es; quieres que deje de ser: ¡quieres que muera!", f:"equivoco", peso:2},
+   {t:"Toda pregunta se responde sí o no. Responde solo sí o no y verás cómo caes; matizar es de tramposos.", f:"dos", peso:2},
+   {t:"Antes dijiste una cosa y ahora otra; luego te contradices y has perdido, digas lo que digas.", f:"deformar", peso:1},
+  ],
+  counters:[
+   {t:"Distingo: «aprender» significa dos cosas, adquirir un saber nuevo y entender lo que ya se tiene. El ignorante aprende en el primer sentido. Deshecho el equívoco, no hay paradoja.", str:3},
+   {t:"«Saber algo» no es «saberlo todo»: de que sepa una cosa no se sigue que las sepa todas. Juegas con la palabra «saber».", str:3},
+   {t:"«Es padre» y «es mío» son verdad por separado, pero no se suman: el perro es padre de sus cachorros y mío como animal, no mi padre. Confundes dos sentidos de «ser».", str:3},
+   {t:"Querer que alguien llegue a ser sabio no es querer que «deje de ser»: es querer que siga siendo él y además sepa. Refutas una palabra, no mi deseo.", str:2},
+   {t:"Solo un par de embaucadores de feria diría algo así; no voy a haceros el menor caso.", f:"persona"},
+   {t:"O admitís que vuestro juego es pura palabrería, o sois unos farsantes: elegid.", f:"dos"},
+  ]},
+ {nivel:["fil","hf"], claim:"Sócrates contra Critón: ¿hay que escapar de una condena injusta?",
+  cpuLado:"El ordenador es Critón: un amigo que entra de madrugada en la cárcel para convencer a Sócrates de que huya; tiene dinero, contactos y un plan.",
+  tuLado:"Eres Sócrates: la cuestión no es qué dirán ni qué conviene, sino si huir es justo; y jamás se debe cometer injusticia.",
+  estrat:[
+   {t:"“Me romperás el corazón; si mueres pierdo a un amigo irreemplazable y nadie creerá que hice lo posible.”", nombre:"el chantaje del amigo", schop:"dar pena / culpabilizar", q:"Tu dolor me importa, pero no decide qué es justo."},
+   {t:"“¡Date prisa, el barco está al llegar, es esta noche o nunca; no hay tiempo de filosofar!”", nombre:"la prisa", schop:"atropellar para que no pienses", q:"La prisa no es un argumento; justamente por grave hay que pensarlo bien."},
+   {t:"“¿Vas a quedarte ahí tan tranquilo mientras tus hijos quedan huérfanos? ¿Qué clase de padre eres?”", nombre:"el reproche del padre", schop:"culpar en vez de argumentar", q:"Insinuar que soy mal padre no responde a si escapar es justo."},
+  ],
+  opp:[
+   {t:"Si no escapas, la gente dirá que tus amigos fuimos unos tacaños y unos cobardes por no gastar en salvarte. Piensa en nuestra fama.", f:"todos", peso:2},
+   {t:"Piensa en tus hijos: los dejas huérfanos, sin crianza ni educación. Abandonarlos así es de egoístas.", f:"pena", peso:2},
+   {t:"O escapas y vives, o te quedas y les das la victoria a los que te condenaron injustamente: no hay otra.", f:"dos", peso:2},
+   {t:"Quedarte es elegir el camino cómodo; cualquiera con agallas ya habría huido.", f:"persona", fAlt:["todos"], peso:1},
+   {t:"Tenemos los medios y amigos dispuestos a sacarte; el riesgo para nosotros lo asumimos de buena gana.", f:null},
+   {t:"Tu muerte beneficia a quienes te condenaron injustamente y hiere a quienes te queremos.", f:null},
+  ],
+  counters:[
+   {t:"No hay que atender a lo que opina la mayoría, sino a quien sabe: en salud seguimos al médico, no a la multitud; en lo justo, igual. La masa puede matar, pero no decide qué es justo.", str:3},
+   {t:"La pregunta no es qué dirán, sino si escapar es justo; y jamás se debe cometer injusticia, ni siquiera para devolver un daño recibido.", str:3},
+   {t:"Si cada particular anula las sentencias que no le gustan, ninguna ciudad se sostiene. Viviendo aquí acepté obedecer las leyes y pude irme si no estaba de acuerdo: romper ese pacto ahora sería injusto.", str:3},
+   {t:"A mis hijos los cría mejor un padre que no rompe sus pactos: huir les enseñaría lo contrario. Mejor les dejo buenos amigos y un buen ejemplo que un padre fugitivo.", str:2},
+   {t:"Solo un cobarde como tú, que teme el qué dirán, me pide que huya.", f:"persona"},
+   {t:"O huimos ya esta noche, o me abandonas a la muerte: elige.", f:"dos"},
   ]},
 ];
 

@@ -95,7 +95,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Una compañera",
-        "caso": "Leire dice que el examen de Matemáticas es el jueves: lo apuntó en la agenda cuando lo dijo la profesora.",
+        "caso": "Una compañera dice que el examen de Matemáticas es el jueves: lo apuntó en la agenda cuando lo dijo la profesora.",
         "pasos": [
          "¿Qué me piden creer? Que el examen es el jueves.",
          "¿Qué razón me dan? Lo apuntó cuando lo dijo la profesora.",
@@ -117,7 +117,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "El que lleva la contraria",
-        "caso": "Aitor presume: «Yo pienso críticamente: a los profes siempre les llevo la contraria».",
+        "caso": "Un chico presume: «Yo pienso críticamente: a los profes siempre les llevo la contraria».",
         "pasos": [
          "Parece que sí: no se cree lo que le dicen.",
          "Pero ¿mira las razones de cada cosa? No: dice «no» a todo, antes de escuchar.",
@@ -146,7 +146,7 @@ const CURSO = [
         "pregunta": "Escribe una pregunta que haría un pensador crítico al leer una noticia."
        },
        {
-        "pregunta": "Iker dice: «Yo no me creo nada de lo que sale en internet». ¿Es crédulo, desconfiado o pensador crítico? ¿Por qué?"
+        "pregunta": "Un chico dice: «Yo no me creo nada de lo que sale en internet». ¿Es crédulo, desconfiado o pensador crítico? ¿Por qué?"
        }
       ]
      },
@@ -257,7 +257,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Un hecho que es falso",
-        "caso": "Kevin dice: «El Athletic juega en Anoeta».",
+        "caso": "Un chico dice: «El Athletic juega en Anoeta».",
         "pasos": [
          "¿Dice cómo son las cosas? Sí: dónde juega un equipo.",
          "Lo compruebo: el Athletic juega en San Mamés. Anoeta es el campo de la Real Sociedad.",
@@ -342,7 +342,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Leire dice: «Es un hecho que el Athletic es el mejor equipo del mundo». ¿Es de verdad una afirmación de hecho? ¿Por qué?"
+        "pregunta": "Una chica dice: «Es un hecho que el Athletic es el mejor equipo del mundo». ¿Es de verdad una afirmación de hecho? ¿Por qué?"
        }
       ]
      }
@@ -353,8 +353,8 @@ const CURSO = [
     "titulo": "Creer, saber y estar seguro",
     "idea": "Sentirse seguro no es lo mismo que saber. Solemos decir que alguien sabe algo cuando lo cree, es verdad y tiene buenas razones.",
     "arranque": {
-     "texto": "Omar está segurísimo de que dejó las llaves en la mochila. Las busca… y no están.",
-     "pregunta": "¿Omar sabía dónde estaban las llaves, o solo lo creía?"
+     "texto": "Un chico está segurísimo de que dejó las llaves en la mochila. Las busca… y no están.",
+     "pregunta": "¿Ese chico sabía dónde estaban las llaves, o solo lo creía?"
     },
     "bloques": [
      {
@@ -424,7 +424,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Las llaves",
-        "caso": "Omar está segurísimo: «Las llaves están en la mochila». No están. Al final aparecen en la mesa de la cocina.",
+        "caso": "Un chico está segurísimo: «Las llaves están en la mochila». No están. Al final aparecen en la mesa de la cocina.",
         "pasos": [
          "¿Estaba seguro? Sí, muchísimo.",
          "¿Era verdad lo que creía? No: estaban en la cocina.",
@@ -435,7 +435,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Acertar por suerte",
-        "caso": "Aitor no ha estudiado. En una pregunta de test elige la b) al azar… y acierta.",
+        "caso": "Un chico no ha estudiado. En una pregunta de test elige la b) al azar… y acierta.",
         "pasos": [
          "¿Su respuesta es verdadera? Sí.",
          "¿Tenía razones para elegir la b)? No: la eligió al azar.",
@@ -446,24 +446,24 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · Saber de verdad",
-        "caso": "Naiara dice: «El agua hierve a 100 grados a nivel del mar». Lo explicaron en clase y ella lo midió en el laboratorio.",
+        "caso": "Una chica dice: «El agua hierve a 100 grados a nivel del mar». Lo explicaron en clase y ella lo midió en el laboratorio.",
         "pasos": [
          "¿Es verdad? Sí: es un dato muy comprobado.",
          "¿Tiene buenas razones? Sí: se lo explicaron y lo midió ella misma.",
-         "Conclusión: Naiara lo sabe. Es verdad y tiene buenas razones."
+         "Conclusión: esa chica lo sabe. Es verdad y tiene buenas razones."
         ]
        },
        {
         "tipo": "trampa",
         "titulo": "El reloj parado",
-        "caso": "Leire mira el reloj del pasillo: marca las 10:15. Son las 10:15. Pero el reloj está parado desde ayer a las 10:15.",
+        "caso": "Una chica mira el reloj del pasillo: marca las 10:15. Son las 10:15. Pero el reloj está parado desde ayer a las 10:15.",
         "pasos": [
          "¿Lo cree? Sí. ¿Es verdad? Sí: son las 10:15.",
          "¿Tiene una razón? Sí: los relojes del pasillo suelen funcionar.",
          "Y aun así acierta por suerte: el reloj no funciona.",
          "Conclusión: la definición de saber no es perfecta. Los filósofos lo siguen discutiendo."
         ],
-        "pregunta": "¿Sabe Leire qué hora es?"
+        "pregunta": "¿Sabe esa chica qué hora es?"
        }
       ]
      }
@@ -485,7 +485,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de algo que estabas seguro de que era verdad y resultó falso."
        },
        {
-        "pregunta": "Chen dice: «Sé que el sábado ganará el Athletic. Lo noto». ¿Lo sabe o lo cree? ¿Por qué?"
+        "pregunta": "Un chico dice: «Sé que el sábado ganará el Athletic. Lo noto». ¿Lo sabe o lo cree? ¿Por qué?"
        }
       ]
      },
@@ -503,7 +503,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Iker está seguro de que 7 × 8 = 56: se lo sabe desde primaria y lo ha comprobado muchas veces. ¿Su seguridad es solo un sentimiento?"
+        "pregunta": "Un chico está seguro de que 7 × 8 = 56: se lo sabe desde primaria y lo ha comprobado muchas veces. ¿Su seguridad es solo un sentimiento?"
        }
       ]
      }
@@ -514,7 +514,7 @@ const CURSO = [
     "titulo": "Hacer buenas preguntas",
     "idea": "Las preguntas cerradas piden un dato; las abiertas piden explicar. «¿Cómo lo sabes?» pide la fuente y las razones.",
     "arranque": {
-     "texto": "Leire vuelve de la excursión. Su madre le pregunta: «¿Bien?». Leire: «Sí». Su padre le pregunta: «¿Qué es lo que más te ha gustado?».",
+     "texto": "Una chica vuelve de la excursión. Su madre le pregunta: «¿Bien?». La chica: «Sí». Su padre le pregunta: «¿Qué es lo que más te ha gustado?».",
      "pregunta": "¿Con qué pregunta se entera de más cosas?"
     },
     "bloques": [
@@ -560,11 +560,11 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Un rumor en el patio",
-        "caso": "Dylan dice: «El profe de Música se va del instituto».",
+        "caso": "Un chico dice: «El entrenador se va del equipo».",
         "pasos": [
-         "Pregunta cerrada: «¿Es verdad?». Dylan: «Sí». No aprendo nada nuevo.",
-         "Pregunta abierta: «¿Cómo lo sabes?». Dylan: «Me lo dijo uno de 4.º».",
-         "Otra más: «¿Y cómo lo sabe él?». Dylan: «Ni idea».",
+         "Pregunta cerrada: «¿Es verdad?». El chico: «Sí». No aprendo nada nuevo.",
+         "Pregunta abierta: «¿Cómo lo sabes?». El chico: «Me lo dijo uno de 4.º».",
+         "Otra más: «¿Y cómo lo sabe él?». El chico: «Ni idea».",
          "Conclusión: la buena pregunta muestra que no hay una fuente clara. Todavía no me lo creo."
         ]
        },
@@ -582,10 +582,10 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Una pregunta abierta con trampa",
-        "caso": "«¿Por qué los de 1.º son tan pesados?»",
+        "caso": "«¿Por qué los hermanos pequeños son tan pesados?»",
         "pasos": [
          "Es abierta: no se contesta con sí o no.",
-         "Pero ya da por hecho algo: que los de 1.º son pesados.",
+         "Pero ya da por hecho algo: que los hermanos pequeños son pesados.",
          "Si contesto, acepto eso sin que nadie lo haya demostrado.",
          "Conclusión: antes de contestar, mira qué da por hecho la pregunta."
         ],
@@ -680,7 +680,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Yasmin lee en un grupo de WhatsApp: «A partir de enero, en 2.º de la ESO no se podrá llevar el móvil al instituto». Escribe tres preguntas que haría un pensador crítico."
+        "pregunta": "Una chica lee en un grupo de WhatsApp: «A partir de enero, en 2.º de la ESO no se podrá llevar el móvil al instituto». Escribe tres preguntas que haría un pensador crítico."
        }
       ]
      }
@@ -691,8 +691,8 @@ const CURSO = [
     "titulo": "¿Por qué creemos lo que creemos?",
     "idea": "Muchas creencias no vienen de razones, sino de la costumbre, el grupo, la autoridad o la emoción, como en el cuento del rey que cojeaba.",
     "arranque": {
-     "texto": "Todos en tu clase llevan las mismas zapatillas. Sin darte cuenta, empiezas a pensar que son las mejores.",
-     "pregunta": "¿Lo piensas por una razón… o por otra cosa?"
+     "texto": "Todos en la clase de una chica llevan las mismas zapatillas. Sin darse cuenta, ella empieza a pensar que son las mejores.",
+     "pregunta": "¿Lo piensa por una razón… o por otra cosa?"
     },
     "bloques": [
      {
@@ -791,7 +791,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso de hoy · Una crema para granos",
-        "caso": "Maialen cree que una crema para granos funciona. La usa toda su cuadrilla, la anuncia su influencer favorita y a ella le hace mucha ilusión.",
+        "caso": "Una chica cree que una crema para granos funciona. La usa toda su cuadrilla, la anuncia su influencer favorita y a ella le hace mucha ilusión.",
         "pasos": [
          "«La usa toda su cuadrilla»: camino del **grupo**.",
          "«La anuncia su influencer»: camino de la **autoridad**. Pero ¿sabe de piel?",
@@ -802,7 +802,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Autoridad = mala razón?",
-        "caso": "Chen cree que la Tierra gira alrededor del Sol. Nunca lo ha comprobado: se lo explicó su profesora.",
+        "caso": "Un chico cree que la Tierra gira alrededor del Sol. Nunca lo ha comprobado: se lo explicó su profesora.",
         "pasos": [
          "Sí, es el camino de la autoridad.",
          "Pero la profesora **sabe del tema**, y la ciencia lo ha comprobado muchísimas veces.",
@@ -831,7 +831,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de algo que se cree o se hace por costumbre."
        },
        {
-        "pregunta": "Kevin dice: «Ese videojuego es malísimo: en mi clase lo dice todo el mundo». ¿Qué camino es? ¿Por qué?"
+        "pregunta": "Un chico dice: «Ese videojuego es malísimo: en mi clase lo dice todo el mundo». ¿Qué camino es? ¿Por qué?"
        }
       ]
      },
@@ -971,18 +971,18 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Agua con limón",
-        "caso": "Iker lee en Instagram: «El agua con limón en ayunas quema grasa. Lo dice una influencer de fitness y lo hace todo mi gimnasio». Iker está seguro de que es verdad.",
+        "caso": "Un chico lee en Instagram: «El agua con limón en ayunas quema grasa. Lo dice una influencer de fitness y lo hace todo mi gimnasio». Está seguro de que es verdad.",
         "pasos": [
          "¿Hecho, gusto u opinión? Es una afirmación de hecho: verdadera o falsa.",
          "¿Qué caminos hay? Autoridad (la influencer) y grupo (el gimnasio).",
-         "¿Lo sabe Iker? No: estar seguro no basta. Le faltan buenas razones.",
+         "¿Lo sabe? No: estar seguro no basta. Le faltan buenas razones.",
          "Conclusión: la pregunta es «¿cómo lo sabes?». Hay que mirar qué dicen fuentes médicas."
         ]
        },
        {
         "tipo": "trampa",
         "titulo": "Lo sé seguro",
-        "caso": "Omar: «Sé seguro que el agua con limón adelgaza. Lo he visto en un vídeo con tres millones de visitas».",
+        "caso": "Un chico: «Sé seguro que el agua con limón adelgaza. Lo he visto en un vídeo con tres millones de visitas».",
         "pasos": [
          "«Adelgaza» dice cómo son las cosas: es una afirmación de hecho, verdadera o falsa.",
          "«Seguro» es un sentimiento. Las visitas son el camino del grupo.",
@@ -1008,7 +1008,7 @@ const CURSO = [
         "pregunta": "¿Qué es pensar críticamente?"
        },
        {
-        "pregunta": "Omar se cree todo lo que ve en TikTok. ¿Es crédulo, desconfiado o pensador crítico?"
+        "pregunta": "Un chico se cree todo lo que ve en TikTok. ¿Es crédulo, desconfiado o pensador crítico?"
        },
        {
         "pregunta": "¿Hecho, gusto u opinión? a) «Bilbao está en Bizkaia». b) «Me gusta más Bilbao que Donostia». c) «Bilbao debería tener más carriles bici»."
@@ -1020,7 +1020,7 @@ const CURSO = [
         "pregunta": "Escribe una pregunta cerrada y una abierta sobre el último partido que viste."
        },
        {
-        "pregunta": "Naiara cree que un champú es muy bueno porque lo anuncia su cantante favorita. ¿Qué camino de creencia es?"
+        "pregunta": "Una chica cree que un champú es muy bueno porque lo anuncia su cantante favorita. ¿Qué camino de creencia es?"
        }
       ]
      },
@@ -1041,7 +1041,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Chen recibe un audio reenviado por WhatsApp: «Mañana cierran el metro de Bilbao por una huelga. Lo dice mi tío, que trabaja allí. Todos los grupos lo están compartiendo». Chen está seguro de que es verdad. Analiza el mensaje con lo que has aprendido en la unidad."
+        "pregunta": "Un chico recibe un audio reenviado por WhatsApp: «Mañana cierran el metro de Bilbao por una huelga. Lo dice mi tío, que trabaja allí. Todos los grupos lo están compartiendo». Está seguro de que es verdad. Analiza el mensaje con lo que has aprendido en la unidad."
        }
       ]
      }
@@ -1103,7 +1103,7 @@ const CURSO = [
           "Deberíamos ir en metro."
          ],
          [
-          "«Naiara paró tres penaltis, así que debería jugar de portera.»",
+          "«Una chica paró tres penaltis, así que debería jugar de portera.»",
           "Paró tres penaltis.",
           "Debería jugar de portera."
          ],
@@ -1175,10 +1175,10 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Un «porque» que no es premisa",
-        "caso": "Leire entra en clase empapada. Aitor le pregunta qué ha pasado. Leire: «Estoy empapada porque me ha pillado la tormenta».",
+        "caso": "Una chica entra en clase empapada. Un chico le pregunta qué ha pasado. La chica: «Estoy empapada porque me ha pillado la tormenta».",
         "pasos": [
-         "Aitor ya ve que está empapada: no hace falta convencerle de eso.",
-         "Leire no quiere que acepte nada: le **explica** por qué ha pasado.",
+         "El chico ya ve que está empapada: no hace falta convencerle de eso.",
+         "La chica no quiere que acepte nada: le **explica** por qué ha pasado.",
          "Ese «porque» da una **causa**, no una razón para creer algo.",
          "Conclusión: no es un argumento, es una explicación. Los indicadores ayudan, pero hay que pensar."
         ],
@@ -1213,7 +1213,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 3) Aitor acierta una pregunta de test al azar. ¿Sabía la respuesta? ¿Por qué?"
+        "pregunta": "(Repaso de la sesión 3) Un chico acierta una pregunta de test al azar. ¿Sabía la respuesta? ¿Por qué?"
        }
       ]
      },
@@ -1222,7 +1222,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Separa las premisas y la conclusión de Dylan: «Me voy a apuntar al equipo de baloncesto: me encanta, entrenan al lado de casa y van mis amigos»."
+        "pregunta": "Separa las premisas y la conclusión de un chico: «Me voy a apuntar al equipo de baloncesto: me encanta, entrenan al lado de casa y van mis amigos»."
        }
       ]
      }
@@ -1233,7 +1233,7 @@ const CURSO = [
     "titulo": "Reconstruir argumentos",
     "idea": "Reconstruir un argumento es escribirlo ordenado, quitar lo que sobra y descubrir las premisas ocultas que no se dicen.",
     "arranque": {
-     "texto": "«Iker no puede ser el portero: lleva gafas.»",
+     "texto": "«Un chico no puede ser el portero: lleva gafas.»",
      "pregunta": "¿Qué está pensando, sin decirlo, quien dice esto?"
     },
     "bloques": [
@@ -1289,9 +1289,9 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · El portero con gafas",
-        "caso": "«Iker no puede ser el portero: lleva gafas.»",
+        "caso": "«Un chico no puede ser el portero: lleva gafas.»",
         "pasos": [
-         "C: Iker no puede ser el portero. P1: Iker lleva gafas.",
+         "C: el chico no puede ser el portero. P1: el chico lleva gafas.",
          "¿Qué falta para llegar a la C? Algo así: «quien lleva gafas no puede ser portero».",
          "Esa es la **premisa oculta**. Escrita, se ve que es falsa: se puede jugar con gafas deportivas o lentillas.",
          "Conclusión: el argumento falla por la premisa que no se decía."
@@ -1336,7 +1336,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Qué premisa oculta elijo?",
-        "caso": "«Kevin no puede llevar la moto de su tío: tiene 13 años.»",
+        "caso": "«Un chico no puede llevar la moto de su tío: tiene 13 años.»",
         "pasos": [
          "Esa premisa sería dudosa: no todos los de 13 años conducirían mal.",
          "Pero otra también lleva a la C, y es verdad: «la ley no deja llevar moto a los 13».",
@@ -1365,7 +1365,7 @@ const CURSO = [
         "pregunta": "Escribe un argumento corto que tenga una premisa oculta, y di cuál es."
        },
        {
-        "pregunta": "¿Cuál es la premisa oculta? «Omar tiene que saber mucho de ordenadores: se pasa el día jugando a videojuegos»."
+        "pregunta": "¿Cuál es la premisa oculta? «Un chico tiene que saber mucho de ordenadores: se pasa el día jugando a videojuegos»."
        }
       ]
      },
@@ -1383,7 +1383,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Reconstruye el argumento (P1, C) y escribe la premisa oculta: «Leire va a aprobar Matemáticas seguro: su hermana mayor sacó un 10». ¿Es verdad la premisa oculta?"
+        "pregunta": "Reconstruye el argumento (P1, C) y escribe la premisa oculta: «Una chica va a aprobar Matemáticas seguro: su hermana mayor sacó un 10». ¿Es verdad la premisa oculta?"
        }
       ]
      }
@@ -1426,7 +1426,7 @@ const CURSO = [
         "titulo": "2 · ¿Viene a cuento?",
         "texto": "Una razón puede ser verdad y **no tener que ver** con la conclusión.",
         "puntos": [
-         "«Youssef debe ser delegado porque es el más alto»",
+         "«Un chico debe ser delegado porque es el más alto»",
          "Puede ser verdad, pero la altura no importa para ser delegado"
         ]
        },
@@ -1469,14 +1469,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿La altura no viene a cuento?",
-        "caso": "«Iker debería ser nuestro portero: es el más alto de la clase.»",
+        "caso": "«Un chico debería ser nuestro portero: es el más alto de la clase.»",
         "pasos": [
-         "Parece igual que lo de Youssef: otra vez la altura.",
+         "Parece igual que lo del delegado: otra vez la altura.",
          "Pero la conclusión es otra. Un portero alto llega a más balones: aquí la altura sí importa.",
          "¿Es suficiente? Sola, no: también cuentan los reflejos y las ganas.",
          "Conclusión: si una razón viene a cuento depende de la conclusión. No la juzgues por su forma."
         ],
-        "pregunta": "Como con Youssef y el delegado: la altura no viene a cuento, ¿verdad?"
+        "pregunta": "Como con el delegado: la altura no viene a cuento, ¿verdad?"
        }
       ]
      },
@@ -1494,7 +1494,7 @@ const CURSO = [
         "filas": [
          [
           "**Repetir**",
-          "«Hay que respetar a los profes porque hay que respetarlos»",
+          "«Esta serie es la mejor porque es la mejor»",
           "Dice lo mismo dos veces"
          ],
          [
@@ -1552,7 +1552,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Malen le dice a una amiga: «Tienes que darme tu contraseña de Instagram, porque somos mejores amigas». Pasa las tres preguntas a su razón. ¿Es buena?"
+        "pregunta": "Una chica le dice a una amiga: «Tienes que darme tu contraseña de Instagram, porque somos mejores amigas». Pasa las tres preguntas a su razón. ¿Es buena?"
        }
       ]
      }
@@ -1563,7 +1563,7 @@ const CURSO = [
     "titulo": "Deducción e inducción",
     "idea": "En una deducción bien hecha, la conclusión es segura si las premisas son verdad; en una inducción, solo es probable.",
     "arranque": {
-     "texto": "Kevin: «Todas las veces que he pedido pizza en ese sitio ha llegado fría. Hoy también llegará fría».",
+     "texto": "Un chico: «Todas las veces que he pedido pizza en ese sitio ha llegado fría. Hoy también llegará fría».",
      "pregunta": "¿Es seguro que hoy llegará fría? ¿O solo es probable?"
     },
     "bloques": [
@@ -1576,8 +1576,8 @@ const CURSO = [
         "texto": "En una deducción bien hecha, si las premisas son verdad, la conclusión es **segura**: tiene que ser verdad.",
         "puntos": [
          "P1: Todos los alumnos de 2.º tienen Inglés",
-         "P2: Aitor es de 2.º",
-         "C: Por tanto, Aitor tiene Inglés"
+         "P2: un chico es de 2.º",
+         "C: Por tanto, ese chico tiene Inglés"
         ]
        },
        {
@@ -1625,7 +1625,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · El reconocimiento médico",
-        "caso": "«Todos los jugadores del equipo tienen que pasar el reconocimiento médico. Naiara es del equipo. Por tanto, Naiara tiene que pasarlo.»",
+        "caso": "«Todos los jugadores del equipo tienen que pasar el reconocimiento médico. Una chica es del equipo. Por tanto, esa chica tiene que pasarlo.»",
         "pasos": [
          "¿La conclusión sale de lo que dicen las premisas? Sí.",
          "Si las dos premisas son verdad, ¿puede ser falsa la conclusión? No.",
@@ -1637,7 +1637,7 @@ const CURSO = [
         "titulo": "Caso 2 · La pizza fría",
         "caso": "«Todas las veces que he pedido pizza en ese sitio ha llegado fría. Hoy también llegará fría.»",
         "pasos": [
-         "¿De dónde sale la conclusión? De casos que Kevin ha vivido.",
+         "¿De dónde sale la conclusión? De casos que ese chico ha vivido.",
          "¿Puede fallar? Sí: hoy puede venir otro repartidor o haber menos tráfico.",
          "¿Es fuerte? Depende de cuántas veces ha pedido: dos veces no es lo mismo que veinte.",
          "Conclusión: es una **inducción**. La conclusión es probable, no segura."
@@ -1657,10 +1657,10 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿«Todos» + «por tanto» = segura?",
-        "caso": "«Todos los de 2.º B tienen Inglés. Aitor tiene Inglés. Por tanto, Aitor es de 2.º B.»",
+        "caso": "«Todos los de 2.º B tienen Inglés. Un chico tiene Inglés. Por tanto, ese chico es de 2.º B.»",
         "pasos": [
          "Se parece mucho a la del reconocimiento médico. Pero mira bien el orden.",
-         "Las dos premisas pueden ser verdad y Aitor ser de 2.º A, que también tiene Inglés.",
+         "Las dos premisas pueden ser verdad y ese chico ser de 2.º A, que también tiene Inglés.",
          "La conclusión no sale de las premisas: la deducción está **mal hecha**.",
          "Conclusión: no mires solo las palabras. Pregunta: si las premisas son verdad, ¿puede fallar la conclusión?"
         ],
@@ -1729,7 +1729,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Chen ha estudiado tres veces con música y las tres ha sacado mala nota. Concluye: «Estudiar con música me va mal». ¿Deducción o inducción? ¿Es segura su conclusión? ¿Qué la haría más fuerte?"
+        "pregunta": "Un chico ha estudiado tres veces con música y las tres ha sacado mala nota. Concluye: «Estudiar con música me va mal». ¿Deducción o inducción? ¿Es segura su conclusión? ¿Qué la haría más fuerte?"
        }
       ]
      }
@@ -1740,8 +1740,8 @@ const CURSO = [
     "titulo": "Ejemplos, contraejemplos y analogías",
     "idea": "Los ejemplos apoyan una idea, un solo contraejemplo basta para tumbar un «todos» y una analogía compara dos cosas parecidas.",
     "arranque": {
-     "texto": "Omar dice: «Todos los gatos odian el agua». Leire le enseña un vídeo de su gato nadando tan tranquilo.",
-     "pregunta": "¿Qué le pasa a la frase de Omar?"
+     "texto": "Un chico dice: «Todos los gatos odian el agua». Una chica le enseña un vídeo de su gato nadando tan tranquilo.",
+     "pregunta": "¿Qué le pasa a la frase de ese chico?"
     },
     "bloques": [
      {
@@ -1785,20 +1785,20 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Un contraejemplo",
-        "caso": "Aitor: «Nadie de mi clase lee libros por gusto». Maialen: «Yo he leído tres este verano, y nadie me obligó».",
+        "caso": "Un chico: «Nadie de mi clase lee libros por gusto». Una chica: «Yo he leído tres este verano, y nadie me obligó».",
         "pasos": [
-         "La frase de Aitor es general: «nadie».",
-         "Maialen es un caso en contra: un **contraejemplo**.",
+         "La frase del chico es general: «nadie».",
+         "La chica es un caso en contra: un **contraejemplo**.",
          "No hace falta más: basta uno.",
-         "Conclusión: la frase de Aitor es falsa. Podría decir «pocos», pero no «nadie»."
+         "Conclusión: la frase del chico es falsa. Podría decir «pocos», pero no «nadie»."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Muchos ejemplos no bastan",
-        "caso": "Kevin: «Todos los youtubers son ricos: mira estos cinco, que tienen casas enormes».",
+        "caso": "Un chico: «Todos los youtubers son ricos: mira estos cinco, que tienen casas enormes».",
         "pasos": [
-         "Kevin da cinco **ejemplos**. Apoyan su idea, pero no la demuestran.",
+         "Ese chico da cinco **ejemplos**. Apoyan su idea, pero no la demuestran.",
          "Hay muchísimos youtubers con pocos seguidores que no ganan casi nada.",
          "Cada uno de ellos es un contraejemplo.",
          "Conclusión: cinco ejemplos no demuestran un «todos». Un contraejemplo sí lo tumba."
@@ -1833,14 +1833,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Un contraejemplo lo tumba todo?",
-        "caso": "Leire: «A los perros les encanta salir a pasear». Kevin: «El mío odia pasear: se esconde debajo de la cama».",
+        "caso": "Una chica: «A los perros les encanta salir a pasear». Un chico: «El mío odia pasear: se esconde debajo de la cama».",
         "pasos": [
-         "Leire no dice «todos los perros»: dice cómo **suelen** ser.",
+         "La chica no dice «todos los perros»: dice cómo **suelen** ser.",
          "Un perro que no quiere pasear es una excepción, y «suelen» admite excepciones.",
          "Para tumbar su frase haría falta ver que la mayoría no quiere pasear.",
          "Conclusión: un contraejemplo tumba un «todos», no un «casi todos». Mira bien qué dice la frase."
         ],
-        "pregunta": "Kevin tiene un contraejemplo. ¿La frase de Leire es falsa?"
+        "pregunta": "El chico tiene un contraejemplo. ¿La frase de la chica es falsa?"
        }
       ]
      }
@@ -1871,7 +1871,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 9) Iker dice: «Tienes que prestarme la bici, porque si no, no te invito a mi cumple». ¿Es una buena razón? ¿Qué es?"
+        "pregunta": "(Repaso de la sesión 9) Un chico dice: «Tienes que prestarme la bici, porque si no, no te invito a mi cumple». ¿Es una buena razón? ¿Qué es?"
        }
       ]
      },
@@ -1880,7 +1880,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Naiara dice: «Los videojuegos nunca enseñan nada». ¿Cómo tumbarías su frase? ¿Te basta un caso o necesitas muchos?"
+        "pregunta": "Una chica dice: «Los videojuegos nunca enseñan nada». ¿Cómo tumbarías su frase? ¿Te basta un caso o necesitas muchos?"
        }
       ]
      }
@@ -1956,7 +1956,7 @@ const CURSO = [
          [
           "**Deducción**",
           "Segura, si está bien hecha y las premisas son verdad",
-          "Todos los de 2.º tienen Inglés; Aitor es de 2.º…"
+          "Todos los de 2.º tienen Inglés; un chico es de 2.º…"
          ],
          [
           "**Inducción**",
@@ -2032,7 +2032,7 @@ const CURSO = [
         "pregunta": "Escribe cuál es la premisa y cuál la conclusión: «Me llevo el paraguas, porque el cielo está muy negro»."
        },
        {
-        "pregunta": "¿Cuál es la premisa oculta? «Leire no puede jugar bien al baloncesto: es bajita»."
+        "pregunta": "¿Cuál es la premisa oculta? «Una chica no puede jugar bien al baloncesto: es bajita»."
        },
        {
         "pregunta": "Escribe las tres preguntas para saber si una razón es buena."
@@ -2162,7 +2162,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Un argumento que sí es bueno",
-        "caso": "Naiara: «Hoy me llevo el paraguas porque la app del tiempo da un 90 % de lluvia y el cielo está negro.»",
+        "caso": "Una chica: «Hoy me llevo el paraguas porque la app del tiempo da un 90 % de lluvia y el cielo está negro.»",
         "pasos": [
          "¿Es verdad? Se puede comprobar en la app y mirando al cielo.",
          "¿Viene a cuento? Sí: las dos razones hablan de si va a llover.",
@@ -2187,7 +2187,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Conclusión verdadera, ¿argumento bueno?",
-        "caso": "Aitor: «Fumar es malo para la salud. Lo sé porque lo dice mi youtuber de videojuegos favorito».",
+        "caso": "Un chico: «Fumar es malo para la salud. Lo sé porque lo dice mi youtuber de videojuegos favorito».",
         "pasos": [
          "La conclusión es verdad: la medicina lo ha comprobado muchísimas veces.",
          "Pero su razón es otra: un youtuber de videojuegos, que no tiene por qué saber de salud.",
@@ -2216,7 +2216,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de falacia que hayas oído en un anuncio, en casa o en redes."
        },
        {
-        "pregunta": "Leire dice: «No me gusta tu opinión, así que es una falacia». ¿Tiene razón? ¿Por qué?"
+        "pregunta": "Una chica dice: «No me gusta tu opinión, así que es una falacia». ¿Tiene razón? ¿Por qué?"
        }
       ]
      },
@@ -2245,8 +2245,8 @@ const CURSO = [
     "titulo": "Ataque a la persona",
     "idea": "Atacar a quien habla, o decirle que él también lo hace, no demuestra que su idea sea falsa.",
     "arranque": {
-     "texto": "Omar propone alargar el recreo cinco minutos. Kevin contesta: «Tú qué vas a proponer, si eres nuevo y no sabes ni dónde está el gimnasio».",
-     "pregunta": "¿Ha dicho Kevin algo sobre si la idea de Omar es buena?"
+     "texto": "Una chica propone alargar el recreo cinco minutos. Un chico contesta: «Tú qué vas a proponer, si eres nueva y no sabes ni dónde está el gimnasio».",
+     "pregunta": "¿Ha dicho ese chico algo sobre si la idea de la chica es buena?"
     },
     "bloques": [
      {
@@ -2303,21 +2303,21 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · El recreo",
-        "caso": "Omar propone alargar el recreo cinco minutos. Kevin: «Tú qué vas a proponer, si eres nuevo y no sabes ni dónde está el gimnasio».",
+        "caso": "Una chica propone alargar el recreo cinco minutos. Un chico: «Tú qué vas a proponer, si eres nueva y no sabes ni dónde está el gimnasio».",
         "pasos": [
-         "¿Qué propone Omar? Alargar el recreo.",
-         "¿Qué responde Kevin? Habla de Omar, no del recreo.",
-         "¿Qué tiene que ver ser nuevo con la idea? Nada: la idea es buena o mala igual.",
-         "Conclusión: ataque a la persona. La propuesta de Omar sigue sin respuesta."
+         "¿Qué propone la chica? Alargar el recreo.",
+         "¿Qué responde el chico? Habla de la chica, no del recreo.",
+         "¿Qué tiene que ver ser nueva con la idea? Nada: la idea es buena o mala igual.",
+         "Conclusión: ataque a la persona. La propuesta de la chica sigue sin respuesta."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · «Tú también», en casa",
-        "caso": "La madre de Yasmin: «Deja ya el móvil, llevas tres horas». Yasmin: «¡Pues anda que tú, siempre con el WhatsApp!».",
+        "caso": "La madre de una chica: «Deja ya el móvil, llevas tres horas». La chica: «¡Pues anda que tú, siempre con el WhatsApp!».",
         "pasos": [
          "¿Qué dice la madre? Que tres horas de móvil son demasiadas.",
-         "¿Qué responde Yasmin? Que su madre también lo usa mucho.",
+         "¿Qué responde la chica? Que su madre también lo usa mucho.",
          "¿Eso cambia algo? Si la madre también se pasa, el consejo sirve para las dos.",
          "Conclusión: «tú también». Puede ser cierto, pero no responde a la crítica."
         ]
@@ -2361,10 +2361,10 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Siempre es «tú también»?",
-        "caso": "Omar, el delegado, pide en clase: «Respetad el turno de palabra». Luego interrumpe a todos. Naiara: «Pides respetar el turno y tú no lo respetas».",
+        "caso": "Un chico, el delegado, pide en clase: «Respetad el turno de palabra». Luego interrumpe a todos. Una chica: «Pides respetar el turno y tú no lo respetas».",
         "pasos": [
-         "Naiara no dice que la norma sea mala. No la usa para librarse de cumplirla.",
-         "Señala una **incoherencia** real: Omar pide algo que él no hace.",
+         "La chica no dice que la norma sea mala. No la usa para librarse de cumplirla.",
+         "Señala una **incoherencia** real: el delegado pide algo que él no hace.",
          "Y eso viene a cuento: un delegado tiene que dar ejemplo.",
          "Conclusión: señalar una incoherencia no es falacia. Lo sería decir: «entonces yo tampoco respeto el turno»."
         ],
@@ -2384,13 +2384,13 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "¿Qué es el ataque a la persona (ad hominem)?"
+        "pregunta": "¿Qué es el ataque a la persona?"
        },
        {
         "pregunta": "Escribe un ejemplo de «tú también» que pueda pasar en casa o en el instituto."
        },
        {
-        "pregunta": "Aitor propone jugar al baloncesto en el recreo. Maialen: «Tú no opinas, que eres el más bajo de clase». ¿Qué falacia es? ¿Por qué?"
+        "pregunta": "Un chico propone jugar al baloncesto en el recreo. Una chica: «Tú no opinas, que llegaste al equipo la semana pasada». ¿Qué falacia es? ¿Por qué?"
        }
       ]
      },
@@ -2408,7 +2408,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Una lámina: Iker tiene una gran mancha de kétchup en la camiseta y le dice a su hermana: «Come con cuidado, que te vas a manchar». Ella contesta: «¡Mira quién habla!». ¿Qué falacia usa ella? ¿Es malo el consejo de Iker?"
+        "pregunta": "Una lámina: un chico tiene una gran mancha de kétchup en la camiseta y le dice a su hermana: «Come con cuidado, que te vas a manchar». Ella contesta: «¡Mira quién habla!». ¿Qué falacia usa ella? ¿Es malo el consejo del chico? (Alternativa para otra semana: el chico llega tarde a todas partes. Le dice a su hermana: «Sal con tiempo, que vas a llegar tarde». Ella: «¡Mira quién habla!». ¿Qué falacia usa ella? ¿Es malo el consejo del chico?)"
        }
       ]
      }
@@ -2419,8 +2419,8 @@ const CURSO = [
     "titulo": "El hombre de paja",
     "idea": "El hombre de paja deforma la idea del otro para atacar una versión más fácil de tumbar.",
     "arranque": {
-     "texto": "Leire: «Podríamos dejar el móvil en la mochila durante la comida». Dylan: «Claro, tú quieres prohibir los móviles y volver a la Edad Media».",
-     "pregunta": "¿Ha dicho eso Leire? ¿Contra qué idea está peleando Dylan?"
+     "texto": "Una chica: «Podríamos dejar el móvil en la mochila durante la comida». Un chico: «Claro, tú quieres prohibir los móviles y volver a la Edad Media».",
+     "pregunta": "¿Ha dicho eso la chica? ¿Contra qué idea está peleando el chico?"
     },
     "bloques": [
      {
@@ -2475,31 +2475,31 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · El móvil en la comida",
-        "caso": "Leire: «Podríamos dejar el móvil en la mochila durante la comida». Dylan: «Claro, tú quieres prohibir los móviles y volver a la Edad Media».",
+        "caso": "Una chica: «Podríamos dejar el móvil en la mochila durante la comida». Un chico: «Claro, tú quieres prohibir los móviles y volver a la Edad Media».",
         "pasos": [
-         "¿Qué dijo Leire? Dejar el móvil en la mochila durante la comida.",
-         "¿Qué ataca Dylan? «Prohibir los móviles» y «la Edad Media».",
+         "¿Qué dijo la chica? Dejar el móvil en la mochila durante la comida.",
+         "¿Qué ataca el chico? «Prohibir los móviles» y «la Edad Media».",
          "¿Es lo mismo? No: es una versión exagerada, mucho más fácil de rechazar.",
-         "Conclusión: hombre de paja. La idea real de Leire sigue sin respuesta."
+         "Conclusión: hombre de paja. La idea real de la chica sigue sin respuesta."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Un comentario en YouTube",
-        "caso": "Chen comenta en un vídeo: «Tenía demasiados anuncios». Otro usuario responde: «O sea, que los creadores deberían trabajar gratis. Qué fácil».",
+        "caso": "Un chico comenta en un vídeo: «Tenía demasiados anuncios». Otro usuario responde: «O sea, que los creadores deberían trabajar gratis. Qué fácil».",
         "pasos": [
-         "¿Qué dijo Chen? Que había demasiados anuncios.",
+         "¿Qué dijo el chico? Que había demasiados anuncios.",
          "¿Qué atacan? Que los creadores trabajen gratis.",
-         "¿Dijo eso Chen? No: menos anuncios no es cero dinero.",
+         "¿Dijo eso el chico? No: menos anuncios no es cero dinero.",
          "Conclusión: hombre de paja por exageración."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 3 · Resumir bien no es hombre de paja",
-        "caso": "Naiara: «Los deberes de los viernes deberían ser cortos». Omar: «Propones menos deberes el fin de semana. No estoy de acuerdo: el lunes hay examen».",
+        "caso": "Una chica: «Los deberes de los viernes deberían ser cortos». Un chico: «Propones menos deberes el fin de semana. No estoy de acuerdo: el lunes hay examen».",
         "pasos": [
-         "¿Resume bien Omar? Sí: «cortos» es «menos deberes».",
+         "¿Resume bien el chico? Sí: «cortos» es «menos deberes».",
          "¿Responde a la idea real? Sí, y da una razón: el examen del lunes.",
          "No están de acuerdo, y eso está bien.",
          "Conclusión: no es hombre de paja. Discrepar de la idea real es legítimo."
@@ -2533,11 +2533,11 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Suena exagerado = hombre de paja?",
-        "caso": "Aitor: «Los deberes no sirven para nada: hay que quitarlos todos». Maialen: «Aitor quiere quitar todos los deberes, y no estoy de acuerdo».",
+        "caso": "Un chico: «Los deberes no sirven para nada: hay que quitarlos todos». Una chica: «Este chico quiere quitar todos los deberes, y no estoy de acuerdo».",
         "pasos": [
          "Suena extremo, como los muñecos de paja que hemos visto.",
-         "Pero ¿lo dijo Aitor? Sí: «hay que quitarlos todos».",
-         "Aitor diría: «sí, eso digo». Es un **resumen justo** de una idea que ya era extrema.",
+         "Pero ¿lo dijo el chico? Sí: «hay que quitarlos todos».",
+         "El chico diría: «sí, eso digo». Es un **resumen justo** de una idea que ya era extrema.",
          "Conclusión: compara con lo que dijo de verdad, no con lo exagerado que suena."
         ],
         "pregunta": "Suena muy exagerado. ¿Es un hombre de paja?"
@@ -2562,7 +2562,7 @@ const CURSO = [
         "pregunta": "Inventa un ejemplo: escribe lo que dice alguien y cómo lo deformaría otra persona."
        },
        {
-        "pregunta": "Kevin: «Deberíamos entrenar un día más a la semana». Aitor: «Tú lo que quieres es que no tengamos vida fuera del fútbol». ¿Qué falacia usa Aitor? ¿Por qué?"
+        "pregunta": "Una chica: «Deberíamos entrenar un día más a la semana». Un chico: «Tú lo que quieres es que no tengamos vida fuera del fútbol». ¿Qué falacia usa el chico? ¿Por qué?"
        }
       ]
      },
@@ -2580,7 +2580,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Una lámina: un chico da golpes a un espantapájaros con un cartel que dice «Maialen quiere prohibir el fútbol en el patio». Maialen solo había dicho: «Podríamos dejar media pista para otros juegos». ¿Qué representa el espantapájaros? ¿Por qué el chico gana tan fácil?"
+        "pregunta": "Una lámina: un chico da golpes a un espantapájaros con un cartel que dice «Una chica quiere prohibir el fútbol en el patio». Esa chica solo había dicho: «Podríamos dejar media pista para otros juegos». ¿Qué representa el espantapájaros? ¿Por qué el chico gana tan fácil?"
        }
       ]
      }
@@ -2663,10 +2663,10 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · El parte",
-        "caso": "Iker, al profesor: «No me pongas el parte por usar el móvil en clase. Mi madre me castigará sin ir al partido del Athletic».",
+        "caso": "Un chico, al profesor: «No me pongas el parte por usar el móvil en clase. Mi madre me castigará sin ir al partido del Athletic».",
         "pasos": [
          "¿Qué se discute? Si usar el móvil en clase merece el parte.",
-         "¿Qué razón da Iker? Que el castigo le dará mucha pena.",
+         "¿Qué razón da el chico? Que el castigo le dará mucha pena.",
          "Si quito la pena, ¿qué queda? Nada sobre si usó el móvil.",
          "Conclusión: apelación a la pena. Su tristeza puede ser real, pero no viene a cuento."
         ]
@@ -2733,7 +2733,7 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "¿Qué es la apelación al miedo (ad metum)?"
+        "pregunta": "¿Qué es la apelación al miedo?"
        },
        {
         "pregunta": "Escribe un ejemplo de apelación a la pena que se pueda oír en el instituto."
@@ -2748,7 +2748,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 14) Chen responde a una idea de Naiara: «Qué sabrás tú, si eres la más pequeña de la cuadrilla». ¿Qué falacia es?"
+        "pregunta": "(Repaso de la sesión 14) Un chico responde a una idea de una chica: «Qué sabrás tú, si eres la más pequeña de la cuadrilla». ¿Qué falacia es?"
        }
       ]
      },
@@ -2768,8 +2768,8 @@ const CURSO = [
     "titulo": "La pista falsa",
     "idea": "La pista falsa cambia de tema para no responder, y la discusión acaba lejos de la pregunta.",
     "arranque": {
-     "texto": "La madre de Naiara: «¿Has hecho los deberes?». Naiara: «¿Sabías que el Athletic ha fichado a un delantero nuevo?».",
-     "pregunta": "¿Ha contestado Naiara? ¿Por qué habrá cambiado de tema?"
+     "texto": "La madre de una chica: «¿Has hecho los deberes?». La chica: «¿Sabías que el Athletic ha fichado a un delantero nuevo?».",
+     "pregunta": "¿Ha contestado la chica? ¿Por qué habrá cambiado de tema?"
     },
     "bloques": [
      {
@@ -2804,7 +2804,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Los deberes",
-        "caso": "La madre de Naiara: «¿Has hecho los deberes?». Naiara: «¿Sabías que el Athletic ha fichado a un delantero nuevo?».",
+        "caso": "La madre de una chica: «¿Has hecho los deberes?». La chica: «¿Sabías que el Athletic ha fichado a un delantero nuevo?».",
         "pasos": [
          "¿Qué le preguntan? Si ha hecho los deberes.",
          "¿Qué responde? Un fichaje del Athletic.",
@@ -2814,19 +2814,19 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · En el grupo de clase",
-        "caso": "Dylan: «Omar, ¿por qué subiste la foto de Leire sin preguntarle?». Omar: «¿Y qué me dices de las fotos que sube Aitor? ¡Esas sí que son malas!».",
+        "titulo": "Caso 2 · En el grupo del equipo",
+        "caso": "Una chica: «Oye, ¿por qué no viniste al entrenamiento?». Un chico: «¿Y qué me dices de otro compañero, que lleva un mes sin venir?».",
         "pasos": [
-         "¿Qué se discute? Si Omar hizo bien al subir la foto.",
-         "¿Qué hace Omar? Habla de las fotos de Aitor.",
-         "¿Eso responde? No: aunque Aitor lo haga peor, la pregunta era sobre Omar.",
-         "Conclusión: pista falsa. Hay que volver a la pregunta: ¿por qué la subiste?"
+         "¿Qué se discute? Por qué el chico no fue al entrenamiento.",
+         "¿Qué hace el chico? Habla de las faltas de otro compañero.",
+         "¿Eso responde? No: aunque ese otro compañero lo haga peor, la pregunta era sobre él.",
+         "Conclusión: pista falsa. Hay que volver a la pregunta: ¿por qué no viniste?"
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 3 · Cambiar de tema sin trampa",
-        "caso": "Yasmin y Chen discuten qué serie ver. Chen: «Espera, eso luego. ¿Ves que sale humo de la cocina?».",
+        "caso": "Una chica y un chico discuten qué serie ver. El chico: «Espera, eso luego. ¿Ves que sale humo de la cocina?».",
         "pasos": [
          "¿Cambia de tema? Sí.",
          "¿Es para no responder? No: hay algo urgente y lo dice claro.",
@@ -2864,7 +2864,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Habla de otra cosa?",
-        "caso": "La madre de Naiara: «¿Has hecho los deberes de Matemáticas?». Naiara: «La profe de Mates está de baja toda la semana».",
+        "caso": "La madre de una chica: «¿Has hecho los deberes de Matemáticas?». La chica: «La profe de Mates está de baja toda la semana».",
         "pasos": [
          "Parece que cambia de tema: habla de la profesora.",
          "Pero puede ser una respuesta: si la profe no está, quizá no ha mandado deberes.",
@@ -2893,7 +2893,7 @@ const CURSO = [
         "pregunta": "Escribe un diálogo corto (pregunta y respuesta) en el que alguien use una pista falsa."
        },
        {
-        "pregunta": "Tutora: «Kevin, ¿por qué no has entregado el trabajo?». Kevin: «¿Sabía que en otros institutos no mandan trabajos?». ¿Qué falacia es? ¿Por qué?"
+        "pregunta": "Tutora: «¿Por qué no has entregado el trabajo?». Un chico: «¿Sabía que en otros institutos no mandan trabajos?». ¿Qué falacia es? ¿Por qué?"
        }
       ]
      },
@@ -2948,12 +2948,12 @@ const CURSO = [
         ],
         "filas": [
          [
-          "Ataque a la persona (ad hominem)",
+          "Ataque a la persona",
           "Ataca a quien habla",
           "¿Qué tiene que ver quién lo dice?"
          ],
          [
-          "«Tú también» (tu quoque)",
+          "«Tú también»",
           "Tú tampoco lo cumples",
           "¿Eso hace falso el consejo?"
          ],
@@ -2974,12 +2974,12 @@ const CURSO = [
         ],
         "filas": [
          [
-          "Apelación al miedo (ad metum)",
+          "Apelación al miedo",
           "Asusta sin pruebas",
           "¿Ese peligro es real?"
          ],
          [
-          "Apelación a la pena (ad misericordiam)",
+          "Apelación a la pena",
           "Da pena, no razones",
           "Si quito la pena, ¿qué razón queda?"
          ],
@@ -3067,16 +3067,16 @@ const CURSO = [
         "pregunta": "¿Qué es una falacia?"
        },
        {
-        "pregunta": "Naiara: «No hagas caso a Chen sobre el reciclaje: si ni siquiera sabe sumar». ¿Qué falacia es?"
+        "pregunta": "Una chica: «No hagas caso a un compañero sobre el reciclaje: si ni siquiera sabe sumar». ¿Qué falacia es?"
        },
        {
-        "pregunta": "¿Qué es la falacia «tú también» (tu quoque)? Pon un ejemplo."
+        "pregunta": "¿Qué es la falacia «tú también»? Pon un ejemplo."
        },
        {
-        "pregunta": "Iker: «Deberíamos tener menos deberes». Leire: «Claro, tú quieres no estudiar nunca». ¿Qué falacia usa Leire? ¿Por qué?"
+        "pregunta": "Un chico: «Deberíamos tener menos deberes». Una chica: «Claro, tú quieres no estudiar nunca». ¿Qué falacia usa la chica? ¿Por qué?"
        },
        {
-        "pregunta": "«Profe, súbeme la nota, que si no mi padre me deja sin cumpleaños.» ¿Qué falacia es? ¿Qué pregunta la desmonta?"
+        "pregunta": "«Entrenador, ponme titular, que si no mi padre me deja sin cumpleaños.» ¿Qué falacia es? ¿Qué pregunta la desmonta?"
        },
        {
         "pregunta": "¿Qué es la pista falsa? ¿Qué pregunta la desmonta?"
@@ -3100,7 +3100,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Encuentra dos falacias en este diálogo. Di su nombre y por qué. Maialen: «Deberíamos pedir más fuentes de agua en el patio». Kevin: «O sea, que quieres gastar todo el dinero del instituto en fuentes. Además, tú qué vas a pedir, si nunca bebes agua»."
+        "pregunta": "Encuentra dos falacias en este diálogo. Di su nombre y por qué. Una chica: «Deberíamos pedir más fuentes de agua en el patio». Un chico: «O sea, que quieres gastar todo el dinero del instituto en fuentes. Además, tú qué vas a pedir, si nunca bebes agua»."
        }
       ]
      }
@@ -3186,11 +3186,11 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · Un curso entero",
-        "caso": "Chen: «Un chico de 1.º me empujó ayer en el pasillo. Los de 1.º son todos unos maleducados».",
+        "titulo": "Caso 2 · Un equipo entero",
+        "caso": "Una chica: «Un chico de otro equipo me empujó en el partido. Los de ese equipo son todos unos brutos».",
         "pasos": [
          "¿Cuántos casos? Uno.",
-         "¿Cuántos alumnos hay en 1.º? Muchos: uno no los representa.",
+         "¿Cuántos jugadores hay en ese equipo? Muchos: uno no los representa.",
          "¿Es justo? No: culpa a muchos por lo que hizo uno. Cada persona es distinta.",
          "Conclusión: generalización apresurada. Así empiezan los estereotipos."
         ]
@@ -3209,7 +3209,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Una sola cucharada",
-        "caso": "Maialen prueba una cucharada de la sopa y dice: «Esta sopa está salada». Solo ha mirado un caso.",
+        "caso": "Una chica prueba una cucharada de la sopa y dice: «Esta sopa está salada». Solo ha mirado un caso.",
         "pasos": [
          "Parece que sí: saca una conclusión sobre toda la sopa con una sola cucharada.",
          "Pero la sopa está mezclada: todas las cucharadas son casi iguales.",
@@ -3263,7 +3263,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de generalización apresurada sobre un videojuego, una comida o una tienda."
        },
        {
-        "pregunta": "Yasmin: «Mi profesor de Música de este año es muy estricto. Los profesores de Música son todos estrictos». ¿Qué falacia es? ¿Por qué?"
+        "pregunta": "El monitor de judo de una chica es muy estricto. «Los monitores de judo son todos estrictos». ¿Qué falacia es? ¿Por qué?"
        }
       ]
      },
@@ -3281,7 +3281,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Aitor ve dos vídeos de TikTok en los que un perro de una raza muerde a alguien. Dice: «Esos perros son todos peligrosos». ¿Qué falacia es? ¿Qué haría falta para decir algo sobre esa raza?"
+        "pregunta": "Un chico ve dos vídeos de TikTok en los que un perro de una raza muerde a alguien. Dice: «Esos perros son todos peligrosos». ¿Qué falacia es? ¿Qué haría falta para decir algo sobre esa raza?"
        }
       ]
      }
@@ -3292,7 +3292,7 @@ const CURSO = [
     "titulo": "Falso dilema",
     "idea": "El falso dilema presenta solo dos opciones, como si fueran las únicas, cuando en realidad hay más salidas.",
     "arranque": {
-     "texto": "Mensaje de la cuadrilla: «O vienes a Aste Nagusia toda la noche, o es que ya no eres de los nuestros».",
+     "texto": "Mensaje que recibe una chica de su cuadrilla: «O vienes a Aste Nagusia toda la noche, o es que ya no eres de las nuestras».",
      "pregunta": "¿De verdad solo hay esas dos opciones?"
     },
     "bloques": [
@@ -3328,18 +3328,18 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Aste Nagusia",
-        "caso": "Mensaje de la cuadrilla: «O vienes a Aste Nagusia toda la noche, o es que ya no eres de los nuestros».",
+        "caso": "Mensaje que recibe una chica de su cuadrilla: «O vienes a Aste Nagusia toda la noche, o es que ya no eres de las nuestras».",
         "pasos": [
-         "¿Qué dos opciones me dan? Ir toda la noche, o dejar de ser de la cuadrilla.",
+         "¿Qué dos opciones le dan a esa chica? Ir toda la noche, o dejar de ser de la cuadrilla.",
          "¿Hay más? Sí: ir un rato, ir otro día, seguir siendo amigos sin ir.",
-         "¿Para qué sirve el dilema? Para empujarme: la otra opción da miedo.",
+         "¿Para qué sirve el dilema? Para empujarla: la otra opción da miedo.",
          "Conclusión: falso dilema. Hay más salidas de las que dicen."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · En casa",
-        "caso": "El padre de Dylan: «O dejas los videojuegos para siempre, o vas a suspender todo».",
+        "caso": "El padre de un chico: «O dejas los videojuegos para siempre, o vas a suspender todo».",
         "pasos": [
          "¿Qué dos opciones? Dejarlos para siempre o suspenderlo todo.",
          "¿Tercera opción? Jugar menos: una hora, solo el fin de semana, después de estudiar.",
@@ -3350,7 +3350,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · Un dilema de verdad",
-        "caso": "Leire tiene entrada para un concierto y para un partido. Los dos son el sábado a las seis, en sitios distintos de Bilbao.",
+        "caso": "Una chica tiene entrada para un concierto y para un partido. Los dos son el sábado a las seis, en sitios distintos de Bilbao.",
         "pasos": [
          "¿Qué dos opciones tiene? El concierto o el partido.",
          "¿Puede ir a los dos? No: es a la misma hora y en sitios distintos.",
@@ -3361,14 +3361,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Gol o no gol?",
-        "caso": "El VAR revisa una jugada: «O el balón ha cruzado entera la línea, o no la ha cruzado». Kevin: «¡Falso dilema! Solo da dos opciones».",
+        "caso": "El VAR revisa una jugada: «O el balón ha cruzado entera la línea, o no la ha cruzado». Un chico: «¡Falso dilema! Solo da dos opciones».",
         "pasos": [
          "Parece que sí: solo hay dos opciones y suena a «o… o…».",
          "Busca la tercera: ¿medio gol? No existe. Si no ha cruzado entera, no ha cruzado.",
          "Cuando una opción es justo lo contrario de la otra («sí / no»), no queda sitio para una tercera.",
          "Conclusión: no es falacia. El «o… o…» es una pista; lo que cuenta es si de verdad hay más opciones."
         ],
-        "pregunta": "Tiene la forma «o… o…». ¿Tiene razón Kevin?"
+        "pregunta": "Tiene la forma «o… o…». ¿Tiene razón ese chico?"
        }
       ]
      },
@@ -3433,7 +3433,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Una lámina: Omar está delante de dos puertas. En una pone «Sacas un 10 en todo». En la otra, «Eres un fracaso». ¿Qué falacia representa? Escribe dos puertas más que podría haber."
+        "pregunta": "Una lámina: un chico está delante de dos puertas. En una pone «Sacas un 10 en todo». En la otra, «Eres un fracaso». ¿Qué falacia representa? Escribe dos puertas más que podría haber."
        }
       ]
      }
@@ -3490,7 +3490,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Los deberes de Lengua",
-        "caso": "Kevin: «Si hoy no hago los deberes de Lengua, suspenderé, repetiré, dejaré el instituto y nunca encontraré trabajo».",
+        "caso": "Un chico: «Si hoy no hago los deberes de Lengua, suspenderé, repetiré, dejaré el instituto y nunca encontraré trabajo».",
         "pasos": [
          "¿Cuántos pasos? Cuatro, cada uno peor.",
          "¿Tiene razones alguno? No: un día sin deberes no suspende una asignatura.",
@@ -3501,7 +3501,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · Una cadena real",
-        "caso": "Naiara tiene el móvil al 5 %: «Si no lo cargo, se apagará esta tarde y no podré avisar a mi madre al salir de entrenar».",
+        "caso": "Una chica tiene el móvil al 5 %: «Si no lo cargo, se apagará esta tarde y no podré avisar a mi madre al salir de entrenar».",
         "pasos": [
          "¿Cuántos pasos? Dos.",
          "¿Cada paso tiene razón? Sí: con un 5 % de batería, el móvil se apaga pronto.",
@@ -3512,7 +3512,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Solo en las fiestas",
-        "caso": "Dylan: «Si empiezas fumando “solo en fiestas”, es fácil que acabes fumando cada día. La nicotina engancha».",
+        "caso": "Un chico: «Si empiezas fumando “solo en fiestas”, es fácil que acabes fumando cada día. La nicotina engancha».",
         "pasos": [
          "Parece el tobogán: un paso pequeño y un final malo.",
          "Pero hay razones para el paso: la nicotina engancha, y eso está muy estudiado.",
@@ -3584,7 +3584,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Una lámina: un tobogán. Arriba pone «Chen se salta un entrenamiento». En las curvas: «Le quitan de titular», «Deja el equipo», «Nunca más hace deporte». Abajo: «Vida triste». ¿Qué falacia dibuja? ¿Qué pregunta harías en cada curva?"
+        "pregunta": "Una lámina: un tobogán. Arriba pone «Un chico se salta un entrenamiento». En las curvas: «Le quitan de titular», «Deja el equipo», «Nunca más hace deporte». Abajo: «Vida triste». ¿Qué falacia dibuja? ¿Qué pregunta harías en cada curva?"
        }
       ]
      }
@@ -3653,7 +3653,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · El desayuno",
-        "caso": "Noticia inventada: «Los alumnos que desayunan en casa sacan mejores notas». Iker concluye: «El desayuno te hace más listo».",
+        "caso": "Noticia inventada: «Los alumnos que desayunan en casa sacan mejores notas». Un chico concluye: «El desayuno te hace más listo».",
         "pasos": [
          "¿Van juntas? Sí: desayunar en casa y sacar buenas notas.",
          "¿Puede haber una tercera causa? Sí: dormir bien, tener horarios, tener ayuda en casa.",
@@ -3664,7 +3664,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · Una causa bien buscada",
-        "caso": "Maialen deja las bebidas energéticas por la tarde y durante tres semanas se duerme antes. Vuelve a tomarlas y vuelve a dormir mal.",
+        "caso": "Una chica deja las bebidas energéticas por la tarde y durante tres semanas se duerme antes. Vuelve a tomarlas y vuelve a dormir mal.",
         "pasos": [
          "¿Pasa una sola vez? No: lo ha visto varias semanas.",
          "¿Ha quitado y puesto la causa? Sí, y el efecto cambia con ella.",
@@ -3689,7 +3689,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Las gambas",
-        "caso": "Chen come gambas por primera vez. A los diez minutos se le hinchan los labios y le pica la piel. Su madre: «Han sido las gambas».",
+        "caso": "Un chico come gambas por primera vez. A los diez minutos se le hinchan los labios y le pica la piel. Su madre: «Han sido las gambas».",
         "pasos": [
          "Tiene la forma «pasó después, así que fue la causa».",
          "Pero hay una explicación conocida: la alergia a la comida da justo eso, y enseguida.",
@@ -3718,7 +3718,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de causa falsa con algo que «da suerte»."
        },
        {
-        "pregunta": "Aitor: «Cada vez que me pongo la camiseta del Athletic para ver el partido en la tele, pierden. No me la vuelvo a poner». ¿Qué falacia es? ¿Por qué?"
+        "pregunta": "Un chico: «Cada vez que me pongo la camiseta del Athletic para ver el partido en la tele, pierden. No me la vuelvo a poner». ¿Qué falacia es? ¿Por qué?"
        }
       ]
      },
@@ -3736,7 +3736,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Imagina un estudio que dice: en los pueblos con más cigüeñas nacen más bebés. Iker concluye: «Lo ves, a los bebés los traen las cigüeñas». ¿Qué error comete? Propón una tercera causa."
+        "pregunta": "Imagina un estudio que dice: en los pueblos con más cigüeñas nacen más bebés. Un chico concluye: «Lo ves, a los bebés los traen las cigüeñas». ¿Qué error comete? Propón una tercera causa."
        }
       ]
      }
@@ -3816,9 +3816,9 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Una acusación",
-        "caso": "Dylan: «Seguro que Kevin copió en el examen. Nadie puede demostrar que no copiara».",
+        "caso": "Un chico: «Seguro que un compañero copió en el examen. Nadie puede demostrar que no copiara».",
         "pasos": [
-         "¿Qué razón da Dylan? Que nadie puede demostrar lo contrario.",
+         "¿Qué razón da ese chico? Que nadie puede demostrar lo contrario.",
          "¿Qué pruebas hay de que copió? Ninguna.",
          "Así se puede acusar a cualquiera de cualquier cosa.",
          "Conclusión: apelación a la ignorancia. Acusar sin pruebas, además, es injusto."
@@ -3827,7 +3827,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · La app que no miente",
-        "caso": "Yasmin: «Esta app de noticias dice la verdad». Leire: «¿Cómo lo sabes?». Yasmin: «Porque en la propia app pone que todas sus noticias son verdad».",
+        "caso": "Una chica: «Esta app de noticias dice la verdad». Un chico: «¿Cómo lo sabes?». La chica: «Porque en la propia app pone que todas sus noticias son verdad».",
         "pasos": [
          "¿Cuál es la conclusión? La app dice la verdad.",
          "¿Cuál es la razón? Lo que dice la propia app.",
@@ -3838,7 +3838,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Sin pruebas, sin castigo",
-        "caso": "La jefa de estudios: «No hay pruebas de que Kevin copiara en el examen. Así que no se le castiga».",
+        "caso": "La jefa de estudios: «No hay pruebas de que un alumno copiara en el examen. Así que no se le castiga».",
         "pasos": [
          "Parece la misma forma: «no se ha demostrado que sí, luego no».",
          "Pero no dice «seguro que no copió». Decide qué hacer mientras no hay pruebas.",
@@ -3891,7 +3891,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de apelación a la ignorancia."
        },
        {
-        "pregunta": "Naiara: «Mi equipo es el mejor porque ningún equipo es mejor que el mío». ¿Qué falacia es? ¿Por qué?"
+        "pregunta": "Una chica: «Mi equipo es el mejor porque ningún equipo es mejor que el mío». ¿Qué falacia es? ¿Por qué?"
        }
       ]
      },
@@ -3972,17 +3972,17 @@ const CURSO = [
         ],
         "filas": [
          [
-          "Causa falsa (post hoc)",
+          "Causa falsa",
           "Después de, luego por culpa de",
           "¿Casualidad u otra causa?"
          ],
          [
-          "Apelación a la ignorancia (ad ignorantiam)",
+          "Apelación a la ignorancia",
           "Nadie demostró que no, luego sí",
           "¿Qué pruebas hay a favor?"
          ],
          [
-          "Razonamiento circular (petitio principii)",
+          "Razonamiento circular",
           "La conclusión es la razón",
           "¿La razón dice algo distinto?"
          ]
@@ -4052,7 +4052,7 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "Kevin probó un batido de una marca y no le gustó: «Todos los batidos de esa marca son malos». ¿Qué falacia es?"
+        "pregunta": "Un chico probó un batido de una marca y no le gustó: «Todos los batidos de esa marca son malos». ¿Qué falacia es?"
        },
        {
         "pregunta": "¿Qué es un falso dilema? Pon un ejemplo."
@@ -4079,7 +4079,7 @@ const CURSO = [
         "pregunta": "(Repaso de la sesión 15) ¿Qué es el hombre de paja?"
        },
        {
-        "pregunta": "(Repaso de la sesión 14) Chen: «No hagas caso a Aitor sobre el reciclaje, que siempre lleva la ropa sucia». ¿Qué falacia es?"
+        "pregunta": "(Repaso de la sesión 14) Una chica: «No hagas caso a un compañero sobre el reciclaje, que siempre lleva la ropa sucia». ¿Qué falacia es?"
        }
       ]
      },
@@ -4088,7 +4088,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Encuentra dos falacias de la unidad 4 en este mensaje. Di su nombre y por qué. Maialen: «Desde que tengo el móvil nuevo saco mejores notas. O te compras este móvil o vas a suspender»."
+        "pregunta": "Encuentra dos falacias de la unidad 4 en este mensaje. Di su nombre y por qué. Una chica: «Desde que tengo el móvil nuevo saco mejores notas. O te compras este móvil o vas a suspender»."
        }
       ]
      }
@@ -4184,10 +4184,10 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · La mecánica",
-        "caso": "Naiara lleva la bici al taller. La mecánica le dice que la cadena está gastada y que hay que cambiarla.",
+        "caso": "Una chica lleva la bici al taller. La mecánica le dice que la cadena está gastada y que hay que cambiarla.",
         "pasos": [
          "¿Qué autoridad tiene? Por saber: arregla bicis todos los días.",
-         "¿Puede obligar a Naiara? No: no manda sobre ella.",
+         "¿Puede obligar a esa chica? No: no manda sobre ella.",
          "¿Por qué creerla? Porque sabe del tema y puede enseñarle la cadena gastada.",
          "Conclusión: le hago caso por lo que sabe, no porque me mande."
         ]
@@ -4206,7 +4206,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "El socorrista",
-        "caso": "En la playa, el socorrista pita: «¡Fuera del agua, hay corrientes!». Iker: «Solo tiene poder. Tener poder no es tener razón».",
+        "caso": "En la playa, el socorrista pita: «¡Fuera del agua, hay corrientes!». Un chico: «Solo tiene poder. Tener poder no es tener razón».",
         "pasos": [
          "Tiene poder: su cargo le deja mandar en la playa.",
          "Pero también sabe: está formado para ver corrientes y mira el mar todo el día.",
@@ -4235,7 +4235,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de una autoridad por saber a la que tú haces caso."
        },
        {
-        "pregunta": "Dylan dice: «El entrenador dice que el agua con gas engorda, y es el entrenador». ¿Qué autoridad tiene el entrenador? ¿Le sirve para este tema?"
+        "pregunta": "Un chico dice: «El entrenador dice que el agua con gas engorda, y es el entrenador». ¿Qué autoridad tiene el entrenador? ¿Le sirve para este tema?"
        }
       ]
      },
@@ -4347,7 +4347,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · La vacuna",
-        "caso": "El pediatra de Omar le recomienda una vacuna. Lo mismo dicen Sanidad y casi todos los médicos.",
+        "caso": "El pediatra de un chico le recomienda una vacuna. Lo mismo dicen Sanidad y casi todos los médicos.",
         "pasos": [
          "¿Su campo? Sí: es médico de niños y habla de salud.",
          "¿El consenso? Sí: casi todos los expertos dicen lo mismo.",
@@ -4405,7 +4405,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Chen lee dos cosas sobre el cambio climático. Un blog de un vendedor de coches dice que no existe. Un informe hecho por cientos de científicos del clima dice que sí. ¿A quién es más razonable creer? Usa las cuatro preguntas."
+        "pregunta": "Un chico lee dos cosas sobre el cambio climático. Un blog de un vendedor de coches dice que no existe. Un informe hecho por cientos de científicos del clima dice que sí. ¿A quién es más razonable creer? Usa las cuatro preguntas."
        }
       ]
      }
@@ -4470,7 +4470,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · El gamer y las vitaminas",
-        "caso": "Kevin sigue a un gamer con dos millones de seguidores. El gamer dice que unas gominolas de vitaminas «te hacen más listo».",
+        "caso": "Un chico sigue a un gamer con dos millones de seguidores. El gamer dice que unas gominolas de vitaminas «te hacen más listo».",
         "pasos": [
          "¿Quién lo dice? Un gamer: sabe de videojuegos, no de alimentación.",
          "¿Tiene intereses? Puede que cobre por anunciarlas: hay que mirarlo.",
@@ -4503,7 +4503,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Una bata de verdad",
-        "caso": "Un vídeo del servicio de salud: una médica con bata blanca explica cómo lavarse bien las manos. Omar: «El truco de la bata blanca. Falacia».",
+        "caso": "Un vídeo del servicio de salud: una médica con bata blanca explica cómo lavarse bien las manos. Un chico: «El truco de la bata blanca. Falacia».",
         "pasos": [
          "La bata blanca es uno de los trucos, sí.",
          "Pero aquí no es decorado: es médica de verdad y habla de su campo.",
@@ -4532,7 +4532,7 @@ const CURSO = [
         "pregunta": "Inventa un anuncio que use el truco del famoso."
        },
        {
-        "pregunta": "Yasmin: «Mi médica me ha mirado la garganta y dice que es un virus, así que no necesito antibiótico». ¿Es falacia de autoridad? ¿Por qué?"
+        "pregunta": "Una chica: «Mi médica me ha mirado la garganta y dice que es un virus, así que no necesito antibiótico». ¿Es falacia de autoridad? ¿Por qué?"
        }
       ]
      },
@@ -4541,7 +4541,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 23) Maialen dice: «Nadie ha demostrado que los fantasmas no existen, así que existen». ¿Qué falla en su razonamiento?"
+        "pregunta": "(Repaso de la sesión 23) Una chica dice: «Nadie ha demostrado que los fantasmas no existen, así que existen». ¿Qué falla en su razonamiento?"
        }
       ]
      },
@@ -4627,7 +4627,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Las zapatillas",
-        "caso": "Yasmin quiere unas zapatillas de 150 euros: «Las lleva toda la clase».",
+        "caso": "Una chica quiere unas zapatillas de 150 euros: «Las lleva toda la clase».",
         "pasos": [
          "¿Qué me piden creer? Que tiene que comprarlas.",
          "¿Qué razón da? Que las llevan muchos: es prueba social.",
@@ -4638,7 +4638,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · Cuando la mayoría sí es una pista",
-        "caso": "Aitor busca dónde comer en Aste Nagusia. Un bar tiene 2.000 opiniones y casi todas dicen que se come bien (ejemplo inventado).",
+        "caso": "Un chico busca dónde comer en Aste Nagusia. Un bar tiene 2.000 opiniones y casi todas dicen que se come bien (ejemplo inventado).",
         "pasos": [
          "¿Es ad populum? No del todo: esas personas han comido allí.",
          "Opinan de algo que conocen, y a menudo cuentan detalles.",
@@ -4649,10 +4649,10 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Conducir en Londres",
-        "caso": "Leire llega a Londres y pregunta a su prima por qué lado van los coches. La prima: «Por la izquierda: aquí lo hace todo el mundo».",
+        "caso": "Una chica llega a Londres y pregunta a su prima por qué lado van los coches. La prima: «Por la izquierda: aquí lo hace todo el mundo».",
         "pasos": [
          "Tiene la forma: «es así porque todos lo hacen».",
-         "Pero Leire no pregunta qué es verdad sobre el mundo ni qué está bien. Pregunta cuál es la costumbre.",
+         "Pero esa chica no pregunta qué es verdad sobre el mundo ni qué está bien. Pregunta cuál es la costumbre.",
          "En costumbres y normas (conducir, saludar, hablar), lo que hace todo el mundo es justo lo que hay que saber.",
          "Conclusión: no es falacia. Lo que hacen todos dice cuál es la costumbre, no qué es verdad ni qué está bien."
         ],
@@ -4672,13 +4672,13 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "¿Qué es la falacia ad populum?"
+        "pregunta": "¿Qué es la apelación a la mayoría?"
        },
        {
         "pregunta": "Pon un ejemplo de prueba social en tu vida (instituto, redes, compras…)."
        },
        {
-        "pregunta": "Omar dice: «Todos mis amigos copian en los exámenes, así que no está mal». ¿Qué falacia es? ¿Por qué?"
+        "pregunta": "Un chico dice: «Todos mis amigos copian en los exámenes, así que no está mal». ¿Qué falacia es? ¿Por qué?"
        }
       ]
      },
@@ -4820,7 +4820,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "El simulacro de incendio",
-        "caso": "Suena la alarma del simulacro. El profesor dice: «En fila, por la escalera B». Todos salen en fila. Maialen también, sin discutir.",
+        "caso": "Suena la alarma del simulacro. El profesor dice: «En fila, por la escalera B». Todos salen en fila. Una chica también, sin discutir.",
         "pasos": [
          "Sí: obedece a una autoridad y hace lo mismo que los demás.",
          "Pero la orden es razonable: el profesor conoce el plan de evacuación y no pide hacer daño a nadie.",
@@ -4849,7 +4849,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de conformidad en el instituto o en las redes."
        },
        {
-        "pregunta": "El líder del clan de un videojuego le escribe a Naiara: «Échale del grupo, te lo ordeno». Ella no quiere, pero lo hace. ¿Se parece más a Asch o a Milgram? ¿Por qué?"
+        "pregunta": "El líder del clan de un videojuego le escribe a una chica: «Échale del grupo, te lo ordeno». Ella no quiere, pero lo hace. ¿Se parece más al experimento de las líneas (seguir al grupo) o al de las descargas (obedecer)? ¿Por qué?"
        }
       ]
      },
@@ -4867,7 +4867,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Una lámina muestra una clase en la que todos entrecierran los ojos y dicen: «No se ve nada en la pantalla». Una alumna nueva la ve perfectamente, pero empieza a entrecerrar los ojos también. ¿Qué experimento te recuerda? ¿Qué podría hacer ella?"
+        "pregunta": "Una lámina muestra una clase en la que todos entrecierran los ojos y dicen: «No se ve nada en la pantalla». Una alumna nueva la ve perfectamente, pero empieza a entrecerrar los ojos también. ¿Qué experimento te recuerda? ¿Qué podría hacer ella? (Alternativa para otra semana: En el cine, los amigos de una chica dicen que la pantalla se ve borrosa. Ella la ve perfectamente, pero empieza a decir que sí, que se ve mal. ¿Qué experimento te recuerda? ¿Qué podría hacer ella?)"
        }
       ]
      }
@@ -4947,12 +4947,12 @@ const CURSO = [
         ],
         "filas": [
          [
-          "**De autoridad (ad verecundiam)**",
+          "**De autoridad**",
           "«Lo dice alguien importante»",
           "El famoso, la bata blanca, «los expertos dicen»"
          ],
          [
-          "**De la mayoría (ad populum)**",
+          "**De la mayoría**",
           "«Lo hace todo el mundo»",
           "Los «me gusta», las colas, las modas"
          ]
@@ -5002,7 +5002,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso · El anuncio del doctor",
-        "caso": "Anuncio inventado: «El doctor Ramos, famoso en TikTok, recomienda ZenSleep para dormir. ¡Ya lo usan un millón de personas!»",
+        "caso": "Anuncio inventado: «Un doctor famoso en TikTok recomienda ZenSleep para dormir. ¡Ya lo usan un millón de personas!»",
         "pasos": [
          "«Doctor» famoso en TikTok: ¿doctor en qué? ¿Cobra? Creerlo solo por eso sería falacia de autoridad.",
          "«Un millón de personas»: usarlo como prueba es ad populum. Comprarlo no es comprobarlo.",
@@ -5013,14 +5013,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Doble falacia?",
-        "caso": "Omar: «Sanidad y casi todos los médicos dicen que fumar causa cáncer, y lo repite todo el mundo. ¡Falacia de autoridad y ad populum!».",
+        "caso": "Un chico: «Sanidad y casi todos los médicos dicen que fumar causa cáncer, y lo repite todo el mundo. ¡Falacia de autoridad y ad populum!».",
         "pasos": [
          "Parecen los dos trucos: «lo dicen los expertos» y «lo dice todo el mundo».",
          "Pero son expertos de su campo, casi todos de acuerdo y con muchísimos estudios: es consenso.",
          "Y aquí «todo el mundo» repite algo comprobado, no una moda.",
          "Conclusión: no es falacia. Fiarse del consenso es razonable; el error es fiarse sin mirar por qué."
         ],
-        "pregunta": "Hay expertos y hay «todo el mundo»… ¿tiene razón Omar?"
+        "pregunta": "Hay expertos y hay «todo el mundo»… ¿tiene razón ese chico?"
        }
       ]
      }
@@ -5042,16 +5042,16 @@ const CURSO = [
         "pregunta": "(Sesión 26) ¿Qué es el consenso de los expertos?"
        },
        {
-        "pregunta": "(Sesión 27) Iker: «Esta crema quita los granos: la anuncia un actor vestido de médico». ¿Qué falacia es y qué truco usa?"
+        "pregunta": "(Sesión 27) Un chico: «Esta crema quita los granos: la anuncia un actor vestido de médico». ¿Qué falacia es y qué truco usa?"
        },
        {
-        "pregunta": "(Sesión 28) Leire: «Si esta canción tiene mil millones de visitas, su letra tiene que ser verdad». ¿Qué falacia es?"
+        "pregunta": "(Sesión 28) Una chica: «Si esta canción tiene mil millones de visitas, su letra tiene que ser verdad». ¿Qué falacia es?"
        },
        {
-        "pregunta": "(Sesión 29) Explica en dos o tres frases el experimento de Asch y su resultado."
+        "pregunta": "(Sesión 29) Explica en dos o tres frases el experimento de las líneas y su resultado."
        },
        {
-        "pregunta": "(Sesión 29) En el experimento de Milgram, ¿quién era el «alumno»? ¿Eran de verdad las descargas? ¿Por qué se critica?"
+        "pregunta": "(Sesión 29) En el experimento de las descargas, ¿quién era el «alumno»? ¿Eran de verdad las descargas? ¿Por qué se critica?"
        }
       ]
      },
@@ -5060,7 +5060,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 14) Chen dice: «No hagas caso a lo que dice Aitor del reciclaje: ¡si él tira papeles al suelo!». ¿Qué falacia es?"
+        "pregunta": "(Repaso de la sesión 14) Una chica dice: «No hagas caso a lo que dice un compañero del reciclaje: ¡si él tira papeles al suelo!». ¿Qué falacia es?"
        },
        {
         "pregunta": "(Repaso de la sesión 19) «Dos chicos de ese instituto me empujaron, así que los de ese instituto son todos unos brutos.» ¿Qué falacia es?"
@@ -5072,7 +5072,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "En el grupo de WhatsApp de clase, un youtuber famoso dice en un vídeo que beber mucha agua antes del examen sube la nota. Todo el grupo lo comparte y dice: «Si lo dice él y lo hace todo el mundo, será verdad». ¿Qué ideas de la unidad ves? ¿Qué harías tú?"
+        "pregunta": "En el grupo del equipo de una chica, un youtuber famoso dice en un vídeo que beber mucha agua antes del examen sube la nota. Todo el equipo lo comparte y dice: «Si lo dice él y lo hace todo el mundo, será verdad». ¿Qué ideas de la unidad ves? ¿Qué podría hacer esa chica?"
        }
       ]
      }
@@ -5170,7 +5170,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · La ola de calor",
-        "caso": "Leire busca información sobre una ola de calor. Encuentra un blog sin autor y una noticia de un periódico con datos de la Agencia Estatal de Meteorología.",
+        "caso": "Una chica busca información sobre una ola de calor. Encuentra un blog sin autor y una noticia de un periódico con datos de la Agencia Estatal de Meteorología.",
         "pasos": [
          "¿Quién lo dice? El blog, no lo sé. El periódico tiene nombre y periodista.",
          "¿Cómo lo sabe? El periódico cita a la Agencia de Meteorología, que mide las temperaturas.",
@@ -5221,7 +5221,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de fuente original y otro de fuente de segunda mano."
        },
        {
-        "pregunta": "Dylan lee en una cuenta sin nombre que un jugador del Athletic se va a otro equipo. No hay fecha ni enlace. ¿Se lo puede creer ya? ¿Por qué?"
+        "pregunta": "Un chico lee en una cuenta sin nombre que un jugador del Athletic se va a otro equipo. No hay fecha ni enlace. ¿Se lo puede creer ya? ¿Por qué?"
        }
       ]
      },
@@ -5239,7 +5239,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Aitor quiere saber si un móvil nuevo tiene buena batería. Encuentra: el anuncio de la marca, un vídeo de un youtuber al que se lo regalaron y una revista de tecnología que lo ha probado junto a otros diez. ¿Cuál es más fiable? Usa las tres preguntas."
+        "pregunta": "Un chico quiere saber si un móvil nuevo tiene buena batería. Encuentra: el anuncio de la marca, un vídeo de un youtuber al que se lo regalaron y una revista de tecnología que lo ha probado junto a otros diez. ¿Cuál es más fiable? Usa las tres preguntas."
        }
       ]
      }
@@ -5517,7 +5517,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 29) ¿Qué pasaba en el experimento de Asch cuando había un solo aliado en el grupo?"
+        "pregunta": "(Repaso de la sesión 29) ¿Qué pasaba en el experimento de las líneas cuando había un solo aliado en el grupo?"
        }
       ]
      },
@@ -5526,7 +5526,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "A Maialen le llega un mensaje de su tía: «Si te llaman y dices “sí”, te roban el dinero del banco. Reenvía a todos tus contactos». ¿Qué ingredientes de bulo tiene? ¿Por qué es fácil que Maialen lo reenvíe?"
+        "pregunta": "A una chica le llega un mensaje de su tía: «Si te llaman y dices “sí”, te roban el dinero del banco. Reenvía a todos tus contactos». ¿Qué ingredientes de bulo tiene? ¿Por qué es fácil que esa chica lo reenvíe?"
        }
       ]
      }
@@ -5614,7 +5614,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · La nieve",
-        "caso": "A Dylan le llega: «¡Suspendidas las clases en Bizkaia por la nieve!». Nieva un poco y parece verdad.",
+        "caso": "A un chico le llega: «¡Suspendidas las clases en Bizkaia por la nieve!». Nieva un poco y parece verdad.",
         "pasos": [
          "Mira la fecha de la noticia: es de hace varios años.",
          "Alguien la ha vuelto a compartir hoy.",
@@ -5636,7 +5636,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "La búsqueda que no encuentra nada",
-        "caso": "Chen hace una búsqueda inversa de una foto de una manifestación en Bilbao. No aparece en ningún otro sitio. «Entonces es real y de hoy», piensa.",
+        "caso": "Un chico hace una búsqueda inversa de una foto de una manifestación en Bilbao. No aparece en ningún otro sitio. «Entonces es real y de hoy», piensa.",
         "pasos": [
          "La búsqueda inversa solo encuentra fotos que ya están en internet.",
          "Una foto nueva, recortada o hecha con inteligencia artificial puede no salir.",
@@ -5665,7 +5665,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de cuándo te serviría hacer una búsqueda inversa de una imagen."
        },
        {
-        "pregunta": "Chen lee una web y, para saber si es fiable, lee su página «Quiénes somos». ¿Está leyendo en vertical o en lateral? ¿Qué debería hacer?"
+        "pregunta": "Un chico lee una web y, para saber si es fiable, lee su página «Quiénes somos». ¿Está leyendo en vertical o en lateral? ¿Qué debería hacer?"
        }
       ]
      },
@@ -5683,7 +5683,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Omar ve una foto de una multitud en San Mamés con el texto: «Así estaba el estadio ayer para ver un partido de chicas de 12 años». Quiere saber si es verdad. Escribe los pasos que seguiría."
+        "pregunta": "Un chico ve una foto de una multitud en San Mamés con el texto: «Así estaba el estadio ayer para ver un partido de chicas de 12 años». Quiere saber si es verdad. Escribe los pasos que seguiría."
        }
       ]
      }
@@ -5782,12 +5782,12 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 3 · La cara de Maialen",
-        "caso": "Alguien usa una aplicación para poner la cara de Maialen en un vídeo ridículo y lo pasa por el grupo de clase.",
+        "titulo": "Caso 3 · La cara de una compañera",
+        "caso": "Alguien pone la cara de un presentador de la tele en un vídeo ridículo y lo sube a TikTok.",
         "pasos": [
          "¿Qué es? Un deepfake de una persona real, sin su permiso.",
-         "Hace daño de verdad a Maialen, aunque «solo sea una broma».",
-         "Qué hago: no lo reenvío, se lo cuento a un adulto y apoyo a Maialen.",
+         "Hace daño de verdad, aunque «solo sea una broma».",
+         "Qué hago: no lo reenvío, se lo cuento a un adulto y apoyo a esa compañera.",
          "Conclusión: pensar críticamente también es no compartir lo que hace daño."
         ]
        },
@@ -5841,7 +5841,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Kevin ve un audio con la voz de un jugador famoso que insulta a la afición de su equipo. Todo el mundo lo comparte y está muy enfadado. ¿Qué podría ser? ¿Qué haría Kevin antes de compartirlo?"
+        "pregunta": "Un chico ve un audio con la voz de un jugador famoso que insulta a la afición de su equipo. Todo el mundo lo comparte y está muy enfadado. ¿Qué podría ser? ¿Qué haría ese chico antes de compartirlo?"
        }
       ]
      }
@@ -6033,7 +6033,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Naiara recibe en TikTok un vídeo: «¡ALERTA! Los expertos dicen que la nueva bebida de moda provoca infartos. Compártelo antes de que lo borren». Se ve a un hombre con bata. Explica qué ideas de la unidad (y de la anterior) ves y qué haría Naiara para verificarlo."
+        "pregunta": "Una chica recibe en TikTok un vídeo: «¡ALERTA! Los expertos dicen que la nueva bebida de moda provoca infartos. Compártelo antes de que lo borren». Se ve a un hombre con bata. Explica qué ideas de la unidad (y de la anterior) ves y qué haría esa chica para verificarlo."
        }
       ]
      }
@@ -6135,8 +6135,8 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 3 · Dos clases",
-        "caso": "En la clase A hay 20 aprobados. En la clase B hay 15. ¿Qué clase lo hizo mejor? (Ejemplo inventado.)",
+        "titulo": "Caso 3 · Dos institutos",
+        "caso": "En el instituto A hay 20 aprobados. En el instituto B hay 15. ¿Qué instituto lo hizo mejor? (Ejemplo inventado.)",
         "pasos": [
          "La cifra absoluta dice que A tiene más aprobados.",
          "Pero pregunto el total: A tiene 40 alumnos y B tiene 20.",
@@ -6194,7 +6194,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Maialen lee (ejemplo inventado): «En el instituto A suspendieron 30 alumnos; en el B, solo 12. El B es mucho mejor». El A tiene 300 alumnos y el B, 60. ¿Tiene razón? Haz las cuentas."
+        "pregunta": "Una chica lee (ejemplo inventado): «En el instituto A suspendieron 30 alumnos; en el B, solo 12. El B es mucho mejor». El A tiene 300 alumnos y el B, 60. ¿Tiene razón? Haz las cuentas."
        }
       ]
      }
@@ -6232,19 +6232,19 @@ const CURSO = [
         ],
         "filas": [
          [
-          "Aitor: 92 puntos",
+          "Una chica: 92 puntos",
           "Barra llena al 92 %",
           "Barra llena al 20 %"
          ],
          [
-          "Chen: 98 puntos",
+          "Un chico: 98 puntos",
           "Barra llena al 98 %",
           "Barra llena al 80 %"
          ],
          [
           "¿Qué parece?",
           "Casi iguales",
-          "¡Chen tiene cuatro veces más!"
+          "¡El chico tiene cuatro veces más!"
          ]
         ]
        },
@@ -6338,7 +6338,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de truco en un gráfico que no sea el eje cortado."
        },
        {
-        "pregunta": "Un gráfico de notas tiene el eje de 6 a 7. Omar tiene un 6,2 y Naiara un 6,6. La barra de Naiara parece el triple de alta. ¿Qué pasa?"
+        "pregunta": "Un gráfico de notas tiene el eje de 6 a 7. Un chico tiene un 6,2 y una chica un 6,6. La barra de la chica parece el triple de alta. ¿Qué pasa?"
        }
       ]
      },
@@ -6411,7 +6411,7 @@ const CURSO = [
          ],
          [
           "Si gusta el comedor",
-          "Los 3 amigos de Kevin",
+          "Los 3 amigos de un chico",
           "100 alumnos elegidos al azar"
          ],
          [
@@ -6491,7 +6491,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de muestra sesgada."
        },
        {
-        "pregunta": "Para saber si gusta el nuevo menú del comedor, Dylan pregunta a los 4 amigos que se sientan con él. Di dos problemas de su encuesta."
+        "pregunta": "Para saber si gusta el nuevo menú del comedor, un chico pregunta a los 4 amigos que se sientan con él. Di dos problemas de su encuesta."
        }
       ]
      },
@@ -6500,7 +6500,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 37) En la clase A aprueban 18 de 30 alumnos y en la clase B, 12 de 15. ¿Qué clase tiene mejor resultado? Calcula los porcentajes."
+        "pregunta": "(Repaso de la sesión 37) En el instituto A aprueban 18 de 30 alumnos y en el instituto B, 12 de 15. ¿Qué instituto tiene mejor resultado? Calcula los porcentajes."
        }
       ]
      },
@@ -6644,7 +6644,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de dos cosas que suben juntas por una tercera causa."
        },
        {
-        "pregunta": "Iker lee: «Los niños con los pies más grandes leen mejor». ¿Leer hace crecer los pies? ¿Cuál es la tercera causa?"
+        "pregunta": "Un chico lee: «Los niños con los pies más grandes leen mejor». ¿Leer hace crecer los pies? ¿Cuál es la tercera causa?"
        }
       ]
      },
@@ -6693,27 +6693,27 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Dos clases con media 5 (ejemplo inventado)",
+        "titulo": "Dos institutos con media 5 (ejemplo inventado)",
         "cabecera": [
-         "Clase",
+         "Instituto",
          "Notas",
          "Media"
         ],
         "filas": [
          [
-          "2.º A",
+          "Instituto A",
           "5, 5, 5, 5",
           "5"
          ],
          [
-          "2.º B",
+          "Instituto B",
           "0, 0, 10, 10",
           "5"
          ],
          [
           "¿Iguales?",
           "A: todos aprueban justo. B: la mitad suspende",
-          "Misma media, clases muy distintas"
+          "Misma media, institutos muy distintos"
          ]
         ]
        },
@@ -6746,7 +6746,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · El abuelo fumador",
-        "caso": "Aitor: «Fumar no es tan malo. Mi abuelo fumó toda la vida y vivió 95 años».",
+        "caso": "Un chico: «Fumar no es tan malo. Mi abuelo fumó toda la vida y vivió 95 años».",
         "pasos": [
          "¿Es verdad lo del abuelo? Puede que sí.",
          "¿Es suficiente? No: es un caso entre millones de fumadores.",
@@ -6757,7 +6757,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · Un gol por partido",
-        "caso": "El entrenador del equipo del barrio: «Kevin marca de media un gol por partido». Han jugado 10 partidos. (Ejemplo inventado.)",
+        "caso": "El entrenador del equipo del barrio: «Un chico marca de media un gol por partido». Han jugado 10 partidos. (Ejemplo inventado.)",
         "pasos": [
          "¿Marca en cada partido? No lo sé: la media no lo dice.",
          "Puede que marcara 10 goles en un partido y 0 en los otros nueve.",
@@ -6793,11 +6793,11 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "El casco que «nunca» falla",
-        "caso": "Anuncio (inventado): «Con nuestro casco, nunca te harás una herida en la cabeza». Iker se cayó con ese casco puesto y se hizo una herida.",
+        "caso": "Anuncio (inventado): «Con nuestro casco, nunca te harás una herida en la cabeza». Un chico se cayó con ese casco puesto y se hizo una herida.",
         "pasos": [
          "Para saber cómo es la mayoría, un caso no basta.",
          "Pero el anuncio dice «nunca». Para tumbar un «nunca», basta un **contraejemplo**: un caso que dice lo contrario.",
-         "Si lo de Iker es verdad, el anuncio es falso, aunque el casco proteja mucho.",
+         "Si lo del chico es verdad, el anuncio es falso, aunque el casco proteja mucho.",
          "Conclusión: una anécdota no prueba una regla general, pero sí puede tumbar un «nunca» o un «siempre»."
         ],
         "pregunta": "Es solo una anécdota. ¿Entonces no sirve para nada?"
@@ -6822,7 +6822,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de anécdota que alguien usa como si fuera una prueba."
        },
        {
-        "pregunta": "Yasmin dice: «En mi calle la edad media es 40 años, así que casi todos tienen unos 40». En su calle viven 5 niños de 10 años y 5 personas de 70. ¿Tiene razón?"
+        "pregunta": "Una chica dice: «En mi calle la edad media es 40 años, así que casi todos tienen unos 40». En su calle viven 5 niños de 10 años y 5 personas de 70. ¿Tiene razón?"
        }
       ]
      },
@@ -6840,7 +6840,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Dos frases inventadas. Chen lee en un foro: «Probé la crema X una semana y se me quitaron los granos. ¡Funciona!». Una web dice: «Los youtubers ganan de media 3.000 € al mes». ¿Qué problema tiene cada una?"
+        "pregunta": "Dos frases inventadas. Un chico lee en un foro: «Probé la crema X una semana y se me quitaron los granos. ¡Funciona!». Una web dice: «Los youtubers ganan de media 3.000 € al mes». ¿Qué problema tiene cada una?"
        }
       ]
      }
@@ -6996,7 +6996,7 @@ const CURSO = [
         "pregunta": "¿Qué es un eje cortado y qué efecto tiene en un gráfico de barras?"
        },
        {
-        "pregunta": "Para saber qué música escucha el alumnado del instituto, Leire pregunta solo a los que tocan en la banda del barrio. ¿Qué problema tiene su muestra?"
+        "pregunta": "Para saber qué música escucha el alumnado del instituto, una chica pregunta solo a los que tocan en la banda del barrio. ¿Qué problema tiene su muestra?"
        },
        {
         "pregunta": "Los días que se venden más ventiladores hay más quemaduras de sol. ¿Los ventiladores queman? ¿Cuál es la tercera causa?"
@@ -7135,7 +7135,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · ¿Qué es más peligroso?",
-        "caso": "Chen tiene miedo a los tiburones cuando se baña en el mar. En cambio, cruza la calle mirando el móvil sin preocuparse.",
+        "caso": "Un chico tiene miedo a los tiburones cuando se baña en el mar. En cambio, cruza la calle mirando el móvil sin preocuparse.",
         "pasos": [
          "Los ataques de tiburón salen mucho en películas y noticias: los recordamos fácil.",
          "Los atropellos son muchísimo más frecuentes, pero casi no llaman la atención.",
@@ -7146,7 +7146,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Atajo = sesgo?",
-        "caso": "Omar ve nubes negras sobre Bilbao y coge el paraguas. No ha mirado el tiempo en el móvil ni lo ha pensado despacio.",
+        "caso": "Un chico ve nubes negras sobre Bilbao y coge el paraguas. No ha mirado el tiempo en el móvil ni lo ha pensado despacio.",
         "pasos": [
          "Parece que sí: usó un atajo, «nubes negras = lluvia», sin pensar despacio.",
          "Pero ese atajo casi siempre acierta, y le ahorra tiempo.",
@@ -7175,7 +7175,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de atajo mental que casi siempre acierta."
        },
        {
-        "pregunta": "Naiara contesta rápido: «Si 5 máquinas hacen 5 piezas en 5 minutos, 100 máquinas hacen 100 piezas en 100 minutos». ¿Ha usado un atajo? ¿Acierta?"
+        "pregunta": "Una chica contesta rápido: «Si 5 máquinas hacen 5 piezas en 5 minutos, 100 máquinas hacen 100 piezas en 100 minutos». ¿Ha usado un atajo? ¿Acierta?"
        }
       ]
      },
@@ -7193,7 +7193,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Después de ver en las noticias un accidente de avión, Kevin dice que prefiere ir de Bilbao a Sevilla en coche «porque es más seguro». ¿Qué atajo usa? ¿Qué preguntaría un pensador crítico?"
+        "pregunta": "Después de ver en las noticias un accidente de avión, un chico dice que prefiere ir de Bilbao a Sevilla en coche «porque es más seguro». ¿Qué atajo usa? ¿Qué preguntaría un pensador crítico?"
        }
       ]
      }
@@ -7268,7 +7268,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · La búsqueda en internet",
-        "caso": "Dylan cree que las bebidas energéticas le ayudan a estudiar. Busca: «beneficios de las bebidas energéticas para estudiar».",
+        "caso": "Un chico cree que las bebidas energéticas le ayudan a estudiar. Busca: «beneficios de las bebidas energéticas para estudiar».",
         "pasos": [
          "La búsqueda ya lleva la respuesta: solo pide beneficios.",
          "Encontrará páginas que le dan la razón y se quedará tranquilo.",
@@ -7290,7 +7290,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Cerrado o bien informado?",
-        "caso": "Iker cree que fumar es malo para la salud. Ve un vídeo, sin ninguna fuente, que dice lo contrario. No le hace caso.",
+        "caso": "Un chico cree que fumar es malo para la salud. Ve un vídeo, sin ninguna fuente, que dice lo contrario. No le hace caso.",
         "pasos": [
          "Parece que sí: rechaza lo que le quita la razón.",
          "Pero mira las pruebas: su idea tiene miles de estudios detrás; el vídeo, ninguna fuente.",
@@ -7334,7 +7334,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de sesgo de confirmación en las redes sociales o en el deporte."
        },
        {
-        "pregunta": "Leire cree que Yasmin está enfadada con ella. Si Yasmin tarda en contestar, «está enfadada». Si contesta rápido, «lo hace por compromiso». ¿Qué sesgo es? ¿Por qué?"
+        "pregunta": "Una chica cree que una compañera está enfadada con ella. Si esa compañera tarda en contestar, «está enfadada». Si contesta rápido, «lo hace por compromiso». ¿Qué sesgo es? ¿Por qué?"
        }
       ]
      },
@@ -7352,7 +7352,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Iker cree que las personas zurdas son más creativas. Dice: «Mira, Leonardo da Vinci era zurdo». ¿Qué hace mal? ¿Qué tendría que hacer para comprobarlo?"
+        "pregunta": "Un chico cree que las personas zurdas son más creativas. Dice: «Mira, Leonardo da Vinci era zurdo». ¿Qué hace mal? ¿Qué tendría que hacer para comprobarlo?"
        }
       ]
      }
@@ -7363,8 +7363,8 @@ const CURSO = [
     "titulo": "Efecto halo y primeras impresiones",
     "idea": "El efecto halo es juzgar a una persona entera por un solo rasgo, como su aspecto, su fama o una primera impresión.",
     "arranque": {
-     "texto": "Un chico nuevo llega a clase con ropa de marca y sonriendo. Otro llega serio y despeinado.",
-     "pregunta": "¿Cuál crees que sacará mejores notas? ¿Por qué lo has pensado?"
+     "texto": "Dos candidatos a monitor del campamento: uno llega con ropa de marca y sonriendo; otro, serio y despeinado.",
+     "pregunta": "¿Cuál crees que será mejor monitor? ¿Por qué lo has pensado?"
     },
     "bloques": [
      {
@@ -7453,10 +7453,10 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · El primer día",
-        "caso": "El primer día, Aitor no saludó a nadie. Algunos decidieron: «Es un borde». En realidad, estaba nervioso.",
+        "caso": "El primer día de campamento, un chico no saludó a nadie. Algunos decidieron: «Es un borde». En realidad, estaba nervioso.",
         "pasos": [
          "La primera impresión se formó en un momento.",
-         "Después, todo lo que hacía Aitor parecía confirmarla (sesión 44).",
+         "Después, todo lo que hacía ese chico parecía confirmarla (sesión 44).",
          "Nadie pensó en otras explicaciones: nervios, timidez, un mal día.",
          "Conclusión: una primera impresión es una suposición, no un juicio final. Dale tiempo a la persona."
         ]
@@ -7464,7 +7464,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Un rasgo que sí cuenta?",
-        "caso": "Para el equipo de fútbol del recreo, Leire elige primero a Aitor. Lo ha visto marcar muchos goles todas las semanas.",
+        "caso": "Para el equipo de fútbol del recreo, una chica elige primero a un chico. Lo ha visto marcar muchos goles todas las semanas.",
         "pasos": [
          "Parece que sí: lo juzga por una sola cosa, los goles.",
          "Pero ese rasgo tiene que ver con lo que decide: quién juega bien al fútbol.",
@@ -7493,7 +7493,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de efecto halo en la publicidad."
        },
        {
-        "pregunta": "Kevin dice: «Esa youtuber tiene 3 millones de seguidores, así que lo que dice sobre dietas será verdad». ¿Hay efecto halo? Explica."
+        "pregunta": "Un chico dice: «Esa youtuber tiene 3 millones de seguidores, así que lo que dice sobre dietas será verdad». ¿Hay efecto halo? Explica."
        }
       ]
      },
@@ -7617,7 +7617,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Anclado?",
-        "caso": "Chen quiere vender su bici usada. Antes de poner precio, mira cuánto piden por bicis iguales en internet: unos 150 €. Pone 140 €.",
+        "caso": "Un chico quiere vender su bici usada. Antes de poner precio, mira cuánto piden por bicis iguales en internet: unos 150 €. Pone 140 €.",
         "pasos": [
          "Parece que sí: un número (150 €) ha decidido su precio.",
          "Pero ese número no sale al azar: es lo que cuestan de verdad bicis iguales.",
@@ -7675,7 +7675,7 @@ const CURSO = [
     "titulo": "Exceso de confianza",
     "idea": "El exceso de confianza es creer que sabemos o hacemos algo mejor de lo que de verdad lo sabemos o lo hacemos.",
     "arranque": {
-     "texto": "Iker: «El examen de mañana me lo sé. Lo he leído una vez y lo entiendo todo».",
+     "texto": "Un chico: «El examen de mañana me lo sé. Lo he leído una vez y lo entiendo todo».",
      "pregunta": "¿Qué le pedirías para saber si de verdad se lo sabe?"
     },
     "bloques": [
@@ -7733,7 +7733,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · El examen del principio",
-        "caso": "Iker: «El examen de mañana me lo sé. Lo he leído una vez y lo entiendo todo».",
+        "caso": "Un chico: «El examen de mañana me lo sé. Lo he leído una vez y lo entiendo todo».",
         "pasos": [
          "Leer una vez da la sensación de «me suena». No es lo mismo que saberlo.",
          "La prueba: cerrar el libro y explicarlo sin mirar.",
@@ -7755,9 +7755,9 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · El trabajo de Historia",
-        "caso": "Chen: «El trabajo lo hago el domingo por la tarde, en dos horas». Siempre dice lo mismo, y siempre acaba de noche.",
+        "caso": "Un chico: «El trabajo lo hago el domingo por la tarde, en dos horas». Siempre dice lo mismo, y siempre acaba de noche.",
         "pasos": [
-         "Chen planea como si todo fuera a salir perfecto.",
+         "Ese chico planea como si todo fuera a salir perfecto.",
          "No cuenta con imprevistos: buscar información, un fallo del ordenador, cansarse.",
          "Sabe que otras veces tardó más, pero no lo tiene en cuenta.",
          "Conclusión: exceso de confianza al planear. Mira cuánto tardaste otras veces y añade margen."
@@ -7766,7 +7766,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Seguro de más?",
-        "caso": "Aitor es portero federado desde hace tres años. Dice: «En los penaltis del recreo paro más que nadie de la clase». Lo demuestra cada semana.",
+        "caso": "Un chico es portero federado desde hace tres años. Dice: «En los penaltis del recreo paro más que nadie de la clase». Lo demuestra cada semana.",
         "pasos": [
          "Parece que sí: «soy mejor que la mayoría» es la frase típica.",
          "Pero miro las pruebas: entrena, y lo ha demostrado muchas veces delante de todos.",
@@ -7795,7 +7795,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de exceso de confianza en el instituto o en un videojuego."
        },
        {
-        "pregunta": "Omar dice: «Sé perfectamente cómo funciona el wifi». Cuando se lo piden, no sabe explicar nada. ¿Qué le ha pasado?"
+        "pregunta": "Un chico dice: «Sé perfectamente cómo funciona el wifi». Cuando se lo piden, no sabe explicar nada. ¿Qué le ha pasado?"
        }
       ]
      },
@@ -7813,7 +7813,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Maialen empieza a jugar al ajedrez. Tras ganar tres partidas a su hermano pequeño, dice: «Ya juego mejor que la mayoría; me apunto a un torneo». ¿Qué le dirías con lo aprendido hoy?"
+        "pregunta": "Una chica empieza a jugar al ajedrez. Tras ganar tres partidas a su hermano pequeño, dice: «Ya juego mejor que la mayoría; me apunto a un torneo». ¿Qué le dirías con lo aprendido hoy?"
        }
       ]
      }
@@ -7903,7 +7903,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso · La compra del móvil",
-        "caso": "Dylan ve un móvil «antes 600 €, ahora 350 €» que anuncia su youtuber favorito. Lee solo opiniones buenas y dice: «Sé mucho de móviles; es la mejor compra». (Inventado.)",
+        "caso": "Un chico ve un móvil «antes 600 €, ahora 350 €» que anuncia su youtuber favorito. Lee solo opiniones buenas y dice: «Sé mucho de móviles; es la mejor compra». (Inventado.)",
         "pasos": [
          "Anclaje: «antes 600 €» hace que 350 € parezca barato.",
          "Halo: le cae bien el youtuber, así que se fía del móvil.",
@@ -7914,7 +7914,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Todo es un sesgo?",
-        "caso": "Naiara quería unas zapatillas desde hace meses. Ve «antes 100 €, ahora 60 €». Ha mirado en tres tiendas: en todas cuestan 100 €.",
+        "caso": "Una chica quería unas zapatillas desde hace meses. Ve «antes 100 €, ahora 60 €». Ha mirado en tres tiendas: en todas cuestan 100 €.",
         "pasos": [
          "Parece anclaje: el «antes 100 €» hace que 60 € parezca barato.",
          "Pero ha comprobado el precio real en otras tiendas: la rebaja es de verdad.",
@@ -7940,7 +7940,7 @@ const CURSO = [
         "pregunta": "¿Qué es un sesgo cognitivo? ¿De dónde viene?"
        },
        {
-        "pregunta": "Aitor está convencido de que los lunes le pasa todo lo malo. Solo se acuerda de los lunes malos. ¿Qué sesgo es? ¿Por qué?"
+        "pregunta": "Un chico está convencido de que los lunes le pasa todo lo malo. Solo se acuerda de los lunes malos. ¿Qué sesgo es? ¿Por qué?"
        },
        {
         "pregunta": "Explica el efecto halo con un ejemplo."
@@ -7952,7 +7952,7 @@ const CURSO = [
         "pregunta": "Escribe de otra forma: «El 95 % de los usuarios no ha tenido problemas con esta app». ¿Cómo se llama este efecto?"
        },
        {
-        "pregunta": "¿Qué dice el efecto Dunning-Kruger, contado con cuidado?"
+        "pregunta": "Quien sabe poco de un tema, ¿suele ver sus errores? Explícalo con cuidado."
        }
       ]
      },
@@ -7973,7 +7973,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Naiara quiere unos auriculares. Los recomienda un influencer que le encanta; el anuncio dice «Antes 120 €, hoy 59 €» y «El 98 % de los clientes está satisfecho». Ella busca «por qué estos auriculares son los mejores». Encuentra al menos tres sesgos o trucos y di qué debería hacer."
+        "pregunta": "Una chica quiere unos auriculares. Los recomienda un influencer que le encanta; el anuncio dice «Antes 120 €, hoy 59 €» y «El 98 % de los clientes está satisfecho». Ella busca «por qué estos auriculares son los mejores». Encuentra al menos tres sesgos o trucos y di qué debería hacer."
        }
       ]
      }
@@ -8061,13 +8061,13 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · El móvil de Dylan",
-        "caso": "Dylan quiere un móvil nuevo. Le dice a su padre: «El mío tiene 5 años, la batería dura 2 horas y arreglarla cuesta casi lo mismo».",
+        "titulo": "Caso 1 · El móvil de un chico",
+        "caso": "Un chico quiere un móvil nuevo. Le dice a su padre: «El mío tiene 5 años, la batería dura 2 horas y arreglarla cuesta casi lo mismo».",
         "pasos": [
-         "¿Qué quiere Dylan? Que su padre le compre un móvil.",
+         "¿Qué quiere el chico? Que su padre le compre un móvil.",
          "¿Cómo lo intenta? Con datos: la edad del móvil, la batería, el precio del arreglo.",
          "¿Puede su padre comprobarlo? Sí: puede mirar la batería y pedir presupuesto.",
-         "Conclusión: Dylan intenta convencer. Da razones y deja pensar a su padre."
+         "Conclusión: el chico intenta convencer. Da razones y deja pensar a su padre."
         ]
        },
        {
@@ -8089,7 +8089,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Emocionar = manipular?",
-        "caso": "Una campaña contra el acoso escolar enseña a una chica comiendo sola en el patio. Da datos reales y un teléfono de ayuda.",
+        "caso": "Una campaña contra el abandono de animales enseña a un perro atado en una gasolinera. Da datos reales y un teléfono de ayuda.",
         "pasos": [
          "Parece que sí: busca que sientas pena y rabia.",
          "Pero quito la emoción y quedan razones: datos reales y una forma de pedir ayuda.",
@@ -8136,7 +8136,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Omar recibe un mensaje: «Tu cuenta del videojuego se cerrará en 1 hora. Pulsa aquí para salvarla». ¿Qué trucos de manipulación ves? ¿Qué haría un pensador crítico?"
+        "pregunta": "Un chico recibe un mensaje: «Tu cuenta del videojuego se cerrará en 1 hora. Pulsa aquí para salvarla». ¿Qué trucos de manipulación ves? ¿Qué haría un pensador crítico?"
        }
       ]
      }
@@ -8297,7 +8297,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Kevin ve en un videojuego: «Skin legendaria. Solo 24 horas. El 90 % de los mejores jugadores ya la tiene». ¿Qué técnicas ves? ¿Qué preguntas debería hacerse Kevin antes de pagar?"
+        "pregunta": "Un chico ve en un videojuego: «Skin legendaria. Solo 24 horas. El 90 % de los mejores jugadores ya la tiene». ¿Qué técnicas ves? ¿Qué preguntas debería hacerse ese chico antes de pagar?"
        }
       ]
      }
@@ -8365,9 +8365,9 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · La autenticidad como producto",
-        "caso": "Chen sigue a una streamer que parece su amiga: habla de sus problemas, contesta comentarios y dice «sois mi familia». Luego anuncia bebidas energéticas.",
+        "caso": "Un chico sigue a una streamer que parece su amiga: habla de sus problemas, contesta comentarios y dice «sois mi familia». Luego anuncia bebidas energéticas.",
         "pasos": [
-         "¿Por qué funciona? Chen confía en ella como en una amiga.",
+         "¿Por qué funciona? Ese chico confía en ella como en una amiga.",
          "Esa confianza es lo que compra la marca: la **autenticidad** (parecer natural y sincero) se vende.",
          "Aunque ponga #publi, la simpatía (sesión 50) sigue funcionando.",
          "Conclusión: puedo seguirla y, a la vez, mirar el anuncio como un anuncio."
@@ -8434,8 +8434,8 @@ const CURSO = [
     "titulo": "Diseño que engancha",
     "idea": "Muchas apps y juegos están diseñados para que te cueste parar: scroll infinito, notificaciones y cajas de botín.",
     "arranque": {
-     "texto": "Yasmin abre TikTok «un momento» antes de dormir. Cuando mira la hora, ha pasado hora y media. No ha decidido quedarse: simplemente no ha parado.",
-     "pregunta": "¿Quién ha decidido esa hora y media: Yasmin o la app?"
+     "texto": "Una chica abre TikTok «un momento» antes de dormir. Cuando mira la hora, ha pasado hora y media. No ha decidido quedarse: simplemente no ha parado.",
+     "pregunta": "¿Quién ha decidido esa hora y media: esa chica o la app?"
     },
     "bloques": [
      {
@@ -8494,19 +8494,19 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · La hora y media de Yasmin",
-        "caso": "Yasmin abre TikTok «un momento» antes de dormir y está hora y media. No ha decidido quedarse: simplemente no ha parado.",
+        "titulo": "Caso 1 · La hora y media de una chica",
+        "caso": "Una chica abre TikTok «un momento» antes de dormir y está hora y media. No ha decidido quedarse: simplemente no ha parado.",
         "pasos": [
          "Scroll infinito: nunca apareció un final, un momento natural para parar.",
          "Recompensa variable: el siguiente vídeo podía ser muy bueno.",
-         "Yasmin decidió abrir la app, pero no decidió quedarse tanto tiempo.",
+         "Esa chica decidió abrir la app, pero no decidió quedarse tanto tiempo.",
          "Conclusión: el diseño le puso fácil seguir y difícil parar. Freno: poner un límite de tiempo antes de empezar."
         ]
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · Los sobres de Aitor",
-        "caso": "Aitor juega a un videojuego de fútbol. Compra sobres de jugadores con dinero real. En un mes gasta 60 € buscando un jugador que nunca le sale. (Inventado.)",
+        "titulo": "Caso 2 · Los sobres de un chico",
+        "caso": "Un chico juega a un videojuego de fútbol. Compra sobres de jugadores con dinero real. En un mes gasta 60 € buscando un jugador que nunca le sale. (Inventado.)",
         "pasos": [
          "Los sobres son cajas de botín: paga sin saber qué le toca.",
          "Recompensa variable: «el siguiente sobre puede ser el bueno».",
@@ -8517,7 +8517,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Todo lo que engancha es un truco?",
-        "caso": "Aitor lee una novela de misterio. Cada capítulo acaba en suspense y le cuesta dejarla: lee hasta las once.",
+        "caso": "Un chico lee una novela de misterio. Cada capítulo acaba en suspense y le cuesta dejarla: lee hasta las once.",
         "pasos": [
          "Parece igual: le engancha y no quiere parar.",
          "Pero el libro no le vigila, no le manda avisos y tiene un final.",
@@ -8533,7 +8533,7 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "lista",
-        "titulo": "Frenos que funcionan",
+        "titulo": "Lo que hacen algunas personas para decidir ellas (elige si te sirve alguno)",
         "puntos": [
          "Quitar las notificaciones que no sean de personas.",
          "Poner un límite de tiempo en el móvil.",
@@ -8570,7 +8570,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 47) Iker dice: «A mí las apps no me enganchan. Yo lo controlo todo». ¿Qué sesgo puede tener? Explícalo."
+        "pregunta": "(Repaso de la sesión 47) Un chico dice: «A mí las apps no me enganchan. Yo lo controlo todo». ¿Qué sesgo puede tener? Explícalo."
        }
       ]
      },
@@ -8579,7 +8579,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Una app de idiomas avisa cada noche a Naiara: «¡Vas a perder tu racha de 100 días!». Naiara entra aunque esté cansada. ¿Qué truco de diseño ves? ¿Es siempre malo?"
+        "pregunta": "Una app de idiomas avisa cada noche a una chica: «¡Vas a perder tu racha de 100 días!». Esa chica entra aunque esté cansada. ¿Qué truco de diseño ves? ¿Es siempre malo?"
        }
       ]
      }
@@ -8590,7 +8590,7 @@ const CURSO = [
     "titulo": "Algoritmos y burbujas",
     "idea": "Un algoritmo elige lo que ves según lo que te engancha; junto con lo que tú eliges, puede encerrarte en una burbuja.",
     "arranque": {
-     "texto": "Iker y su hermana buscan «Athletic» en YouTube a la vez. A Iker le salen goles. A ella, entrevistas y fútbol femenino. Mismas palabras.",
+     "texto": "Un chico y su hermana buscan «Athletic» en YouTube a la vez. A él le salen goles. A ella, entrevistas y fútbol femenino. Mismas palabras.",
      "pregunta": "¿Por qué ven cosas distintas? ¿Quién lo ha decidido?"
     },
     "bloques": [
@@ -8645,11 +8645,11 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · Iker y su hermana",
-        "caso": "Los dos buscan «Athletic» en YouTube. A Iker le salen goles. A su hermana, entrevistas y fútbol femenino.",
+        "titulo": "Caso 1 · Un chico y su hermana",
+        "caso": "Los dos buscan «Athletic» en YouTube. A él le salen goles. A su hermana, entrevistas y fútbol femenino.",
         "pasos": [
          "El algoritmo recuerda lo que cada uno ha visto antes.",
-         "A Iker le enseña goles porque es lo que más mira.",
+         "A él le enseña goles porque es lo que más mira.",
          "Ninguno de los dos ve «el» YouTube: cada uno ve el suyo.",
          "Conclusión: lo que ves no es todo lo que hay. Es una selección hecha para ti."
         ]
@@ -8657,18 +8657,18 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Los vídeos de enfado",
-        "caso": "Leire ve dos vídeos de gente discutiendo. Al día siguiente, le salen muchos más vídeos de discusiones.",
+        "caso": "Una chica ve dos vídeos de gente discutiendo. Al día siguiente, le salen muchos más vídeos de discusiones.",
         "pasos": [
          "El algoritmo nota que esos vídeos la tuvieron mirando.",
          "Le enseña más de lo mismo: el enfado suele enganchar.",
-         "Leire puede acabar creyendo que todo el mundo está enfadado.",
-         "Conclusión: el algoritmo busca que siga mirando. Lo que ve Leire es una selección, no el mundo."
+         "Esa chica puede acabar creyendo que todo el mundo está enfadado.",
+         "Conclusión: el algoritmo busca que siga mirando. Lo que ve esa chica es una selección, no el mundo."
         ]
        },
        {
         "tipo": "trampa",
         "titulo": "¿La culpa es del algoritmo?",
-        "caso": "Dylan: «Estoy en una burbuja por culpa de TikTok». Pero solo sigue cuentas que piensan como él y bloquea a las demás.",
+        "caso": "Un chico: «Estoy en una burbuja por culpa de TikTok». Pero solo sigue cuentas que piensan como él y bloquea a las demás.",
         "pasos": [
          "El algoritmo influye: le enseña más de lo que ya mira.",
          "Pero gran parte la ha hecho él: a quién sigue y a quién bloquea.",
@@ -8684,7 +8684,7 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "lista",
-        "titulo": "Cuatro formas de salir",
+        "titulo": "Lo que hacen algunas personas para decidir ellas (elige si te sirve alguno)",
         "puntos": [
          "Buscar yo lo que quiero ver, no solo mirar lo que me sale.",
          "Seguir fuentes que piensen distinto.",
@@ -8712,7 +8712,7 @@ const CURSO = [
         "pregunta": "Escribe una cosa que puedes hacer para salir de tu burbuja."
        },
        {
-        "pregunta": "A Omar solo le salen vídeos que dicen que su equipo es el mejor, y cree que todo el mundo lo piensa. ¿Qué le pasa?"
+        "pregunta": "A un chico solo le salen vídeos que dicen que su equipo es el mejor, y cree que todo el mundo lo piensa. ¿Qué le pasa?"
        }
       ]
      },
@@ -8924,7 +8924,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Dylan ve en Instagram a su futbolista favorito con unas botas: «Solo 500 pares. Únete al equipo». No pone #publi. Desde ese día le salen anuncios de botas todo el rato. Analiza los trucos y di qué debería hacer Dylan."
+        "pregunta": "Un chico ve en Instagram a su futbolista favorito con unas botas: «Solo 500 pares. Únete al equipo». No pone #publi. Desde ese día le salen anuncios de botas todo el rato. Analiza los trucos y di qué debería hacer ese chico."
        }
       ]
      }
@@ -8943,8 +8943,8 @@ const CURSO = [
     "titulo": "Autonomía",
     "idea": "Ser autónomo es decidir con tus propias razones; pensar por uno mismo no es pensar solo, sino escuchar a otros y juzgar tú.",
     "arranque": {
-     "texto": "Kevin se ha cortado el pelo como su youtuber favorito, usa sus frases y opina igual que él sobre todo.",
-     "pregunta": "¿Kevin piensa por sí mismo? ¿Cómo lo sabrías?"
+     "texto": "Un chico se ha cortado el pelo como su youtuber favorito, usa sus frases y opina igual que él sobre todo.",
+     "pregunta": "¿Ese chico piensa por sí mismo? ¿Cómo lo sabrías?"
     },
     "bloques": [
      {
@@ -8995,21 +8995,21 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · Kevin y su youtuber",
-        "caso": "Kevin opina igual que su youtuber favorito sobre todo: música, política, videojuegos, comida. Cuando le preguntan por qué, dice: «Lo dijo él».",
+        "titulo": "Caso 1 · Un chico y su youtuber",
+        "caso": "Un chico opina igual que su youtuber favorito sobre todo: música, política, videojuegos, comida. Cuando le preguntan por qué, dice: «Lo dijo él».",
         "pasos": [
          "¿De dónde vienen sus opiniones? Todas de la misma persona.",
          "¿Sabe explicar por qué las tiene? No: solo «lo dijo él».",
          "Admirar a alguien está bien. El problema es no pasar nada por su propio filtro.",
-         "Conclusión: en eso Kevin no piensa por sí mismo. Otro decide por él: heteronomía."
+         "Conclusión: en eso ese chico no piensa por sí mismo. Otro decide por él: heteronomía."
         ]
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · Maialen y la médica",
-        "caso": "Maialen tiene tos. Su médica le receta un jarabe y Maialen se lo toma. ¿Ha dejado de pensar por sí misma?",
+        "titulo": "Caso 2 · Una chica y la médica",
+        "caso": "Una chica tiene tos. Su médica le receta un jarabe y se lo toma. ¿Ha dejado de pensar por sí misma?",
         "pasos": [
-         "Maialen no sabe de medicina; la médica sí (sesión 26).",
+         "Esa chica no sabe de medicina; la médica sí (sesión 26).",
          "Nadie puede comprobarlo todo: fiarse de un experto en su campo es una buena razón.",
          "Kant criticaba otra cosa: dejar que otros piensen siempre por ti, por pereza o por miedo.",
          "Conclusión: decide ella, con buenas razones. Autonomía no es hacerlo todo solo."
@@ -9018,14 +9018,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Pensar igual que otro",
-        "caso": "Omar sigue a un youtuber de ciencia. Busca otras fuentes, compara razones… y casi siempre acaba pensando lo mismo que él.",
+        "caso": "Un chico sigue a un youtuber de ciencia. Busca otras fuentes, compara razones… y casi siempre acaba pensando lo mismo que él.",
         "pasos": [
-         "Parece lo mismo que Kevin: las mismas opiniones que su youtuber.",
-         "Pero Omar compara fuentes y puede explicar sus razones. Si no le convencen, discrepa.",
+         "Parece lo mismo que antes: las mismas opiniones que su youtuber.",
+         "Pero este chico compara fuentes y puede explicar sus razones. Si no le convencen, discrepa.",
          "Coincidir con alguien no es depender de él. Importa cómo llegas a la idea.",
          "Conclusión: la autonomía no se mide por pensar distinto, sino por decidir con tus razones."
         ],
-        "pregunta": "Piensa igual que su youtuber, como Kevin. ¿Tampoco es autónomo?"
+        "pregunta": "Piensa igual que su youtuber, como en el primer caso. ¿Tampoco es autónomo?"
        }
       ]
      },
@@ -9063,7 +9063,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de alguien que escucha a otros pero decide por sí mismo."
        },
        {
-        "pregunta": "Aitor lleva siempre la contraria a sus padres «para pensar por sí mismo». ¿Es autonomía? ¿Por qué?"
+        "pregunta": "Un chico lleva siempre la contraria a sus padres «para pensar por sí mismo». ¿Es autonomía? ¿Por qué?"
        }
       ]
      },
@@ -9092,8 +9092,8 @@ const CURSO = [
     "titulo": "Usar la IA con criterio",
     "idea": "La IA puede ayudar y acertar, pero también inventa datos y fuentes con total seguridad: se comprueba como cualquier otra fuente.",
     "arranque": {
-     "texto": "Omar pide a una IA tres libros sobre la historia del Athletic para un trabajo. La IA le da títulos, autores y años. Dos libros no existen.",
-     "pregunta": "¿Cómo podría haberlo descubierto Omar antes de entregar el trabajo?"
+     "texto": "Un chico pide a una IA tres libros sobre la historia del Athletic para un trabajo. La IA le da títulos, autores y años. Dos libros no existen.",
+     "pregunta": "¿Cómo podría haberlo descubierto ese chico antes de entregar el trabajo?"
     },
     "bloques": [
      {
@@ -9159,8 +9159,8 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · Los libros de Omar",
-        "caso": "La IA le da a Omar tres libros sobre la historia del Athletic, con título, autor y año.",
+        "titulo": "Caso 1 · Los libros de un chico",
+        "caso": "La IA le da a un chico tres libros sobre la historia del Athletic, con título, autor y año.",
         "pasos": [
          "¿Qué me da la IA? Tres fuentes que parecen muy concretas.",
          "Compruebo: busco cada título en la biblioteca y en internet.",
@@ -9170,8 +9170,8 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · La fotosíntesis de Naiara",
-        "caso": "Naiara no entiende la fotosíntesis. Pide a la IA que se la explique con palabras sencillas y luego lo compara con su libro de Biología.",
+        "titulo": "Caso 2 · La fotosíntesis de una chica",
+        "caso": "Una chica no entiende la fotosíntesis. Pide a la IA que se la explique con palabras sencillas y luego lo compara con su libro de Biología.",
         "pasos": [
          "¿Para qué usa la IA? Para entender, no para copiar.",
          "¿Comprueba? Sí: lo compara con el libro.",
@@ -9182,10 +9182,10 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Lo dice una IA",
-        "caso": "Una IA le dice a Chen que el museo Guggenheim de Bilbao se inauguró en 1997. Su amigo: «Eso es de una IA, seguro que es falso».",
+        "caso": "Una IA le dice a un chico que el museo Guggenheim de Bilbao se inauguró en 1997. Su amigo: «Eso es de una IA, seguro que es falso».",
         "pasos": [
          "Las IA inventan a veces, no siempre. Muchas veces aciertan.",
-         "Chen lo busca en la web del museo: se inauguró en 1997. Es verdad.",
+         "Ese chico lo busca en la web del museo: se inauguró en 1997. Es verdad.",
          "Rechazarlo por venir de una IA es juzgar el origen, no el dato (como en la sesión 14).",
          "Conclusión: un dato no es verdad ni mentira por venir de una IA. Se comprueba."
         ],
@@ -9211,7 +9211,7 @@ const CURSO = [
         "pregunta": "Escribe una cosa que la IA hace bien y otra en la que falla."
        },
        {
-        "pregunta": "Chen pide a una IA una cita famosa para su trabajo. La IA le da una frase de un escritor, sin decir dónde está escrita. ¿Qué debería hacer Chen?"
+        "pregunta": "Un chico pide a una IA una cita famosa para su trabajo. La IA le da una frase de un escritor, sin decir dónde está escrita. ¿Qué debería hacer ese chico?"
        }
       ]
      },
@@ -9229,7 +9229,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Leire pregunta a una IA cuántos habitantes tiene Bilbao. La IA da un número y añade: «según el INE (Instituto Nacional de Estadística)». Leire se lo cree porque cita al INE. Iker: «Si lo dice una IA, está mal». ¿Quién tiene razón?"
+        "pregunta": "Una chica pregunta a una IA cuántos habitantes tiene Bilbao. La IA da un número y añade: «según el INE (Instituto Nacional de Estadística)». Esa chica se lo cree porque cita al INE. Un chico: «Si lo dice una IA, está mal». ¿Quién tiene razón?"
        }
       ]
      }
@@ -9240,7 +9240,7 @@ const CURSO = [
     "titulo": "Cambiar de opinión",
     "idea": "Cambiar de opinión por buenas razones cuesta, pero es una virtud: demuestra que piensas, no que pierdes.",
     "arranque": {
-     "texto": "Dylan dijo en el grupo de WhatsApp que un jugador era malísimo. Luego vio sus datos de la temporada: era de los mejores. No dijo nada.",
+     "texto": "Un chico dijo en el grupo de WhatsApp que un jugador era malísimo. Luego vio sus datos de la temporada: era de los mejores. No dijo nada.",
      "pregunta": "¿Por qué crees que no lo reconoció?"
     },
     "bloques": [
@@ -9294,8 +9294,8 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · Dylan y el jugador",
-        "caso": "Dylan dijo que un jugador era malísimo porque lo vio fallar en un partido. Luego vio sus datos de toda la temporada: era de los mejores.",
+        "titulo": "Caso 1 · El jugador malísimo",
+        "caso": "Un chico dijo que un jugador era malísimo porque lo vio fallar en un partido. Luego vio sus datos de toda la temporada: era de los mejores.",
         "pasos": [
          "Primera opinión: «Es malísimo». Razón: un partido malo.",
          "Nueva razón: los datos de toda la temporada.",
@@ -9305,8 +9305,8 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · Yasmin, la veleta",
-        "caso": "Yasmin opina que el uniforme es buena idea. Oye a una amiga y opina lo contrario. Oye a otra y vuelve a cambiar.",
+        "titulo": "Caso 2 · La veleta",
+        "caso": "Una chica opina que el uniforme es buena idea. Oye a una amiga y opina lo contrario. Oye a otra y vuelve a cambiar.",
         "pasos": [
          "¿Cambia por razones? No sabe explicar por qué cambia.",
          "Cambia según la última persona que ha hablado.",
@@ -9317,14 +9317,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Una cabezota?",
-        "caso": "Leire dice que copiar en un examen no está bien. Su cuadrilla insiste: «Cambia de opinión, no seas cabezota. ¿No dicen que cambiar es de sabios?».",
+        "caso": "Una chica dice que copiar en un examen no está bien. Su cuadrilla insiste: «Cambia de opinión, no seas cabezota. ¿No dicen que cambiar es de sabios?».",
         "pasos": [
          "¿Le dan una razón nueva? No: solo presión y una etiqueta, «cabezota».",
          "Cambiar no es bueno por sí mismo: depende de por qué cambias.",
          "Si sus razones siguen siendo buenas, mantenerlas es ser coherente, no cabezota.",
          "Conclusión: la virtud no es cambiar mucho, sino escuchar las razones y cambiar solo si son mejores."
         ],
-        "pregunta": "Cambiar de opinión es una virtud. ¿Debería cambiar Leire?"
+        "pregunta": "Cambiar de opinión es una virtud. ¿Debería cambiar esa chica?"
        }
       ]
      },
@@ -9361,7 +9361,7 @@ const CURSO = [
         "pregunta": "Escribe una frase que podrías decir para reconocer que has cambiado de opinión."
        },
        {
-        "pregunta": "Iker cambia de opinión sobre un videojuego porque sus amigos se ríen de él. ¿Cambia por razones o por presión? ¿Por qué?"
+        "pregunta": "Un chico cambia de opinión sobre un videojuego porque sus amigos se ríen de él. ¿Cambia por razones o por presión? ¿Por qué?"
        }
       ]
      },
@@ -9379,7 +9379,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Lámina de la máquina de opiniones: por arriba entra lo último que la máquina ha oído y por abajo sale una opinión nueva. Nunca guarda las razones. ¿En qué se parece a Yasmin, la veleta? ¿Qué le falta para cambiar de opinión bien?"
+        "pregunta": "Lámina de la máquina de opiniones: por arriba entra lo último que la máquina ha oído y por abajo sale una opinión nueva. Nunca guarda las razones. ¿En qué se parece a la chica veleta? ¿Qué le falta para cambiar de opinión bien?"
        }
       ]
      }
@@ -9390,8 +9390,8 @@ const CURSO = [
     "titulo": "Entender antes de criticar",
     "idea": "Antes de criticar una idea hay que entenderla en su versión más razonable: eso es el principio de caridad.",
     "arranque": {
-     "texto": "Naiara dice: «Los móviles deberían estar prohibidos en clase». Aitor responde: «O sea, que quieres volver a la Edad de Piedra».",
-     "pregunta": "¿Ha entendido Aitor lo que quería decir Naiara?"
+     "texto": "Una chica dice: «Los móviles deberían estar prohibidos en clase». Un chico responde: «O sea, que quieres volver a la Edad de Piedra».",
+     "pregunta": "¿Ha entendido ese chico lo que quería decir la chica?"
     },
     "bloques": [
      {
@@ -9449,10 +9449,10 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · Naiara y los móviles",
-        "caso": "Naiara: «Los móviles deberían estar prohibidos en clase». Aitor: «O sea, que quieres volver a la Edad de Piedra».",
+        "titulo": "Caso 1 · Los móviles en clase",
+        "caso": "Una chica: «Los móviles deberían estar prohibidos en clase». Un chico: «O sea, que quieres volver a la Edad de Piedra».",
         "pasos": [
-         "Aitor deforma la idea: nadie ha dicho «volver a la Edad de Piedra».",
+         "El chico deforma la idea: nadie ha dicho «volver a la Edad de Piedra».",
          "Paso 1, repetir: «¿Quieres decir que el móvil distrae en clase?».",
          "Paso 2, su mejor razón: con el móvil en la mesa cuesta concentrarse.",
          "Conclusión: ahora sí puede criticar: «¿Y si hace falta para buscar algo en clase?»."
@@ -9472,14 +9472,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Hombre de paja?",
-        "caso": "Iker escribe: «Todos los que juegan a la consola son unos vagos». Leire contesta: «O sea, que Chen, que juega y saca sobresalientes, es un vago».",
+        "caso": "Un chico escribe: «Todos los que juegan a la consola son unos vagos». Una chica contesta: «O sea, que un compañero, que juega y saca sobresalientes, es un vago».",
         "pasos": [
-         "¿Qué dijo Iker? «Todos». Leire no cambia sus palabras.",
+         "¿Qué dijo el chico? «Todos». La chica no cambia sus palabras.",
          "Saca lo que se sigue de lo que él dijo: es un contraejemplo (sesión 11), no una deformación.",
          "Con caridad podría preguntar: «¿Quieres decir todos o algunos?». Pero no puede inventarse otra idea.",
          "Conclusión: criticar lo que el otro dijo de verdad no es hombre de paja, aunque le deje mal."
         ],
-        "pregunta": "Leire lleva la idea de Iker a un caso extremo. ¿Es un hombre de paja?"
+        "pregunta": "La chica lleva la idea del chico a un caso extremo. ¿Es un hombre de paja?"
        }
       ]
      },
@@ -9526,7 +9526,7 @@ const CURSO = [
         "pregunta": "Escribe cómo repetirías con tus palabras esta idea: «Los deberes deberían ser más cortos»."
        },
        {
-        "pregunta": "Kevin dice «me gusta el reguetón» y Chen contesta «o sea, que odias el resto de la música». ¿Aplica Chen el principio de caridad? ¿Qué hace?"
+        "pregunta": "Un chico dice «me gusta el reguetón» y otro chico contesta «o sea, que odias el resto de la música». ¿Aplica el principio de caridad? ¿Qué hace?"
        }
       ]
      },
@@ -9544,7 +9544,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Maialen dice: «Deberían poner más papeleras en el patio». Aplica los tres pasos: repite su idea, escribe su mejor razón y haz una crítica justa."
+        "pregunta": "Una chica dice: «Deberían poner más papeleras en el patio». Aplica los tres pasos: repite su idea, escribe su mejor razón y haz una crítica justa."
        }
       ]
      }
@@ -9845,7 +9845,7 @@ const CURSO = [
         "pregunta": "Escribe las tres preguntas para saber si una razón es buena."
        },
        {
-        "pregunta": "«No le hagas caso a Iker sobre el examen: siempre lleva la ropa sucia». ¿Qué falacia es?"
+        "pregunta": "«No le hagas caso a un compañero sobre el examen: siempre lleva la ropa sucia». ¿Qué falacia es?"
        },
        {
         "pregunta": "¿Qué tres preguntas te haces para saber si una fuente es fiable?"
@@ -9923,7 +9923,7 @@ const CURSO = [
          [
           "**Pelea**",
           "Se ataca a las personas",
-          "«¡Eres un vago!» «¡Y tú un pelota!»"
+          "«¡Eres un vago!» «¡Y tú un plasta!»"
          ],
          [
           "**Discusión de sordos**",
@@ -9965,10 +9965,10 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Los deberes",
-        "caso": "Iker: «Los deberes ayudan a repasar. ¿Tú por qué piensas que no?». Naiara: «En casa no tengo tiempo ni un sitio tranquilo». Iker: «Vale. ¿Y si fueran voluntarios?».",
+        "caso": "Un chico: «Los deberes ayudan a repasar. ¿Tú por qué piensas que no?». Una chica: «En casa no tengo tiempo ni un sitio tranquilo». El chico: «Vale. ¿Y si fueran voluntarios?».",
         "pasos": [
          "¿Hay ataques a la persona? No: hablan de los deberes, no de cómo es cada uno.",
-         "¿Se escuchan? Sí: Iker pregunta por la razón de Naiara y la tiene en cuenta.",
+         "¿Se escuchan? Sí: el chico pregunta por la razón de la chica y la tiene en cuenta.",
          "¿Se mueven las ideas? Sí: aparece una idea nueva, los deberes voluntarios.",
          "Conclusión: es un diálogo. Los dos piensan juntos sobre el problema."
         ]
@@ -9976,7 +9976,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · El grupo de la cuadrilla",
-        "caso": "Omar: «Quedamos en el Arenal». Maialen: «Mejor en Moyúa». Omar: «Que no, en el Arenal». Maialen: «Moyúa, y punto». Así, cuarenta mensajes.",
+        "caso": "Un chico: «Quedamos en el Arenal». Una chica: «Mejor en Moyúa». El chico: «Que no, en el Arenal». La chica: «Moyúa, y punto». Así, cuarenta mensajes.",
         "pasos": [
          "¿Hay insultos? No.",
          "¿Alguien da una razón? No: solo repiten su idea, cada vez más fuerte.",
@@ -9987,7 +9987,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Sin acuerdo, ¿fracaso?",
-        "caso": "Yasmin y Dylan hablan del uniforme escolar. Se escuchan, dan razones y descubren cosas nuevas. Al final siguen sin estar de acuerdo.",
+        "caso": "Una chica y un chico hablan del uniforme escolar. Se escuchan, dan razones y descubren cosas nuevas. Al final siguen sin estar de acuerdo.",
         "pasos": [
          "Parece que sí: cada uno sigue pensando distinto.",
          "Pero el objetivo no era ganar ni acabar pensando igual: era entender mejor el problema.",
@@ -10031,7 +10031,7 @@ const CURSO = [
         "pregunta": "Escribe una frase que alguien diría en un diálogo y no en una pelea."
        },
        {
-        "pregunta": "Chen: «El examen debería ser el lunes». Kevin: «Tú qué vas a saber, si siempre suspendes». ¿Es una pelea, una discusión de sordos o un diálogo? ¿Por qué?"
+        "pregunta": "Una chica: «El examen debería ser el lunes». Un chico: «Tú qué vas a saber, si nunca te enteras de nada». ¿Es una pelea, una discusión de sordos o un diálogo? ¿Por qué?"
        }
       ]
      },
@@ -10040,7 +10040,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 14) ¿Qué es el ataque a la persona (ad hominem)? Pon un ejemplo."
+        "pregunta": "(Repaso de la sesión 14) ¿Qué es el ataque a la persona? Pon un ejemplo."
        }
       ]
      },
@@ -10049,7 +10049,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Leire: «Quiero volver a las 23:00 de Aste Nagusia: el concierto acaba a las 22:30». Su madre: «¿Y cómo vuelves?». Leire: «En metro, con Naiara». Madre: «Vale. Mándame un mensaje al salir». ¿Es un diálogo? ¿Qué lo hace diálogo?"
+        "pregunta": "Una chica: «Quiero volver a las 23:00 de Aste Nagusia: el concierto acaba a las 22:30». Su madre: «¿Y cómo vuelves?». La chica: «En metro, con una amiga». Madre: «Vale. Mándame un mensaje al salir». ¿Es un diálogo? ¿Qué lo hace diálogo?"
        }
       ]
      }
@@ -10060,8 +10060,8 @@ const CURSO = [
     "titulo": "Escuchar y preguntar",
     "idea": "Escuchar de verdad es poder repetir con tus palabras lo que dice el otro; después, se le piden razones para entenderle.",
     "arranque": {
-     "texto": "Naiara manda un audio de dos minutos. Kevin lo escucha a doble velocidad, mientras juega, y contesta: «Ya, pero…».",
-     "pregunta": "¿Ha escuchado Kevin a Naiara?"
+     "texto": "Una chica manda un audio de dos minutos. Un chico lo escucha a doble velocidad, mientras juega, y contesta: «Ya, pero…».",
+     "pregunta": "¿Ha escuchado ese chico a la chica?"
     },
     "bloques": [
      {
@@ -10115,21 +10115,21 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Reformular en WhatsApp",
-        "caso": "Aitor escribe: «Paso de ir al cumple de Dylan». Maialen podría contestar: «¡Qué borde eres!». Pero escribe: «¿Quieres decir que no te apetece o que no puedes?».",
+        "caso": "Un chico escribe: «Paso de ir al cumple de un compañero». Una chica podría contestar: «¡Qué borde eres!». Pero escribe: «¿Quieres decir que no te apetece o que no puedes?».",
         "pasos": [
-         "Maialen no contesta a lo que ella imagina: primero comprueba.",
-         "Reformula: pone dos formas de entender lo que dice Aitor.",
-         "Aitor responde: «No puedo, tengo partido». No era borde.",
+         "La chica no contesta a lo que ella imagina: primero comprueba.",
+         "Reformula: pone dos formas de entender lo que dice el chico.",
+         "El chico responde: «No puedo, tengo partido». No era borde.",
          "Conclusión: reformular evita peleas por malentendidos. Primero entender, luego contestar."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Pedir razones en casa",
-        "caso": "Chen le dice a su padre: «Necesito un móvil nuevo». Su padre, en lugar de decir que no, pregunta: «¿Por qué? ¿Qué le pasa al tuyo?».",
+        "caso": "Un chico le dice a su padre: «Necesito un móvil nuevo». Su padre, en lugar de decir que no, pregunta: «¿Por qué? ¿Qué le pasa al tuyo?».",
         "pasos": [
          "El padre no ataca ni se cierra: pide razones.",
-         "Chen tiene que pensar: «La batería no me dura ni media mañana».",
+         "El chico tiene que pensar: «La batería no me dura ni media mañana».",
          "Ahora hablan del problema real, la batería. Quizá basta con cambiarla.",
          "Conclusión: pedir razones ayuda a los dos a entender el problema, no solo a decir sí o no."
         ]
@@ -10137,14 +10137,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Muchas preguntas, buen diálogo?",
-        "caso": "Omar dice que le gusta una serie. Dylan le suelta: «¿Por qué? ¿Cómo lo sabes? ¿Seguro? ¿Y eso por qué?», sin esperar las respuestas, para dejarle en ridículo.",
+        "caso": "Un chico dice que le gusta una serie. Otro chico le suelta: «¿Por qué? ¿Cómo lo sabes? ¿Seguro? ¿Y eso por qué?», sin esperar las respuestas, para dejarle en ridículo.",
         "pasos": [
          "Parece que sí: pedir razones es una herramienta del diálogo.",
          "Pero no espera las respuestas: no escucha. Y pregunta para pillar, no para entender (sesión 4).",
-         "Además, «me gusta» es un gusto: habla de Omar y no hay que demostrarlo (sesión 2).",
+         "Además, «me gusta» es un gusto: habla del primero y no hay que demostrarlo (sesión 2).",
          "Conclusión: preguntar ayuda al diálogo solo si es para entender y escuchas la respuesta."
         ],
-        "pregunta": "Dylan pide razones todo el rato. ¿Está dialogando bien?"
+        "pregunta": "Ese chico pide razones todo el rato. ¿Está dialogando bien?"
        }
       ]
      },
@@ -10188,10 +10188,10 @@ const CURSO = [
         "pregunta": "¿Qué es la escucha activa?"
        },
        {
-        "pregunta": "Naiara escribe: «Estoy harta de este grupo de WhatsApp». Escribe una frase para reformular lo que dice."
+        "pregunta": "Una chica escribe: «Estoy harta de este grupo de WhatsApp». Escribe una frase para reformular lo que dice."
        },
        {
-        "pregunta": "Iker empieza a contestar a Leire antes de que ella termine la frase. ¿Qué herramienta para escuchar no usa?"
+        "pregunta": "Un chico empieza a contestar a una compañera antes de que ella termine la frase. ¿Qué herramienta para escuchar no usa?"
        }
       ]
      },
@@ -10209,7 +10209,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Yasmin escribe que ha suspendido. Omar contesta: «Pues yo saqué un 9. ¿Vienes a jugar luego?». Aitor contesta: «¿Qué ha pasado? ¿Cómo estás?». ¿Quién escucha mejor a Yasmin? ¿Por qué?"
+        "pregunta": "Una chica escribe que ha suspendido. Un chico contesta: «Pues yo saqué un 9. ¿Vienes a jugar luego?». Otro chico contesta: «¿Qué ha pasado? ¿Cómo estás?». ¿Quién escucha mejor a la chica? ¿Por qué?"
        }
       ]
      }
@@ -10220,7 +10220,7 @@ const CURSO = [
     "titulo": "No estar de acuerdo sin atacar",
     "idea": "Se puede no estar de acuerdo sin atacar: se critica la idea con razones, nunca a la persona, y se puede cambiar de idea.",
     "arranque": {
-     "texto": "En una cena familiar, tu tío y tu prima hablan de fútbol. Él levanta la voz. Ella se ríe de él. Al final nadie recuerda de qué hablaban.",
+     "texto": "En una cena familiar, el tío y la prima de un chico hablan de fútbol. Él levanta la voz. Ella se ríe de él. Al final nadie recuerda de qué hablaban.",
      "pregunta": "¿Se puede no estar de acuerdo sin acabar así?"
     },
     "bloques": [
@@ -10278,36 +10278,36 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Del ataque a la idea",
-        "caso": "Kevin: «Los videojuegos deberían tener un límite de horas». Aitor: «Lo dices porque eres malísimo jugando».",
+        "caso": "Una chica: «Los videojuegos deberían tener un límite de horas». Un chico: «Lo dices porque eres malísima jugando».",
         "pasos": [
-         "Aitor ataca a Kevin, no a su idea: es un ataque a la persona (sesión 14).",
-         "Sin ataque, Aitor podría decir: «No lo veo así: prefiero que cada familia decida su límite».",
-         "Ahora hay una razón que Kevin puede pensar y contestar.",
+         "El chico ataca a la chica, no a su idea: es un ataque a la persona (sesión 14).",
+         "Sin ataque, el chico podría decir: «No lo veo así: prefiero que cada familia decida su límite».",
+         "Ahora hay una razón que la chica puede pensar y contestar.",
          "Conclusión: la misma opinión contraria, dicha sin ataque, hace avanzar la conversación."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · «Tienes razón»",
-        "caso": "Iker: «El sábado vamos a ver la peli nueva». Naiara: «Mira, no la estrenan hasta el viernes que viene». Iker lo comprueba: «Tienes razón. ¿Bolera, entonces?».",
+        "caso": "Un chico: «El sábado vamos a ver la peli nueva». Una chica: «Mira, no la estrenan hasta el viernes que viene». El chico lo comprueba: «Tienes razón. ¿Bolera, entonces?».",
         "pasos": [
-         "Naiara no ataca: corrige un dato y da una razón que se puede comprobar.",
-         "Iker lo comprueba y cambia de idea.",
-         "¿Ha perdido Iker? No: ahora sabe algo que no sabía.",
+         "La chica no ataca: corrige un dato y da una razón que se puede comprobar.",
+         "El chico lo comprueba y cambia de idea.",
+         "¿Ha perdido el chico? No: ahora sabe algo que no sabía.",
          "Conclusión: reconocer «tienes razón» no es perder, es aprender (sesión 57)."
         ]
        },
        {
         "tipo": "trampa",
         "titulo": "«¡Me estás atacando!»",
-        "caso": "Chen propone ir en bici a la playa. Maialen: «No me convence: se tarda más de una hora y hemos quedado en media». Chen: «¡Siempre me atacas!».",
+        "caso": "Un chico propone ir en bici a la playa. Una chica: «No me convence: se tarda más de una hora y hemos quedado en media». El chico: «¡Siempre me atacas!».",
         "pasos": [
-         "Parece que sí: Maialen dice que el plan de Chen no le convence.",
-         "Pero ¿de qué habla? Del plan y del tiempo, no de cómo es Chen.",
+         "Parece que sí: la chica dice que el plan del chico no le convence.",
+         "Pero ¿de qué habla? Del plan y del tiempo, no de cómo es el chico.",
          "Da una razón que se puede comprobar. Criticar una idea no es atacar a quien la dice.",
          "Conclusión: es un desacuerdo sin ataque. Sentirse atacado no demuestra que te hayan atacado."
         ],
-        "pregunta": "Chen se siente atacado. ¿Le ha atacado Maialen?"
+        "pregunta": "Ese chico se siente atacado. ¿Le ha atacado la chica?"
        }
       ]
      },
@@ -10367,10 +10367,10 @@ const CURSO = [
         "pregunta": "¿Qué es un desacuerdo sin ataque?"
        },
        {
-        "pregunta": "Un amigo dice: «El Athletic va a ganar la Liga». Escribe cómo le dirías que no estás de acuerdo sin atacarle."
+        "pregunta": "Un chico dice: «El Athletic va a ganar la Liga». Escribe cómo le diría una chica que no está de acuerdo sin atacarle."
        },
        {
-        "pregunta": "Omar: «Deberíamos quedar antes». Yasmin: «Tú siempre quieres mandar». ¿Es un desacuerdo sin ataque? ¿Por qué?"
+        "pregunta": "Un chico: «Deberíamos quedar antes». Una chica: «Tú siempre quieres mandar». ¿Es un desacuerdo sin ataque? ¿Por qué?"
        }
       ]
      },
@@ -10388,7 +10388,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Chat para organizar el cumple de Chen. Leire: «Podemos cenar en mi casa». Dylan: «Qué idea más mala». Leire: «¿Por qué?». Dylan: «Porque sí». Naiara intenta escribir, pero Dylan manda diez stickers seguidos. Usa las cuatro preguntas para analizar una conversación: ¿qué falla?"
+        "pregunta": "Chat para organizar el cumple de un compañero. Una chica: «Podemos cenar en mi casa». Un chico: «Qué idea más mala». La chica: «¿Por qué?». El chico: «Porque sí». Otra chica intenta escribir, pero el chico manda diez stickers seguidos. Usa las cuatro preguntas para analizar una conversación: ¿qué falla?"
        }
       ]
      }
@@ -10462,12 +10462,12 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · La cuadrilla de Naiara",
-        "caso": "Naiara y cinco amigas quedan cada sábado. Yasmin organiza los planes. Tienen una regla: lo que se cuenta en la cuadrilla no sale de ahí.",
+        "titulo": "Caso 2 · Una cuadrilla",
+        "caso": "Una chica y cinco amigas quedan cada sábado. Una de ellas organiza los planes. Tienen una regla: lo que se cuenta en la cuadrilla no sale de ahí.",
         "pasos": [
          "¿Se relacionan? Sí: se conocen y quedan cada semana.",
          "¿Objetivo común? Sí: pasarlo bien juntas.",
-         "¿Normas y roles? Sí: una norma no escrita, y Yasmin tiene el rol de organizar.",
+         "¿Normas y roles? Sí: una norma no escrita, y una de ellas tiene el rol de organizar.",
          "Conclusión: es un grupo. Además, dicen «las de la cuadrilla»: sienten un «nosotros»."
         ]
        },
@@ -10485,10 +10485,10 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "El clan que nunca se ha visto",
-        "caso": "Omar, Chen y cuatro más juegan juntos online cada tarde desde hace dos años. Nunca se han visto en persona.",
+        "caso": "Un chico, otro chico y cuatro más juegan juntos online cada tarde desde hace dos años. Nunca se han visto en persona.",
         "pasos": [
          "Parece que sí: nunca han estado juntos en un sitio.",
-         "Pero se relacionan cada día, quieren ganar juntos, tienen normas y roles: Chen es el que cura.",
+         "Pero se relacionan cada día, quieren ganar juntos, tienen normas y roles: uno es el que cura.",
          "Y dicen «nuestro clan»: sienten un «nosotros».",
          "Conclusión: son un grupo. Lo que hace un grupo no es el sitio, sino relacionarse y sentir un «nosotros»."
         ],
@@ -10523,7 +10523,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 19) Kevin ve a dos chicos de una cuadrilla gritando en el metro y dice: «Los de esa cuadrilla son todos unos maleducados». ¿Qué falacia es? ¿Por qué?"
+        "pregunta": "(Repaso de la sesión 19) Un chico ve a dos chicos de una cuadrilla gritando en el metro y dice: «Los de esa cuadrilla son todos unos maleducados». ¿Qué falacia es? ¿Por qué?"
        }
       ]
      },
@@ -10622,8 +10622,8 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso · El equipo de Maialen",
-        "caso": "En el equipo de balonmano de Maialen se animan mucho en los partidos. Pero en el vestuario hay dos bandos que no se hablan, y la nueva siempre se cambia sola.",
+        "titulo": "Caso · El equipo de una chica",
+        "caso": "En el equipo de balonmano de una chica se animan mucho en los partidos. Pero en el vestuario hay dos bandos que no se hablan, y la nueva siempre se cambia sola. (Variante para semanas con conflicto: En el clan de una chica todos juegan bien juntos, pero hay dos subgrupos que no se hablan en el chat, y al nuevo nadie le contesta.)",
         "pasos": [
          "Cooperación: en el campo, sí. Juegan juntas y se animan.",
          "Relación: falla. Hay dos bandos que no se hablan.",
@@ -10634,7 +10634,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "La cuadrilla que discute",
-        "caso": "En la cuadrilla de Iker, cuando hay que elegir plan, cada uno dice lo que piensa y a menudo no están de acuerdo. Luego deciden y siguen quedando.",
+        "caso": "En la cuadrilla de un chico, cuando hay que elegir plan, cada uno dice lo que piensa y a menudo no están de acuerdo. Luego deciden y siguen quedando.",
         "pasos": [
          "Parece que sí: no piensan todos igual.",
          "Pero dicen lo que piensan sin miedo, deciden y siguen queriendo estar juntos.",
@@ -10663,7 +10663,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de algo que une a un equipo o a una cuadrilla, y otro de algo que lo separa."
        },
        {
-        "pregunta": "En el grupo de WhatsApp de un equipo, todos dicen que el plan es genial. Aitor piensa que no, pero se calla para no desentonar. ¿Eso es cohesión? ¿Por qué?"
+        "pregunta": "En el grupo de WhatsApp de un equipo, todos dicen que el plan es genial. Un chico piensa que no, pero se calla para no desentonar. ¿Eso es cohesión? ¿Por qué?"
        }
       ]
      },
@@ -10672,7 +10672,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 29) En el experimento de Asch, ¿qué pasaba cuando una sola persona del grupo decía la respuesta correcta?"
+        "pregunta": "(Repaso de la sesión 29) En el experimento de las líneas, ¿qué pasaba cuando una sola persona del grupo decía la respuesta correcta?"
        }
       ]
      },
@@ -10738,9 +10738,9 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso · El plan de la cuadrilla",
-        "caso": "Iker propone subir a Artxanda en bici. Anuncian tormenta. Maialen y Omar lo ven en el móvil, pero callan: el grupo está muy animado y no quieren cortar el rollo.",
+        "caso": "Un chico propone subir a Artxanda en bici. Anuncian tormenta. Dos del grupo lo ven en el móvil, pero callan: el grupo está muy animado y no quieren cortar el rollo.",
         "pasos": [
-         "¿Había dudas en el grupo? Sí: Maialen y Omar sabían lo de la tormenta.",
+         "¿Había dudas en el grupo? Sí: dos del grupo sabían lo de la tormenta.",
          "¿Por qué no hablaron? Para no romper el buen rollo. Y su silencio parece un «sí».",
          "¿Qué habría ayudado? Que cada uno escribiera antes, a solas, lo que piensa.",
          "Conclusión: pensamiento de grupo. Estar muy unidos no sirve si nadie se atreve a decir «no»."
@@ -10756,7 +10756,7 @@ const CURSO = [
         "titulo": "Dos herramientas que usan algunos grupos",
         "puntos": [
          "**Grupo nominal:** cada uno escribe sus ideas en silencio; luego se puntúan todas",
-         "Así cuentan también las ideas de los tímidos, y no mandan siempre los mismos",
+         "Así cuentan también las ideas de quien habla menos, y no mandan siempre los mismos",
          "**Dos columnas:** de cada propuesta, sus ventajas y las consecuencias que no queremos",
          "Se juzga la propuesta, no a quien la hizo (sesión 14: ad hominem)"
         ]
@@ -10764,7 +10764,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "El del Athletic",
-        "caso": "Iker es del Athletic. Cuando gana, lo celebra con sus amigos; cuando pierde, se pone triste. Siente un «nosotros» muy fuerte.",
+        "caso": "Un chico es del Athletic. Cuando gana, lo celebra con sus amigos; cuando pierde, se pone triste. Siente un «nosotros» muy fuerte.",
         "pasos": [
          "Se parece: siente que el Athletic es «su» equipo.",
          "Pero no trata peor a nadie ni desprecia a los de otros equipos.",
@@ -10793,7 +10793,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de «nosotros y ellos» en el deporte, en un videojuego o en las redes."
        },
        {
-        "pregunta": "En el chat de un videojuego, los del clan de Dylan votan siempre en contra de las ideas de otro clan, sin leerlas. ¿Qué les pasa?"
+        "pregunta": "En el chat de un videojuego, los del clan de un chico votan siempre en contra de las ideas de otro clan, sin leerlas. ¿Qué les pasa?"
        }
       ]
      },
@@ -10802,7 +10802,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 14) Naiara propone un plan para la cuadrilla y Kevin contesta: «Tú qué vas a saber, si siempre llegas tarde». ¿Qué falacia es? ¿Por qué?"
+        "pregunta": "(Repaso de la sesión 14) Una chica propone un plan para la cuadrilla y un chico contesta: «Tú qué vas a saber, si siempre llegas tarde». ¿Qué falacia es? ¿Por qué?"
        }
       ]
      },
@@ -10924,7 +10924,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · ¿Un dato exacto?",
-        "caso": "Naiara lee: «La humanidad usa 1,7 planetas». Piensa: «Es un dato exacto, como el peso de mi mochila».",
+        "caso": "Una chica lee: «La humanidad usa 1,7 planetas». Piensa: «Es un dato exacto, como el peso de mi mochila».",
         "pasos": [
          "¿Cómo lo saben? Nadie pesa el planeta: se calcula con muchos datos de cada país.",
          "Es una **estimación**: una cuenta aproximada hecha con datos reales.",
@@ -10935,14 +10935,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Un solo planeta y seguimos aquí",
-        "caso": "Omar razona: «Si usamos 1,7 planetas y solo hay uno, el dato es falso. No se puede gastar más de lo que hay».",
+        "caso": "Un chico razona: «Si usamos 1,7 planetas y solo hay uno, el dato es falso. No se puede gastar más de lo que hay».",
         "pasos": [
          "Parece lógico: no se puede usar lo que no existe.",
          "Pero la huella no dice que gastemos más de lo que **hay**, sino más de lo que se **repone** cada año.",
          "Talamos más bosque del que crece, pescamos más peces de los que nacen y el CO₂ se acumula en el aire.",
          "Conclusión: se puede gastar más de lo que se repone durante un tiempo, como con unos ahorros. Pero no para siempre."
         ],
-        "pregunta": "¿Tiene razón Omar?"
+        "pregunta": "¿Tiene razón ese chico?"
        }
       ]
      }
@@ -10964,7 +10964,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de algo que usas cada día y que necesita tierra o mar para producirse."
        },
        {
-        "pregunta": "Yasmin dice: «Hoy es el Día de la Sobrecapacidad: desde mañana ya no queda comida en el mundo». ¿Tiene razón? ¿Por qué?"
+        "pregunta": "Una chica dice: «Hoy es el Día de la Sobrecapacidad: desde mañana ya no queda comida en el mundo». ¿Tiene razón? ¿Por qué?"
        }
       ]
      },
@@ -11075,12 +11075,12 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Hamburguesas y lentejas",
-        "caso": "Kevin come tres hamburguesas de vaca a la semana. Leire, tres platos de lentejas. ¿Qué comida tiene más huella? (Ejemplo inventado.)",
+        "caso": "Un chico come tres hamburguesas de vaca a la semana. Una chica, tres platos de lentejas. ¿Qué comida tiene más huella? (Ejemplo inventado.)",
         "pasos": [
          "Miro los estudios: por kilo, la carne de vaca emite **decenas** de veces más gases que las legumbres.",
          "¿Por qué? La vaca necesita mucho pasto y pienso, y echa metano, un gas que calienta.",
          "No hace falta una cuenta exacta: la diferencia es muy grande.",
-         "Conclusión: en la huella de la comida pesa mucho **qué** comemos. Es un dato, no un juicio sobre Kevin."
+         "Conclusión: en la huella de la comida pesa mucho **qué** comemos. Es un dato, no un juicio sobre ese chico."
         ]
        },
        {
@@ -11097,7 +11097,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Lo de aquí siempre es mejor",
-        "caso": "En invierno, Iker elige tomates de un invernadero con calefacción cerca de casa, no de Almería. «Lo local siempre contamina menos», dice. (Ejemplo inventado.)",
+        "caso": "En invierno, un chico elige tomates de un invernadero con calefacción cerca de casa, no de Almería. «Lo local siempre contamina menos», dice. (Ejemplo inventado.)",
         "pasos": [
          "Parece que sí: los de Almería viajan cientos de kilómetros en camión.",
          "Pero calentar un invernadero en invierno gasta mucha energía, y eso sí pesa.",
@@ -11144,7 +11144,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Dylan lee: «Mi país emite poco en total, así que cada uno de nosotros contamina poco». ¿Es un buen razonamiento? ¿Qué dato le falta?"
+        "pregunta": "Un chico lee: «Mi país emite poco en total, así que cada uno de nosotros contamina poco». ¿Es un buen razonamiento? ¿Qué dato le falta?"
        }
       ]
      }
@@ -11275,7 +11275,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Las bolsas de tela",
-        "caso": "Maialen tiene 15 bolsas de tela con dibujos de hojas: se las regalan en cada tienda. Las usa una vez y las guarda. «Soy muy ecológica», dice. (Ejemplo inventado.)",
+        "caso": "Una chica tiene 15 bolsas de tela con dibujos de hojas: se las regalan en cada tienda. Las usa una vez y las guarda. «Soy muy ecológica», dice. (Ejemplo inventado.)",
         "pasos": [
          "Parece que sí: la bolsa de plástico de usar y tirar tiene mala fama.",
          "Pero fabricar una bolsa de algodón gasta mucha agua, tierra y energía.",
@@ -11340,7 +11340,7 @@ const CURSO = [
     "titulo": "¿Lo necesito o lo quiero?",
     "idea": "Una necesidad nos hace falta para vivir bien; un deseo, no. La publicidad disfraza deseos de necesidades, y una compra arrastra a otra.",
     "arranque": {
-     "texto": "Iker dice: «Necesito las zapatillas nuevas que salen en TikTok». Las suyas tienen tres meses y están bien.",
+     "texto": "Un chico dice: «Necesito las zapatillas nuevas que salen en TikTok». Las suyas tienen tres meses y están bien.",
      "pregunta": "¿Las necesita… o las quiere?"
     },
     "bloques": [
@@ -11408,7 +11408,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Otro deseo disfrazado?",
-        "caso": "Omar se cae de la bici y su móvil se rompe: no enciende. Lo usa para hablar con su familia cuando vuelve tarde de entrenar.",
+        "caso": "Un chico se cae de la bici y su móvil se rompe: no enciende. Lo usa para hablar con su familia cuando vuelve tarde de entrenar.",
         "pasos": [
          "Parece lo de siempre: «lo necesito» suele ser «lo quiero».",
          "Pero hago la pregunta clave: ¿qué pasa si no lo tengo? No puede avisar a su familia.",
@@ -11493,7 +11493,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Yasmin corre tres días a la semana y sus zapatillas tienen un agujero. Dice: «Necesito las de edición limitada de 200 euros». ¿Es una necesidad o un deseo? Piensa bien antes de contestar."
+        "pregunta": "Una chica corre tres días a la semana y sus zapatillas tienen un agujero. Dice: «Necesito las de edición limitada de 200 euros». ¿Es una necesidad o un deseo? Piensa bien antes de contestar."
        }
       ]
      }
@@ -11504,7 +11504,7 @@ const CURSO = [
     "titulo": "Construir tu propio argumento",
     "idea": "Para defender una opinión: conclusión clara, dos o tres razones, un ejemplo y la objeción previsible con su respuesta.",
     "arranque": {
-     "texto": "Leire escribe en el grupo de clase: «Deberían dejarnos usar el móvil en el recreo. Y punto».",
+     "texto": "Una chica escribe en el grupo de clase: «Deberían dejarnos usar el móvil en el recreo. Y punto».",
      "pregunta": "¿Te convence? ¿Qué le falta?"
     },
     "bloques": [
@@ -11575,7 +11575,7 @@ const CURSO = [
          ],
          [
           "**Ejemplo**",
-          "«Ejemplo inventado: el lunes Chen cargó ocho kilos»"
+          "«Ejemplo inventado: el lunes un alumno cargó ocho kilos»"
          ],
          [
           "**Objeción y respuesta**",
@@ -11585,11 +11585,11 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · Kevin y los fuegos",
-        "caso": "Kevin quiere convencer a su familia, por escrito, para ir con su cuadrilla a los fuegos artificiales de Aste Nagusia.",
+        "titulo": "Caso 2 · Un chico y los fuegos",
+        "caso": "Un chico quiere convencer a su familia, por escrito, para ir con su cuadrilla a los fuegos artificiales de Aste Nagusia.",
         "pasos": [
          "Conclusión: «Quiero ir a los fuegos del jueves con mi cuadrilla».",
-         "Razones: «Iremos cuatro juntos y volveremos en metro a las once». Ejemplo: «El año pasado fue Omar y todo salió bien».",
+         "Razones: «Iremos cuatro juntos y volveremos en metro a las once». Ejemplo: «El año pasado fue un amigo y todo salió bien».",
          "Objeción previsible: «Hay mucha gente y os podéis perder». Respuesta: «Quedamos en un punto fijo y llevo el móvil cargado».",
          "Conclusión: al responder a lo que le preocupa a su familia, el argumento es mucho más fuerte."
         ]
@@ -11597,14 +11597,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Ya tiene la objeción?",
-        "caso": "Aitor defiende el móvil en el recreo y escribe: «Alguien dirá que los que quieren prohibirlo odian la tecnología. Pero eso es ridículo».",
+        "caso": "Un chico defiende el móvil en el recreo y escribe: «Alguien dirá que los que quieren prohibirlo odian la tecnología. Pero eso es ridículo».",
         "pasos": [
          "Parece que sí: tiene la pieza 4.",
          "Pero esa objeción está deformada: nadie ha dicho eso. Es un hombre de paja (sesión 15).",
          "Con el principio de caridad (sesión 58), busca la objeción más fuerte: «el móvil aísla y se deja de jugar juntos».",
          "Conclusión: responder a una objeción débil es trampa. La buena objeción es la mejor versión del otro."
         ],
-        "pregunta": "Aitor ha escrito una objeción y la ha respondido. ¿Su argumento está completo?"
+        "pregunta": "Ese chico ha escrito una objeción y la ha respondido. ¿Su argumento está completo?"
        }
       ]
      },
@@ -11759,21 +11759,21 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · La ficha de Naiara",
-        "caso": "Naiara escribe en una ficha: «13 años. Bilbao. Toco la trikitixa. Me encanta leer. Soy tímida.» ¿Qué factores de su identidad aparecen? (Ejemplo inventado.)",
+        "titulo": "Caso 1 · Una ficha",
+        "caso": "Una chica escribe en una ficha: «13 años. Bilbao. Toco la trikitixa. Me encanta leer. Soy tímida.» ¿Qué factores de su identidad aparecen? (Ejemplo inventado.)",
         "pasos": [
          "«13 años» y «Bilbao»: contexto. Son factores externos: no los ha elegido.",
          "«Toco la trikitixa» y «me encanta leer»: una habilidad y un gusto.",
          "«Soy tímida»: personalidad, un factor interno.",
-         "Conclusión: cinco datos dan pistas sobre Naiara, pero ella es mucho más que su ficha."
+         "Conclusión: cinco datos dan pistas sobre esa chica, pero ella es mucho más que su ficha."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · «Soy malo en mates»",
-        "caso": "Iker suspende un examen de mates. Esa tarde dice: «Soy malo en mates. Yo soy así y no voy a cambiar».",
+        "caso": "Un chico suspende un examen de mates. Esa tarde dice: «Soy malo en mates. Yo soy así y no voy a cambiar».",
         "pasos": [
-         "¿Cómo lo sabes? Iker solo tiene un examen.",
+         "¿Cómo lo sabes? Ese chico solo tiene un examen.",
          "Es una generalización **apresurada** (sesión 19): de un caso pasa a «siempre».",
          "Además, las habilidades se entrenan: no son una marca fija.",
          "Conclusión: «He suspendido este examen» es un hecho. «Soy malo en mates» es una etiqueta que se pone él mismo."
@@ -11781,19 +11781,19 @@ const CURSO = [
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 3 · El gracioso de la clase",
-        "caso": "En clase todos llaman a Dylan «el gracioso». Un día llega serio y callado. Le dicen: «¿Qué te pasa? Tú no eres así».",
+        "titulo": "Caso 3 · El gracioso del equipo",
+        "caso": "En el equipo todos llaman a un chico «el gracioso». Un día llega serio y callado. Le dicen: «¿Qué te pasa? Tú no eres así».",
         "pasos": [
          "Una **etiqueta** es una palabra que resume a alguien y deja fuera casi todo.",
          "Pasa como en el efecto halo (sesión 45): un rasgo tapa todo lo demás.",
-         "Dylan también puede estar triste, tener miedo o hablar en serio.",
+         "Ese chico también puede estar triste, tener miedo o hablar en serio.",
          "Conclusión: el «yo» no es una etiqueta. Una persona es muchas cosas a la vez."
         ]
        },
        {
         "tipo": "trampa",
         "titulo": "Lo he elegido yo",
-        "caso": "Leire dice: «Mi música favorita la he elegido yo, libremente. Nadie me ha influido».",
+        "caso": "Una chica dice: «Mi música favorita la he elegido yo, libremente. Nadie me ha influido».",
         "pasos": [
          "Parece que sí: nadie la obliga a escuchar nada.",
          "Pero esa música la ha oído en casa, en su cuadrilla y en lo que le enseña el algoritmo (sesión 53).",
@@ -11822,7 +11822,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de factor interno y otro de factor externo de la identidad."
        },
        {
-        "pregunta": "Kevin dice que Omar es «el callado» de la clase y que no hay nada más que saber de él. ¿Qué error comete?"
+        "pregunta": "Un chico dice que un compañero es «el del fútbol» y que no hay nada más que saber de él. ¿Qué error comete?"
        }
       ]
      },
@@ -11840,7 +11840,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Yasmin (personaje inventado) nació en Bilbao, su familia es de Marruecos, habla euskera, castellano y árabe, juega al baloncesto y quiere ser enfermera. ¿Qué no ha elegido? ¿Qué es mezcla o elección suya?"
+        "pregunta": "Una chica (personaje inventado) nació en Bilbao, su familia es de Marruecos, habla euskera, castellano y árabe, juega al baloncesto y quiere ser enfermera. ¿Qué no ha elegido? ¿Qué es mezcla o elección suya?"
        }
       ]
      }
@@ -11851,8 +11851,8 @@ const CURSO = [
     "titulo": "Identidad individual y colectiva",
     "idea": "Tenemos una identidad individual y varias colectivas a la vez; reducir a alguien a un solo grupo es injusto y peligroso.",
     "arranque": {
-     "texto": "Aitor es de Santutxu, del Athletic, habla euskera, es hermano mayor, juega a la Play y su abuela es gallega.",
-     "pregunta": "¿Cuál de esas cosas es «el verdadero Aitor»?"
+     "texto": "Un chico es de Santutxu, del Athletic, habla euskera, es hermano mayor, juega a la Play y su abuela es gallega.",
+     "pregunta": "¿Cuál de esas cosas es quien es de verdad?"
     },
     "bloques": [
      {
@@ -11900,29 +11900,29 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Muchas identidades a la vez",
-        "caso": "Volvemos a Aitor: de Santutxu, del Athletic, euskaldun, hermano mayor, jugador de Play, nieto de una abuela gallega. (Ejemplo inventado.)",
+        "caso": "Volvemos al chico de antes: de Santutxu, del Athletic, euskaldun, hermano mayor, jugador de Play, nieto de una abuela gallega. (Ejemplo inventado.)",
         "pasos": [
          "Individual: su forma de ser, su historia, que le guste la Play.",
          "Colectivas: el Athletic, el euskera, el barrio, la familia gallega.",
-         "No compiten: Aitor puede sentirse de Bilbao y querer también a Galicia.",
+         "No compiten: ese chico puede sentirse de Bilbao y querer también a Galicia.",
          "Conclusión: nadie es solo una cosa. Tenemos varias identidades a la vez, y conviven."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · «Es de la Real»",
-        "caso": "Tras un derbi, en el grupo de WhatsApp de clase alguien escribe sobre Chen: «Es de la Real. No os fieis de él para nada».",
+        "caso": "Tras un derbi, en el grupo del equipo alguien escribe sobre un compañero: «Es de la Real. No os fieis de él para nada».",
         "pasos": [
-         "Se reduce a Chen a **una sola** pertenencia: su equipo.",
+         "Se reduce a ese compañero a **una sola** pertenencia: su equipo.",
          "Es «nosotros y ellos» (sesión 66): tratar peor a los de fuera por ser de fuera.",
-         "¿Viene a cuento? Ser de la Real no dice nada de si Chen es de fiar.",
+         "¿Viene a cuento? Ser de la Real no dice nada de si es de fiar.",
          "Conclusión: reducir a alguien a un solo grupo es injusto y abre la puerta al desprecio."
         ]
        },
        {
         "tipo": "trampa",
         "titulo": "Mejor no ser de ningún grupo",
-        "caso": "Después de la sesión 66, Maialen piensa: «Si los grupos crean el “nosotros y ellos”, lo mejor es no sentirse parte de ninguno».",
+        "caso": "Después de la sesión 66, una chica piensa: «Si los grupos crean el “nosotros y ellos”, lo mejor es no sentirse parte de ninguno».",
         "pasos": [
          "Parece lógico: sin grupos, no habría rivalidades.",
          "Pero pertenecer da apoyo, compañía y sentido. Todos lo necesitamos.",
@@ -11951,7 +11951,7 @@ const CURSO = [
         "pregunta": "Inventa un personaje y escribe tres identidades colectivas que tenga a la vez."
        },
        {
-        "pregunta": "Naiara habla de un chico nuevo como «el de Rumanía», y no sabe nada más de él. ¿Qué está haciendo?"
+        "pregunta": "Una chica habla de un chico nuevo del equipo solo como «el que viene de otro país», y no sabe nada más de él. ¿Qué está haciendo?"
        }
       ]
      },
@@ -11969,7 +11969,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Iker (personaje inventado) dice: «Si me siento de Bilbao, no puedo sentirme también de Ecuador, como mi madre. Tengo que elegir». ¿Tiene razón? Explícalo con lo de hoy."
+        "pregunta": "Un chico (personaje inventado) dice: «Si me siento de Bilbao, no puedo sentirme también de Ecuador, como mi madre. Tengo que elegir». ¿Tiene razón? Explícalo con lo de hoy."
        }
       ]
      }
@@ -12042,9 +12042,9 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · «Ya no eres tú»",
-        "caso": "Omar ha dejado el fútbol por el dibujo y ahora va con otra cuadrilla. Un amigo le dice: «Has cambiado. Ya no eres tú». (Ejemplo inventado.)",
+        "caso": "Un chico ha dejado el fútbol por el dibujo y ahora va con otra cuadrilla. Un amigo le dice: «Has cambiado. Ya no eres tú». (Ejemplo inventado.)",
         "pasos": [
-         "Es verdad que Omar ha cambiado: gustos y amigos.",
+         "Es verdad que ese chico ha cambiado: gustos y amigos.",
          "Pero cambiar al crecer es normal: la identidad no es fija.",
          "Algo sigue: su historia, su familia, sus recuerdos, muchos de sus valores.",
          "Conclusión: cambiar no es dejar de ser uno mismo. La identidad cambia y, a la vez, continúa."
@@ -12064,14 +12064,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "La respuesta más noble",
-        "caso": "Ante el dilema de Heinz, Aitor responde que Heinz debe robar la medicina. Naiara responde que no debe robarla.",
+        "caso": "Ante el dilema de Heinz, un chico responde que Heinz debe robar la medicina. Una chica responde que no debe robarla.",
         "pasos": [
          "Parece que sí: salvar una vida suena más noble.",
-         "Pero Aitor explica: «Debe robar, porque si ella muere, él se queda solo». Solo mira lo que le conviene: nivel 1.",
-         "Naiara explica: «No, porque la ley es igual para todos». Piensa en las normas: nivel 2.",
+         "Pero el chico explica: «Debe robar, porque si ella muere, él se queda solo». Solo mira lo que le conviene: nivel 1.",
+         "La chica explica: «No, porque la ley es igual para todos». Piensa en las normas: nivel 2.",
          "Conclusión: el nivel no se ve en la respuesta, sino en las razones. Hay que preguntar «¿por qué?»."
         ],
-        "pregunta": "¿Aitor, que quiere salvar una vida, razona en un nivel más alto?"
+        "pregunta": "¿El chico, que quiere salvar una vida, razona en un nivel más alto?"
        }
       ]
      },
@@ -12120,7 +12120,7 @@ const CURSO = [
         "pregunta": "Escribe una razón de nivel 1 (preconvencional) para devolver una cartera encontrada."
        },
        {
-        "pregunta": "Leire no se cuela en la cola del autobús: «Aunque no hubiera ninguna norma ni nadie mirando, no sería justo con los que esperan». ¿Qué nivel de Kohlberg es? ¿Por qué?"
+        "pregunta": "Una chica no se cuela en la cola del autobús: «Aunque no hubiera ninguna norma ni nadie mirando, no sería justo con los que esperan». ¿Qué nivel es: 1, 2 o 3? Rodea y di por qué."
        }
       ]
      },
@@ -12138,7 +12138,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Chen (personaje inventado) dice: «Kohlberg lo demostró: todos pasamos por tres niveles, y quien está en el 3 es mejor persona». Busca dos errores."
+        "pregunta": "Un chico (personaje inventado) dice: «Kohlberg lo demostró: todos pasamos por tres niveles, y quien está en el 3 es mejor persona». Busca dos errores."
        }
       ]
      }
@@ -12156,8 +12156,8 @@ const CURSO = [
     "titulo": "¿Para qué sirven las emociones?",
     "idea": "Las emociones no son buenas ni malas: informan de lo que nos importa. Pero pueden equivocarse, y decidir en caliente suele salir mal.",
     "arranque": {
-     "texto": "Naiara ve que Leire ha leído su mensaje hace una hora y no contesta. Se enfada. Escribe «Pues vale, pasa de mí» y lo envía.",
-     "pregunta": "¿Qué ha sentido Naiara? ¿Tenía razones para sentirlo?"
+     "texto": "Una chica ve que una amiga ha leído su mensaje hace una hora y no contesta. Se enfada. Escribe «Pues vale, pasa de mí» y lo envía.",
+     "pregunta": "¿Qué ha sentido esa chica? ¿Tenía razones para sentirlo?"
     },
     "bloques": [
      {
@@ -12258,10 +12258,10 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · El mensaje sin contestar",
-        "caso": "Naiara piensa: «Leire pasa de mí» y se enfada. Una hora después, Leire escribe: «Perdona, me quedé sin batería en el metro».",
+        "caso": "Una chica piensa: «Mi amiga pasa de mí» y se enfada. Una hora después, la amiga escribe: «Perdona, me quedé sin batería en el metro».",
         "pasos": [
-         "¿Qué pasó? Leire leyó el mensaje y no contestó.",
-         "¿Qué idea tuvo Naiara? «Pasa de mí». De esa idea salió el enfado.",
+         "¿Qué pasó? La amiga leyó el mensaje y no contestó.",
+         "¿Qué idea tuvo la chica? «Pasa de mí». De esa idea salió el enfado.",
          "¿Cómo lo sabía? No lo sabía: había otras explicaciones posibles.",
          "Conclusión: muchas veces sentimos lo que sentimos por la idea que nos hacemos. Y la idea puede ser falsa."
         ]
@@ -12269,7 +12269,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Decidir en caliente",
-        "caso": "En Aste Nagusia, a Iker se le cae el bocadillo porque Aitor le empuja sin querer. Iker, furioso, le suelta un insulto delante de todos.",
+        "caso": "En Aste Nagusia, a un chico se le cae el bocadillo porque otro le empuja sin querer. El primero, furioso, le suelta un insulto delante de todos.",
         "pasos": [
          "¿Era razonable enfadarse? Sí: ha perdido la cena. El enfado informa de algo real.",
          "¿Era buena la decisión? No: decidió en caliente, sin mirar si fue sin querer.",
@@ -12280,14 +12280,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "«Las emociones no son malas»",
-        "caso": "Kevin empuja a Omar en el patio. Luego explica: «Estaba enfadado. Y en clase dijimos que las emociones no son malas».",
+        "caso": "Un chico empuja a otro en el patio. Luego explica: «Estaba enfadado. Y en clase dijimos que las emociones no son malas».",
         "pasos": [
-         "Parece que Kevin tiene razón: hemos dicho que enfadarse no es malo.",
-         "Pero Kevin no se ha limitado a sentir: ha empujado. Eso es una conducta.",
+         "Parece que ese chico tiene razón: hemos dicho que enfadarse no es malo.",
+         "Pero no se ha limitado a sentir: ha empujado. Eso es una conducta.",
          "Las emociones no se eligen; lo que hacemos con ellas, sí.",
          "Conclusión: el enfado no es malo, pero empujar sí puede serlo. Sentir y hacer son cosas distintas."
         ],
-        "pregunta": "Si las emociones no son malas, ¿Kevin no ha hecho nada malo?"
+        "pregunta": "Si las emociones no son malas, ¿ese chico no ha hecho nada malo?"
        }
       ]
      },
@@ -12299,7 +12299,7 @@ const CURSO = [
         "titulo": "Tres pasos cuando la emoción es fuerte",
         "texto": "Como vimos en la sesión 16, quien asusta quiere que decidas rápido.",
         "puntos": [
-         "**Nombrar:** «Estoy enfadado». Ponerle nombre ya ayuda a pensar.",
+         "**Nombrar:** «Estoy enfadado».",
          "**Esperar:** no enviar, no contestar, no decidir todavía.",
          "**Preguntar:** ¿qué idea me hago? ¿Cómo lo sé? ¿Hay otra explicación?"
         ]
@@ -12324,7 +12324,7 @@ const CURSO = [
         "pregunta": "Elige una emoción (miedo, enfado, tristeza o alegría) y escribe de qué nos avisa, con un ejemplo."
        },
        {
-        "pregunta": "Yasmin ve que no la han etiquetado en una foto de la cuadrilla. Piensa: «No me quieren en el grupo» y se pone triste. ¿Qué parte es la idea? ¿Qué debería preguntarse?"
+        "pregunta": "Una chica ve que no la han etiquetado en una foto de la cuadrilla. Piensa: «No me quieren en el grupo» y se pone triste. ¿Qué parte es la idea? ¿Qué debería preguntarse?"
        }
       ]
      },
@@ -12342,7 +12342,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Dylan pierde una partida online y escribe al rival: «Eres un tramposo, te voy a denunciar». Luego dice: «Tenía derecho a estar enfadado». ¿Tiene razón? Explica qué ha fallado."
+        "pregunta": "Un chico pierde una partida online y escribe al rival: «Eres un tramposo, te voy a denunciar». Luego dice: «Tenía derecho a estar enfadado». ¿Tiene razón? Explica qué ha fallado."
        }
       ]
      }
@@ -12353,7 +12353,7 @@ const CURSO = [
     "titulo": "El conflicto no es una pelea",
     "idea": "Un conflicto es un choque de intereses o necesidades; se puede afrontar de varias maneras, y ayuda distinguir lo que pido de lo que necesito.",
     "arranque": {
-     "texto": "Leire y su hermano Aitor quieren el ordenador de casa a la misma hora. Cada uno grita: «¡Lo pedí yo primero!». Nadie cede.",
+     "texto": "Una chica y su hermano quieren el ordenador de casa a la misma hora. Cada uno grita: «¡Lo pedí yo primero!». Nadie cede.",
      "pregunta": "¿Qué quiere de verdad cada uno? ¿Hay alguna salida en la que ganen los dos?"
     },
     "bloques": [
@@ -12431,21 +12431,21 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · El ordenador de casa",
-        "caso": "Postura de Leire: «Quiero el ordenador ya». Postura de Aitor: «Lo quiero yo». Su madre les pregunta a cada uno: «¿Para qué lo necesitas?».",
+        "caso": "Postura de la chica: «Quiero el ordenador ya». Postura de su hermano: «Lo quiero yo». Su madre les pregunta a cada uno: «¿Para qué lo necesitas?».",
         "pasos": [
-         "Interés de Leire: entregar un trabajo antes de las 20:00.",
-         "Interés de Aitor: jugar online con su cuadrilla, que queda a las 21:00.",
+         "Interés de la chica: entregar un trabajo antes de las 20:00.",
+         "Interés de su hermano: jugar online con su cuadrilla, que queda a las 21:00.",
          "Las posturas chocaban; los intereses, no: caben los dos en la tarde.",
-         "Conclusión: Leire lo usa hasta las 20:00 y Aitor después. Mirar el interés permite colaborar."
+         "Conclusión: la chica lo usa hasta las 20:00 y su hermano después. Mirar el interés permite colaborar."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · El asiento del autobús",
-        "caso": "Excursión a Urdaibai. Chen quiere ir en la ventanilla. A Maialen le da igual, pero Chen se marea si no mira fuera.",
+        "caso": "Excursión a Urdaibai. Un chico quiere ir en la ventanilla. A una compañera le da igual, pero él se marea si no mira fuera.",
         "pasos": [
-         "¿Qué actitud tiene sentido para Maialen? Ceder.",
-         "¿Por qué ceder? A ella casi no le importa y a Chen le importa mucho.",
+         "¿Qué actitud tiene sentido para la compañera? Ceder.",
+         "¿Por qué ceder? A ella casi no le importa y a él le importa mucho.",
          "Ceder no es perder: es elegir bien cuando el tema es pequeño para ti.",
          "Conclusión: ninguna actitud es siempre la buena. La buena depende de cuánto le importa a cada uno."
         ]
@@ -12453,10 +12453,10 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "La cuadrilla perfecta",
-        "caso": "Omar presume: «En mi cuadrilla nunca hay conflictos». Pero Naiara siempre cede, y Kevin se calla cuando algo no le gusta.",
+        "caso": "Un chico presume: «En mi cuadrilla nunca hay conflictos». Pero una del grupo siempre cede, y otro se calla cuando algo no le gusta.",
         "pasos": [
          "Parece que sí: no hay gritos ni peleas.",
-         "Pero Naiara siempre cede y Kevin siempre evita. Los conflictos están, solo que escondidos.",
+         "Pero una siempre cede y otro siempre evita. Los conflictos están, solo que escondidos.",
          "Un conflicto escondido no desaparece: puede crecer, como en el pensamiento de grupo (sesión 66).",
          "Conclusión: que no haya peleas no significa que no haya conflictos. A veces falta alguien que diga «no»."
         ],
@@ -12482,7 +12482,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de conflicto de recursos en casa o en el instituto."
        },
        {
-        "pregunta": "Iker y Yasmin quieren elegir la peli. Iker dice: «Yo elijo hoy y tú el viernes». ¿Qué actitud es: evitar, ceder, competir, pactar o colaborar?"
+        "pregunta": "Un chico y una chica quieren elegir la peli. El chico dice: «Yo elijo hoy y tú el viernes». ¿Qué actitud es: evitar, ceder, competir, pactar o colaborar?"
        }
       ]
      },
@@ -12500,7 +12500,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Dylan quiere la ventana del aula abierta; Naiara, cerrada. Dylan tiene calor; a Naiara le da el aire en la espalda. Escribe la postura y el interés de cada uno y una salida para colaborar."
+        "pregunta": "Un chico quiere la ventana del aula abierta; una chica, cerrada. El chico tiene calor; a la chica le da el aire en la espalda. Escribe la postura y el interés de cada uno y una salida para colaborar."
        }
       ]
      }
@@ -12511,7 +12511,7 @@ const CURSO = [
     "titulo": "Conflictos en las redes",
     "idea": "En las redes los conflictos crecen más porque no hay cara y todo queda guardado y a la vista; allí también hay derechos y deberes.",
     "arranque": {
-     "texto": "Alguien hace una captura de un audio privado de Maialen y la sube al grupo de clase. En diez minutos la han visto sesenta personas.",
+     "texto": "Alguien hace una captura de un audio privado de una chica y la sube al chat del equipo de balonmano. En diez minutos la han visto sesenta personas.",
      "pregunta": "¿Por qué esto hace más daño que si se lo hubiera dicho a una sola persona?"
     },
     "bloques": [
@@ -12569,36 +12569,36 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · La captura",
-        "caso": "Enfadada, Naiara escribe en privado a Yasmin: «Leire es una pesada». Yasmin hace una captura y la sube al grupo de clase.",
+        "caso": "Enfadada, una chica escribe en privado a una amiga: «Una compañera es una pesada». La amiga hace una captura y la sube al chat del equipo de balonmano.",
         "pasos": [
-         "Naiara escribió en caliente (sesión 75), pero en privado.",
-         "Yasmin ha roto la privacidad de Naiara: el mensaje era para ella sola.",
-         "Ahora lo lee toda la clase, Leire incluida. Sin cara, sin tono y guardado: el conflicto crece.",
+         "La chica escribió en caliente (sesión 75), pero en privado.",
+         "La amiga ha roto la privacidad de la chica: el mensaje era para ella sola.",
+         "Ahora lo lee toda la clase, incluida la compañera de la que hablaba. Sin cara, sin tono y guardado: el conflicto crece.",
          "Conclusión: quien reenvía también es responsable. Reenviar no es neutral."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · La cuenta sin nombre",
-        "caso": "Una cuenta sin foto ni nombre comenta cada foto de Omar: «Qué pintas», «Nadie te aguanta». Lleva así tres semanas.",
+        "caso": "Una cuenta sin foto ni nombre comenta cada foto de un chico: «Qué pintas», «Nadie te aguanta». Lleva así tres semanas.",
         "pasos": [
          "¿Intención de hacer daño? Sí: los comentarios buscan humillar.",
-         "¿Repetición? Sí: tres semanas. ¿Desequilibrio? Sí: Omar no sabe quién es.",
-         "Es ciberacoso. Omar no debe contestar en caliente: guarda capturas, bloquea y lo denuncia.",
+         "¿Repetición? Sí: tres semanas. ¿Desequilibrio? Sí: el chico no sabe quién es.",
+         "Es ciberacoso. Ese chico no debe contestar en caliente: guarda capturas, bloquea y lo denuncia.",
          "Conclusión: el ciberacoso no se aguanta solo. Hay que contárselo a un adulto de confianza."
         ]
        },
        {
         "tipo": "trampa",
         "titulo": "«Solo era una broma»",
-        "caso": "Dylan graba a Chen tropezando en el patio, le pone música graciosa y lo sube. Muchos se ríen. Dylan dice: «Solo era una broma».",
+        "caso": "Un chico graba a otro fallando un tiro en el partido, le pone música graciosa y lo sube. Muchos se ríen. El primero dice: «Solo era una broma».",
         "pasos": [
-         "Parece que no: Dylan no quería hacer daño y la gente se ríe.",
-         "Pero ¿se ríe Chen? ¿Dio permiso? Su imagen es suya.",
+         "Parece que no: no quería hacer daño y la gente se ríe.",
+         "Pero ¿se ríe el otro? ¿Dio permiso? Su imagen es suya.",
          "Una broma lo es si se ríen todos, también quien sale. Si no, es reírse de alguien.",
-         "Conclusión: la intención no borra el daño. Sin permiso, subir el vídeo no respeta a Chen."
+         "Conclusión: la intención no borra el daño. Sin permiso, subir el vídeo no respeta al otro."
         ],
-        "pregunta": "Si Dylan lo hizo de broma, ¿no pasa nada?"
+        "pregunta": "Si lo hizo de broma, ¿no pasa nada?"
        }
       ]
      },
@@ -12635,7 +12635,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de algo que no respeta el derecho a la propia imagen."
        },
        {
-        "pregunta": "Kevin recibe en el grupo una foto de Leire dormida en el autobús con un texto de burla. Solo la reenvía a su cuadrilla. ¿Tiene alguna responsabilidad? ¿Por qué?"
+        "pregunta": "Un chico recibe en el grupo una foto de una compañera dormida en el autobús con un texto de burla. Solo la reenvía a su cuadrilla. ¿Tiene alguna responsabilidad? ¿Por qué?"
        }
       ]
      },
@@ -12653,7 +12653,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Circula una captura de un chat en la que Aitor parece insultar a Chen. Aitor dice que está recortada. Chen está furioso y quiere contestar ya en el grupo. ¿Qué le aconsejarías y por qué?"
+        "pregunta": "Circula una captura de un chat en la que un chico parece insultar a otro. El primero dice que está recortada. El segundo está furioso y quiere contestar ya en el grupo. ¿Qué le aconsejarías y por qué?"
        }
       ]
      }
@@ -12671,7 +12671,7 @@ const CURSO = [
     "titulo": "¿Qué es un amigo?",
     "idea": "Aristóteles distingue amistades por utilidad, por placer y por virtud; un buen amigo quiere tu bien, aunque a veces eso sea decir que no.",
     "arranque": {
-     "texto": "Iker tiene 600 seguidores en Instagram y un grupo de WhatsApp con 30 personas de la cuadrilla.",
+     "texto": "Un chico tiene 600 seguidores en Instagram y un grupo de WhatsApp con 30 personas de la cuadrilla.",
      "pregunta": "¿Cuántos de ellos son amigos de verdad? ¿Cómo lo sabes?"
     },
     "bloques": [
@@ -12736,19 +12736,19 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · Tres amigos de Chen",
-        "caso": "Chen se sienta con Dylan porque Dylan le deja los apuntes. Con Omar juega al Fortnite. Con Naiara habla de todo desde primaria. (Ejemplo inventado.)",
+        "titulo": "Caso 1 · Tres amistades distintas",
+        "caso": "Un chico se sienta con un compañero porque le deja los apuntes. Con otro juega al Fortnite. Con una amiga habla de todo desde primaria. (Ejemplo inventado.)",
         "pasos": [
-         "Dylan: le sirve para los apuntes. Amistad por **utilidad**.",
-         "Omar: lo pasan bien jugando. Amistad por **placer**.",
-         "Naiara: se quieren por cómo son, desde hace años. Se parece a la amistad por **virtud**.",
+         "El primero: le sirve para los apuntes. Amistad por **utilidad**.",
+         "El segundo: lo pasan bien jugando. Amistad por **placer**.",
+         "La amiga: se quieren por cómo son, desde hace años. Se parece a la amistad por **virtud**.",
          "Conclusión: las tres son amistades. Pero si se acaban los apuntes o el juego, puede acabarse la amistad."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · La presión del grupo",
-        "caso": "En el grupo de WhatsApp, la cuadrilla de Leire se ríe de una chica nueva. Leire no quiere, pero piensa: «Si no me río, me dejan fuera». (Ejemplo inventado.)",
+        "caso": "La cuadrilla de una chica se ríe en el grupo de un árbitro que se equivocó. Ella no quiere, pero piensa: «Si no me río, me dejan fuera». (Ejemplo inventado.)",
         "pasos": [
          "Es **presión del grupo**: hacer algo para no quedarte fuera, como en el experimento de Asch (sesión 29).",
          "Pregunta útil: ¿me quieren a mí, o solo que haga lo que hace el grupo?",
@@ -12759,14 +12759,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "«Si eres mi amigo, me cubres»",
-        "caso": "Iker quiere que Aitor le diga a su madre que ayer estudiaron juntos. En realidad, Iker se fue al Casco Viejo. «Si eres mi amigo, me cubres». (Ejemplo inventado.)",
+        "caso": "Un chico quiere que un amigo le diga a su madre que ayer estudiaron juntos. En realidad, se fue al Casco Viejo. «Si eres mi amigo, me cubres». (Ejemplo inventado.)",
         "pasos": [
          "Parece que sí: un amigo te apoya y te cubre.",
          "Pero en la amistad por virtud quiero el **bien** del otro, no darle todo lo que pide.",
          "Mentir por él puede meterle en líos mayores. Aristóteles añade que los buenos amigos no se piden cosas malas.",
          "Conclusión: decir «no» a algo que no está bien también puede ser cuidar al amigo."
         ],
-        "pregunta": "Si Aitor dice que no, ¿es un mal amigo?"
+        "pregunta": "Si el amigo dice que no, ¿es un mal amigo?"
        }
       ]
      }
@@ -12788,7 +12788,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo inventado de amistad por utilidad."
        },
        {
-        "pregunta": "Maialen y Yasmin solo quedan para ir al gimnasio, porque ninguna quiere ir sola. Cuando Yasmin lo deja, ya no se hablan. ¿Qué tipo de amistad era?"
+        "pregunta": "Una chica y otra solo quedan para ir al gimnasio, porque ninguna quiere ir sola. Cuando una lo deja, ya no se hablan. ¿Qué tipo de amistad era?"
        }
       ]
      },
@@ -12806,7 +12806,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Dylan le pide a Naiara que comparta una foto que deja en ridículo a un compañero: «Si eres mi amiga, lo harás». Según Aristóteles, ¿qué haría una buena amiga? ¿Por qué?"
+        "pregunta": "Un chico le pide a una amiga que comparta una foto que deja en ridículo a un jugador del equipo rival: «Si eres mi amiga, lo harás». Según Aristóteles, ¿qué haría una buena amiga? ¿Por qué?"
        }
       ]
      }
@@ -12896,10 +12896,10 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · «Mándame la ubicación»",
-        "caso": "Iker escribe a su novia Leire cada hora: «¿Dónde estás? ¿Con quién? Mándame la ubicación». Y añade: «Es porque me preocupo por ti». (Ejemplo inventado.)",
+        "caso": "Un chico escribe a su novia cada hora: «¿Dónde estás? ¿Con quién? Mándame la ubicación». Y añade: «Es porque me preocupo por ti». (Ejemplo inventado.)",
         "pasos": [
-         "¿Qué dice Iker? Que es preocupación, cariño.",
-         "¿Qué hace? Vigila dónde está Leire y con quién, a todas horas.",
+         "¿Qué dice el chico? Que es preocupación, cariño.",
+         "¿Qué hace? Vigila dónde está ella y con quién, a todas horas.",
          "¿Cómo lo sé? Miro los hechos, no la etiqueta. Preocuparse alguna vez no es vigilar cada hora.",
          "Conclusión: es **control** disfrazado de cariño. Llamarlo amor no lo convierte en amor."
         ]
@@ -12907,10 +12907,10 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Sentir celos y usar los celos",
-        "caso": "Naiara ve que su novio Omar se ríe mucho con una compañera. Siente celos. (Ejemplo inventado.)",
+        "caso": "Una chica ve que su novio se ríe mucho con una compañera. Siente celos. (Ejemplo inventado.)",
         "pasos": [
          "Sentir celos alguna vez es humano: es una emoción, no un delito.",
-         "Lo que Naiara haga con ellos es otra cosa: puede hablarlo con calma, o vigilar y prohibir.",
+         "Lo que ella haga con ellos es otra cosa: puede hablarlo con calma, o vigilar y prohibir.",
          "El mito es creer que los celos **prueban** amor y dan derecho a controlar.",
          "Conclusión: la emoción no se elige; lo que hago con ella, sí."
         ]
@@ -12938,14 +12938,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "No se enseñan los móviles",
-        "caso": "Yasmin y Chen llevan un año juntos. No se revisan el móvil ni se piden contraseñas. Maialen opina: «Eso es que no confían el uno en el otro».",
+        "caso": "Una chica y un chico llevan un año juntos. No se revisan el móvil ni se piden contraseñas. Una amiga opina: «Eso es que no confían el uno en el otro».",
         "pasos": [
          "Parece lógico: si no hay secretos, ¿por qué no enseñarlo?",
          "Pero no pedir el móvil es justo lo contrario: **confianza**. Si confías, no necesitas comprobar.",
-         "¿Cómo lo sabe Maialen? Saca su conclusión de un dato que apunta a lo contrario. Y la intimidad es un derecho.",
+         "¿Cómo lo sabe? Saca su conclusión de un dato que apunta a lo contrario. Y la intimidad es un derecho.",
          "Conclusión: respetar el móvil del otro no es desconfianza; suele ser señal de una relación sana."
         ],
-        "pregunta": "¿Tiene razón Maialen?"
+        "pregunta": "¿Tiene razón esa amiga?"
        }
       ]
      }
@@ -12985,7 +12985,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Kevin le dice a su novia: «Si me quisieras, dejarías a tu cuadrilla y estarías solo conmigo». ¿Qué trampas ves en la frase? ¿Qué falta para una relación sana?"
+        "pregunta": "Un chico le dice a su novia: «Si me quisieras, dejarías a tu cuadrilla y estarías solo conmigo». ¿Qué trampas ves en la frase? ¿Qué falta para una relación sana?"
        }
       ]
      }
@@ -13042,18 +13042,18 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · «Las familias normales»",
-        "caso": "Aitor vive con su madre y su abuela. En clase oye: «Las familias normales son padre, madre e hijos». Se siente raro. (Ejemplo inventado.)",
+        "caso": "Un chico vive con su madre y su abuela. En clase oye: «Las familias normales son padre, madre e hijos». Se siente raro. (Ejemplo inventado.)",
         "pasos": [
          "¿Cómo lo sabe quien lo dice? Seguramente mira su casa y la de sus amigos.",
          "Pocos casos y poco variados: es una **generalización apresurada** (sesión 19).",
          "En cualquier instituto de Bilbao hay familias de muchos tipos.",
-         "Conclusión: la familia de Aitor no es menos familia. Hay cuidado y hay vínculo."
+         "Conclusión: la familia de ese chico no es menos familia. Hay cuidado y hay vínculo."
         ]
        },
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Discutir por el baño",
-        "caso": "Dylan vive con su madre, la pareja de ella y las dos hijas de esa pareja. Discuten por el baño y por el mando de la tele. (Ejemplo inventado.)",
+        "caso": "Un chico vive con su madre, la pareja de ella y las dos hijas de esa pareja. Discuten por el baño y por el mando de la tele. (Ejemplo inventado.)",
         "pasos": [
          "Tipo de familia: **reconstituida**.",
          "¿Discutir significa que no es una familia de verdad? No: en todas las familias hay conflictos.",
@@ -13084,11 +13084,11 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Normal es lo más frecuente?",
-        "caso": "En la clase de Kevin, la mayoría vive con su padre y su madre. Kevin concluye: «Esa es la familia normal, y las demás no». (Ejemplo inventado.)",
+        "caso": "En la clase de un chico, la mayoría vive con su padre y su madre. Ese chico concluye: «Esa es la familia normal, y las demás no». (Ejemplo inventado.)",
         "pasos": [
          "Parece que sí: lo que más se ve es lo «normal».",
          "Pero «normal» tiene dos sentidos: **frecuente** (lo que más hay) y **correcto** (como debe ser).",
-         "Que algo sea frecuente no dice que sea mejor. Kevin salta de un sentido a otro sin darse cuenta.",
+         "Que algo sea frecuente no dice que sea mejor. Ese chico salta de un sentido a otro sin darse cuenta.",
          "Conclusión: una familia puede ser menos frecuente e igual de familia. Ojo con las palabras de dos sentidos."
         ],
         "pregunta": "Si es la más frecuente, ¿es la normal?"
@@ -13113,7 +13113,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo inventado de familia extensa."
        },
        {
-        "pregunta": "Omar dice: «En mi casa comemos todos juntos a las dos. En las familias normales se hace así». ¿Qué error comete?"
+        "pregunta": "Un chico dice: «En mi casa comemos todos juntos a las dos. En las familias normales se hace así». ¿Qué error comete?"
        }
       ]
      },
@@ -13227,7 +13227,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · El equipo de robótica",
-        "caso": "Iker ve la lista del equipo de robótica del instituto y dice: «¿Una chica? Las chicas no valen para la tecnología».",
+        "caso": "Un chico ve la lista del equipo de robótica del instituto y dice: «¿Una chica? Las chicas no valen para la tecnología».",
         "pasos": [
          "¿Qué dice? Que **todas** las chicas son malas en tecnología.",
          "¿Cómo lo sabe? No lo sabe: no conoce a esa chica ni ha visto lo que hace.",
@@ -13238,9 +13238,9 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Un dato no es un estereotipo",
-        "caso": "Maialen cuenta: «En mi escuela de fútbol hay 40 chicos y 12 chicas» (ejemplo inventado). Naiara contesta: «¡Eso es un estereotipo!».",
+        "caso": "Una chica cuenta: «En mi escuela de fútbol hay 40 chicos y 12 chicas» (ejemplo inventado). Otra contesta: «¡Eso es un estereotipo!».",
         "pasos": [
-         "¿Qué dice Maialen? Un número: cuántos chicos y chicas se han apuntado.",
+         "¿Qué dice la primera? Un número: cuántos chicos y chicas se han apuntado.",
          "Eso se puede **comprobar** contando. Es un dato, no una idea fija.",
          "El estereotipo sería otra frase: «las chicas no saben jugar al fútbol».",
          "Conclusión: describir una diferencia no es un estereotipo. Lo es atribuir un rasgo a cada persona por su grupo."
@@ -13249,7 +13249,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Un estereotipo que suena bonito",
-        "caso": "Omar le dice a su hermana: «Organiza tú el cumpleaños de la ama, que las chicas sois más ordenadas». Lo dice como un elogio.",
+        "caso": "Un chico le dice a su hermana: «Organiza tú el cumpleaños de la ama, que las chicas sois más ordenadas». Lo dice como un elogio.",
         "pasos": [
          "Parece que no: dice algo bueno de las chicas.",
          "Pero juzga a su hermana por ser chica, no por cómo es ella.",
@@ -13278,7 +13278,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de un rol de género que haya cambiado con el tiempo o que sea distinto en otro lugar."
        },
        {
-        "pregunta": "Kevin dice: «No elijas a Chen para el partido de pádel: las chicas son malas en los deportes de raqueta». ¿Qué error comete?"
+        "pregunta": "Un chico dice: «No elijas a una compañera para el partido de pádel: las chicas son malas en los deportes de raqueta». ¿Qué error comete?"
        }
       ]
      },
@@ -13307,7 +13307,7 @@ const CURSO = [
     "titulo": "La desigualdad de género",
     "idea": "Ser diferentes no es lo mismo que ser desiguales; los datos muestran desigualdades de género, y cada diferencia pide preguntar por qué.",
     "arranque": {
-     "texto": "Kevin: «Las chicas y los chicos ya son iguales. Hoy cualquiera puede estudiar lo que quiera».",
+     "texto": "Un chico: «Las chicas y los chicos ya son iguales. Hoy cualquiera puede estudiar lo que quiera».",
      "pregunta": "¿Qué tendrías que mirar para saber si tiene razón?"
     },
     "bloques": [
@@ -13326,7 +13326,7 @@ const CURSO = [
          [
           "**Diferencia**",
           "Ser distintos en algo",
-          "Leire es alta y Omar, bajito. A Iker le gusta bailar."
+          "Una chica es alta y un chico, bajito. A otro le gusta bailar."
          ],
          [
           "**Desigualdad**",
@@ -13374,7 +13374,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · ¿Cobran menos por el mismo trabajo?",
-        "caso": "Leire lee: «Las mujeres cobran de media menos que los hombres». Concluye: «Entonces a mi madre le pagan menos que a su compañero por hacer lo mismo».",
+        "caso": "Una chica lee: «Las mujeres cobran de media menos que los hombres». Concluye: «Entonces a mi madre le pagan menos que a su compañero por hacer lo mismo».",
         "pasos": [
          "La media compara a **todas** las mujeres con **todos** los hombres, no el mismo puesto (sesión 41).",
          "Pagar distinto por el mismo trabajo está **prohibido** por ley en España. Si pasa, se puede denunciar.",
@@ -13396,7 +13396,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Ya está explicado",
-        "caso": "Dylan: «La diferencia de sueldo es porque muchas mujeres trabajan a jornada parcial. Así que no hay ninguna desigualdad».",
+        "caso": "Un chico: «La diferencia de sueldo es porque muchas mujeres trabajan a jornada parcial. Así que no hay ninguna desigualdad».",
         "pasos": [
          "Parece que sí: ha encontrado una causa real.",
          "Pero falta otra pregunta: ¿por qué hay muchas más mujeres que hombres a jornada parcial?",
@@ -13425,7 +13425,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de desigualdad de género, de hoy o del pasado."
        },
        {
-        "pregunta": "Naiara lee que de media las mujeres cobran menos y dice: «Seguro que es porque trabajan peor». ¿Qué error comete?"
+        "pregunta": "Una chica lee que de media las mujeres cobran menos y dice: «Seguro que es porque trabajan peor». ¿Qué error comete?"
        }
       ]
      },
@@ -13443,7 +13443,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "En la cuadrilla de Chen, casi siempre son las madres las que preparan la cena de las fiestas (ejemplo inventado). Chen dice: «Es que a ellas les gusta cocinar». ¿Qué le preguntarías para pensar mejor?"
+        "pregunta": "En la cuadrilla de un chico, casi siempre son las madres las que preparan la cena de las fiestas (ejemplo inventado). Ese chico dice: «Es que a ellas les gusta cocinar». ¿Qué le preguntarías para pensar mejor?"
        }
       ]
      }
@@ -13496,12 +13496,12 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · La foto",
-        "caso": "Naiara le envió una foto privada a Iker cuando salían juntos. Ahora lo han dejado e Iker quiere reenviarla al grupo de la cuadrilla.",
+        "caso": "Una chica le envió una foto privada a un chico cuando salían juntos. Ahora lo han dejado y él quiere reenviarla al grupo de la cuadrilla.",
         "pasos": [
-         "¿Naiara dio permiso para que la vieran otros? No: la envió solo a Iker.",
+         "¿Dio ella permiso para que la vieran otros? No: la envió solo a él.",
          "El consentimiento es para una cosa concreta. Enviar una foto no es aceptar que se reenvíe.",
          "Además, difundir imágenes privadas sin permiso puede ser **delito** en España.",
-         "Conclusión: sin un sí claro de Naiara, no se reenvía. Y ella puede cambiar de opinión."
+         "Conclusión: sin un sí claro de ella, no se reenvía. Y ella puede cambiar de opinión."
         ]
        }
       ]
@@ -13545,10 +13545,10 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · «Solo era una broma»",
-        "caso": "En el vestuario, alguien le grita «¡Qué gay eres!» a Aitor por fallar un pase. Luego dice que solo era una broma.",
+        "caso": "En el vestuario, alguien le grita «¡Qué gay eres!» a un chico por fallar un pase. Luego dice que solo era una broma.",
         "pasos": [
          "¿Qué dice la frase sin decirlo? Que ser gay es algo malo, algo de lo que reírse.",
-         "¿A quién hace daño? A Aitor y a cualquier persona gay que lo oiga, aunque calle.",
+         "¿A quién hace daño? A ese chico y a cualquier persona gay que lo oiga, aunque calle.",
          "Que todos se rían no lo hace bueno: recuerda «todo el mundo lo hace» (sesión 28).",
          "Conclusión: una broma que usa a un grupo como insulto es una burla. Y deja a ese grupo fuera."
         ]
@@ -13556,7 +13556,7 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Se nota por fuera",
-        "caso": "Kevin ve un vídeo de un cantante con las uñas pintadas y comenta: «Se nota que es gay».",
+        "caso": "Un chico ve un vídeo de un cantante con las uñas pintadas y comenta: «Se nota que es gay».",
         "pasos": [
          "Parece una pista: «los chicos no se pintan las uñas».",
          "Pero eso es un **rol de género** (sesión 81). Y el rol no dice nada de la orientación.",
@@ -13582,10 +13582,10 @@ const CURSO = [
         "pregunta": "¿Qué diferencia hay entre orientación sexual e identidad de género?"
        },
        {
-        "pregunta": "Escribe un ejemplo de burla LGTBIfóbica que podría pasar en un instituto y lo que sería actuar con respeto en esa situación."
+        "pregunta": "Lee esta burla (inventada): en el vestuario, alguien dice «¡Qué gay eres!» por fallar un pase y todos se ríen. Rodea lo que sería actuar con respeto: a) reírse también · b) no reírse y seguir tratando a todos igual · c) contárselo a todo el grupo. Si quieres, escribe otra forma de actuar con respeto."
        },
        {
-        "pregunta": "Yasmin dijo que sí a ir al cine con Dylan, pero en la puerta dice que prefiere irse a casa. Dylan: «Ya dijiste que sí, no te puedes echar atrás». ¿Tiene razón?"
+        "pregunta": "Una chica dijo que sí a ir al cine con un chico, pero en la puerta dice que prefiere irse a casa. El chico: «Ya dijiste que sí, no te puedes echar atrás». ¿Tiene razón?"
        }
       ]
      },
@@ -13603,7 +13603,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "En un grupo de WhatsApp circula: «Omar es gay, lo dice alguien que lo sabe». Leire quiere reenviarlo «porque ser gay no es nada malo». ¿Qué le dirías?"
+        "pregunta": "En un grupo circula: «El entrenador nuevo es gay, lo dice alguien que lo sabe». Una chica quiere reenviarlo «porque ser gay no es nada malo». ¿Qué le dirías?"
        }
       ]
      }
@@ -13621,7 +13621,7 @@ const CURSO = [
     "titulo": "¿Qué es una cultura?",
     "idea": "Una cultura es la forma de vivir que un grupo aprende y comparte; respetarla no obliga a aceptar lo que daña a las personas.",
     "arranque": {
-     "texto": "En casa de Chen todos se quitan los zapatos al entrar. En casa de Iker, nadie. La primera vez, Iker se quedó parado en la puerta de Chen.",
+     "texto": "En casa de un chico todos se quitan los zapatos al entrar. En casa de otro, nadie. La primera vez, el segundo se quedó parado en la puerta del primero.",
      "pregunta": "¿Cuál de las dos casas lo hace bien?"
     },
     "bloques": [
@@ -13699,7 +13699,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Cenar a las seis",
-        "caso": "Maialen viaja con su familia a otro país. Allí cenan a las seis de la tarde. Su padre comenta: «Qué gente más rara, cenar a esas horas no es normal».",
+        "caso": "Una chica viaja con su familia a otro país. Allí cenan a las seis de la tarde. Su padre comenta: «Qué gente más rara, cenar a esas horas no es normal».",
         "pasos": [
          "El padre mide la costumbre de otros con la suya: en Euskadi se cena tarde.",
          "Para ellos, los raros somos nosotros: cenamos a las nueve o a las diez.",
@@ -13710,7 +13710,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Los zapatos en la puerta",
-        "caso": "Vuelve el caso del principio: en casa de Chen se quitan los zapatos al entrar; en casa de Iker, no. ¿Cuál lo hace bien?",
+        "caso": "Vuelve el caso del principio: en casa de un chico se quitan los zapatos al entrar; en casa de otro, no. ¿Cuál lo hace bien?",
         "pasos": [
          "¿Hay alguien dañado en alguna de las dos casas? No.",
          "Cada costumbre tiene sus razones: limpieza, comodidad, respeto al hogar.",
@@ -13775,7 +13775,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de un elemento de la cultura de Bilbao o de Euskadi y di de qué tipo es (costumbre, lengua, arte…)."
        },
        {
-        "pregunta": "Dylan escucha música de otro país y dice: «Qué música más rara. La música de verdad es la nuestra». ¿Qué postura muestra? ¿Por qué?"
+        "pregunta": "Un chico escucha música de otro país y dice: «Qué música más rara. La música de verdad es la nuestra». ¿Qué postura muestra? ¿Por qué?"
        }
       ]
      },
@@ -13793,7 +13793,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Hace décadas, en muchas escuelas de España se obligaba a los niños zurdos a escribir con la derecha, a veces con castigos. Leire: «Era la costumbre de entonces: no podemos decir que estaba mal». ¿Tiene razón? ¿Por qué?"
+        "pregunta": "Hace décadas, en muchas escuelas de España se obligaba a los niños zurdos a escribir con la derecha, a veces con castigos. Una chica: «Era la costumbre de entonces: no podemos decir que estaba mal». ¿Tiene razón? ¿Por qué?"
        }
       ]
      }
@@ -13870,7 +13870,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Un mensaje en la familia",
-        "caso": "Al grupo de la familia de Kevin llega: «¡URGENTE! A los inmigrantes les dan miles de euros solo por llegar. Lo ha dicho un amigo que trabaja en el ayuntamiento. ¡Pásalo!».",
+        "caso": "Al grupo de la familia de un chico llega: «¡URGENTE! A los inmigrantes les dan miles de euros solo por llegar. Lo ha dicho un amigo que trabaja en el ayuntamiento. ¡Pásalo!».",
         "pasos": [
          "Tiene los ingredientes de un bulo (sesión 33): urgencia, emoción fuerte y fuente vaga.",
          "¿Quién lo dice? «Un amigo». ¿Cómo lo sabe? No lo explica. No hay fuente fiable (sesión 31).",
@@ -13881,7 +13881,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · «Lo que yo decía»",
-        "caso": "Aitor lee una noticia sobre un robo. El detenido nació en otro país. Aitor comenta: «Lo que yo decía: los de fuera vienen a robar».",
+        "caso": "Frase inventada, de las que se oyen por ahí. Vamos a ver por qué falla. Un chico lee una noticia sobre un robo. El detenido nació en otro país. Ese chico comenta: «Lo que yo decía: los de fuera vienen a robar».",
         "pasos": [
          "De un caso saca una conclusión sobre todos: generalización apresurada (sesión 19).",
          "¿Cuántos casos ha mirado? Uno. En Bilbao viven muchísimas personas de fuera que trabajan y estudian.",
@@ -13892,14 +13892,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Una generalización amable",
-        "caso": "Naiara, harta de los comentarios contra los migrantes, escribe en un chat: «Pues los inmigrantes son todos buenísimos y muy trabajadores».",
+        "caso": "Una chica, harta de los comentarios contra los migrantes, escribe en un chat: «Pues los inmigrantes son todos buenísimos y muy trabajadores».",
         "pasos": [
          "Parece que sí: su intención es buena y no ataca a nadie.",
          "Pero dice «todos»: habla de millones de personas distintas como si fueran una sola.",
          "Es otra generalización apresurada, aunque sea positiva (sesión 19).",
          "Conclusión: los migrantes son personas variadas, como todas. Ni «todos malos» ni «todos buenos»."
         ],
-        "pregunta": "Naiara defiende a los migrantes. ¿Está razonando bien?"
+        "pregunta": "Esa chica defiende a los migrantes. ¿Está razonando bien?"
        }
       ]
      }
@@ -13939,7 +13939,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Iker dice: «Migrar es algo nuevo. Antes la gente se quedaba toda la vida en su pueblo». Con lo visto hoy, ¿tiene razón? Da un ejemplo."
+        "pregunta": "Un chico dice: «Migrar es algo nuevo. Antes la gente se quedaba toda la vida en su pueblo». Con lo visto hoy, ¿tiene razón? Da un ejemplo."
        }
       ]
      }
@@ -14048,9 +14048,9 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · Por qué no se va",
-        "caso": "Omar cree que los de un barrio inventado son conflictivos. Si uno hace algo mal, lo recuerda durante meses. Los cien que no hacen nada malo, ni los ve.",
+        "caso": "Un chico cree que los de un barrio inventado son conflictivos. Si uno hace algo mal, lo recuerda durante meses. Los cien que no hacen nada malo, ni los ve.",
         "pasos": [
-         "Omar se fija solo en lo que confirma su idea: sesgo de confirmación (sesión 44).",
+         "Ese chico se fija solo en lo que confirma su idea: sesgo de confirmación (sesión 44).",
          "Además, ve a «los de ese barrio» como un bloque: nosotros y ellos (sesión 66).",
          "Así, cada caso nuevo parece darle la razón, y el prejuicio crece.",
          "Conclusión: el prejuicio se mantiene porque solo mira los casos que le convienen."
@@ -14059,14 +14059,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "«Solo era una broma»",
-        "caso": "En el vestuario, Kevin suelta «Eso es de gais» cada vez que algo no le gusta. Cuando se lo dicen, contesta: «Solo es una broma. No tengo nada contra nadie».",
+        "caso": "En el vestuario, un chico suelta «Eso es de gais» cada vez que algo no le gusta. Cuando se lo dicen, contesta: «Solo es una broma. No tengo nada contra nadie».",
         "pasos": [
-         "Parece que no: Kevin no odia a nadie y lo dice riéndose.",
+         "Parece que no: no odia a nadie y lo dice riéndose.",
          "Pero usa «gay» como algo malo, como un insulto.",
          "El mensaje llega igual: quien es gay oye que ser como él es algo negativo.",
          "Conclusión: sin querer, la broma trata una orientación como insulto. Es un trato homófobo, aunque no haya odio."
         ],
-        "pregunta": "Kevin no quiere hacer daño. ¿Entonces no pasa nada?"
+        "pregunta": "Ese chico no quiere hacer daño. ¿Entonces no pasa nada?"
        }
       ]
      },
@@ -14112,7 +14112,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 66) ¿Qué es el favoritismo hacia el propio grupo? ¿Qué mostró el experimento de Tajfel?"
+        "pregunta": "(Repaso de la sesión 66) ¿Qué es el favoritismo hacia el propio grupo? ¿Qué mostró el experimento de los grupos hechos a suertes?"
        }
       ]
      },
@@ -14121,7 +14121,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Leire cree que las chicas que juegan al fútbol «no se lo toman en serio». Cuando una falla un gol, dice: «¿Veis?». Cuando otra marca, dice: «Ha tenido suerte». ¿Qué le pasa a Leire? Usa lo visto hoy."
+        "pregunta": "Una chica cree que las chicas que juegan al fútbol «no se lo toman en serio». Cuando una falla un gol, dice: «¿Veis?». Cuando otra marca, dice: «Ha tenido suerte». ¿Qué le pasa? Usa lo visto hoy."
        }
       ]
      }
@@ -14187,7 +14187,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · La sudadera de la cuadrilla",
-        "caso": "Toda la cuadrilla de Leire lleva la misma sudadera. A Leire no le encanta, pero la pide para su cumpleaños. (Ejemplo inventado.)",
+        "caso": "Toda la cuadrilla de una chica lleva la misma sudadera. A ella no le encanta, pero la pide para su cumpleaños. (Ejemplo inventado.)",
         "pasos": [
          "¿Por qué la quiere? No por la sudadera: por **pertenecer** al grupo.",
          "Querer pertenecer es muy humano. No es un error ni una tontería.",
@@ -14198,7 +14198,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · «Si todos las llevan, serán las mejores»",
-        "caso": "Dylan va a correr la carrera del instituto con unas zapatillas de moda: «Las lleva todo el mundo, así que serán las mejores para correr».",
+        "caso": "Un chico va a correr la carrera del instituto con unas zapatillas de moda: «Las lleva todo el mundo, así que serán las mejores para correr».",
         "pasos": [
          "Es la **prueba social** (sesión 28): copiar a los demás cuando no sabemos qué hacer.",
          "Pero la moda dice qué **se lleva**, no qué es **bueno** para correr.",
@@ -14209,7 +14209,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 3 · ¿El rosa es de chicas?",
-        "caso": "Kevin dice: «El rosa siempre ha sido de chicas y el azul, de chicos. Es natural».",
+        "caso": "Un chico dice: «El rosa siempre ha sido de chicas y el azul, de chicos. Es natural».",
         "pasos": [
          "¿Cómo lo sabe? Mira a su alrededor y generaliza (sesión 19).",
          "La historiadora Jo Paoletti cuenta que hace unos cien años algunas tiendas de EE. UU. recomendaban rosa para niños.",
@@ -14220,14 +14220,14 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "«Yo no sigo modas»",
-        "caso": "Aitor viste siempre de negro, como los fans de su grupo de música favorito. «Yo no sigo modas: los que las siguen son borregos», dice. (Ejemplo inventado.)",
+        "caso": "Un chico viste siempre de negro, como los fans de su grupo de música favorito. «Yo no sigo modas: los que las siguen son borregos», dice. (Ejemplo inventado.)",
         "pasos": [
          "Parece que sí: no lleva lo que lleva la mayoría.",
          "Pero viste igual que los fans de su grupo: también se parece a alguien.",
          "Es la otra cara de Simmel: distinguirse de unos es parecerse a otros. Y llamar «borregos» a todos es un estereotipo.",
          "Conclusión: ir contra una moda también puede ser seguir la moda de **otro** grupo. Nadie está del todo fuera."
         ],
-        "pregunta": "¿Está Aitor fuera de las modas?"
+        "pregunta": "¿Está ese chico fuera de las modas?"
        }
       ]
      }
@@ -14249,7 +14249,7 @@ const CURSO = [
         "pregunta": "Pon un ejemplo de alguien que sigue una moda para pertenecer a un grupo."
        },
        {
-        "pregunta": "Naiara dice: «Esta mochila la lleva medio instituto, así que es la de mejor calidad». ¿Qué error comete?"
+        "pregunta": "Una chica dice: «Esta mochila la lleva medio instituto, así que es la de mejor calidad». ¿Qué error comete?"
        }
       ]
      },
@@ -14267,7 +14267,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Kevin le dice a Omar: «Tus zapatillas no son de marca: no tienes estilo». ¿Qué presión hay aquí? ¿Qué error de razonamiento comete Kevin?"
+        "pregunta": "Un chico le dice a otro: «Tus zapatillas no son de marca: no tienes estilo». ¿Qué presión hay aquí? ¿Qué error de razonamiento comete?"
        }
       ]
      }
@@ -14364,7 +14364,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · «Si lo hace todo el mundo»",
-        "caso": "En Aste Nagusia, alguien de la cuadrilla le pasa un vaper a Iker: «Venga, si lo hace todo el mundo». (Ejemplo inventado.)",
+        "caso": "En Aste Nagusia, alguien de la cuadrilla le pasa un vaper a un chico: «Venga, si lo hace todo el mundo». (Ejemplo inventado.)",
         "pasos": [
          "Es una apelación a la mayoría (sesión 28): «si todos lo hacen, estará bien».",
          "¿Es verdad? Muchos estudios encuentran que creemos que los demás consumen **más** de lo que consumen.",
@@ -14380,11 +14380,11 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "¿Adicto al Fortnite?",
-        "caso": "Chen juega tres horas al Fortnite los sábados con sus primos. Duerme bien, estudia y queda con la cuadrilla. Su tía dice: «Es adicto». (Ejemplo inventado.)",
+        "caso": "Un chico juega tres horas al Fortnite los sábados con sus primos. Duerme bien, estudia y queda con la cuadrilla. Su tía dice: «Es adicto». (Ejemplo inventado.)",
         "pasos": [
          "Parece que sí: tres horas seguidas es bastante tiempo.",
          "Pero la adicción no se mide solo en horas. Se mira si hay **pérdida de control** y daño.",
-         "Chen elige cuándo jugar y no deja de lado el sueño, los estudios ni a la cuadrilla.",
+         "Ese chico elige cuándo jugar y no deja de lado el sueño, los estudios ni a la cuadrilla.",
          "Conclusión: mucho tiempo no es lo mismo que adicción. Antes de poner la etiqueta, mira las señales."
         ],
         "pregunta": "Tres horas es mucho. ¿Tiene razón la tía?"
@@ -14420,7 +14420,7 @@ const CURSO = [
         "pregunta": "Escribe un ejemplo de adicción con sustancia y otro sin sustancia."
        },
        {
-        "pregunta": "Aitor dice: «El vapeo es solo vapor de agua, no pasa nada». ¿Es verdad? ¿Por qué?"
+        "pregunta": "Un chico dice: «El vapeo es solo vapor de agua, no pasa nada». ¿Es verdad? ¿Por qué?"
        }
       ]
      },
@@ -14449,7 +14449,7 @@ const CURSO = [
     "titulo": "¿Y después de la ESO?",
     "idea": "Tras 4.º de ESO hay varios caminos que se cruzan; lo que cuenta es elegir con buenas razones, conociendo derechos y deberes.",
     "arranque": {
-     "texto": "Alguien le dice a Maialen: «Si no vas a la universidad, serás una fracasada».",
+     "texto": "Alguien le dice a una chica: «Si no vas a la universidad, serás una fracasada».",
      "pregunta": "¿Cuántos caminos ves en esa frase? ¿Cuántos crees que hay de verdad?"
     },
     "bloques": [
@@ -14532,7 +14532,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 1 · Elegir con razones",
-        "caso": "Omar no sabe qué hacer tras 4.º. Le gusta arreglar cosas y se le dan bien las mates. Su cuadrilla va a Bachillerato. (Ejemplo inventado.)",
+        "caso": "Un chico no sabe qué hacer tras 4.º. Le gusta arreglar cosas y se le dan bien las mates. Su cuadrilla va a Bachillerato. (Ejemplo inventado.)",
         "pasos": [
          "Primero, razones suyas: qué le gusta, qué se le da bien, a qué quiere dedicarse.",
          "Después, información: el **orientador** del centro, jornadas de puertas abiertas, gente que lo estudia.",
@@ -14543,7 +14543,7 @@ const CURSO = [
        {
         "tipo": "caso",
         "titulo": "Caso 2 · La nota del examen",
-        "caso": "Naiara cree que su examen está mal corregido: una respuesta correcta tiene un cero. Quiere protestar en clase a gritos. (Ejemplo inventado.)",
+        "caso": "Una chica cree que su examen está mal corregido: una respuesta correcta tiene un cero. Quiere protestar en clase a gritos. (Ejemplo inventado.)",
         "pasos": [
          "Tiene **derecho** a una evaluación objetiva y a pedir que se revise.",
          "También tiene **deberes**: respetar al profesorado y a la clase.",
@@ -14554,10 +14554,10 @@ const CURSO = [
        {
         "tipo": "trampa",
         "titulo": "Con la cuadrilla, ¿mal?",
-        "caso": "Yasmin irá a Bachillerato de Humanidades. Le encanta la historia y quiere ser periodista. Además, van tres amigas suyas. (Ejemplo inventado.)",
+        "caso": "Una chica irá a Bachillerato de Humanidades. Le encanta la historia y quiere ser periodista. Además, van tres amigas suyas. (Ejemplo inventado.)",
         "pasos": [
          "Parece que sí: hemos visto que seguir al grupo sin pensar es un error.",
-         "Pero Yasmin tiene razones propias: le gusta la historia y sabe a qué quiere dedicarse.",
+         "Pero esa chica tiene razones propias: le gusta la historia y sabe a qué quiere dedicarse.",
          "Ir con amigas es una razón más, no la única. Eso no es dejarse llevar.",
          "Conclusión: coincidir con el grupo no es el error. El error es que el grupo sea la **única** razón."
         ],
@@ -14609,7 +14609,7 @@ const CURSO = [
         "pregunta": "Escribe un derecho y un deber del alumnado."
        },
        {
-        "pregunta": "Leire dice: «La FP es para los que no valen para estudiar». ¿Es verdad? ¿Por qué?"
+        "pregunta": "Una chica dice: «La FP es para los que no valen para estudiar». ¿Es verdad? ¿Por qué?"
        }
       ]
      },
@@ -14627,7 +14627,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Kevin quiere ser técnico de sonido en conciertos. Su tío le dice: «O haces Bachillerato y carrera, o no serás nada». ¿Qué falacia es? Propón un camino posible."
+        "pregunta": "Un chico quiere ser técnico de sonido en conciertos. Su tío le dice: «O haces Bachillerato y carrera, o no serás nada». ¿Qué falacia es? Propón un camino posible."
        }
       ]
      }
